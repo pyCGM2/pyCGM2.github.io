@@ -1,0 +1,9 @@
+name: "pyCGM2"
+output_dir: '.'
+output:
+  html_document:
+    theme: null
+    highlight: null
+    includes:
+      in_header: head.inc
+      before_body: header.inc
