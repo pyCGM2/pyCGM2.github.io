@@ -6,7 +6,7 @@
 				<div class="box highlight">
 					<i class="icon major fa-wrench"></i>
 					<a href="installation.html"> <h3> Installation</h3></a>
-					<p>Guildeline and requirement for Installation</p>
+					<p> Requirements and Instructions for Installation</p>
 				</div>
 			</section>
 		</div>

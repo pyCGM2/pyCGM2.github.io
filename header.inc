@@ -14,16 +14,16 @@
 
         <!-- Nav -->
             <nav id="nav">
-                <ul>
+                <ul class=nav>
                     <li class="current"><a href="index.html">Home</a></li>
                     <li>
                         <a href="#">Menu</a>
-                        <ul>
+                        <ul class=nav>
                             <li><a href="#">link 1</a></li>
 
                             <li>
                                 <a href="#">Submenu</a>
-                                <ul>
+                                <ul class=nav>
                                     <li><a href="#">link 2</a></li>
                                 </ul>
                             </li>
