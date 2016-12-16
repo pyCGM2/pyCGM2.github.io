@@ -19,7 +19,7 @@ output:
 <li><a href="#required-python-environnment">REQUIRED PYTHON ENVIRONNMENT</a><ul>
 <li><a href="#third-party-open-source-softwares">Third party open source softwares</a><ul>
 <li><a href="#btk-biomechanical-toolkit-installation."><img src="images/btk-128.png" alt="Smiley face" height="42" width="42"> - Btk ( Biomechanical ToolKit) installation.</a></li>
-<li><a href="#openma-open-motion-analysis"><img src="images/opemMA.png"  height="42" width="42"> - OpenMA ( Open Motion Analysis)</a></li>
+<li><a href="#openma-open-motion-analysis"><img src="images/opemMA.png"  height="42" width="42"> - OpenMA ( Open-source Motion Analysis)</a></li>
 </ul></li>
 </ul></li>
 <li><a href="#installation">INSTALLATION</a><ul>
@@ -84,7 +84,7 @@ Installation can be done by two methods :
 
  
    
-####  <img src="images/opemMA.png"  height="42" width="42"> - OpenMA ( Open Motion Analysis)
+####  <img src="images/opemMA.png"  height="42" width="42"> - OpenMA ( Open-source Motion Analysis)
 
 An openma 32-bits distribution is embebbed in pyCGM2. **You don't need installing anything**<br/> 
 Follow openMa build instructions or contact openMA admisnistrator to get your own distribution. 
