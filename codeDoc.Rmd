@@ -1,0 +1,61 @@
+<!---
+output:
+  html_document:
+    toc: true
+    toc_depth: 5
+--->
+
+
+<!--html_preserve-->
+<section class="wrapper style1">
+	<div class="container">
+<!--/html_preserve-->
+
+
+
+
+<!--html_preserve-->
+<div class="row">
+  <section class="6u 12u(narrower)">
+    <div class="box post">
+      <a href="https://github.com/pyCGM2/pyCGM2" class="image left"><img src="images/code/pic01-python.jpg" alt=""   /></a>
+      <div class="inner">
+	      <h3>pyCGM2</h3>
+        <p>
+        GitHub <a href="href="https://github.com/pyCGM2/pyCGM2"">Code</a> and
+        <a href="href="https://github.com/pyCGM2/pyCGM2"">Documentation</a>
+        </p>
+      </div>
+    </div>
+  </section>
+  <section class="6u 12u(narrower)">
+    <div class="box post">
+      <a href="#" class="image left"><img src="images/code/pic01-nexus.jpg" alt=""  /></a>
+      <div class="inner">
+	      <h3>Vicon - Nexus Operations</h3>
+	      <p>Vicon Nexus operations based on pyCGM2</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+
+
+
+<!--/html_preserve-->
+
+
+
+
+
+
+
+
+ 
+
+<!--html_preserve-->
+</div>
+</section>
+<!--/html_preserve-->
+
+

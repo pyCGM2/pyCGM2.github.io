@@ -16,6 +16,7 @@
             <nav id="nav">
                 <ul class=nav>
                     <li class="current"><a href="index.html">Home</a></li>
+                    <li><a href="#">Team</a></li>
                     <li>
                         <a href="#">Menu</a>
                         <ul class=nav>

@@ -7,3 +7,4 @@ output:
     includes:
       in_header: head.inc
       before_body: header.inc
+      after_body: footer.inc

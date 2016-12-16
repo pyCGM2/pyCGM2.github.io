@@ -9,7 +9,32 @@
 					<p> Requirements and Instructions for Installation</p>
 				</div>
 			</section>
+			<section class="4u 12u(narrower)">
+				<div class="box highlight">
+					<i class="icon major fa-code"></i>
+					<a href="codeDoc.html"> <h3> Code and Doc</h3></a>
+					<p> Code and Documentation</p>
+				</div>
+			</section>
 		</div>
 	</div>
 </section>
+
+<!-- Icons -->
+<!-- Footer -->
+<div id="footer">
+<ul class="icons">
+	<li><a href="#" class="icon fa-github"><span class="label">GitHub</span></a></li>
+</ul>
+<!-- Copyright -->
+<div class="copyright">
+	<ul class="menu">
+		<li>Project funded by</li>
+		<li><a href="http://www.salford.ac.uk/">The University of Salford</a></li>
+		<li><a href="http://www.vicon.com/">Vicon</a></li>		
+	</ul>
+</div>
+
+</div>
+
 <!--/html_preserve-->
