@@ -21,7 +21,7 @@ output:
 
 ## How to add a python operation in a pipeline. 
 <center>
-  <img src="images/nexus2/AddPythonOp.png"><br>
+  <img src="images/nexus2/addPythonOp.jpg"><br>
 </center>
 
 
