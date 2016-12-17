@@ -17,7 +17,6 @@
                 <ul class=nav>
                     <li class="current"><a href="index.html">Home</a></li>
                     <li><a href="#">Team</a></li>
-                    <li><a href="FAQ.html">FAQ</a></li>
                     <li>
                         <a href="#">Menu</a>
                         <ul class=nav>
