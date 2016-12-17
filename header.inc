@@ -17,6 +17,7 @@
                 <ul class=nav>
                     <li class="current"><a href="index.html">Home</a></li>
                     <li><a href="#">Team</a></li>
+                    <li><a href="FAQ.html">FAQ</a></li>
                     <li>
                         <a href="#">Menu</a>
                         <ul class=nav>
@@ -42,7 +43,7 @@
             <img src="images/pyCGM2logo.png" /><br/>
         <header>
             <h2><em>An Open Source package of the Conventional Gait Model</em></h2>
-            <a href="#" class="button">Learn More</a>
+            <a href="#" class="button">Learn More about the CGM</a>
         </header>
     </section>
 

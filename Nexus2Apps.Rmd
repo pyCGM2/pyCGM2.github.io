@@ -1,0 +1,71 @@
+<!---
+output:
+  html_document:
+    toc: true
+    toc_depth: 5
+--->
+
+
+<!--html_preserve-->
+				<section class="wrapper style2">
+					<div class="container">
+<!--/html_preserve-->
+
+
+<div class="jumbotron">
+# Table of Contents
+<ul>
+<li><a href="#list-of-pycgm2-based-nexus-operations.">List Of pyCGM2-based Nexus operations.</a></li>
+</ul>
+</div>
+
+
+
+<div class="alert alert-dismissible alert-warning">
+  <p>Remind of leaving <b>Unticked the checkbox</b> `Use Nexus Python`. (see <a href="FAQ.html"> FAQ)</a> <br>
+  Reason is you will call python packages from Anaconda and not from the python site-package folder embedded in Vicon-Nexus. </a></p> 
+</div>
+
+## List Of pyCGM2-based Nexus operations. 
+
+<!--html_preserve-->
+<div class="row">
+  <section class="6u 12u(narrower)">
+    <div class="box post">
+      <a href="https://github.com/pyCGM2/pyCGM2" class="image left"><img src="images/nexus2/cgm1Kad.png" alt=""   /></a>
+      <div class="inner">
+	      <h3>Virtual KAD</h3>
+        <p>
+        Create virtual KAD from a knee medial Marker
+        </p>
+      </div>
+    </div>
+  </section>
+  <section class="6u 12u(narrower)">
+    <div class="box post">
+      <a href="#" class="image left"><img src="images/nexus2/cgm1.png" alt=""  /></a>
+      <div class="inner">
+	      <h3>Conventional Gait Model 1 <br> Vicon Plugin Gait </h3>
+	      <p>- Process the 3 variants of the CGM1 (native - KAD - KAD-med) </p>
+	      <p>- Plot and export Spreadsheet </p>
+      </div>
+    </div>
+  </section>
+</div>
+
+
+
+
+<!--/html_preserve-->
+
+
+
+
+ 
+
+<!--html_preserve-->
+</div>
+</section>
+<!--/html_preserve-->
+
+
