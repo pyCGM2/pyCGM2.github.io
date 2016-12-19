@@ -1,0 +1,40 @@
+<!---
+output:
+  html_document:
+    toc: true
+    toc_depth: 5
+--->
+
+
+<!--html_preserve-->
+				<section class="wrapper style2">
+					<div class="container">
+<!--/html_preserve-->
+
+
+<div class="jumbotron">
+# Table of Contents
+</div>
+
+
+
+## CGM1 Gait Processing
+
+This operation call a c3d containing modelling parameters, according Vicon nomenclature (LHipAngles, LHipMoment, ...). Its goals are to generate :
+
+ * gait plots
+ * excel spreadsheet
+ * a single c3d session 
+ 
+
+
+
+
+
+
+<!--html_preserve-->
+</div>
+</section>
+<!--/html_preserve-->
+
+

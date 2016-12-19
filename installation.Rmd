@@ -7,7 +7,7 @@ output:
 
 
 <!--html_preserve-->
-				<section class="wrapper style2">
+				<section class="wrapper style1">
 					<div class="container">
 <!--/html_preserve-->
 
