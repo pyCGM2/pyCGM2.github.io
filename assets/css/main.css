@@ -23,10 +23,11 @@
   }
 
   pre.python {
-    margin-top: 0em;
+    margin-top: 0em;+
     margin-left: 2.5em;
 		padding-top: 0.5em;
 		padding-bottom: 0.5em;
+    background:#232323;		
   }    
     
 	article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {

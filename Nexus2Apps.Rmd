@@ -22,7 +22,7 @@ output:
 
 
 <div class="alert alert-dismissible alert-warning">
-  <p>Remind of leaving <b>Unticked the checkbox</b> `Use Nexus Python`. (see <a href="FAQ.html"> FAQ)</a> <br>
+  <p>Remind of leaving <b>Unticked the checkbox</b> `Use Nexus Python`</a> <br>
   Reason is you will call python packages from Anaconda and not from the python site-package folder embedded in Vicon-Nexus. </a></p> 
 </div>
 
@@ -46,22 +46,16 @@ output:
       <a href="#" class="image left"><img src="images/nexus2/cgm1.png" alt=""  /></a>
       <div class="inner">
 	      <h3>Conventional Gait Model 1 <br> Vicon Plugin Gait </h3>
-	      <p>- Process the 3 variants of the CGM1 (native - KAD - KAD-med) </p>
+	      <p>- Process the 3 variants of the CGM1 ( <a href="Nexus2Apps-CGM1.html">basic</a> - <a href="Nexus2Apps-CGM1-KAD.html">KAD/KADmed</a>) </p>
 	      <p>- Plot and export Spreadsheet </p>
       </div>
     </div>
   </section>
 </div>
-
-
-
-
 <!--/html_preserve-->
 
 
 
-
- 
 
 <!--html_preserve-->
 </div>
