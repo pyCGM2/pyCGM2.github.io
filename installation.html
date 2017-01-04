@@ -84,63 +84,18 @@ output:
 				<section class="wrapper style1">
 					<div class="container">
 
+<!--
 <div class="jumbotron">
-<h1 id="table-of-contents">Table of Contents</h1>
-<ul>
-<li>
-<a href="#recommanded-pc-configuration">RECOMMANDED PC CONFIGURATION</a>
-</li>
-<li>
-<a href="#required-python-environnment">REQUIRED PYTHON ENVIRONNMENT</a>
-<ul>
-<li>
-<a href="#third-party-open-source-softwares">Third party open source softwares</a>
-<ul>
-<li>
-<a href="#btk-biomechanical-toolkit-installation."><img src="images/btk-128.png" alt="Smiley face" height="42" width="42"> - Btk ( Biomechanical ToolKit) installation.</a>
-</li>
-<li>
-<a href="#openma-open-motion-analysis"><img src="images/opemMA.png"  height="42" width="42"> - OpenMA ( Open-source Motion Analysis)</a>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<a href="#installation">INSTALLATION</a>
-<ul>
-<li>
-<a href="#preliminary">Preliminary</a>
-</li>
-<li>
-<a href="#get-pycgm2-code">Get pyCGM2 Code</a>
-<ul>
-<li>
-<a href="#download-an-official-release">Download an official Release</a>
-</li>
-<li>
-<a href="#keep-in-touch-with-early-development---use-a-versionning-software">Keep in touch with early development - use a versionning software</a>
-</li>
-</ul>
-</li>
-<li>
-<a href="#configure-pycgm2">Configure pyCGM2</a>
-</li>
-<li>
-<a href="#check-your-configuration">check your configuration</a>
-</li>
-</ul>
-</li>
-</ul>
+# Table of Contents
 </div>
+-->
 <div id="recommanded-pc-configuration" class="section level2">
 <h2>RECOMMANDED PC CONFIGURATION</h2>
 <p>pyCGM2 works fine on a PC following <a href="https://www.vicon.com/faqs">Vicon’s specifications</a> for Nexus 2.</p>
- 
 <div class="alert alert-dismissible alert-warning">
-  <p>Notice Vicon recommands a Windows7-64-bits PC but Vicon-Nexus was compiled on a 32bits system. Therefore, <b> if you need Vicon compatiblity and working with python operations from Vicon-Nexus, you need to install 32-bits python packages only</b></p>
+<p>Notice Vicon recommands a Windows7-64-bits PC but Vicon-Nexus was compiled on a 32bits system.</p>
+<p>Therefore, if you need Vicon compatiblity and working with python operations from Vicon-Nexus, <strong>you need to install 32-bits python packages only</strong></p>
 </div>
-
 </div>
 <div id="required-python-environnment" class="section level2">
 <h2>REQUIRED PYTHON ENVIRONNMENT</h2>
@@ -148,71 +103,41 @@ pyCGM2 was designed according this diagram :
 <center>
 <img src="diagrams/diagramPyCGM2.png"><br>
 </center>
-<p>pyCGM2 uses <strong>python 2.7</strong></p>
-<p>Code imports common scientifical packages (numpy, scipy, matplotlib,pandas,…) provided by most of python suite (Anaconda, pythonxy, canopy). <strong>We recommmand the use of <a href="https://www.continuum.io/downloads">Anaconda2 (32bits)</a></strong></p>
-<p>Anaconda provides Spyder IDE ( a matlab-like editor) that help you to code and configure you python system path</p>
-<div id="third-party-open-source-softwares" class="section level3">
-<h3>Third party open source softwares</h3>
-<p>In addition to common scientifical package, pyCGM2 needs both motion analysis-dedicated packages : Openma an Btk.</p>
-<p><span class="label label-info">INFO</span> Being an evolution of Btk, opemMA will be likely the only third party software in a future release of pyCGM2.</p>
-<div id="btk-biomechanical-toolkit-installation." class="section level4">
-<h4><img src="images/btk-128.png" alt="Smiley face" height="42" width="42"> - Btk ( Biomechanical ToolKit) installation.</h4>
-<p>Installation can be done by two methods :</p>
-<ul>
-<li>download an install preBuilt 32bits source from <a href="https://pypi.python.org/pypi/btk/0.3">pypi</a>.
-</li></li>
-<li><strong>OR</strong> As anaconda provided the easy installer command: <em>pip</em>, you can type this line in a MS-DOS command.<br/> <code>pip install https://pypi.python.org/packages/2.7/b/btk/btk-0.3.0-1_i686.rpm</code>
-</li></li>
-</ul>
-</div>
-<div id="openma-open-source-motion-analysis" class="section level4">
-<h4><img src="images/opemMA.png"  height="42" width="42"> - OpenMA ( Open-source Motion Analysis)</h4>
-<p>An openma 32-bits distribution is embebbed in pyCGM2. <strong>You don’t need installing anything</strong><br/> Follow openMa build instructions or contact openMA admisnistrator to get your own distribution.</p>
+<p>pyCGM2 was coded in <strong>python 2.7</strong></p>
+<p>pyCGM2 Code requires common scientifical python packages : * numpy * scipy * matplotlib * pandas</p>
+<p>These packages are provided by most of python suite (Anaconda, pythonxy, canopy).<br> <strong>We recommmand the use of <a href="https://www.continuum.io/downloads">Anaconda2 (32bits)</a></strong></p>
+<div id="third-party-open-source-libraries" class="section level3">
+<h3>Third party open source libraries</h3>
+<p>In addition to common scientifical package, pyCGM2 needs both motion analysis-dedicated packages : <a href="https://openma.org">openma</a> an <a href="https://github.com/Biomechanical-ToolKit/BTKCore">btk</a>.</p>
+<p>Notice openMA is an evolution of Btk. Future release of pyCGM2 will be probably based on openMA only.</p>
+<div class="alert alert-dismissible alert-warning">
+<p>Both pre-built packages of Btk and openMA are embedded in pyCGM2 ( folder third party), It’s no use installing them</p>
 </div>
 </div>
 </div>
 <div id="installation" class="section level2">
 <h2>INSTALLATION</h2>
-<div id="preliminary" class="section level3">
-<h3>Preliminary</h3>
+<p><strong>Preliminary : </strong> if you dont already have a python suite, like Anaconda : Install <a href="https://pip.pypa.io/en/stable/installing/">pip</a></p>
+<p>Then,</p>
 <ol style="list-style-type: decimal">
-<li>Install your python environment (Anaconda)</li>
-<li>Install Btk ( see above section)</li>
-</ol>
-</div>
-<div id="get-pycgm2-code" class="section level3">
-<h3>Get pyCGM2 Code</h3>
-<p>Two alternatives are possible:</p>
-<div id="download-an-official-release" class="section level4">
-<h4>Download an official Release</h4>
-<ol start="3" style="list-style-type: decimal">
 <li>Download and unzip last release of pyCGM2 from <a href="https://github.com/pyCGM2/pyCGM2/releases">github</a></li>
-<li>Open file : <code>pyCGM2_CONFIG.py</code> in the main folder</li>
+<li><p><strong>[Optional - if you are a Vicon Nexus 2 user]</strong>. <br> Edit file : <code>pyCGM2\CONFIG</code> and indicate absolute locations :<br></p>
+<pre class="python"><code>NEXUS_SDK_WIN32 = &#39;C:/Program Files (x86)/Vicon/Nexus2.5/SDK/Win32&#39;
+NEXUS_SDK_PYTHON = &#39;C:/Program Files (x86)/Vicon/Nexus2.5/SDK/Python&#39;
+PYTHON_NEXUS = &#39;C:\\Program Files (x86)\\Vicon\\Nexus2.5\\Python&#39;</code></pre></li>
+<li>Open a MS-DOS console and go to pyCGM2 folder containing <code>setup.py</code></li>
+<li><p>Type <code>pip install -e .</code> <br> This command checks your environment and put a link in your python path ( generally <code>Lib\site-packages</code>) toward your pyCGM2 folder.</p></li>
 </ol>
-</div>
-<div id="keep-in-touch-with-early-development---use-a-versionning-software" class="section level4">
-<h4>Keep in touch with early development - use a versionning software</h4>
-<ol start="3" style="list-style-type: decimal">
+<p>if you want to keep in touch with early development, use a versioning software andreplace step 1 by :</p>
+<ul>
 <li>Install a versionning sofware (SourceTree, gitHub desktop,…)<br />
 </li>
-<li>Clone the https adress from github in your versionning software <img src="images/install/github/github-clone.png"><br></li>
-</ol>
-</div>
-</div>
-<div id="configure-pycgm2" class="section level3">
-<h3>Configure pyCGM2</h3>
-<ol start="5" style="list-style-type: decimal">
-<li>Open file : <code>pyCGM2_CONFIG.py</code> in the main folder</li>
-<li>Alter required path (<code>MAIN_PYCGM2_PATH</code>)</li>
-<li><strong>[Vicon Nexus Users]</strong> if you want to call pyCGM2 from Vicon-Nexus, in <code>pyCGM2_CONFIG.py</code>, indicate locations of <code>NEXUS_SDK_WIN32</code>,<code>NEXUS_SDK_PYTHON</code> and <code>PYTHON_NEXUS</code></li>
-<li>Add pyCGM2 to your python system path <br> A convenient method is to use spyder IDE: <br> Open Sypder, and click <em>Tools/PYTHONPATH manager</em> <br> <img src="images/install/spyder/spyder-pythonpathmanager.png"><br> Click <em>Add Path</em> and add your pyCGM2 path. Then click <em>Synchronize</em>. A new variable <code>PYTHONPATH</code> will be add to your windows environment.<br> <img src="images/install/spyder/spyder-pythonpathmanagerwindow.png"><br></li>
-</ol>
-<p><strong>pyCGM2 is now set up on your PC</strong></p>
-</div>
+<li>Clone the https adress from github in your versionning software</li>
+</ul>
 <div id="check-your-configuration" class="section level3">
 <h3>Check your configuration</h3>
 <ul>
-<li>Open Spyder ( or another python console)</li>
+<li>Open a python console</li>
 <li><p>Type this snippet:</p>
 <pre class="python"><code>  import pyCGM2
   pyCGM2.pyCGM2_CONFIG.checkConfig()</code></pre></li>
