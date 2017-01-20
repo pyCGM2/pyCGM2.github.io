@@ -1,0 +1,155 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>pyCGM2.enums &#8212; pyCGM2 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">pyCGM2 0.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">Module code</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for pyCGM2.enums</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+
+<span class="kn">from</span> <span class="nn">enum</span> <span class="k">import</span> <span class="n">Enum</span>
+
+
+<div class="viewcode-block" id="isEnumMember"><a class="viewcode-back" href="../../pyCGM2.html#pyCGM2.enums.isEnumMember">[docs]</a><span class="k">def</span> <span class="nf">isEnumMember</span><span class="p">(</span><span class="n">member</span><span class="p">,</span> <span class="n">enum</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        check if member of an enum</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">flag</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="k">for</span> <span class="n">enumIt</span> <span class="ow">in</span> <span class="n">enum</span><span class="p">:</span>
+           <span class="k">if</span> <span class="n">enumIt</span> <span class="o">==</span> <span class="n">member</span><span class="p">:</span>
+                <span class="n">flag</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="k">return</span> <span class="n">flag</span></div>
+
+
+
+
+<div class="viewcode-block" id="motionMethod"><a class="viewcode-back" href="../../pyCGM2.html#pyCGM2.enums.motionMethod">[docs]</a><span class="k">class</span> <span class="nc">motionMethod</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Enum defining method uses for computing a segment pose &quot;&quot;&quot;</span>
+    <span class="n">NoMotion</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">Native</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">Sodervisk</span> <span class="o">=</span> <span class="mi">2</span></div>
+
+
+<div class="viewcode-block" id="MomentProjection"><a class="viewcode-back" href="../../pyCGM2.html#pyCGM2.enums.MomentProjection">[docs]</a><span class="k">class</span> <span class="nc">MomentProjection</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Enum defining in which Segment expressed kinetics&quot;&quot;&quot;</span>
+    <span class="n">Global</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">Proximal</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">Distal</span> <span class="o">=</span> <span class="mi">2</span></div>
+
+
+<div class="viewcode-block" id="HarringtonPredictor"><a class="viewcode-back" href="../../pyCGM2.html#pyCGM2.enums.HarringtonPredictor">[docs]</a><span class="k">class</span> <span class="nc">HarringtonPredictor</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Enum defining harrington&#39;s regression predictor&quot;&quot;&quot;</span>
+    <span class="n">Native</span> <span class="o">=</span> <span class="s2">&quot;full&quot;</span>
+    <span class="n">PelvisWidth</span> <span class="o">=</span> <span class="s2">&quot;PWonly&quot;</span>    
+    <span class="n">LegLength</span> <span class="o">=</span> <span class="s2">&quot;LLonly&quot;</span></div>
+
+<div class="viewcode-block" id="SegmentSide"><a class="viewcode-back" href="../../pyCGM2.html#pyCGM2.enums.SegmentSide">[docs]</a><span class="k">class</span> <span class="nc">SegmentSide</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Enum defining segment side&quot;&quot;&quot;</span>    
+    <span class="n">Central</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">Left</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">Right</span> <span class="o">=</span> <span class="mi">2</span></div>
+    
+
+<span class="c1"># --- enum used with Btk-Models</span>
+<span class="c1"># obsolete</span>
+<span class="c1">#class BspModel(Enum):</span>
+<span class="c1">#    Dempster = &quot;Dempster&quot;</span>
+<span class="c1">#    DempsterVicon = &quot;DempsterVicon&quot;    </span>
+<span class="c1">#    DeLeva = &quot;DeLeva&quot;</span>
+<span class="c1">#</span>
+<span class="c1">#class Sex(Enum):</span>
+<span class="c1">#    Male = &quot;M&quot;</span>
+<span class="c1">#    Female = &quot;F&quot;</span>
+<span class="c1">#    </span>
+<span class="c1">#</span>
+<span class="c1">#class InverseDynamicAlgo(Enum):</span>
+<span class="c1">#    Quaternion = &quot;quaternion&quot;</span>
+<span class="c1">#    Generic = &quot;generic&quot;    </span>
+<span class="c1">#    RotationMatrix = &quot;rotationMatrix&quot;</span>
+    
+    
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">pyCGM2 0.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >Module code</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017, Fabien Leboeuf.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.1.
+    </div>
+  </body>
+</html>

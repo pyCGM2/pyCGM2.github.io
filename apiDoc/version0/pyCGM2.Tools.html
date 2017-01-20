@@ -1,0 +1,492 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>pyCGM2.Tools subpackage &#8212; pyCGM2 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="pyCGM2.Math subpackage" href="pyCGM2.Math.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pyCGM2.Math.html" title="pyCGM2.Math subpackage"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">pyCGM2 0.1 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="pycgm2-tools-subpackage">
+<h1>pyCGM2.Tools subpackage<a class="headerlink" href="#pycgm2-tools-subpackage" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-pyCGM2.Tools.btkTools">
+<span id="pycgm2-tools-btktools-module"></span><h2>pyCGM2.Tools.btkTools (module)<a class="headerlink" href="#module-pyCGM2.Tools.btkTools" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="pyCGM2.Tools.btkTools.checkFirstAndLastFrame">
+<code class="descclassname">pyCGM2.Tools.btkTools.</code><code class="descname">checkFirstAndLastFrame</code><span class="sig-paren">(</span><em>acq</em>, <em>markerLabel</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Tools/btkTools.html#checkFirstAndLastFrame"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Tools.btkTools.checkFirstAndLastFrame" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if extremity frames are correct</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>acq</cite> (btkAcquisition) - a btk acquisition inctance</li>
+<li><cite>markerLabel</cite> (str) - marker label</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyCGM2.Tools.btkTools.checkMarkers">
+<code class="descclassname">pyCGM2.Tools.btkTools.</code><code class="descname">checkMarkers</code><span class="sig-paren">(</span><em>acq</em>, <em>markerList</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Tools/btkTools.html#checkMarkers"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Tools.btkTools.checkMarkers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if marker labels exist inside an acquisition</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>acq</cite> (btkAcquisition) - a btk acquisition inctance</li>
+<li><cite>markerList</cite> (list of str) - marker labels</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyCGM2.Tools.btkTools.clearPoints">
+<code class="descclassname">pyCGM2.Tools.btkTools.</code><code class="descname">clearPoints</code><span class="sig-paren">(</span><em>acq</em>, <em>pointlabelList</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Tools/btkTools.html#clearPoints"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Tools.btkTools.clearPoints" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clear points</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>acq</cite> (btkAcquisition) - a btk acquisition inctance</li>
+<li><cite>lapointlabelListel</cite> (list of str) - point labels</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyCGM2.Tools.btkTools.findProgressionFromPoints">
+<code class="descclassname">pyCGM2.Tools.btkTools.</code><code class="descname">findProgressionFromPoints</code><span class="sig-paren">(</span><em>acq</em>, <em>originPointLabel</em>, <em>longitudinal_extremityPointLabel</em>, <em>lateral_extremityPointLabel</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Tools/btkTools.html#findProgressionFromPoints"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Tools.btkTools.findProgressionFromPoints" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find progression from 3 markers</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>acq</cite> (btkAcquisition) - a btk acquisition inctance</li>
+<li><cite>originPointLabel</cite> (str) - origin marker label</li>
+<li><cite>longitudinal_extremityPointLabel</cite> (str) - forward marker label</li>
+<li><cite>lateral_extremityPointLabel</cite> (str) - lateral marker label</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyCGM2.Tools.btkTools.findProgressionFromVectors">
+<code class="descclassname">pyCGM2.Tools.btkTools.</code><code class="descname">findProgressionFromVectors</code><span class="sig-paren">(</span><em>a1_long</em>, <em>a2_lat</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Tools/btkTools.html#findProgressionFromVectors"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Tools.btkTools.findProgressionFromVectors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find progression from 2 vectors</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>a1_long</cite> (numpy.array(3,)) - forward vector</li>
+<li><cite>a1_long</cite> (numpy.array(3,)) - lateral vector</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyCGM2.Tools.btkTools.isGap">
+<code class="descclassname">pyCGM2.Tools.btkTools.</code><code class="descname">isGap</code><span class="sig-paren">(</span><em>acq</em>, <em>markerList</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Tools/btkTools.html#isGap"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Tools.btkTools.isGap" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if there is a gap</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>acq</cite> (btkAcquisition) - a btk acquisition inctance</li>
+<li><cite>markerList</cite> (list of str) - marker labels</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyCGM2.Tools.btkTools.isPointExist">
+<code class="descclassname">pyCGM2.Tools.btkTools.</code><code class="descname">isPointExist</code><span class="sig-paren">(</span><em>acq</em>, <em>label</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Tools/btkTools.html#isPointExist"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Tools.btkTools.isPointExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if a point label exists inside an acquisition</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>acq</cite> (btkAcquisition) - a btk acquisition inctance</li>
+<li><cite>label</cite> (str) - point label</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyCGM2.Tools.btkTools.isPointsExist">
+<code class="descclassname">pyCGM2.Tools.btkTools.</code><code class="descname">isPointsExist</code><span class="sig-paren">(</span><em>acq</em>, <em>labels</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Tools/btkTools.html#isPointsExist"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Tools.btkTools.isPointsExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if point labels exist inside an acquisition</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>acq</cite> (btkAcquisition) - a btk acquisition inctance</li>
+<li><cite>labels</cite> (list of str) - point labels</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyCGM2.Tools.btkTools.modifyEventSubject">
+<code class="descclassname">pyCGM2.Tools.btkTools.</code><code class="descname">modifyEventSubject</code><span class="sig-paren">(</span><em>acq</em>, <em>newSubjectlabel</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Tools/btkTools.html#modifyEventSubject"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Tools.btkTools.modifyEventSubject" title="Permalink to this definition">¶</a></dt>
+<dd><p>update the subject name of all events</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>acq</cite> (btkAcquisition) - a btk acquisition inctance</li>
+<li><cite>newSubjectlabel</cite> (str) - desired subject name</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyCGM2.Tools.btkTools.modifySubject">
+<code class="descclassname">pyCGM2.Tools.btkTools.</code><code class="descname">modifySubject</code><span class="sig-paren">(</span><em>acq</em>, <em>newSubjectlabel</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Tools/btkTools.html#modifySubject"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Tools.btkTools.modifySubject" title="Permalink to this definition">¶</a></dt>
+<dd><p>update the subject name inside c3d metadata</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>acq</cite> (btkAcquisition) - a btk acquisition inctance</li>
+<li><cite>newSubjectlabel</cite> (str) - desired subject name</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyCGM2.Tools.btkTools.smartAppendPoint">
+<code class="descclassname">pyCGM2.Tools.btkTools.</code><code class="descname">smartAppendPoint</code><span class="sig-paren">(</span><em>acq</em>, <em>label</em>, <em>values</em>, <em>PointType=0</em>, <em>desc=''</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Tools/btkTools.html#smartAppendPoint"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Tools.btkTools.smartAppendPoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Append/Update a point inside an acquisition</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>acq</cite> (btkAcquisition) - a btk acquisition inctance</li>
+<li><cite>label</cite> (str) - point label</li>
+<li><cite>values</cite> (numpy.array(n,3)) - point label</li>
+<li><cite>PointType</cite> (enums of btk.btkPoint) - type of Point</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyCGM2.Tools.btkTools.smartReader">
+<code class="descclassname">pyCGM2.Tools.btkTools.</code><code class="descname">smartReader</code><span class="sig-paren">(</span><em>filename</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Tools/btkTools.html#smartReader"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Tools.btkTools.smartReader" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convenient function to read a c3d with Btk</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>filename</cite> (str) - path and filename of the c3d</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyCGM2.Tools.btkTools.smartWriter">
+<code class="descclassname">pyCGM2.Tools.btkTools.</code><code class="descname">smartWriter</code><span class="sig-paren">(</span><em>acq</em>, <em>filename</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Tools/btkTools.html#smartWriter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Tools.btkTools.smartWriter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convenient function to write a c3d with Btk</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>acq</cite> (btkAcquisition) - a btk acquisition inctance</li>
+<li><cite>filename</cite> (str) - path and filename of the c3d</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-pyCGM2.Tools.exportTools">
+<span id="pycgm2-tools-exporttools-module"></span><h2>pyCGM2.Tools.exportTools (module)<a class="headerlink" href="#module-pyCGM2.Tools.exportTools" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-pyCGM2.Tools.trialTools">
+<span id="pycgm2-tools-trialtools-module"></span><h2>pyCGM2.Tools.trialTools (module)<a class="headerlink" href="#module-pyCGM2.Tools.trialTools" title="Permalink to this headline">¶</a></h2>
+<p>Created on Tue Oct 04 16:17:08 2016</p>
+<p>&#64;author: fabien Leboeuf</p>
+<dl class="function">
+<dt id="pyCGM2.Tools.trialTools.addTimeSequencesToTrial">
+<code class="descclassname">pyCGM2.Tools.trialTools.</code><code class="descname">addTimeSequencesToTrial</code><span class="sig-paren">(</span><em>trial</em>, <em>nodeToAdd</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Tools/trialTools.html#addTimeSequencesToTrial"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Tools.trialTools.addTimeSequencesToTrial" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a Time sequence into a trial</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>trial</cite> (openma.trial) - an openma trial instance</li>
+<li><cite>nodeToAdd</cite> (openma.TimeSequence) - time sequence</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyCGM2.Tools.trialTools.automaticKineticDetection">
+<code class="descclassname">pyCGM2.Tools.trialTools.</code><code class="descname">automaticKineticDetection</code><span class="sig-paren">(</span><em>dataPath</em>, <em>filenames</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Tools/trialTools.html#automaticKineticDetection"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Tools.trialTools.automaticKineticDetection" title="Permalink to this definition">¶</a></dt>
+<dd><p>convenient method for detecting correct kinetic in a filename set</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>dataPath</cite> (str) - folder path</li>
+<li><cite>filenames</cite> (list of str) - filename of the different acquisitions</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyCGM2.Tools.trialTools.findProgressionFromPoints">
+<code class="descclassname">pyCGM2.Tools.trialTools.</code><code class="descname">findProgressionFromPoints</code><span class="sig-paren">(</span><em>trial</em>, <em>originPointLabel</em>, <em>longitudinal_extremityPointLabel</em>, <em>lateral_extremityPointLabel</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Tools/trialTools.html#findProgressionFromPoints"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Tools.trialTools.findProgressionFromPoints" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find progression from 3 markers</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>trial</cite> (openMA trial) - an openma trial instance</li>
+<li><cite>originPointLabel</cite> (str) - origin marker label</li>
+<li><cite>longitudinal_extremityPointLabel</cite> (str) - forward marker label</li>
+<li><cite>lateral_extremityPointLabel</cite> (str) - lateral marker label</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyCGM2.Tools.trialTools.isKineticFlag">
+<code class="descclassname">pyCGM2.Tools.trialTools.</code><code class="descname">isKineticFlag</code><span class="sig-paren">(</span><em>trial</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Tools/trialTools.html#isKineticFlag"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Tools.trialTools.isKineticFlag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Flag up if correct kinetics available</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>trial</cite> (openma.trial) - an openma trial instance</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyCGM2.Tools.trialTools.isTimeSequenceExist">
+<code class="descclassname">pyCGM2.Tools.trialTools.</code><code class="descname">isTimeSequenceExist</code><span class="sig-paren">(</span><em>trial</em>, <em>label</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Tools/trialTools.html#isTimeSequenceExist"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Tools.trialTools.isTimeSequenceExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if a Time sequence exists inside a trial</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>trial</cite> (openma.trial) - an openma trial instance</li>
+<li><cite>label</cite> (str) - label of the time sequence</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyCGM2.Tools.trialTools.renameOpenMAtoVicon">
+<code class="descclassname">pyCGM2.Tools.trialTools.</code><code class="descname">renameOpenMAtoVicon</code><span class="sig-paren">(</span><em>analysis</em>, <em>suffix=''</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Tools/trialTools.html#renameOpenMAtoVicon"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Tools.trialTools.renameOpenMAtoVicon" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convenient function renaming openma standard point label to vicon CGM point label</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>analysis</cite> (openMA node) - openma node containing time sequences of model outputs</li>
+<li><cite>suffix</cite> (str) - point label suffix</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyCGM2.Tools.trialTools.sortedEvents">
+<code class="descclassname">pyCGM2.Tools.trialTools.</code><code class="descname">sortedEvents</code><span class="sig-paren">(</span><em>trial</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Tools/trialTools.html#sortedEvents"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Tools.trialTools.sortedEvents" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sort out events of a trial</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>trial</cite> (openma.trial) - an openma trial instance</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">pyCGM2.Tools subpackage</a><ul>
+<li><a class="reference internal" href="#module-pyCGM2.Tools.btkTools">pyCGM2.Tools.btkTools (module)</a></li>
+<li><a class="reference internal" href="#module-pyCGM2.Tools.exportTools">pyCGM2.Tools.exportTools (module)</a></li>
+<li><a class="reference internal" href="#module-pyCGM2.Tools.trialTools">pyCGM2.Tools.trialTools (module)</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="pyCGM2.Math.html"
+                        title="previous chapter">pyCGM2.Math subpackage</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/pyCGM2.Tools.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pyCGM2.Math.html" title="pyCGM2.Math subpackage"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">pyCGM2 0.1 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017, Fabien Leboeuf.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.1.
+    </div>
+  </body>
+</html>

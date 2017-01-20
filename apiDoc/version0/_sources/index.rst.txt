@@ -1,0 +1,60 @@
+.. pyCGM2 documentation master file, created by
+   sphinx-quickstart on Tue Jan 10 15:55:35 2017.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+pyCGM2 API Documentation
+==================================
+
+
+Get Concepts
+==================
+
+.. toctree::
+   :maxdepth: 2
+
+   concepts
+
+
+Applications
+==================
+
+.. warning:: Applications works providing your global lateral or longitundinal Axis is *X* or *Y* (not Z !!)
+
+.. toctree::
+   :maxdepth: 2
+
+   nexusApps
+
+Data
+==================
+
+
+.. toctree::
+   :maxdepth: 2
+
+   normativeData
+
+
+pyCGM Package Content
+=======================
+
+.. toctree::
+   :maxdepth: 2
+
+   pyCGM2
+   pyCGM2.Model.CGM2
+   pyCGM2.Processing
+   pyCGM2.Report
+   pyCGM2.Signal
+   pyCGM2.Math
+   pyCGM2.Tools
+
+
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`

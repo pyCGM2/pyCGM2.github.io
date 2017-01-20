@@ -1,0 +1,997 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>pyCGM2.Model.CGM2.modelFilters &#8212; pyCGM2 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="../../../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../../index.html">pyCGM2 0.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../../index.html" accesskey="U">Module code</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for pyCGM2.Model.CGM2.modelFilters</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="kn">import</span> <span class="nn">pdb</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">btk</span>
+
+
+<span class="kn">import</span> <span class="nn">frame</span> <span class="k">as</span> <span class="nn">cfr</span>
+<span class="kn">import</span> <span class="nn">motion</span> <span class="k">as</span> <span class="nn">cmot</span>
+<span class="kn">import</span> <span class="nn">euler</span> <span class="k">as</span> <span class="nn">ceu</span>
+
+
+
+<span class="kn">import</span> <span class="nn">pyCGM2.Signal.signal_processing</span> <span class="k">as</span> <span class="nn">pyCGM2signal</span> 
+<span class="kn">import</span> <span class="nn">pyCGM2.enums</span> <span class="k">as</span> <span class="nn">pyCGM2Enums</span>
+<span class="kn">from</span> <span class="nn">pyCGM2.Math</span> <span class="k">import</span> <span class="n">numeric</span>
+<span class="kn">from</span> <span class="nn">pyCGM2.Tools</span> <span class="k">import</span>  <span class="n">btkTools</span>
+
+
+
+<span class="c1">#-------- MODEL PROCEDURE  ----------</span>
+
+
+<span class="c1"># --- calibration procedure</span>
+<div class="viewcode-block" id="GeneralCalibrationProcedure"><a class="viewcode-back" href="../../../../pyCGM2.Model.CGM2.html#pyCGM2.Model.CGM2.modelFilters.GeneralCalibrationProcedure">[docs]</a><span class="k">class</span> <span class="nc">GeneralCalibrationProcedure</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; </span>
+<span class="sd">        General Procedure to call in the Model Calibration Filter if you work on a custom model       </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+       <span class="bp">self</span><span class="o">.</span><span class="n">definition</span><span class="o">=</span><span class="nb">dict</span><span class="p">()</span>
+        
+<div class="viewcode-block" id="GeneralCalibrationProcedure.setDefinition"><a class="viewcode-back" href="../../../../pyCGM2.Model.CGM2.html#pyCGM2.Model.CGM2.modelFilters.GeneralCalibrationProcedure.setDefinition">[docs]</a>    <span class="k">def</span> <span class="nf">setDefinition</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">segmentName</span><span class="p">,</span><span class="n">referentialLabel</span><span class="p">,</span> 
+                      <span class="n">sequence</span><span class="o">=</span><span class="nb">str</span><span class="p">(),</span> 
+                      <span class="n">pointLabel1</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">pointLabel2</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">pointLabel3</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> 
+                      <span class="n">pointLabelOrigin</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; </span>
+<span class="sd">            method defining how to construct a referential for a given segment</span>
+<span class="sd">        </span>
+<span class="sd">            :Parameters:</span>
+<span class="sd">                 - `segmentName` (str) - name of the segment  </span>
+<span class="sd">                 - `referentialLabel` (str) - label of the referential</span>
+<span class="sd">                 - `sequence` (str) - construction sequence (XYZ,XYiZ)  </span>
+<span class="sd">                 - `pointLabel1` (str) - marker label  </span>
+<span class="sd">                 - `pointLabel2` (str) - marker label            </span>
+<span class="sd">                 - `pointLabel3` (str) - marker label </span>
+<span class="sd">                 - `pointLabelOrigin` (str) - marker label </span>
+<span class="sd">                    </span>
+<span class="sd">            .. todo:: </span>
+<span class="sd">              </span>
+<span class="sd">               - add optional markers i.e marker only use for segmental least square computation</span>
+<span class="sd">               - use an ENUM for sequence</span>
+<span class="sd">            </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>                          
+        <span class="k">if</span> <span class="n">segmentName</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">definition</span><span class="p">:</span> 
+            <span class="bp">self</span><span class="o">.</span><span class="n">definition</span><span class="p">[</span><span class="n">segmentName</span><span class="p">][</span><span class="n">referentialLabel</span><span class="p">]</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;sequence&#39;</span><span class="p">:</span><span class="n">sequence</span><span class="p">,</span> <span class="s1">&#39;labels&#39;</span><span class="p">:[</span><span class="n">pointLabel1</span><span class="p">,</span><span class="n">pointLabel2</span><span class="p">,</span><span class="n">pointLabel3</span><span class="p">,</span><span class="n">pointLabelOrigin</span><span class="p">]}</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">definition</span><span class="p">[</span><span class="n">segmentName</span><span class="p">]</span><span class="o">=</span><span class="nb">dict</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">definition</span><span class="p">[</span><span class="n">segmentName</span><span class="p">][</span><span class="n">referentialLabel</span><span class="p">]</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;sequence&#39;</span><span class="p">:</span><span class="n">sequence</span><span class="p">,</span> <span class="s1">&#39;labels&#39;</span><span class="p">:[</span><span class="n">pointLabel1</span><span class="p">,</span><span class="n">pointLabel2</span><span class="p">,</span><span class="n">pointLabel3</span><span class="p">,</span><span class="n">pointLabelOrigin</span><span class="p">]}</span></div></div>
+    
+
+<div class="viewcode-block" id="StaticCalibrationProcedure"><a class="viewcode-back" href="../../../../pyCGM2.Model.CGM2.html#pyCGM2.Model.CGM2.modelFilters.StaticCalibrationProcedure">[docs]</a><span class="k">class</span> <span class="nc">StaticCalibrationProcedure</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; </span>
+<span class="sd">        Procedure to call if you work with pyCGM2 embedded-model instance ( like the cgm)</span>
+
+<span class="sd">        This procedure internally calls the `calibrationProcedure` method of the model         </span>
+<span class="sd">        </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">model</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            :Parameters:</span>
+<span class="sd">              - `iModel` (pyCGM2.Model.CGM2.cgm.CGM) - a CGM instance </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">=</span><span class="n">model</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">definition</span><span class="o">=</span><span class="nb">dict</span><span class="p">()</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">__setDefinition</span><span class="p">()</span>
+        
+    <span class="k">def</span> <span class="nf">__setDefinition</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">definition</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">calibrationProcedure</span><span class="p">()</span></div>
+
+
+         
+<span class="c1"># ---- inverse dynamic procedure</span>
+<span class="k">class</span> <span class="nc">CGMLowerlimbInverseDynamicProcedure</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        # procedure = anticipation de nouveau Model    </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">_externalDeviceForceContribution</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">wrenchs</span><span class="p">):</span>
+
+        <span class="n">nf</span> <span class="o">=</span> <span class="n">wrenchs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">GetForce</span><span class="p">()</span><span class="o">.</span><span class="n">GetValues</span><span class="p">()</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">forceValues</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">nf</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>   
+        <span class="k">for</span> <span class="n">wrIt</span> <span class="ow">in</span> <span class="n">wrenchs</span><span class="p">:</span>
+            <span class="n">forceValues</span> <span class="o">=</span> <span class="n">forceValues</span> <span class="o">+</span> <span class="n">wrIt</span><span class="o">.</span><span class="n">GetForce</span><span class="p">()</span><span class="o">.</span><span class="n">GetValues</span><span class="p">()</span>
+            
+        <span class="k">return</span> <span class="n">forceValues</span>
+
+    <span class="k">def</span> <span class="nf">_externalDeviceMomentContribution</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">wrenchs</span><span class="p">,</span> <span class="n">Oi</span><span class="p">,</span> <span class="n">scaleToMeter</span><span class="p">):</span>
+
+        <span class="n">nf</span> <span class="o">=</span> <span class="n">wrenchs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">GetMoment</span><span class="p">()</span><span class="o">.</span><span class="n">GetValues</span><span class="p">()</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">momentValues</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">nf</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>   
+
+        <span class="k">for</span> <span class="n">wrIt</span> <span class="ow">in</span> <span class="n">wrenchs</span><span class="p">:</span>
+             <span class="n">Fext</span> <span class="o">=</span> <span class="n">wrIt</span><span class="o">.</span><span class="n">GetForce</span><span class="p">()</span><span class="o">.</span><span class="n">GetValues</span><span class="p">()</span>
+             <span class="n">Mext</span> <span class="o">=</span> <span class="n">wrIt</span><span class="o">.</span><span class="n">GetMoment</span><span class="p">()</span><span class="o">.</span><span class="n">GetValues</span><span class="p">()</span>
+             <span class="n">posExt</span> <span class="o">=</span> <span class="n">wrIt</span><span class="o">.</span><span class="n">GetPosition</span><span class="p">()</span><span class="o">.</span><span class="n">GetValues</span><span class="p">()</span>
+
+             <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">nf</span><span class="p">):</span>
+                 <span class="n">Fext_i</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">Fext</span><span class="p">[</span><span class="n">i</span><span class="p">,:])</span>
+                 <span class="n">Mext_i</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">Mext</span><span class="p">[</span><span class="n">i</span><span class="p">,:])</span>
+                 <span class="n">di</span> <span class="o">=</span> <span class="n">posExt</span><span class="p">[</span><span class="n">i</span><span class="p">,:]</span> <span class="o">-</span> <span class="n">Oi</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">getTranslation</span><span class="p">()</span>
+                 <span class="n">wrMomentValues</span> <span class="o">=</span> <span class="p">(</span><span class="n">Mext_i</span><span class="o">.</span><span class="n">T</span><span class="o">*</span><span class="n">scaleToMeter</span> <span class="o">+</span> <span class="n">numeric</span><span class="o">.</span><span class="n">skewMatrix</span><span class="p">(</span><span class="n">di</span><span class="o">*</span><span class="n">scaleToMeter</span><span class="p">)</span><span class="o">*</span><span class="n">Fext_i</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+                 <span class="n">momentValues</span><span class="p">[</span><span class="n">i</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">momentValues</span><span class="p">[</span><span class="n">i</span><span class="p">,:]</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">wrMomentValues</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">momentValues</span>
+
+
+    <span class="k">def</span> <span class="nf">_distalMomentContribution</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">wrench</span><span class="p">,</span> <span class="n">Oi</span><span class="p">,</span> <span class="n">scaleToMeter</span><span class="p">,</span> <span class="n">source</span> <span class="o">=</span> <span class="s2">&quot;Wrench&quot;</span><span class="p">):</span>
+
+        <span class="n">nf</span> <span class="o">=</span> <span class="n">wrench</span><span class="o">.</span><span class="n">GetMoment</span><span class="p">()</span><span class="o">.</span><span class="n">GetValues</span><span class="p">()</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">momentValues</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">nf</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>   
+
+        <span class="n">Fext</span> <span class="o">=</span> <span class="n">wrench</span><span class="o">.</span><span class="n">GetForce</span><span class="p">()</span><span class="o">.</span><span class="n">GetValues</span><span class="p">()</span>
+        <span class="n">Mext</span> <span class="o">=</span> <span class="n">wrench</span><span class="o">.</span><span class="n">GetMoment</span><span class="p">()</span><span class="o">.</span><span class="n">GetValues</span><span class="p">()</span>
+        <span class="n">posExt</span> <span class="o">=</span> <span class="n">wrench</span><span class="o">.</span><span class="n">GetPosition</span><span class="p">()</span><span class="o">.</span><span class="n">GetValues</span><span class="p">()</span>
+       
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">nf</span><span class="p">):</span>
+            <span class="n">Fext_i</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">Fext</span><span class="p">[</span><span class="n">i</span><span class="p">,:])</span>
+            <span class="n">Mext_i</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">Mext</span><span class="p">[</span><span class="n">i</span><span class="p">,:])</span>
+            <span class="n">di</span> <span class="o">=</span> <span class="n">posExt</span><span class="p">[</span><span class="n">i</span><span class="p">,:]</span> <span class="o">-</span> <span class="n">Oi</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">getTranslation</span><span class="p">()</span>
+            
+            <span class="k">if</span> <span class="n">source</span> <span class="o">==</span> <span class="s2">&quot;Wrench&quot;</span><span class="p">:</span>
+                <span class="n">wrMomentValues</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span> <span class="mf">1.0</span><span class="o">*</span><span class="n">Mext_i</span><span class="o">.</span><span class="n">T</span><span class="o">*</span><span class="n">scaleToMeter</span> <span class="o">+</span> <span class="o">-</span> <span class="mf">1.0</span><span class="o">*</span><span class="n">numeric</span><span class="o">.</span><span class="n">skewMatrix</span><span class="p">(</span><span class="n">di</span><span class="o">*</span><span class="n">scaleToMeter</span><span class="p">)</span><span class="o">*</span><span class="n">Fext_i</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">source</span> <span class="o">==</span> <span class="s2">&quot;Force&quot;</span><span class="p">:</span>
+                <span class="n">wrMomentValues</span> <span class="o">=</span> <span class="p">(</span> <span class="o">-</span> <span class="mf">1.0</span><span class="o">*</span><span class="n">numeric</span><span class="o">.</span><span class="n">skewMatrix</span><span class="p">(</span><span class="n">di</span><span class="o">*</span><span class="n">scaleToMeter</span><span class="p">)</span><span class="o">*</span><span class="n">Fext_i</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">source</span> <span class="o">==</span> <span class="s2">&quot;Moment&quot;</span><span class="p">:</span>
+                <span class="n">wrMomentValues</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span> <span class="mf">1.0</span><span class="o">*</span><span class="n">Mext_i</span><span class="o">.</span><span class="n">T</span><span class="o">*</span><span class="n">scaleToMeter</span><span class="p">)</span>
+
+            <span class="n">momentValues</span><span class="p">[</span><span class="n">i</span><span class="p">,:]</span> <span class="o">=</span>  <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">wrMomentValues</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">momentValues</span>
+
+    <span class="k">def</span> <span class="nf">_forceAccelerationContribution</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">mi</span><span class="p">,</span><span class="n">ai</span><span class="p">,</span><span class="n">g</span><span class="p">,</span><span class="n">scaleToMeter</span><span class="p">):</span>
+
+        <span class="n">nf</span> <span class="o">=</span> <span class="n">ai</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>        
+        <span class="n">g</span><span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>
+        <span class="n">accelerationContribution</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">nf</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+   
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">nf</span><span class="p">):</span>
+            <span class="n">ai_i</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">ai</span><span class="p">[</span><span class="n">i</span><span class="p">,:])</span>                            
+            <span class="n">val</span> <span class="o">=</span> <span class="n">mi</span> <span class="o">*</span> <span class="n">ai_i</span><span class="o">.</span><span class="n">T</span><span class="o">*</span><span class="n">scaleToMeter</span> <span class="o">-</span> <span class="n">mi</span><span class="o">*</span><span class="n">g</span><span class="o">.</span><span class="n">T</span>
+            <span class="n">accelerationContribution</span><span class="p">[</span><span class="n">i</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">val</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+
+        <span class="k">return</span>  <span class="n">accelerationContribution</span>                             
+        
+
+    <span class="k">def</span> <span class="nf">_inertialMomentContribution</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">Ii</span><span class="p">,</span> <span class="n">alphai</span><span class="p">,</span><span class="n">omegai</span><span class="p">,</span> <span class="n">Ti</span> <span class="p">,</span><span class="n">scaleToMeter</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">nf</span> <span class="o">=</span> <span class="n">alphai</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>        
+        
+        <span class="n">accelerationContribution</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">nf</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+        <span class="n">coriolisContribution</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">nf</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+
+        <span class="n">Ii</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">Ii</span><span class="p">)</span> 
+
+
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">nf</span><span class="p">):</span>
+            <span class="n">alphai_i</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">alphai</span><span class="p">[</span><span class="n">i</span><span class="p">,:])</span>
+            <span class="n">omegai_i</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">omegai</span><span class="p">[</span><span class="n">i</span><span class="p">,:])</span>
+            <span class="n">Ri_i</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">Ti</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">getRotation</span><span class="p">())</span>
+
+            <span class="n">accContr_i</span> <span class="o">=</span> <span class="n">Ri_i</span><span class="o">*</span><span class="p">(</span><span class="n">Ii</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">scaleToMeter</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span><span class="o">*</span><span class="n">Ri_i</span><span class="o">.</span><span class="n">T</span> <span class="o">*</span> <span class="n">alphai_i</span><span class="o">.</span><span class="n">T</span>
+            <span class="n">accelerationContribution</span><span class="p">[</span><span class="n">i</span><span class="p">,:]</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">accContr_i</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+            
+            <span class="n">corCont_i</span> <span class="o">=</span> <span class="n">numeric</span><span class="o">.</span><span class="n">skewMatrix</span><span class="p">(</span><span class="n">omegai_i</span><span class="p">)</span> <span class="o">*</span> <span class="n">Ri_i</span><span class="o">*</span><span class="p">(</span><span class="n">Ii</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">scaleToMeter</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span><span class="o">*</span><span class="n">Ri_i</span><span class="o">.</span><span class="n">T</span> <span class="o">*</span> <span class="n">omegai_i</span><span class="o">.</span><span class="n">T</span>
+            <span class="n">coriolisContribution</span><span class="p">[</span><span class="n">i</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">corCont_i</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+
+
+        <span class="k">return</span>   <span class="n">accelerationContribution</span> <span class="o">+</span> <span class="n">coriolisContribution</span>        
+
+    <span class="k">def</span> <span class="nf">_accelerationMomentContribution</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mi</span><span class="p">,</span><span class="n">ci</span><span class="p">,</span> <span class="n">ai</span><span class="p">,</span> <span class="n">Ti</span><span class="p">,</span> <span class="n">scaleToMeter</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        SkewMatrix(ai_i*scaleToMeter) *mi * Ri_i*(ci*scaleToMeter</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="n">nf</span> <span class="o">=</span> <span class="n">ai</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>        
+       
+        <span class="n">accelerationContribution</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">nf</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+   
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">nf</span><span class="p">):</span>
+            <span class="n">ai_i</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">ai</span><span class="p">[</span><span class="n">i</span><span class="p">,:])</span>
+            <span class="n">Ri_i</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">Ti</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">getRotation</span><span class="p">())</span>
+            <span class="n">ci</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">ci</span><span class="p">)</span>
+            
+            <span class="n">val</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1.0</span><span class="o">*</span><span class="n">mi</span><span class="o">*</span><span class="n">numeric</span><span class="o">.</span><span class="n">skewMatrix</span><span class="p">(</span><span class="n">ai_i</span><span class="o">*</span><span class="n">scaleToMeter</span><span class="p">)</span> <span class="o">*</span> <span class="n">Ri_i</span><span class="o">*</span><span class="p">(</span><span class="n">ci</span><span class="o">.</span><span class="n">T</span><span class="o">*</span><span class="n">scaleToMeter</span><span class="p">)</span>
+
+            <span class="n">accelerationContribution</span><span class="p">[</span><span class="n">i</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">val</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">accelerationContribution</span>
+
+
+    <span class="k">def</span> <span class="nf">_gravityMomentContribution</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mi</span><span class="p">,</span><span class="n">ci</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">Ti</span><span class="p">,</span> <span class="n">scaleToMeter</span><span class="p">):</span>     
+
+        <span class="n">nf</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">Ti</span><span class="p">)</span>        
+       
+        <span class="n">gravityContribution</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">nf</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+
+
+        <span class="n">g</span><span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>
+        <span class="n">ci</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">ci</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">nf</span><span class="p">):</span>
+            <span class="n">Ri_i</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">Ti</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">getRotation</span><span class="p">())</span>
+            <span class="n">val</span> <span class="o">=</span> <span class="o">-</span> <span class="mf">1.0</span> <span class="o">*</span><span class="n">mi</span><span class="o">*</span><span class="n">numeric</span><span class="o">.</span><span class="n">skewMatrix</span><span class="p">(</span><span class="n">g</span><span class="p">)</span> <span class="o">*</span> <span class="n">Ri_i</span><span class="o">*</span><span class="p">(</span><span class="n">ci</span><span class="o">.</span><span class="n">T</span><span class="o">*</span><span class="n">scaleToMeter</span><span class="p">)</span>
+            
+            <span class="n">gravityContribution</span><span class="p">[</span><span class="n">i</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">val</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+        <span class="k">return</span>  <span class="n">gravityContribution</span>
+
+
+
+    <span class="k">def</span> <span class="nf">computeSegmental</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">model</span><span class="p">,</span><span class="n">segmentLabel</span><span class="p">,</span><span class="n">btkAcq</span><span class="p">,</span> <span class="n">gravity</span><span class="p">,</span> <span class="n">scaleToMeter</span><span class="p">,</span><span class="n">distalSegmentLabel</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="n">N</span> <span class="o">=</span> <span class="n">btkAcq</span><span class="o">.</span><span class="n">GetPointFrameNumber</span><span class="p">()</span>
+
+        <span class="c1"># initialisation</span>
+        <span class="n">model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="n">segmentLabel</span><span class="p">)</span><span class="o">.</span><span class="n">zeroingProximalWrench</span><span class="p">()</span>
+
+        <span class="n">forceValues</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">N</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+        <span class="n">momentValues</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">N</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+        <span class="n">positionValues</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">N</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+
+        <span class="n">wrench</span> <span class="o">=</span> <span class="n">btk</span><span class="o">.</span><span class="n">btkWrench</span><span class="p">()</span>
+        <span class="n">ForceBtkPoint</span> <span class="o">=</span> <span class="n">btk</span><span class="o">.</span><span class="n">btkPoint</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+        <span class="n">MomentBtkPoint</span> <span class="o">=</span> <span class="n">btk</span><span class="o">.</span><span class="n">btkPoint</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+        <span class="n">PositionBtkPoint</span> <span class="o">=</span> <span class="n">btk</span><span class="o">.</span><span class="n">btkPoint</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>         
+
+        <span class="n">Ti</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="n">segmentLabel</span><span class="p">)</span><span class="o">.</span><span class="n">anatomicalFrame</span><span class="o">.</span><span class="n">motion</span>       
+        <span class="n">mi</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="n">segmentLabel</span><span class="p">)</span><span class="o">.</span><span class="n">m_bsp</span><span class="p">[</span><span class="s2">&quot;mass&quot;</span><span class="p">]</span>
+        <span class="n">ci</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="n">segmentLabel</span><span class="p">)</span><span class="o">.</span><span class="n">m_bsp</span><span class="p">[</span><span class="s2">&quot;com&quot;</span><span class="p">]</span>
+        <span class="n">Ii</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="n">segmentLabel</span><span class="p">)</span><span class="o">.</span><span class="n">m_bsp</span><span class="p">[</span><span class="s2">&quot;inertia&quot;</span><span class="p">]</span>
+
+        
+        <span class="c1"># external devices</span>
+        <span class="n">extForces</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">N</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span> 
+        <span class="n">extMoment</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">N</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="n">segmentLabel</span><span class="p">)</span><span class="o">.</span><span class="n">isExternalDeviceWrenchsConnected</span><span class="p">():</span>
+            <span class="n">extForces</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_externalDeviceForceContribution</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="n">segmentLabel</span><span class="p">)</span><span class="o">.</span><span class="n">m_externalDeviceWrenchs</span><span class="p">)</span>
+            <span class="n">extMoment</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_externalDeviceMomentContribution</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="n">segmentLabel</span><span class="p">)</span><span class="o">.</span><span class="n">m_externalDeviceWrenchs</span><span class="p">,</span> <span class="n">Ti</span><span class="p">,</span> <span class="n">scaleToMeter</span><span class="p">)</span>
+
+        <span class="c1"># distal</span>
+        <span class="n">distSegMoment</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">N</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span> 
+        <span class="n">distSegForce</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">N</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+        <span class="n">distSegMoment_forceDistalContribution</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">N</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+        <span class="n">distSegMoment_momentDistalContribution</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">N</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+        
+        
+        <span class="k">if</span> <span class="n">distalSegmentLabel</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">distalWrench</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="n">distalSegmentLabel</span><span class="p">)</span><span class="o">.</span><span class="n">m_proximalWrench</span>
+
+            <span class="n">distSegForce</span> <span class="o">=</span> <span class="n">distalWrench</span><span class="o">.</span><span class="n">GetForce</span><span class="p">()</span><span class="o">.</span><span class="n">GetValues</span><span class="p">()</span>
+            <span class="n">distSegMoment</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_distalMomentContribution</span><span class="p">(</span><span class="n">distalWrench</span><span class="p">,</span> <span class="n">Ti</span><span class="p">,</span> <span class="n">scaleToMeter</span><span class="p">)</span>
+            
+            <span class="n">distSegMoment_forceDistalContribution</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_distalMomentContribution</span><span class="p">(</span><span class="n">distalWrench</span><span class="p">,</span> <span class="n">Ti</span><span class="p">,</span> <span class="n">scaleToMeter</span><span class="p">,</span> <span class="n">source</span> <span class="o">=</span><span class="s2">&quot;Force&quot;</span><span class="p">)</span>
+            <span class="n">distSegMoment_momentDistalContribution</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_distalMomentContribution</span><span class="p">(</span><span class="n">distalWrench</span><span class="p">,</span> <span class="n">Ti</span><span class="p">,</span> <span class="n">scaleToMeter</span><span class="p">,</span> <span class="n">source</span> <span class="o">=</span><span class="s2">&quot;Moment&quot;</span><span class="p">)</span>
+            
+        <span class="c1"># Force            </span>
+        <span class="n">ai</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="n">segmentLabel</span><span class="p">)</span><span class="o">.</span><span class="n">getComAcceleration</span><span class="p">(</span><span class="n">btkAcq</span><span class="o">.</span><span class="n">GetPointFrequency</span><span class="p">(),</span> <span class="n">order</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">fc</span><span class="o">=</span><span class="mi">6</span> <span class="p">)</span>
+        <span class="n">force_accContr</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_forceAccelerationContribution</span><span class="p">(</span><span class="n">mi</span><span class="p">,</span><span class="n">ai</span><span class="p">,</span><span class="n">gravity</span><span class="p">,</span><span class="n">scaleToMeter</span><span class="p">)</span>
+        <span class="n">forceValues</span>  <span class="o">=</span> <span class="n">force_accContr</span> <span class="o">-</span> <span class="p">(</span> <span class="n">extForces</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span> <span class="o">-</span> <span class="n">distSegForce</span><span class="p">)</span> 
+
+        <span class="c1"># moment</span>
+        <span class="n">alphai</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="n">segmentLabel</span><span class="p">)</span><span class="o">.</span><span class="n">getAngularAcceleration</span><span class="p">(</span><span class="n">btkAcq</span><span class="o">.</span><span class="n">GetPointFrequency</span><span class="p">())</span>
+        <span class="n">omegai</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="n">segmentLabel</span><span class="p">)</span><span class="o">.</span><span class="n">getAngularVelocity</span><span class="p">(</span><span class="n">btkAcq</span><span class="o">.</span><span class="n">GetPointFrequency</span><span class="p">())</span>
+
+        <span class="n">inertieCont</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_inertialMomentContribution</span><span class="p">(</span><span class="n">Ii</span><span class="p">,</span> <span class="n">alphai</span><span class="p">,</span><span class="n">omegai</span><span class="p">,</span> <span class="n">Ti</span> <span class="p">,</span><span class="n">scaleToMeter</span><span class="p">)</span>         
+        <span class="n">accCont</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_accelerationMomentContribution</span><span class="p">(</span><span class="n">mi</span><span class="p">,</span><span class="n">ci</span><span class="p">,</span> <span class="n">ai</span><span class="p">,</span> <span class="n">Ti</span><span class="p">,</span> <span class="n">scaleToMeter</span><span class="p">)</span>
+        <span class="n">grCont</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_gravityMomentContribution</span><span class="p">(</span><span class="n">mi</span><span class="p">,</span><span class="n">ci</span><span class="p">,</span> <span class="n">gravity</span><span class="p">,</span> <span class="n">Ti</span><span class="p">,</span> <span class="n">scaleToMeter</span><span class="p">)</span>
+
+        <span class="n">momentValues</span> <span class="o">=</span> <span class="n">inertieCont</span> <span class="o">+</span> <span class="n">accCont</span> <span class="o">-</span>  <span class="n">grCont</span> <span class="o">-</span> <span class="n">extMoment</span> <span class="o">-</span> <span class="n">distSegMoment</span>
+
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">N</span><span class="p">):</span> 
+            <span class="n">positionValues</span><span class="p">[</span><span class="n">i</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">Ti</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">getTranslation</span><span class="p">()</span>
+
+        <span class="n">ForceBtkPoint</span><span class="o">.</span><span class="n">SetValues</span><span class="p">(</span><span class="n">forceValues</span><span class="p">)</span>
+        <span class="n">MomentBtkPoint</span><span class="o">.</span><span class="n">SetValues</span><span class="p">(</span><span class="n">momentValues</span><span class="o">/</span><span class="n">scaleToMeter</span><span class="p">)</span>
+        <span class="n">PositionBtkPoint</span><span class="o">.</span><span class="n">SetValues</span><span class="p">(</span><span class="n">positionValues</span><span class="p">)</span>
+        
+        <span class="n">wrench</span><span class="o">.</span><span class="n">SetForce</span><span class="p">(</span><span class="n">ForceBtkPoint</span><span class="p">)</span>
+        <span class="n">wrench</span><span class="o">.</span><span class="n">SetMoment</span><span class="p">(</span><span class="n">MomentBtkPoint</span><span class="p">)</span>
+        <span class="n">wrench</span><span class="o">.</span><span class="n">SetPosition</span><span class="p">(</span><span class="n">PositionBtkPoint</span><span class="p">)</span>
+        
+        <span class="n">model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="n">segmentLabel</span><span class="p">)</span><span class="o">.</span><span class="n">m_proximalWrench</span> <span class="o">=</span> <span class="n">wrench</span>
+        <span class="n">model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="n">segmentLabel</span><span class="p">)</span><span class="o">.</span><span class="n">m_proximalMomentContribution</span><span class="p">[</span><span class="s2">&quot;internal&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">inertieCont</span><span class="o">+</span><span class="n">accCont</span><span class="p">)</span><span class="o">/</span><span class="n">scaleToMeter</span>
+        <span class="n">model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="n">segmentLabel</span><span class="p">)</span><span class="o">.</span><span class="n">m_proximalMomentContribution</span><span class="p">[</span><span class="s2">&quot;external&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span>  <span class="n">grCont</span> <span class="o">-</span> <span class="n">extMoment</span> <span class="o">-</span> <span class="n">distSegMoment</span><span class="p">)</span><span class="o">/</span><span class="n">scaleToMeter</span>        
+        <span class="n">model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="n">segmentLabel</span><span class="p">)</span><span class="o">.</span><span class="n">m_proximalMomentContribution</span><span class="p">[</span><span class="s2">&quot;inertia&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">inertieCont</span><span class="o">/</span><span class="n">scaleToMeter</span>
+        <span class="n">model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="n">segmentLabel</span><span class="p">)</span><span class="o">.</span><span class="n">m_proximalMomentContribution</span><span class="p">[</span><span class="s2">&quot;linearAcceleration&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">accCont</span><span class="o">/</span><span class="n">scaleToMeter</span>        
+        <span class="n">model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="n">segmentLabel</span><span class="p">)</span><span class="o">.</span><span class="n">m_proximalMomentContribution</span><span class="p">[</span><span class="s2">&quot;gravity&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span> <span class="n">grCont</span><span class="o">/</span><span class="n">scaleToMeter</span>
+        <span class="n">model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="n">segmentLabel</span><span class="p">)</span><span class="o">.</span><span class="n">m_proximalMomentContribution</span><span class="p">[</span><span class="s2">&quot;externalDevices&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span> <span class="n">extMoment</span><span class="o">/</span><span class="n">scaleToMeter</span>        
+        <span class="n">model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="n">segmentLabel</span><span class="p">)</span><span class="o">.</span><span class="n">m_proximalMomentContribution</span><span class="p">[</span><span class="s2">&quot;distalSegments&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span> <span class="n">distSegMoment</span><span class="o">/</span><span class="n">scaleToMeter</span>
+        <span class="n">model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="n">segmentLabel</span><span class="p">)</span><span class="o">.</span><span class="n">m_proximalMomentContribution</span><span class="p">[</span><span class="s2">&quot;distalSegmentForces&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span> <span class="n">distSegMoment_forceDistalContribution</span><span class="o">/</span><span class="n">scaleToMeter</span>
+        <span class="n">model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="n">segmentLabel</span><span class="p">)</span><span class="o">.</span><span class="n">m_proximalMomentContribution</span><span class="p">[</span><span class="s2">&quot;distalSegmentMoments&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span> <span class="n">distSegMoment_momentDistalContribution</span><span class="o">/</span><span class="n">scaleToMeter</span>       
+        
+        <span class="k">return</span> <span class="n">momentValues</span>
+
+    <span class="k">def</span> <span class="nf">compute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">model</span><span class="p">,</span> <span class="n">btkAcq</span><span class="p">,</span> <span class="n">gravity</span><span class="p">,</span> <span class="n">scaleToMeter</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        calcul segment par segment, j automatiserai plus tard ! </span>
+<span class="sd">    </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">computeSegmental</span><span class="p">(</span><span class="n">model</span><span class="p">,</span><span class="s2">&quot;Left Foot&quot;</span><span class="p">,</span><span class="n">btkAcq</span><span class="p">,</span> <span class="n">gravity</span><span class="p">,</span> <span class="n">scaleToMeter</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">computeSegmental</span><span class="p">(</span><span class="n">model</span><span class="p">,</span><span class="s2">&quot;Left Shank&quot;</span><span class="p">,</span><span class="n">btkAcq</span><span class="p">,</span> <span class="n">gravity</span><span class="p">,</span> <span class="n">scaleToMeter</span><span class="p">,</span><span class="n">distalSegmentLabel</span> <span class="o">=</span> <span class="s2">&quot;Left Foot&quot;</span><span class="p">)</span>
+        <span class="n">model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="s2">&quot;Left Shank Proximal&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">m_proximalWrench</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="s2">&quot;Left Shank&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">m_proximalWrench</span> 
+        <span class="n">model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="s2">&quot;Left Shank Proximal&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">m_proximalMomentContribution</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="s2">&quot;Left Shank&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">m_proximalMomentContribution</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">computeSegmental</span><span class="p">(</span><span class="n">model</span><span class="p">,</span><span class="s2">&quot;Left Thigh&quot;</span><span class="p">,</span><span class="n">btkAcq</span><span class="p">,</span> <span class="n">gravity</span><span class="p">,</span> <span class="n">scaleToMeter</span><span class="p">,</span><span class="n">distalSegmentLabel</span> <span class="o">=</span> <span class="s2">&quot;Left Shank&quot;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">computeSegmental</span><span class="p">(</span><span class="n">model</span><span class="p">,</span><span class="s2">&quot;Right Foot&quot;</span><span class="p">,</span><span class="n">btkAcq</span><span class="p">,</span> <span class="n">gravity</span><span class="p">,</span> <span class="n">scaleToMeter</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">computeSegmental</span><span class="p">(</span><span class="n">model</span><span class="p">,</span><span class="s2">&quot;Right Shank&quot;</span><span class="p">,</span><span class="n">btkAcq</span><span class="p">,</span> <span class="n">gravity</span><span class="p">,</span> <span class="n">scaleToMeter</span><span class="p">,</span><span class="n">distalSegmentLabel</span> <span class="o">=</span> <span class="s2">&quot;Right Foot&quot;</span><span class="p">)</span>
+        <span class="n">model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="s2">&quot;Right Shank Proximal&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">m_proximalWrench</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="s2">&quot;Right Shank&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">m_proximalWrench</span> 
+        <span class="n">model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="s2">&quot;Right Shank Proximal&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">m_proximalMomentContribution</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="s2">&quot;Right Shank&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">m_proximalMomentContribution</span> 
+        <span class="bp">self</span><span class="o">.</span><span class="n">computeSegmental</span><span class="p">(</span><span class="n">model</span><span class="p">,</span><span class="s2">&quot;Right Thigh&quot;</span><span class="p">,</span><span class="n">btkAcq</span><span class="p">,</span> <span class="n">gravity</span><span class="p">,</span> <span class="n">scaleToMeter</span><span class="p">,</span><span class="n">distalSegmentLabel</span> <span class="o">=</span> <span class="s2">&quot;Right Shank&quot;</span><span class="p">)</span>
+        
+<span class="c1">#-------- FILTERS ----------</span>
+
+
+<span class="c1">#-------- MODEL CALIBRATION FILTER ----------</span>
+
+<div class="viewcode-block" id="ModelCalibrationFilter"><a class="viewcode-back" href="../../../../pyCGM2.Model.CGM2.html#pyCGM2.Model.CGM2.modelFilters.ModelCalibrationFilter">[docs]</a><span class="k">class</span> <span class="nc">ModelCalibrationFilter</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; </span>
+<span class="sd">        Perform model calibration from a static acquisition    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">procedure</span><span class="p">,</span> <span class="n">acq</span><span class="p">,</span> <span class="n">iMod</span><span class="p">,</span><span class="o">**</span><span class="n">options</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            :Parameters:</span>
+<span class="sd">               - `procedure` (pyCGM2.Model.CGM2.ModelFilters.(_Procedure) ) - Model Procedure to use   </span>
+<span class="sd">               - `acq` (btkAcquisition) - a btk acquisition instance of the static c3d</span>
+<span class="sd">               - `iMod` (pyCGM2.Model.CGM2.model.Model) - a model instance</span>
+<span class="sd">               - `**options` (dict) - dictionnary passing calibration options </span>
+<span class="sd">       </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">m_aqui</span><span class="o">=</span><span class="n">acq</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">m_procedure</span><span class="o">=</span><span class="n">procedure</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">m_model</span><span class="o">=</span><span class="n">iMod</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">m_options</span><span class="o">=</span><span class="n">options</span>
+        
+        
+
+<div class="viewcode-block" id="ModelCalibrationFilter.compute"><a class="viewcode-back" href="../../../../pyCGM2.Model.CGM2.html#pyCGM2.Model.CGM2.modelFilters.ModelCalibrationFilter.compute">[docs]</a>    <span class="k">def</span> <span class="nf">compute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">firstFrameOnly</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; </span>
+<span class="sd">            Run Calibration filter</span>
+
+<span class="sd">            :Parameters:</span>
+<span class="sd">               - `firstFrameOnly` (bool) - flag indicating calibration on the first frame   </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+    
+        <span class="n">ff</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">m_aqui</span><span class="o">.</span><span class="n">GetFirstFrame</span><span class="p">()</span>        
+        
+        <span class="k">if</span> <span class="n">firstFrameOnly</span> <span class="p">:</span>
+            <span class="n">frameInit</span><span class="o">=</span><span class="mi">0</span> <span class="c1">#frameInit-ff  </span>
+            <span class="n">frameEnd</span><span class="o">=</span><span class="mi">1</span> <span class="c1">#frameEnd-ff+1       </span>
+        <span class="k">else</span> <span class="p">:</span>
+            <span class="n">frameInit</span><span class="o">=</span><span class="n">frameInit</span><span class="o">-</span><span class="n">ff</span>  
+            <span class="n">frameEnd</span><span class="o">=</span><span class="n">frameEnd</span><span class="o">-</span><span class="n">ff</span><span class="o">+</span><span class="mi">1</span>       
+
+        
+
+        <span class="k">if</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">m_model</span><span class="p">)</span> <span class="o">!=</span> <span class="s2">&quot;Basis Model&quot;</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">segName</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">m_procedure</span><span class="o">.</span><span class="n">definition</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+                <span class="n">segPicked</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">m_model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="n">segName</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">tfName</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">m_procedure</span><span class="o">.</span><span class="n">definition</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">segName</span><span class="p">]:</span> <span class="c1"># TF name</span>
+                    <span class="n">segPicked</span><span class="o">.</span><span class="n">addTechnicalReferential</span><span class="p">(</span><span class="n">tfName</span><span class="p">)</span> <span class="c1"># append Segment.technicalFrames ()            </span>
+            
+            <span class="bp">self</span><span class="o">.</span><span class="n">m_model</span><span class="o">.</span><span class="n">calibrate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">m_aqui</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">m_procedure</span><span class="o">.</span><span class="n">definition</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">m_procedure</span><span class="o">.</span><span class="n">definition</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">options</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">m_options</span><span class="p">)</span> 
+            
+
+        <span class="k">else</span> <span class="p">:</span>        
+            <span class="k">for</span> <span class="n">segName</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">m_procedure</span><span class="o">.</span><span class="n">definition</span><span class="p">:</span>
+              
+
+                <span class="n">segPicked</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">m_model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="n">segName</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">tfName</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">m_procedure</span><span class="o">.</span><span class="n">definition</span><span class="p">[</span><span class="n">segName</span><span class="p">]:</span> <span class="c1"># TF name</span>
+
+                    <span class="n">segPicked</span><span class="o">.</span><span class="n">addTechnicalReferential</span><span class="p">(</span><span class="n">tfName</span><span class="p">)</span> <span class="c1"># append Segment.technicalFrames ()</span>
+        
+                    <span class="n">pt1</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">m_aqui</span><span class="o">.</span><span class="n">GetPoint</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">m_procedure</span><span class="o">.</span><span class="n">definition</span><span class="p">[</span><span class="n">segName</span><span class="p">][</span><span class="n">tfName</span><span class="p">][</span><span class="s1">&#39;labels&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]))</span><span class="o">.</span><span class="n">GetValues</span><span class="p">()[</span><span class="n">frameInit</span><span class="p">:</span><span class="n">frameEnd</span><span class="p">,:]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+                    <span class="n">pt2</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">m_aqui</span><span class="o">.</span><span class="n">GetPoint</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">m_procedure</span><span class="o">.</span><span class="n">definition</span><span class="p">[</span><span class="n">segName</span><span class="p">][</span><span class="n">tfName</span><span class="p">][</span><span class="s1">&#39;labels&#39;</span><span class="p">][</span><span class="mi">1</span><span class="p">]))</span><span class="o">.</span><span class="n">GetValues</span><span class="p">()[</span><span class="n">frameInit</span><span class="p">:</span><span class="n">frameEnd</span><span class="p">,:]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+                    <span class="n">pt3</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">m_aqui</span><span class="o">.</span><span class="n">GetPoint</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">m_procedure</span><span class="o">.</span><span class="n">definition</span><span class="p">[</span><span class="n">segName</span><span class="p">][</span><span class="n">tfName</span><span class="p">][</span><span class="s1">&#39;labels&#39;</span><span class="p">][</span><span class="mi">2</span><span class="p">]))</span><span class="o">.</span><span class="n">GetValues</span><span class="p">()[</span><span class="n">frameInit</span><span class="p">:</span><span class="n">frameEnd</span><span class="p">,:]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    
+                    <span class="n">ptOrigin</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">m_aqui</span><span class="o">.</span><span class="n">GetPoint</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">m_procedure</span><span class="o">.</span><span class="n">definition</span><span class="p">[</span><span class="n">segName</span><span class="p">][</span><span class="n">tfName</span><span class="p">][</span><span class="s1">&#39;labels&#39;</span><span class="p">][</span><span class="mi">3</span><span class="p">]))</span><span class="o">.</span><span class="n">GetValues</span><span class="p">()[</span><span class="n">frameInit</span><span class="p">:</span><span class="n">frameEnd</span><span class="p">,:]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+                
+        
+                    <span class="n">a1</span><span class="o">=</span><span class="p">(</span><span class="n">pt2</span><span class="o">-</span><span class="n">pt1</span><span class="p">)</span>
+                    <span class="n">a1</span><span class="o">=</span><span class="n">a1</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">a1</span><span class="p">)</span>
+                    
+                    <span class="n">v</span><span class="o">=</span><span class="p">(</span><span class="n">pt3</span><span class="o">-</span><span class="n">pt1</span><span class="p">)</span>
+                    <span class="n">v</span><span class="o">=</span><span class="n">v</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+                    
+                    <span class="n">a2</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">cross</span><span class="p">(</span><span class="n">a1</span><span class="p">,</span><span class="n">v</span><span class="p">)</span>
+                    <span class="n">a2</span><span class="o">=</span><span class="n">a2</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">a2</span><span class="p">)</span>
+       
+                    <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">,</span><span class="n">R</span><span class="o">=</span><span class="n">cfr</span><span class="o">.</span><span class="n">setFrameData</span><span class="p">(</span><span class="n">a1</span><span class="p">,</span><span class="n">a2</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">m_procedure</span><span class="o">.</span><span class="n">definition</span><span class="p">[</span><span class="n">segName</span><span class="p">][</span><span class="n">tfName</span><span class="p">][</span><span class="s1">&#39;sequence&#39;</span><span class="p">])</span>          
+
+                    <span class="n">segPicked</span><span class="o">.</span><span class="n">referentials</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">static</span><span class="o">.</span><span class="n">m_axisX</span><span class="o">=</span><span class="n">x</span> <span class="c1"># work on the last TF in the list : thus index -1</span>
+                    <span class="n">segPicked</span><span class="o">.</span><span class="n">referentials</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">static</span><span class="o">.</span><span class="n">m_axisY</span><span class="o">=</span><span class="n">y</span>
+                    <span class="n">segPicked</span><span class="o">.</span><span class="n">referentials</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">static</span><span class="o">.</span><span class="n">m_axisZ</span><span class="o">=</span><span class="n">z</span>
+                    
+                    <span class="n">segPicked</span><span class="o">.</span><span class="n">referentials</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">static</span><span class="o">.</span><span class="n">setRotation</span><span class="p">(</span><span class="n">R</span><span class="p">)</span>
+                    <span class="n">segPicked</span><span class="o">.</span><span class="n">referentials</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">static</span><span class="o">.</span><span class="n">setTranslation</span><span class="p">(</span><span class="n">ptOrigin</span><span class="p">)</span>
+
+                    
+    
+                    <span class="c1">#  - add Nodes in segmental static(technical)Frame - </span>
+                    <span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">segPicked</span><span class="o">.</span><span class="n">m_markerLabels</span><span class="p">:</span>
+                        <span class="n">globalPosition</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">m_aqui</span><span class="o">.</span><span class="n">GetPoint</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">label</span><span class="p">))</span><span class="o">.</span><span class="n">GetValues</span><span class="p">()[</span><span class="n">frameInit</span><span class="p">:</span><span class="n">frameEnd</span><span class="p">,:]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+                     
+                        <span class="n">segPicked</span><span class="o">.</span><span class="n">referentials</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">static</span><span class="o">.</span><span class="n">addNode</span><span class="p">(</span><span class="n">label</span><span class="p">,</span><span class="n">globalPosition</span><span class="p">,</span><span class="n">positionType</span><span class="o">=</span><span class="s2">&quot;Global&quot;</span><span class="p">)</span></div></div>
+
+
+<span class="c1">#-------- MOTION FILTER  ----------</span>
+
+
+
+<div class="viewcode-block" id="ModelMotionFilter"><a class="viewcode-back" href="../../../../pyCGM2.Model.CGM2.html#pyCGM2.Model.CGM2.modelFilters.ModelMotionFilter">[docs]</a><span class="k">class</span> <span class="nc">ModelMotionFilter</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Compute Motion of each segment</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">procedure</span><span class="p">,</span><span class="n">acq</span><span class="p">,</span> <span class="n">iMod</span><span class="p">,</span><span class="n">method</span><span class="p">,</span> <span class="o">**</span><span class="n">options</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            :Parameters:</span>
+<span class="sd">            </span>
+<span class="sd">               -- `procedure` (pyCGM2.Model.CGM2.ModelFilters.(_Procedure) ) - Model Procedure to use    </span>
+<span class="sd">               - `acq` (btkAcquisition) - btk acquisition instance of a dynamic trial</span>
+<span class="sd">               - `iMod` (pyCGM2.Model.CGM2.model.Model) - a model instancel</span>
+<span class="sd">               - `method` (pyCGM2.enums) -method uses for computing segment pose</span>
+<span class="sd">       </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">m_aqui</span> <span class="o">=</span> <span class="n">acq</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">m_procedure</span> <span class="o">=</span> <span class="n">procedure</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">m_model</span> <span class="o">=</span> <span class="n">iMod</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">m_method</span> <span class="o">=</span> <span class="n">method</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">m_options</span> <span class="o">=</span> <span class="n">options</span>
+
+
+<div class="viewcode-block" id="ModelMotionFilter.compute"><a class="viewcode-back" href="../../../../pyCGM2.Model.CGM2.html#pyCGM2.Model.CGM2.modelFilters.ModelMotionFilter.compute">[docs]</a>    <span class="k">def</span> <span class="nf">compute</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Run the motion filter</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="k">if</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">m_model</span><span class="p">)</span> <span class="o">!=</span> <span class="s2">&quot;Basis Model&quot;</span><span class="p">:</span>
+           <span class="bp">self</span><span class="o">.</span><span class="n">m_model</span><span class="o">.</span><span class="n">computeMotion</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">m_aqui</span><span class="p">,</span>
+                                      <span class="bp">self</span><span class="o">.</span><span class="n">m_procedure</span><span class="o">.</span><span class="n">definition</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+                                      <span class="bp">self</span><span class="o">.</span><span class="n">m_procedure</span><span class="o">.</span><span class="n">definition</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+                                      <span class="bp">self</span><span class="o">.</span><span class="n">m_method</span><span class="p">,</span>
+                                      <span class="bp">self</span><span class="o">.</span><span class="n">m_options</span><span class="p">)</span>
+        <span class="k">else</span> <span class="p">:</span>    
+            <span class="k">for</span> <span class="n">segName</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">m_procedure</span><span class="o">.</span><span class="n">definition</span><span class="p">:</span>
+                <span class="n">segPicked</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">m_model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="n">segName</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">tfName</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">m_procedure</span><span class="o">.</span><span class="n">definition</span><span class="p">[</span><span class="n">segName</span><span class="p">]:</span>
+                    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">m_method</span> <span class="o">==</span> <span class="n">pyCGM2Enums</span><span class="o">.</span><span class="n">motionMethod</span><span class="o">.</span><span class="n">Sodervisk</span> <span class="p">:</span>
+                        <span class="n">pt1static</span><span class="o">=</span><span class="n">segPicked</span><span class="o">.</span><span class="n">getReferential</span><span class="p">(</span><span class="n">tfName</span><span class="p">)</span><span class="o">.</span><span class="n">static</span><span class="o">.</span><span class="n">getNode_byLabel</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">m_procedure</span><span class="o">.</span><span class="n">definition</span><span class="p">[</span><span class="n">segName</span><span class="p">][</span><span class="n">tfName</span><span class="p">][</span><span class="s1">&#39;labels&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">m_global</span>
+                        <span class="n">pt2static</span><span class="o">=</span><span class="n">segPicked</span><span class="o">.</span><span class="n">getReferential</span><span class="p">(</span><span class="n">tfName</span><span class="p">)</span><span class="o">.</span><span class="n">static</span><span class="o">.</span><span class="n">getNode_byLabel</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">m_procedure</span><span class="o">.</span><span class="n">definition</span><span class="p">[</span><span class="n">segName</span><span class="p">][</span><span class="n">tfName</span><span class="p">][</span><span class="s1">&#39;labels&#39;</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">m_global</span>
+                        <span class="n">pt3static</span><span class="o">=</span><span class="n">segPicked</span><span class="o">.</span><span class="n">getReferential</span><span class="p">(</span><span class="n">tfName</span><span class="p">)</span><span class="o">.</span><span class="n">static</span><span class="o">.</span><span class="n">getNode_byLabel</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">m_procedure</span><span class="o">.</span><span class="n">definition</span><span class="p">[</span><span class="n">segName</span><span class="p">][</span><span class="n">tfName</span><span class="p">][</span><span class="s1">&#39;labels&#39;</span><span class="p">][</span><span class="mi">2</span><span class="p">])</span><span class="o">.</span><span class="n">m_global</span>
+    
+                    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">m_aqui</span><span class="o">.</span><span class="n">GetPointFrameNumber</span><span class="p">()):</span>
+                        <span class="n">pt1</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">m_aqui</span><span class="o">.</span><span class="n">GetPoint</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">m_procedure</span><span class="o">.</span><span class="n">definition</span><span class="p">[</span><span class="n">segName</span><span class="p">][</span><span class="n">tfName</span><span class="p">][</span><span class="s1">&#39;labels&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]))</span><span class="o">.</span><span class="n">GetValues</span><span class="p">()[</span><span class="n">i</span><span class="p">,:]</span>
+                        <span class="n">pt2</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">m_aqui</span><span class="o">.</span><span class="n">GetPoint</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">m_procedure</span><span class="o">.</span><span class="n">definition</span><span class="p">[</span><span class="n">segName</span><span class="p">][</span><span class="n">tfName</span><span class="p">][</span><span class="s1">&#39;labels&#39;</span><span class="p">][</span><span class="mi">1</span><span class="p">]))</span><span class="o">.</span><span class="n">GetValues</span><span class="p">()[</span><span class="n">i</span><span class="p">,:]</span>
+                        <span class="n">pt3</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">m_aqui</span><span class="o">.</span><span class="n">GetPoint</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">m_procedure</span><span class="o">.</span><span class="n">definition</span><span class="p">[</span><span class="n">segName</span><span class="p">][</span><span class="n">tfName</span><span class="p">][</span><span class="s1">&#39;labels&#39;</span><span class="p">][</span><span class="mi">2</span><span class="p">]))</span><span class="o">.</span><span class="n">GetValues</span><span class="p">()[</span><span class="n">i</span><span class="p">,:]</span>
+    
+                        <span class="n">ptOrigin</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">m_aqui</span><span class="o">.</span><span class="n">GetPoint</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">m_procedure</span><span class="o">.</span><span class="n">definition</span><span class="p">[</span><span class="n">segName</span><span class="p">][</span><span class="n">tfName</span><span class="p">][</span><span class="s1">&#39;labels&#39;</span><span class="p">][</span><span class="mi">3</span><span class="p">]))</span><span class="o">.</span><span class="n">GetValues</span><span class="p">()[</span><span class="n">i</span><span class="p">,:]</span>
+        
+                        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">m_method</span> <span class="o">==</span> <span class="n">pyCGM2Enums</span><span class="o">.</span><span class="n">motionMethod</span><span class="o">.</span><span class="kc">None</span> <span class="p">:</span>
+             
+                            <span class="n">a1</span><span class="o">=</span><span class="p">(</span><span class="n">pt2</span><span class="o">-</span><span class="n">pt1</span><span class="p">)</span>
+                            <span class="n">a1</span><span class="o">=</span><span class="n">a1</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">a1</span><span class="p">)</span>
+                        
+                            <span class="n">v</span><span class="o">=</span><span class="p">(</span><span class="n">pt3</span><span class="o">-</span><span class="n">pt1</span><span class="p">)</span>
+                            <span class="n">v</span><span class="o">=</span><span class="n">v</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+                        
+                            <span class="n">a2</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">cross</span><span class="p">(</span><span class="n">a1</span><span class="p">,</span><span class="n">v</span><span class="p">)</span>
+                            <span class="n">a2</span><span class="o">=</span><span class="n">a2</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">a2</span><span class="p">)</span>
+    
+                            <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">,</span><span class="n">R</span><span class="o">=</span><span class="n">cfr</span><span class="o">.</span><span class="n">setFrameData</span><span class="p">(</span><span class="n">a1</span><span class="p">,</span><span class="n">a2</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">m_procedure</span><span class="o">.</span><span class="n">definition</span><span class="p">[</span><span class="n">segName</span><span class="p">][</span><span class="n">tfName</span><span class="p">][</span><span class="s1">&#39;sequence&#39;</span><span class="p">])</span> 
+                            <span class="n">frame</span><span class="o">=</span><span class="n">cfr</span><span class="o">.</span><span class="n">Frame</span><span class="p">()</span>                
+                                
+                            <span class="n">frame</span><span class="o">.</span><span class="n">m_axisX</span><span class="o">=</span><span class="n">x</span>
+                            <span class="n">frame</span><span class="o">.</span><span class="n">m_axisY</span><span class="o">=</span><span class="n">y</span>
+                            <span class="n">frame</span><span class="o">.</span><span class="n">m_axisZ</span><span class="o">=</span><span class="n">z</span>
+                            <span class="n">frame</span><span class="o">.</span><span class="n">setRotation</span><span class="p">(</span><span class="n">R</span><span class="p">)</span>
+                            <span class="n">frame</span><span class="o">.</span><span class="n">setTranslation</span><span class="p">(</span><span class="n">ptOrigin</span><span class="p">)</span>
+       
+                        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">m_method</span> <span class="o">==</span> <span class="n">pyCGM2Enums</span><span class="o">.</span><span class="n">motionMethod</span><span class="o">.</span><span class="n">Sodervisk</span> <span class="p">:</span>
+                            <span class="n">Ropt</span><span class="p">,</span> <span class="n">Lopt</span><span class="p">,</span> <span class="n">RMSE</span><span class="p">,</span> <span class="n">Am</span><span class="p">,</span> <span class="n">Bm</span><span class="o">=</span><span class="n">cmot</span><span class="o">.</span><span class="n">segmentalLeastSquare</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">pt1static</span><span class="p">,</span><span class="n">pt2static</span><span class="p">,</span><span class="n">pt3static</span><span class="p">]),</span> 
+                                                                          <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">pt1</span><span class="p">,</span><span class="n">pt2</span><span class="p">,</span><span class="n">pt3</span><span class="p">]))</span>                                                        
+                            <span class="n">R</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">Ropt</span><span class="p">,</span><span class="n">segPicked</span><span class="o">.</span><span class="n">getReferential</span><span class="p">(</span><span class="n">tfName</span><span class="p">)</span><span class="o">.</span><span class="n">static</span><span class="o">.</span><span class="n">getRotation</span><span class="p">())</span>    
+                            <span class="n">tOri</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">Ropt</span><span class="p">,</span><span class="n">segPicked</span><span class="o">.</span><span class="n">getReferential</span><span class="p">(</span><span class="n">tfName</span><span class="p">)</span><span class="o">.</span><span class="n">static</span><span class="o">.</span><span class="n">getTranslation</span><span class="p">())</span><span class="o">+</span><span class="n">Lopt</span>                                        
+                            
+                            <span class="n">frame</span><span class="o">=</span><span class="n">cfr</span><span class="o">.</span><span class="n">Frame</span><span class="p">()</span>
+                            <span class="n">frame</span><span class="o">.</span><span class="n">setRotation</span><span class="p">(</span><span class="n">R</span><span class="p">)</span>
+                            <span class="n">frame</span><span class="o">.</span><span class="n">setTranslation</span><span class="p">(</span><span class="n">tOri</span><span class="p">)</span>
+                            <span class="n">frame</span><span class="o">.</span><span class="n">m_axisX</span><span class="o">=</span><span class="n">R</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span>
+                            <span class="n">frame</span><span class="o">.</span><span class="n">m_axisY</span><span class="o">=</span><span class="n">R</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
+                            <span class="n">frame</span><span class="o">.</span><span class="n">m_axisZ</span><span class="o">=</span><span class="n">R</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]</span>
+    
+                        <span class="n">segPicked</span><span class="o">.</span><span class="n">getReferential</span><span class="p">(</span><span class="n">tfName</span><span class="p">)</span><span class="o">.</span><span class="n">addMotionFrame</span><span class="p">(</span><span class="n">frame</span><span class="p">)</span></div></div>
+
+
+<span class="c1"># ----- Joint angles -----</span>
+
+<div class="viewcode-block" id="ModelJCSFilter"><a class="viewcode-back" href="../../../../pyCGM2.Model.CGM2.html#pyCGM2.Model.CGM2.modelFilters.ModelJCSFilter">[docs]</a><span class="k">class</span> <span class="nc">ModelJCSFilter</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; </span>
+<span class="sd">        Compute joint angles</span>
+<span class="sd">    &quot;&quot;&quot;</span>      
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">iMod</span><span class="p">,</span> <span class="n">acq</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            :Parameters:</span>
+<span class="sd">               - `acq` (btkAcquisition) - btk acquisition instance of a dynamic trial</span>
+<span class="sd">               - `iMod` (pyCGM2.Model.CGM2.model.Model) - a model instance</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">m_aqui</span> <span class="o">=</span> <span class="n">acq</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">m_model</span> <span class="o">=</span> <span class="n">iMod</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">m_filter</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="k">def</span> <span class="nf">setFilterBool</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">boolValue</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">boolValue</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">m_filter</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">setLowPassFilterParameters</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">m_filter</span> <span class="o">=</span> <span class="kc">False</span>
+        
+
+    <span class="k">def</span> <span class="nf">setLowPassFilterParameters</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">order</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">fc</span> <span class="o">=</span> <span class="mi">6</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_filterOrder</span> <span class="o">=</span> <span class="n">order</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_filterCutOffFrequency</span> <span class="o">=</span> <span class="n">fc</span>
+
+
+<div class="viewcode-block" id="ModelJCSFilter.compute"><a class="viewcode-back" href="../../../../pyCGM2.Model.CGM2.html#pyCGM2.Model.CGM2.modelFilters.ModelJCSFilter.compute">[docs]</a>    <span class="k">def</span> <span class="nf">compute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">pointLabelSuffix</span> <span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            run `ModelJCSFilter` </span>
+
+<span class="sd">            .. note:: All angles are stored as btk point </span>
+
+<span class="sd">            :Parameters:</span>
+<span class="sd">               - `description` (str) -short description added to the btkPoint storing joint angles  </span>
+<span class="sd">               - `pointLabelSuffix` (str) - suffix ending the angle label</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+              
+        
+        <span class="k">for</span> <span class="n">it</span> <span class="ow">in</span>  <span class="bp">self</span><span class="o">.</span><span class="n">m_model</span><span class="o">.</span><span class="n">m_jointCollection</span><span class="p">:</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;---Processing of </span><span class="si">%s</span><span class="s2">---&quot;</span>  <span class="o">%</span> <span class="n">it</span><span class="o">.</span><span class="n">m_label</span><span class="p">)</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot; proximal : </span><span class="si">%s</span><span class="s2"> &quot;</span><span class="o">%</span> <span class="n">it</span><span class="o">.</span><span class="n">m_proximalLabel</span><span class="p">)</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot; distal : </span><span class="si">%s</span><span class="s2"> &quot;</span><span class="o">%</span> <span class="n">it</span><span class="o">.</span><span class="n">m_distalLabel</span><span class="p">)</span>
+
+                        
+            <span class="n">jointLabel</span> <span class="o">=</span> <span class="n">it</span><span class="o">.</span><span class="n">m_label</span>
+            <span class="n">proxSeg</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">m_model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="n">it</span><span class="o">.</span><span class="n">m_proximalLabel</span><span class="p">)</span>
+            <span class="n">distSeg</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">m_model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="n">it</span><span class="o">.</span><span class="n">m_distalLabel</span><span class="p">)</span>
+            
+            
+            <span class="n">jointValues</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">m_aqui</span><span class="o">.</span><span class="n">GetPointFrameNumber</span><span class="p">(),</span><span class="mi">3</span><span class="p">))</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">m_aqui</span><span class="o">.</span><span class="n">GetPointFrameNumber</span><span class="p">()):</span>
+                <span class="n">Rprox</span> <span class="o">=</span> <span class="n">proxSeg</span><span class="o">.</span><span class="n">anatomicalFrame</span><span class="o">.</span><span class="n">motion</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">getRotation</span><span class="p">()</span>
+                <span class="n">Rdist</span> <span class="o">=</span> <span class="n">distSeg</span><span class="o">.</span><span class="n">anatomicalFrame</span><span class="o">.</span><span class="n">motion</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">getRotation</span><span class="p">()</span> 
+<span class="c1">#                Rprox = np.dot(proxSeg.getReferential(&quot;TF&quot;).motion[i].getRotation(), proxSeg.getReferential(&quot;TF&quot;).relativeMatrixAnatomic)</span>
+<span class="c1">#                Rdist = np.dot(distSeg.getReferential(&quot;TF&quot;).motion[i].getRotation(), distSeg.getReferential(&quot;TF&quot;).relativeMatrixAnatomic)</span>
+                <span class="n">Rrelative</span><span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">Rprox</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">Rdist</span><span class="p">)</span>
+
+                              
+                <span class="k">if</span> <span class="n">it</span><span class="o">.</span><span class="n">m_sequence</span> <span class="o">==</span> <span class="s2">&quot;XYZ&quot;</span><span class="p">:</span>
+                    <span class="n">Euler1</span><span class="p">,</span><span class="n">Euler2</span><span class="p">,</span><span class="n">Euler3</span> <span class="o">=</span> <span class="n">ceu</span><span class="o">.</span><span class="n">euler_xyz</span><span class="p">(</span><span class="n">Rrelative</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="n">it</span><span class="o">.</span><span class="n">m_sequence</span> <span class="o">==</span> <span class="s2">&quot;XZY&quot;</span><span class="p">:</span>
+                    <span class="n">Euler1</span><span class="p">,</span><span class="n">Euler2</span><span class="p">,</span><span class="n">Euler3</span> <span class="o">=</span> <span class="n">ceu</span><span class="o">.</span><span class="n">euler_xzy</span><span class="p">(</span><span class="n">Rrelative</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="n">it</span><span class="o">.</span><span class="n">m_sequence</span> <span class="o">==</span> <span class="s2">&quot;YXZ&quot;</span><span class="p">:</span>
+                    <span class="n">Euler1</span><span class="p">,</span><span class="n">Euler2</span><span class="p">,</span><span class="n">Euler3</span> <span class="o">=</span> <span class="n">ceu</span><span class="o">.</span><span class="n">euler_yxz</span><span class="p">(</span><span class="n">Rrelative</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="n">it</span><span class="o">.</span><span class="n">m_sequence</span> <span class="o">==</span> <span class="s2">&quot;YZX&quot;</span><span class="p">:</span>
+                    <span class="n">Euler1</span><span class="p">,</span><span class="n">Euler2</span><span class="p">,</span><span class="n">Euler3</span> <span class="o">=</span> <span class="n">ceu</span><span class="o">.</span><span class="n">euler_yzx</span><span class="p">(</span><span class="n">Rrelative</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="n">it</span><span class="o">.</span><span class="n">m_sequence</span> <span class="o">==</span> <span class="s2">&quot;ZXY&quot;</span><span class="p">:</span>
+                    <span class="n">Euler1</span><span class="p">,</span><span class="n">Euler2</span><span class="p">,</span><span class="n">Euler3</span> <span class="o">=</span> <span class="n">ceu</span><span class="o">.</span><span class="n">euler_zxy</span><span class="p">(</span><span class="n">Rrelative</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="n">it</span><span class="o">.</span><span class="n">m_sequence</span> <span class="o">==</span> <span class="s2">&quot;ZYX&quot;</span><span class="p">:</span>
+                    <span class="n">Euler1</span><span class="p">,</span><span class="n">Euler2</span><span class="p">,</span><span class="n">Euler3</span> <span class="o">=</span> <span class="n">ceu</span><span class="o">.</span><span class="n">euler_zyx</span><span class="p">(</span><span class="n">Rrelative</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;[pycga] joint sequence unknown &quot;</span><span class="p">)</span>
+
+                <span class="n">jointValues</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">Euler1</span>
+                <span class="n">jointValues</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">Euler2</span>
+                <span class="n">jointValues</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">Euler3</span>
+
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">m_filter</span> <span class="p">:</span>
+                <span class="n">fc</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_filterCutOffFrequency</span>
+                <span class="n">order</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_filterOrder</span> 
+                <span class="n">jointValues</span> <span class="o">=</span> <span class="n">pyCGM2signal</span><span class="o">.</span><span class="n">lowPassFiltering</span><span class="p">(</span><span class="n">jointValues</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">m_aqui</span><span class="o">.</span><span class="n">GetPointFrequency</span><span class="p">(),</span> <span class="n">order</span><span class="o">=</span><span class="n">order</span><span class="p">,</span> <span class="n">fc</span> <span class="o">=</span> <span class="n">fc</span><span class="p">)</span>      
+                <span class="n">description</span> <span class="o">=</span> <span class="n">description</span> <span class="o">+</span> <span class="s2">&quot;lowPass filter&quot;</span>    
+                    
+            <span class="n">jointFinalValues</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">m_model</span><span class="o">.</span><span class="n">finalizeJCS</span><span class="p">(</span><span class="n">jointLabel</span><span class="p">,</span><span class="n">jointValues</span><span class="p">)</span>
+
+                
+            <span class="n">fulljointLabel</span>  <span class="o">=</span> <span class="n">jointLabel</span> <span class="o">+</span> <span class="s2">&quot;Angles_&quot;</span> <span class="o">+</span> <span class="n">pointLabelSuffix</span> <span class="k">if</span> <span class="n">pointLabelSuffix</span><span class="o">!=</span><span class="s2">&quot;&quot;</span> <span class="k">else</span> <span class="n">jointLabel</span><span class="o">+</span><span class="s2">&quot;Angles&quot;</span>    
+            <span class="n">btkTools</span><span class="o">.</span><span class="n">smartAppendPoint</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">m_aqui</span><span class="p">,</span>
+                             <span class="n">fulljointLabel</span><span class="p">,</span>
+                             <span class="n">jointFinalValues</span><span class="p">,</span><span class="n">PointType</span><span class="o">=</span><span class="n">btk</span><span class="o">.</span><span class="n">btkPoint</span><span class="o">.</span><span class="n">Angle</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="n">description</span><span class="p">)</span></div></div>
+            
+
+<div class="viewcode-block" id="ModelAbsoluteAnglesFilter"><a class="viewcode-back" href="../../../../pyCGM2.Model.CGM2.html#pyCGM2.Model.CGM2.modelFilters.ModelAbsoluteAnglesFilter">[docs]</a><span class="k">class</span> <span class="nc">ModelAbsoluteAnglesFilter</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; </span>
+<span class="sd">        Compute absolute angles    </span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>      
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">iMod</span><span class="p">,</span> <span class="n">acq</span><span class="p">,</span> <span class="n">segmentLabels</span><span class="p">,</span><span class="n">angleLabels</span><span class="p">,</span> <span class="n">globalFrameOrientation</span> <span class="o">=</span> <span class="s2">&quot;XYZ&quot;</span><span class="p">,</span> <span class="n">forwardProgression</span> <span class="o">=</span> <span class="kc">True</span>  <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            :Parameters:</span>
+<span class="sd">               - `acq` (btkAcquisition) - btk acquisition instance of a dynamic trial</span>
+<span class="sd">               - `iMod` (pyCGM2.Model.CGM2.model.Model) - a model instance</span>
+<span class="sd">               - `segmentLabels` (list of str) - segment labels</span>
+<span class="sd">               - `angleLabels` (list of str) - absolute angles labels</span>
+<span class="sd">               - `globalFrameOrientation` (str) - global frame</span>
+<span class="sd">               - `forwardProgression` (bool) - flag indicating subject moves in same direction than the global longitudinal axis</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">m_aqui</span> <span class="o">=</span> <span class="n">acq</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">m_model</span> <span class="o">=</span> <span class="n">iMod</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">m_segmentLabels</span> <span class="o">=</span> <span class="n">segmentLabels</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">m_angleLabels</span> <span class="o">=</span> <span class="n">angleLabels</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">m_globalFrameOrientation</span> <span class="o">=</span> <span class="n">globalFrameOrientation</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">m_forwardProgression</span> <span class="o">=</span> <span class="n">forwardProgression</span>
+
+    
+<div class="viewcode-block" id="ModelAbsoluteAnglesFilter.compute"><a class="viewcode-back" href="../../../../pyCGM2.Model.CGM2.html#pyCGM2.Model.CGM2.modelFilters.ModelAbsoluteAnglesFilter.compute">[docs]</a>    <span class="k">def</span> <span class="nf">compute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;absolute&quot;</span><span class="p">,</span> <span class="n">pointLabelSuffix</span> <span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            run `ModelAbsoluteAnglesFilter` </span>
+
+<span class="sd">            .. note:: All angles are stored as btk point </span>
+
+<span class="sd">            :Parameters:</span>
+<span class="sd">               - `description` (str) -short description added to the btkPoint storing joint angles  </span>
+<span class="sd">               - `pointLabelSuffix` (str) - suffix ending the angle label</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">m_segmentLabels</span><span class="p">)):</span>
+            
+            <span class="n">absoluteAngleValues</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">m_aqui</span><span class="o">.</span><span class="n">GetPointFrameNumber</span><span class="p">(),</span><span class="mi">3</span><span class="p">))</span>
+
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">m_globalFrameOrientation</span> <span class="o">==</span> <span class="s2">&quot;XYZ&quot;</span><span class="p">:</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">m_forwardProgression</span><span class="p">:</span>
+                    <span class="n">Rglobal</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">Rglobal</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
+                
+                
+            <span class="n">seg</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">m_model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">m_segmentLabels</span><span class="p">[</span><span class="n">index</span><span class="p">])</span>
+            <span class="n">side</span>  <span class="o">=</span> <span class="n">seg</span><span class="o">.</span><span class="n">side</span>           
+            
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">m_aqui</span><span class="o">.</span><span class="n">GetPointFrameNumber</span><span class="p">()):</span>
+                <span class="n">Rseg</span> <span class="o">=</span> <span class="n">seg</span><span class="o">.</span><span class="n">anatomicalFrame</span><span class="o">.</span><span class="n">motion</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">getRotation</span><span class="p">()</span>
+                <span class="n">Rrelative</span><span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">Rglobal</span><span class="o">.</span><span class="n">T</span><span class="p">,</span><span class="n">Rseg</span><span class="p">)</span>
+
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">m_globalFrameOrientation</span> <span class="o">==</span> <span class="s2">&quot;XYZ&quot;</span><span class="p">:</span>
+                    <span class="n">Euler1</span><span class="p">,</span><span class="n">Euler2</span><span class="p">,</span><span class="n">Euler3</span> <span class="o">=</span> <span class="n">ceu</span><span class="o">.</span><span class="n">euler_yxz</span><span class="p">(</span><span class="n">Rrelative</span><span class="p">)</span>
+                
+                <span class="n">absoluteAngleValues</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">Euler1</span>
+                <span class="n">absoluteAngleValues</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">Euler2</span>
+                <span class="n">absoluteAngleValues</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">Euler3</span>
+        
+            <span class="k">if</span> <span class="n">side</span> <span class="o">==</span> <span class="n">pyCGM2Enums</span><span class="o">.</span><span class="n">SegmentSide</span><span class="o">.</span><span class="n">Central</span><span class="p">:</span>
+                
+                <span class="c1"># Right</span>
+                <span class="n">absoluteAngleValues_R</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">m_model</span><span class="o">.</span><span class="n">finalizeAbsoluteAngles</span><span class="p">(</span><span class="s2">&quot;R&quot;</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">m_segmentLabels</span><span class="p">[</span><span class="n">index</span><span class="p">],</span><span class="n">absoluteAngleValues</span><span class="p">)</span>                
+                <span class="n">fullAngleLabel</span>  <span class="o">=</span> <span class="s2">&quot;R&quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">m_angleLabels</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;Angles_&quot;</span> <span class="o">+</span> <span class="n">pointLabelSuffix</span> <span class="k">if</span> <span class="n">pointLabelSuffix</span><span class="o">!=</span><span class="s2">&quot;&quot;</span> <span class="k">else</span> <span class="s2">&quot;R&quot;</span> <span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">m_angleLabels</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="o">+</span><span class="s2">&quot;Angles&quot;</span>    
+                <span class="n">btkTools</span><span class="o">.</span><span class="n">smartAppendPoint</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">m_aqui</span><span class="p">,</span> <span class="n">fullAngleLabel</span><span class="p">,</span>
+                                     <span class="n">absoluteAngleValues_R</span><span class="p">,</span><span class="n">PointType</span><span class="o">=</span><span class="n">btk</span><span class="o">.</span><span class="n">btkPoint</span><span class="o">.</span><span class="n">Angle</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="n">description</span><span class="p">)</span>   
+                
+                <span class="c1"># Left</span>
+                <span class="n">absoluteAngleValues_L</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">m_model</span><span class="o">.</span><span class="n">finalizeAbsoluteAngles</span><span class="p">(</span><span class="s2">&quot;L&quot;</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">m_segmentLabels</span><span class="p">[</span><span class="n">index</span><span class="p">],</span><span class="n">absoluteAngleValues</span><span class="p">)</span>
+                <span class="n">fullAngleLabel</span>  <span class="o">=</span> <span class="s2">&quot;L&quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">m_angleLabels</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;Angles_&quot;</span> <span class="o">+</span> <span class="n">pointLabelSuffix</span> <span class="k">if</span> <span class="n">pointLabelSuffix</span><span class="o">!=</span><span class="s2">&quot;&quot;</span> <span class="k">else</span> <span class="s2">&quot;L&quot;</span> <span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">m_angleLabels</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="o">+</span><span class="s2">&quot;Angles&quot;</span>    
+                <span class="n">btkTools</span><span class="o">.</span><span class="n">smartAppendPoint</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">m_aqui</span><span class="p">,</span> <span class="n">fullAngleLabel</span><span class="p">,</span>
+                                     <span class="n">absoluteAngleValues_L</span><span class="p">,</span><span class="n">PointType</span><span class="o">=</span><span class="n">btk</span><span class="o">.</span><span class="n">btkPoint</span><span class="o">.</span><span class="n">Angle</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="n">description</span><span class="p">)</span>   
+            <span class="k">else</span><span class="p">:</span>
+
+                <span class="n">absoluteAngleValues</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">m_model</span><span class="o">.</span><span class="n">finalizeAbsoluteAngles</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">m_segmentLabels</span><span class="p">[</span><span class="n">index</span><span class="p">],</span><span class="n">absoluteAngleValues</span><span class="p">)</span>                
+                <span class="n">fullAngleLabel</span>  <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">m_angleLabels</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;Angles_&quot;</span> <span class="o">+</span> <span class="n">pointLabelSuffix</span> <span class="k">if</span> <span class="n">pointLabelSuffix</span><span class="o">!=</span><span class="s2">&quot;&quot;</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">m_angleLabels</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="o">+</span><span class="s2">&quot;Angles&quot;</span>    
+                <span class="n">btkTools</span><span class="o">.</span><span class="n">smartAppendPoint</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">m_aqui</span><span class="p">,</span> <span class="n">fullAngleLabel</span><span class="p">,</span>
+                                     <span class="n">absoluteAngleValues</span><span class="p">,</span><span class="n">PointType</span><span class="o">=</span><span class="n">btk</span><span class="o">.</span><span class="n">btkPoint</span><span class="o">.</span><span class="n">Angle</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="n">description</span><span class="p">)</span>   </div></div>
+
+        <span class="c1">#smartWriter(self.m_aqui, &quot;verifAbsAng.c3d&quot;)                           </span>
+
+<span class="c1"># ----- Force plates -----</span>
+
+<div class="viewcode-block" id="ForcePlateAssemblyFilter"><a class="viewcode-back" href="../../../../pyCGM2.Model.CGM2.html#pyCGM2.Model.CGM2.modelFilters.ForcePlateAssemblyFilter">[docs]</a><span class="k">class</span> <span class="nc">ForcePlateAssemblyFilter</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; </span>
+<span class="sd">        Assemble Force plate with the model</span>
+<span class="sd">    &quot;&quot;&quot;</span>      
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">iMod</span><span class="p">,</span> <span class="n">btkAcq</span><span class="p">,</span> <span class="n">mappedForcePlateLetters</span><span class="p">,</span> <span class="n">leftSegmentLabel</span><span class="o">=</span><span class="s2">&quot;Left Foot&quot;</span><span class="p">,</span> <span class="n">rightSegmentLabel</span><span class="o">=</span><span class="s2">&quot;Right Foot&quot;</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            :Parameters:</span>
+<span class="sd">               - `btkAcq` (btkAcquisition) - btk acquisition instance of a dynamic trial</span>
+<span class="sd">               - `iMod` (pyCGM2.Model.CGM2.model.Model) - a model instance</span>
+<span class="sd">               - `mappedForcePlateLetters` (str) - string indicating body side of the segment in contact with the force plate              </span>
+<span class="sd">               - `leftSegmentLabel` (str) - left segment label to assemble with force plates  </span>
+<span class="sd">               - `rightSegmentLabel` (str) - right segment label to assemble with force plates</span>
+<span class="sd">               </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">m_aqui</span> <span class="o">=</span> <span class="n">btkAcq</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">m_model</span> <span class="o">=</span> <span class="n">iMod</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">m_mappedForcePlate</span> <span class="o">=</span> <span class="n">mappedForcePlateLetters</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">m_leftSeglabel</span> <span class="o">=</span> <span class="n">leftSegmentLabel</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">m_rightSeglabel</span> <span class="o">=</span> <span class="n">rightSegmentLabel</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">m_model</span> <span class="o">=</span> <span class="n">iMod</span>
+
+        <span class="c1"># zeroing externalDevice</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">m_model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">m_leftSeglabel</span><span class="p">)</span><span class="o">.</span><span class="n">zeroingExternalDevice</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">m_model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">m_rightSeglabel</span><span class="p">)</span><span class="o">.</span><span class="n">zeroingExternalDevice</span><span class="p">()</span>
+
+
+<div class="viewcode-block" id="ForcePlateAssemblyFilter.compute"><a class="viewcode-back" href="../../../../pyCGM2.Model.CGM2.html#pyCGM2.Model.CGM2.modelFilters.ForcePlateAssemblyFilter.compute">[docs]</a>    <span class="k">def</span> <span class="nf">compute</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            run `ForcePlateAssemblyFilter` </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">pfe</span> <span class="o">=</span> <span class="n">btk</span><span class="o">.</span><span class="n">btkForcePlatformsExtractor</span><span class="p">()</span>
+        <span class="n">grwf</span> <span class="o">=</span> <span class="n">btk</span><span class="o">.</span><span class="n">btkGroundReactionWrenchFilter</span><span class="p">()</span>
+        <span class="n">pfe</span><span class="o">.</span><span class="n">SetInput</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">m_aqui</span><span class="p">)</span>
+        <span class="n">pfc</span> <span class="o">=</span> <span class="n">pfe</span><span class="o">.</span><span class="n">GetOutput</span><span class="p">()</span>
+        <span class="n">grwf</span><span class="o">.</span><span class="n">SetInput</span><span class="p">(</span><span class="n">pfc</span><span class="p">)</span>
+        <span class="n">grwc</span> <span class="o">=</span> <span class="n">grwf</span><span class="o">.</span><span class="n">GetOutput</span><span class="p">()</span>
+        <span class="n">grwc</span><span class="o">.</span><span class="n">Update</span><span class="p">()</span>
+
+        <span class="n">appf</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">m_aqui</span><span class="o">.</span><span class="n">GetNumberAnalogSamplePerFrame</span><span class="p">()</span>
+        <span class="n">pfn</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">m_aqui</span><span class="o">.</span><span class="n">GetPointFrameNumber</span><span class="p">()</span>
+        
+        
+        <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">m_mappedForcePlate</span><span class="p">:</span> 
+            <span class="k">if</span> <span class="n">l</span> <span class="o">==</span> <span class="s2">&quot;L&quot;</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">m_model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">m_leftSeglabel</span><span class="p">)</span><span class="o">.</span><span class="n">addExternalDeviceWrench</span><span class="p">(</span><span class="n">grwc</span><span class="o">.</span><span class="n">GetItem</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+            <span class="k">elif</span> <span class="n">l</span> <span class="o">==</span> <span class="s2">&quot;R&quot;</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">m_model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">m_rightSeglabel</span><span class="p">)</span><span class="o">.</span><span class="n">addExternalDeviceWrench</span><span class="p">(</span><span class="n">grwc</span><span class="o">.</span><span class="n">GetItem</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;force plate </span><span class="si">%i</span><span class="s2"> sans donnees&quot;</span> <span class="o">%</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+            <span class="n">i</span><span class="o">+=</span><span class="mi">1</span>
+
+        <span class="k">if</span> <span class="s2">&quot;L&quot;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">m_mappedForcePlate</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">m_model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">m_leftSeglabel</span><span class="p">)</span><span class="o">.</span><span class="n">downSampleExternalDeviceWrenchs</span><span class="p">(</span><span class="n">appf</span><span class="p">)</span>               
+        <span class="k">if</span> <span class="s2">&quot;R&quot;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">m_mappedForcePlate</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">m_model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">m_rightSeglabel</span><span class="p">)</span><span class="o">.</span><span class="n">downSampleExternalDeviceWrenchs</span><span class="p">(</span><span class="n">appf</span><span class="p">)</span>               </div></div>
+
+
+
+<span class="c1"># ----- Inverse dynamics ----- </span>
+
+<div class="viewcode-block" id="InverseDynamicFilter"><a class="viewcode-back" href="../../../../pyCGM2.Model.CGM2.html#pyCGM2.Model.CGM2.modelFilters.InverseDynamicFilter">[docs]</a><span class="k">class</span> <span class="nc">InverseDynamicFilter</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; </span>
+<span class="sd">        Compute joint Force and moment from Inverse dynamics </span>
+<span class="sd">    &quot;&quot;&quot;</span> 
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">iMod</span><span class="p">,</span> <span class="n">btkAcq</span><span class="p">,</span> <span class="n">procedure</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">gravityVector</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">]),</span> <span class="n">scaleToMeter</span> <span class="o">=</span><span class="mf">0.001</span><span class="p">,</span> <span class="n">projection</span> <span class="o">=</span> <span class="n">pyCGM2Enums</span><span class="o">.</span><span class="n">MomentProjection</span><span class="o">.</span><span class="n">Distal</span><span class="p">,</span> <span class="n">exportMomentContributions</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">           :Parameters:</span>
+<span class="sd">               - `btkAcq` (btkAcquisition) - btk acquisition instance of a dynamic trial</span>
+<span class="sd">               - `iMod` (pyCGM2.Model.CGM2.model.Model) - a model instance</span>
+<span class="sd">               - `procedure` (pyCGM2.Model.CGM2.modelFilters.(_Procedure)) - an inverse dynamic procedure</span>
+<span class="sd">               - `gravityVector` (numpy.array(3,)) - gravity vector</span>
+<span class="sd">               - `scaleToMeter` (float) - values scaling to meter</span>
+<span class="sd">               - `projection` (pyCGM2.enums) - method of moment projection </span>
+<span class="sd">               - `exportMomentContributions` (bool) - enable export of moment contribution into the c32  </span>
+<span class="sd">               </span>
+<span class="sd">        </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">m_aqui</span> <span class="o">=</span> <span class="n">btkAcq</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">m_model</span> <span class="o">=</span> <span class="n">iMod</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">m_gravity</span> <span class="o">=</span> <span class="mf">9.81</span> <span class="o">*</span> <span class="n">gravityVector</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">m_scaleToMeter</span> <span class="o">=</span> <span class="n">scaleToMeter</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">m_procedure</span> <span class="o">=</span> <span class="n">procedure</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">m_projection</span> <span class="o">=</span> <span class="n">projection</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">m_exportMomentContributions</span> <span class="o">=</span> <span class="n">exportMomentContributions</span>
+        
+<div class="viewcode-block" id="InverseDynamicFilter.compute"><a class="viewcode-back" href="../../../../pyCGM2.Model.CGM2.html#pyCGM2.Model.CGM2.modelFilters.InverseDynamicFilter.compute">[docs]</a>    <span class="k">def</span> <span class="nf">compute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pointLabelSuffix</span> <span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Run`InverseDynamicFilter`</span>
+<span class="sd">            </span>
+<span class="sd">            .. note:: forces and Moments are stored as btk point </span>
+
+<span class="sd">            :Parameters:</span>
+<span class="sd">               - `pointLabelSuffix` (str) - suffix ending the force/moment label</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">m_procedure</span><span class="o">.</span><span class="n">compute</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">m_model</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">m_aqui</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">m_gravity</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">m_scaleToMeter</span><span class="p">)</span>        
+        
+
+        <span class="k">for</span> <span class="n">it</span> <span class="ow">in</span>  <span class="bp">self</span><span class="o">.</span><span class="n">m_model</span><span class="o">.</span><span class="n">m_jointCollection</span><span class="p">:</span>            
+            <span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;kinetics of </span><span class="si">%s</span><span class="s2">&quot;</span>  <span class="o">%</span><span class="p">(</span><span class="n">it</span><span class="o">.</span><span class="n">m_label</span><span class="p">))</span> 
+            <span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;proximal label :</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span><span class="p">(</span><span class="n">it</span><span class="o">.</span><span class="n">m_proximalLabel</span><span class="p">))</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;distal label :</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span><span class="p">(</span><span class="n">it</span><span class="o">.</span><span class="n">m_distalLabel</span><span class="p">))</span>
+            
+            <span class="n">jointLabel</span> <span class="o">=</span> <span class="n">it</span><span class="o">.</span><span class="n">m_label</span>
+            <span class="n">nFrames</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">m_aqui</span><span class="o">.</span><span class="n">GetPointFrameNumber</span><span class="p">()</span> 
+            
+
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">m_projection</span> <span class="o">==</span> <span class="n">pyCGM2Enums</span><span class="o">.</span><span class="n">MomentProjection</span><span class="o">.</span><span class="n">Distal</span><span class="p">:</span>
+                <span class="n">mot</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">m_model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="n">it</span><span class="o">.</span><span class="n">m_distalLabel</span><span class="p">)</span><span class="o">.</span><span class="n">anatomicalFrame</span><span class="o">.</span><span class="n">motion</span>
+            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">m_projection</span> <span class="o">==</span> <span class="n">pyCGM2Enums</span><span class="o">.</span><span class="n">MomentProjection</span><span class="o">.</span><span class="n">Proximal</span><span class="p">:</span>
+                <span class="n">mot</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">m_model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="n">it</span><span class="o">.</span><span class="n">m_proximalLabel</span><span class="p">)</span><span class="o">.</span><span class="n">anatomicalFrame</span><span class="o">.</span><span class="n">motion</span>
+            
+            <span class="n">forceValues</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">nFrames</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+            <span class="n">momentValues</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">nFrames</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">nFrames</span> <span class="p">):</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">m_projection</span> <span class="o">==</span> <span class="n">pyCGM2Enums</span><span class="o">.</span><span class="n">MomentProjection</span><span class="o">.</span><span class="n">Global</span><span class="p">:</span>
+                    <span class="n">forceValues</span><span class="p">[</span><span class="n">i</span><span class="p">,:]</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">m_model</span><span class="o">.</span><span class="n">mp</span><span class="p">[</span><span class="s2">&quot;mass&quot;</span><span class="p">])</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">m_model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="n">it</span><span class="o">.</span><span class="n">m_distalLabel</span><span class="p">)</span><span class="o">.</span><span class="n">m_proximalWrench</span><span class="o">.</span><span class="n">GetForce</span><span class="p">()</span><span class="o">.</span><span class="n">GetValues</span><span class="p">()[</span><span class="n">i</span><span class="p">,:]</span>
+                    <span class="n">momentValues</span><span class="p">[</span><span class="n">i</span><span class="p">,:]</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">m_model</span><span class="o">.</span><span class="n">mp</span><span class="p">[</span><span class="s2">&quot;mass&quot;</span><span class="p">])</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">m_model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="n">it</span><span class="o">.</span><span class="n">m_distalLabel</span><span class="p">)</span><span class="o">.</span><span class="n">m_proximalWrench</span><span class="o">.</span><span class="n">GetMoment</span><span class="p">()</span><span class="o">.</span><span class="n">GetValues</span><span class="p">()[</span><span class="n">i</span><span class="p">,:]</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">forceValues</span><span class="p">[</span><span class="n">i</span><span class="p">,:]</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">m_model</span><span class="o">.</span><span class="n">mp</span><span class="p">[</span><span class="s2">&quot;mass&quot;</span><span class="p">])</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">mot</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">getRotation</span><span class="p">()</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> 
+                                                                            <span class="bp">self</span><span class="o">.</span><span class="n">m_model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="n">it</span><span class="o">.</span><span class="n">m_distalLabel</span><span class="p">)</span><span class="o">.</span><span class="n">m_proximalWrench</span><span class="o">.</span><span class="n">GetForce</span><span class="p">()</span><span class="o">.</span><span class="n">GetValues</span><span class="p">()[</span><span class="n">i</span><span class="p">,:]</span><span class="o">.</span><span class="n">T</span><span class="p">)</span> 
+                    <span class="n">momentValues</span><span class="p">[</span><span class="n">i</span><span class="p">,:]</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">m_model</span><span class="o">.</span><span class="n">mp</span><span class="p">[</span><span class="s2">&quot;mass&quot;</span><span class="p">])</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">mot</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">getRotation</span><span class="p">()</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> 
+                                                                            <span class="bp">self</span><span class="o">.</span><span class="n">m_model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="n">it</span><span class="o">.</span><span class="n">m_distalLabel</span><span class="p">)</span><span class="o">.</span><span class="n">m_proximalWrench</span><span class="o">.</span><span class="n">GetMoment</span><span class="p">()</span><span class="o">.</span><span class="n">GetValues</span><span class="p">()[</span><span class="n">i</span><span class="p">,:]</span><span class="o">.</span><span class="n">T</span><span class="p">)</span> 
+            
+            <span class="n">finalForceValues</span><span class="p">,</span><span class="n">finalMomentValues</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">m_model</span><span class="o">.</span><span class="n">finalizeKinetics</span><span class="p">(</span><span class="n">jointLabel</span><span class="p">,</span><span class="n">forceValues</span><span class="p">,</span><span class="n">momentValues</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">m_projection</span><span class="p">)</span>
+
+
+
+            <span class="n">fulljointLabel_force</span>  <span class="o">=</span> <span class="n">jointLabel</span> <span class="o">+</span> <span class="s2">&quot;Force_&quot;</span> <span class="o">+</span> <span class="n">pointLabelSuffix</span> <span class="k">if</span> <span class="n">pointLabelSuffix</span><span class="o">!=</span><span class="s2">&quot;&quot;</span> <span class="k">else</span> <span class="n">jointLabel</span><span class="o">+</span><span class="s2">&quot;Force&quot;</span>
+            <span class="n">btkTools</span><span class="o">.</span><span class="n">smartAppendPoint</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">m_aqui</span><span class="p">,</span>
+                             <span class="n">fulljointLabel_force</span><span class="p">,</span>
+                             <span class="n">finalForceValues</span><span class="p">,</span><span class="n">PointType</span><span class="o">=</span><span class="n">btk</span><span class="o">.</span><span class="n">btkPoint</span><span class="o">.</span><span class="n">Force</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+
+            <span class="n">fulljointLabel_moment</span>  <span class="o">=</span> <span class="n">jointLabel</span> <span class="o">+</span> <span class="s2">&quot;Moment_&quot;</span> <span class="o">+</span> <span class="n">pointLabelSuffix</span> <span class="k">if</span> <span class="n">pointLabelSuffix</span><span class="o">!=</span><span class="s2">&quot;&quot;</span> <span class="k">else</span> <span class="n">jointLabel</span><span class="o">+</span><span class="s2">&quot;Moment&quot;</span>
+            <span class="n">btkTools</span><span class="o">.</span><span class="n">smartAppendPoint</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">m_aqui</span><span class="p">,</span>
+                             <span class="n">fulljointLabel_moment</span><span class="p">,</span>
+                             <span class="n">finalMomentValues</span><span class="p">,</span><span class="n">PointType</span><span class="o">=</span><span class="n">btk</span><span class="o">.</span><span class="n">btkPoint</span><span class="o">.</span><span class="n">Moment</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>               
+            
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">m_exportMomentContributions</span><span class="p">:</span>
+                <span class="n">forceValues</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">nFrames</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span> <span class="c1"># need only for finalizeKinetics</span>
+        
+                <span class="k">for</span> <span class="n">contIt</span>  <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;internal&quot;</span><span class="p">,</span><span class="s2">&quot;external&quot;</span><span class="p">,</span> <span class="s2">&quot;inertia&quot;</span><span class="p">,</span> <span class="s2">&quot;linearAcceleration&quot;</span><span class="p">,</span><span class="s2">&quot;gravity&quot;</span><span class="p">,</span> <span class="s2">&quot;externalDevices&quot;</span><span class="p">,</span> <span class="s2">&quot;distalSegments&quot;</span><span class="p">,</span><span class="s2">&quot;distalSegmentForces&quot;</span><span class="p">,</span><span class="s2">&quot;distalSegmentMoments&quot;</span><span class="p">]</span> <span class="p">:</span>
+                    <span class="n">momentValues</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">nFrames</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+                    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">nFrames</span> <span class="p">):</span>
+                        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">m_projection</span> <span class="o">==</span> <span class="n">pyCGM2Enums</span><span class="o">.</span><span class="n">MomentProjection</span><span class="o">.</span><span class="n">Global</span><span class="p">:</span>
+                            <span class="n">momentValues</span><span class="p">[</span><span class="n">i</span><span class="p">,:]</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">m_model</span><span class="o">.</span><span class="n">mp</span><span class="p">[</span><span class="s2">&quot;mass&quot;</span><span class="p">])</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">m_model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="n">it</span><span class="o">.</span><span class="n">m_distalLabel</span><span class="p">)</span><span class="o">.</span><span class="n">m_proximalMomentContribution</span><span class="p">[</span><span class="n">contIt</span><span class="p">][</span><span class="n">i</span><span class="p">,:]</span>
+                        <span class="k">else</span><span class="p">:</span>
+                            <span class="n">momentValues</span><span class="p">[</span><span class="n">i</span><span class="p">,:]</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">m_model</span><span class="o">.</span><span class="n">mp</span><span class="p">[</span><span class="s2">&quot;mass&quot;</span><span class="p">])</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">mot</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">getRotation</span><span class="p">()</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> 
+                                                                                    <span class="bp">self</span><span class="o">.</span><span class="n">m_model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="n">it</span><span class="o">.</span><span class="n">m_distalLabel</span><span class="p">)</span><span class="o">.</span><span class="n">m_proximalMomentContribution</span><span class="p">[</span><span class="n">contIt</span><span class="p">][</span><span class="n">i</span><span class="p">,:]</span><span class="o">.</span><span class="n">T</span><span class="p">)</span> 
+                
+                    <span class="n">finalForceValues</span><span class="p">,</span><span class="n">finalMomentValues</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">m_model</span><span class="o">.</span><span class="n">finalizeKinetics</span><span class="p">(</span><span class="n">jointLabel</span><span class="p">,</span><span class="n">forceValues</span><span class="p">,</span><span class="n">momentValues</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">m_projection</span><span class="p">)</span>
+        
+                    <span class="n">fulljointLabel_moment</span>  <span class="o">=</span> <span class="n">jointLabel</span> <span class="o">+</span> <span class="s2">&quot;Moment_&quot;</span> <span class="o">+</span> <span class="n">pointLabelSuffix</span> <span class="o">+</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="n">contIt</span> <span class="k">if</span> <span class="n">pointLabelSuffix</span><span class="o">!=</span><span class="s2">&quot;&quot;</span> <span class="k">else</span> <span class="n">jointLabel</span><span class="o">+</span><span class="s2">&quot;Moment&quot;</span> <span class="o">+</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="n">contIt</span>
+                    <span class="n">btkTools</span><span class="o">.</span><span class="n">smartAppendPoint</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">m_aqui</span><span class="p">,</span>
+                                     <span class="n">fulljointLabel_moment</span><span class="p">,</span>
+                                     <span class="n">finalMomentValues</span><span class="p">,</span><span class="n">PointType</span><span class="o">=</span><span class="n">btk</span><span class="o">.</span><span class="n">btkPoint</span><span class="o">.</span><span class="n">Moment</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span> <span class="n">contIt</span> <span class="o">+</span> <span class="s2">&quot; Moment contribution&quot;</span><span class="p">)</span></div></div>
+
+
+
+<div class="viewcode-block" id="JointPowerFilter"><a class="viewcode-back" href="../../../../pyCGM2.Model.CGM2.html#pyCGM2.Model.CGM2.modelFilters.JointPowerFilter">[docs]</a><span class="k">class</span> <span class="nc">JointPowerFilter</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Compute joint power</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">iMod</span><span class="p">,</span> <span class="n">btkAcq</span><span class="p">,</span> <span class="n">scaleToMeter</span> <span class="o">=</span><span class="mf">0.001</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;           </span>
+<span class="sd">            :Parameters:</span>
+<span class="sd">               - `btkAcq` (btkAcquisition) - btk acquisition instance of a dynamic trial</span>
+<span class="sd">               - `iMod` (pyCGM2.Model.CGM2.model.Model) - a model instance</span>
+<span class="sd">               - `scaleToMeter` (float) - values scaling to meter</span>
+<span class="sd">        </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">m_aqui</span> <span class="o">=</span> <span class="n">btkAcq</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">m_model</span> <span class="o">=</span> <span class="n">iMod</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">m_scale</span> <span class="o">=</span> <span class="n">scaleToMeter</span>
+        
+<div class="viewcode-block" id="JointPowerFilter.compute"><a class="viewcode-back" href="../../../../pyCGM2.Model.CGM2.html#pyCGM2.Model.CGM2.modelFilters.JointPowerFilter.compute">[docs]</a>    <span class="k">def</span> <span class="nf">compute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pointLabelSuffix</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Run `JointPowerFilter`</span>
+<span class="sd">            </span>
+<span class="sd">            .. note:: powers are stored as btk point </span>
+
+<span class="sd">            :Parameters:</span>
+<span class="sd">               - `pointLabelSuffix` (str) - suffix ending the power label</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">for</span> <span class="n">it</span> <span class="ow">in</span>  <span class="bp">self</span><span class="o">.</span><span class="n">m_model</span><span class="o">.</span><span class="n">m_jointCollection</span><span class="p">:</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;power of </span><span class="si">%s</span><span class="s2">&quot;</span>  <span class="o">%</span><span class="p">(</span><span class="n">it</span><span class="o">.</span><span class="n">m_label</span><span class="p">))</span> 
+            <span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;proximal label :</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span><span class="p">(</span><span class="n">it</span><span class="o">.</span><span class="n">m_proximalLabel</span><span class="p">))</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;distal label :</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span><span class="p">(</span><span class="n">it</span><span class="o">.</span><span class="n">m_distalLabel</span><span class="p">))</span>
+
+            <span class="n">jointLabel</span> <span class="o">=</span> <span class="n">it</span><span class="o">.</span><span class="n">m_label</span>
+            
+            <span class="n">nFrames</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">m_aqui</span><span class="o">.</span><span class="n">GetPointFrameNumber</span><span class="p">()</span> 
+           
+            <span class="n">prox_omegai</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">m_model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="n">it</span><span class="o">.</span><span class="n">m_proximalLabel</span><span class="p">)</span><span class="o">.</span><span class="n">getAngularVelocity</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">m_aqui</span><span class="o">.</span><span class="n">GetPointFrequency</span><span class="p">())</span>
+            <span class="n">dist_omegai</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">m_model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="n">it</span><span class="o">.</span><span class="n">m_distalLabel</span><span class="p">)</span><span class="o">.</span><span class="n">getAngularVelocity</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">m_aqui</span><span class="o">.</span><span class="n">GetPointFrequency</span><span class="p">())</span>
+
+            <span class="n">relativeOmega</span> <span class="o">=</span> <span class="n">prox_omegai</span> <span class="o">-</span> <span class="n">dist_omegai</span>
+            
+            <span class="n">power</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">nFrames</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">nFrames</span><span class="p">):</span>            
+                <span class="n">power</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1.0</span><span class="o">*</span><span class="p">(</span><span class="mf">1.0</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">m_model</span><span class="o">.</span><span class="n">mp</span><span class="p">[</span><span class="s2">&quot;mass&quot;</span><span class="p">])</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">m_scale</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">m_model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="n">it</span><span class="o">.</span><span class="n">m_distalLabel</span><span class="p">)</span><span class="o">.</span><span class="n">m_proximalWrench</span><span class="o">.</span><span class="n">GetMoment</span><span class="p">()</span><span class="o">.</span><span class="n">GetValues</span><span class="p">()[</span><span class="n">i</span><span class="p">,:]</span> <span class="p">,</span><span class="n">relativeOmega</span><span class="p">[</span><span class="n">i</span><span class="p">,:])</span><span class="c1"># </span>
+
+
+            <span class="n">fulljointLabel</span>  <span class="o">=</span> <span class="n">jointLabel</span> <span class="o">+</span> <span class="s2">&quot;Power_&quot;</span> <span class="o">+</span> <span class="n">pointLabelSuffix</span> <span class="k">if</span> <span class="n">pointLabelSuffix</span><span class="o">!=</span><span class="s2">&quot;&quot;</span> <span class="k">else</span> <span class="n">jointLabel</span><span class="o">+</span><span class="s2">&quot;Power&quot;</span>
+            <span class="n">btkTools</span><span class="o">.</span><span class="n">smartAppendPoint</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">m_aqui</span><span class="p">,</span>
+                             <span class="n">fulljointLabel</span><span class="p">,</span>
+                             <span class="n">power</span><span class="p">,</span><span class="n">PointType</span><span class="o">=</span><span class="n">btk</span><span class="o">.</span><span class="n">btkPoint</span><span class="o">.</span><span class="n">Power</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span> </div></div>
+      
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../../index.html">pyCGM2 0.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../../index.html" >Module code</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017, Fabien Leboeuf.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.1.
+    </div>
+  </body>
+</html>

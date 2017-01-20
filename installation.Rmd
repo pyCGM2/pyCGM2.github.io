@@ -18,10 +18,6 @@ output:
 -->
 
 
-
-
-
-
 ## RECOMMANDED PC CONFIGURATION 
 
 pyCGM2 works fine on a PC following [Vicon's specifications](https://www.vicon.com/faqs)  for Nexus 2.

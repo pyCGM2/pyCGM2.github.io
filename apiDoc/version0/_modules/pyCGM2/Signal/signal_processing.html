@@ -1,0 +1,198 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>pyCGM2.Signal.signal_processing &#8212; pyCGM2 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">pyCGM2 0.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" accesskey="U">Module code</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for pyCGM2.Signal.signal_processing</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+
+
+<span class="kn">import</span> <span class="nn">pdb</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="k">import</span> <span class="n">signal</span><span class="p">,</span> <span class="n">integrate</span>
+<span class="kn">import</span> <span class="nn">btk</span>
+
+
+
+<span class="c1"># ---- EMG -----</span>
+
+<div class="viewcode-block" id="remove50hz"><a class="viewcode-back" href="../../../pyCGM2.Signal.html#pyCGM2.Signal.signal_processing.remove50hz">[docs]</a><span class="k">def</span> <span class="nf">remove50hz</span><span class="p">(</span><span class="n">array</span><span class="p">,</span><span class="n">fa</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Remove 50Hz signal</span>
+<span class="sd">        </span>
+<span class="sd">        :Parameters:</span>
+<span class="sd">            - `array` (numpy.array(n,n)) - array</span>
+<span class="sd">            - `fa` (double) - sample frequency </span>
+<span class="sd">   &quot;&quot;&quot;</span>
+    <span class="n">bEmgStop</span><span class="p">,</span> <span class="n">aEMGStop</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">butter</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">49.9</span><span class="p">,</span> <span class="mf">50.1</span><span class="p">])</span> <span class="o">/</span> <span class="p">((</span><span class="n">fa</span><span class="o">*</span><span class="mf">0.5</span><span class="p">)),</span> <span class="s1">&#39;bandstop&#39;</span><span class="p">)</span>
+    <span class="n">value</span><span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">filtfilt</span><span class="p">(</span><span class="n">bEmgStop</span><span class="p">,</span> <span class="n">aEMGStop</span><span class="p">,</span> <span class="n">array</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span>  <span class="p">)</span> 
+
+    <span class="k">return</span> <span class="n">value</span></div>
+
+<div class="viewcode-block" id="highPass"><a class="viewcode-back" href="../../../pyCGM2.Signal.html#pyCGM2.Signal.signal_processing.highPass">[docs]</a><span class="k">def</span> <span class="nf">highPass</span><span class="p">(</span><span class="n">array</span><span class="p">,</span><span class="n">lowerFreq</span><span class="p">,</span><span class="n">upperFreq</span><span class="p">,</span><span class="n">fa</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        High pass filtering</span>
+<span class="sd">        </span>
+<span class="sd">        :Parameters:</span>
+<span class="sd">            - `array` (numpy.array(n,n)) - array</span>
+<span class="sd">            - `lowerFreq` (double) - lower frequency </span>
+<span class="sd">            - `upperFreq` (double) - upper frequency </span>
+<span class="sd">            - `fa` (double) - sample frequency </span>
+<span class="sd">   &quot;&quot;&quot;</span>    
+    <span class="n">bEmgHighPass</span><span class="p">,</span> <span class="n">aEmgHighPass</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">butter</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">lowerFreq</span><span class="p">,</span> <span class="n">upperFreq</span><span class="p">])</span> <span class="o">/</span> <span class="p">((</span><span class="n">fa</span><span class="o">*</span><span class="mf">0.5</span><span class="p">)),</span> <span class="s1">&#39;bandpass&#39;</span><span class="p">)</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">filtfilt</span><span class="p">(</span><span class="n">bEmgHighPass</span><span class="p">,</span> <span class="n">aEmgHighPass</span><span class="p">,</span><span class="n">array</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">array</span><span class="p">),</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span>  <span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">value</span></div>
+
+<div class="viewcode-block" id="rectify"><a class="viewcode-back" href="../../../pyCGM2.Signal.html#pyCGM2.Signal.signal_processing.rectify">[docs]</a><span class="k">def</span> <span class="nf">rectify</span><span class="p">(</span><span class="n">array</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        rectify a signal ( i.e get absolute values)</span>
+<span class="sd">        </span>
+<span class="sd">        :Parameters:</span>
+<span class="sd">            - `array` (numpy.array(n,n)) - array</span>
+
+<span class="sd">   &quot;&quot;&quot;</span>   
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">array</span><span class="p">)</span></div>
+    
+<div class="viewcode-block" id="enveloppe"><a class="viewcode-back" href="../../../pyCGM2.Signal.html#pyCGM2.Signal.signal_processing.enveloppe">[docs]</a><span class="k">def</span> <span class="nf">enveloppe</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">fc</span><span class="p">,</span><span class="n">fa</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get signal enveloppe from a low pass filter</span>
+<span class="sd">        </span>
+<span class="sd">        :Parameters:</span>
+<span class="sd">            - `array` (numpy.array(n,n)) - array</span>
+<span class="sd">            - `fc` (double) - cut-off frequency </span>
+<span class="sd">            - `fa` (double) - sample frequency </span>
+<span class="sd">   &quot;&quot;&quot;</span>   
+    <span class="n">bEmgEnv</span><span class="p">,</span> <span class="n">aEMGEnv</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">butter</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">fc</span> <span class="o">/</span> <span class="p">(</span><span class="n">fa</span><span class="o">*</span><span class="mf">0.5</span><span class="p">)</span> <span class="p">,</span> <span class="n">btype</span><span class="o">=</span><span class="s1">&#39;lowpass&#39;</span><span class="p">)</span>                       
+    <span class="n">value</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">filtfilt</span><span class="p">(</span><span class="n">bEmgEnv</span><span class="p">,</span> <span class="n">aEMGEnv</span><span class="p">,</span> <span class="n">array</span> <span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span>  <span class="p">)</span>
+    <span class="k">return</span> <span class="n">value</span></div>
+    
+    
+
+
+<span class="c1"># ---- btkAcq -----</span>
+<div class="viewcode-block" id="pointsFiltering"><a class="viewcode-back" href="../../../pyCGM2.Signal.html#pyCGM2.Signal.signal_processing.pointsFiltering">[docs]</a><span class="k">def</span> <span class="nf">pointsFiltering</span><span class="p">(</span><span class="n">btkAcq</span><span class="p">,</span><span class="n">order</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">fc</span> <span class="o">=</span><span class="mi">6</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Low-pass filtering of all points in an acquisition </span>
+<span class="sd">        </span>
+<span class="sd">        :Parameters:</span>
+<span class="sd">            - `btkAcq` (btkAcquisition) - btk acquisition instance</span>
+<span class="sd">            - `fc` (double) - cut-off frequency </span>
+<span class="sd">            - `order` (double) - order of the low-pass filter</span>
+<span class="sd">   &quot;&quot;&quot;</span>   
+    <span class="n">fp</span><span class="o">=</span><span class="n">btkAcq</span><span class="o">.</span><span class="n">GetPointFrequency</span><span class="p">()</span>
+    <span class="n">bPoint</span><span class="p">,</span> <span class="n">aPoint</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">butter</span><span class="p">(</span><span class="n">order</span><span class="p">,</span> <span class="n">fc</span> <span class="o">/</span> <span class="p">(</span><span class="n">fp</span><span class="o">*</span><span class="mf">0.5</span><span class="p">)</span> <span class="p">,</span> <span class="n">btype</span><span class="o">=</span><span class="s1">&#39;lowpass&#39;</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">pointIt</span> <span class="ow">in</span> <span class="n">btk</span><span class="o">.</span><span class="n">Iterate</span><span class="p">(</span><span class="n">btkAcq</span><span class="o">.</span><span class="n">GetPoints</span><span class="p">()):</span>
+        <span class="n">x</span><span class="o">=</span><span class="n">signal</span><span class="o">.</span><span class="n">filtfilt</span><span class="p">(</span><span class="n">bPoint</span><span class="p">,</span> <span class="n">aPoint</span><span class="p">,</span> <span class="n">pointIt</span><span class="o">.</span><span class="n">GetValues</span><span class="p">()[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span>  <span class="p">)</span>
+        <span class="n">y</span><span class="o">=</span><span class="n">signal</span><span class="o">.</span><span class="n">filtfilt</span><span class="p">(</span><span class="n">bPoint</span><span class="p">,</span> <span class="n">aPoint</span><span class="p">,</span> <span class="n">pointIt</span><span class="o">.</span><span class="n">GetValues</span><span class="p">()[:,</span><span class="mi">1</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span>  <span class="p">)</span>
+        <span class="n">z</span><span class="o">=</span><span class="n">signal</span><span class="o">.</span><span class="n">filtfilt</span><span class="p">(</span><span class="n">bPoint</span><span class="p">,</span> <span class="n">aPoint</span><span class="p">,</span> <span class="n">pointIt</span><span class="o">.</span><span class="n">GetValues</span><span class="p">()[:,</span><span class="mi">2</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span>  <span class="p">)</span>
+        <span class="n">pointIt</span><span class="o">.</span><span class="n">SetValues</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="p">[</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">]</span> <span class="p">)</span><span class="o">.</span><span class="n">transpose</span><span class="p">())</span></div>
+
+
+<span class="c1"># ----- methods ---------</span>
+<div class="viewcode-block" id="arrayLowPassFiltering"><a class="viewcode-back" href="../../../pyCGM2.Signal.html#pyCGM2.Signal.signal_processing.arrayLowPassFiltering">[docs]</a><span class="k">def</span> <span class="nf">arrayLowPassFiltering</span><span class="p">(</span><span class="n">valuesArray</span><span class="p">,</span> <span class="n">freq</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">fc</span> <span class="o">=</span><span class="mi">6</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        low-pass filtering of an numpy array </span>
+<span class="sd">        </span>
+<span class="sd">        :Parameters:</span>
+<span class="sd">             - `valuesArray` (numpy.array(n,n)) - array</span>
+<span class="sd">            - `fc` (double) - cut-off frequency</span>
+<span class="sd">            - `order` (double) - order of the low-pass filter</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">butter</span><span class="p">(</span><span class="n">order</span><span class="p">,</span> <span class="n">fc</span> <span class="o">/</span> <span class="p">(</span><span class="n">freq</span><span class="o">*</span><span class="mf">0.5</span><span class="p">)</span> <span class="p">,</span> <span class="n">btype</span><span class="o">=</span><span class="s1">&#39;lowpass&#39;</span><span class="p">)</span>
+
+    <span class="n">out</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">valuesArray</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>    
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">valuesArray</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
+        <span class="n">out</span><span class="p">[:,</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">filtfilt</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">valuesArray</span><span class="p">[:,</span><span class="n">i</span><span class="p">]</span> <span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">out</span></div>
+        
+
+
+    
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">pyCGM2 0.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" >Module code</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017, Fabien Leboeuf.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.1.
+    </div>
+  </body>
+</html>

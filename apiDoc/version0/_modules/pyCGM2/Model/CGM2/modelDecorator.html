@@ -1,0 +1,950 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>pyCGM2.Model.CGM2.modelDecorator &#8212; pyCGM2 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="../../../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../../index.html">pyCGM2 0.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../../index.html" accesskey="U">Module code</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for pyCGM2.Model.CGM2.modelDecorator</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pdb</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="kn">import</span> <span class="nn">cgm</span>
+<span class="kn">import</span> <span class="nn">model</span>
+
+<span class="kn">import</span> <span class="nn">pyCGM2.enums</span> <span class="k">as</span> <span class="nn">pyCGM2Enums</span>
+<span class="kn">from</span> <span class="nn">pyCGM2.Tools</span> <span class="k">import</span>  <span class="n">btkTools</span>
+<span class="kn">from</span> <span class="nn">pyCGM2.Math</span> <span class="k">import</span>  <span class="n">numeric</span><span class="p">,</span> <span class="n">geometry</span>
+
+
+
+<div class="viewcode-block" id="setDescription"><a class="viewcode-back" href="../../../../pyCGM2.Model.CGM2.html#pyCGM2.Model.CGM2.modelDecorator.setDescription">[docs]</a><span class="k">def</span> <span class="nf">setDescription</span><span class="p">(</span><span class="n">nodeLabel</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        return a node description</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+
+    <span class="k">if</span> <span class="s2">&quot;kad&quot;</span> <span class="ow">in</span> <span class="n">nodeLabel</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;kad&quot;</span>
+    <span class="k">elif</span> <span class="s2">&quot;sara&quot;</span> <span class="ow">in</span> <span class="n">nodeLabel</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;sara&quot;</span>
+    <span class="k">elif</span> <span class="s2">&quot;hara&quot;</span> <span class="ow">in</span> <span class="n">nodeLabel</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;hara&quot;</span>        
+    <span class="k">elif</span> <span class="s2">&quot;har&quot;</span> <span class="ow">in</span> <span class="n">nodeLabel</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;har&quot;</span>
+    <span class="k">elif</span> <span class="s2">&quot;mid&quot;</span> <span class="ow">in</span> <span class="n">nodeLabel</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;mid&quot;</span>
+    <span class="k">elif</span> <span class="s2">&quot;us&quot;</span> <span class="ow">in</span> <span class="n">nodeLabel</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;us&quot;</span>
+    <span class="k">elif</span> <span class="s2">&quot;mri&quot;</span> <span class="ow">in</span> <span class="n">nodeLabel</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;mri&quot;</span>
+
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;custom&quot;</span></div>
+
+
+<span class="c1"># ---- CONVENIENT FUNCTIONS ------</span>
+<div class="viewcode-block" id="saraCalibration"><a class="viewcode-back" href="../../../../pyCGM2.Model.CGM2.html#pyCGM2.Model.CGM2.modelDecorator.saraCalibration">[docs]</a><span class="k">def</span> <span class="nf">saraCalibration</span><span class="p">(</span><span class="n">proxMotionRef</span><span class="p">,</span><span class="n">distMotionRef</span><span class="p">,</span> <span class="n">gap</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span> <span class="n">method</span> <span class="o">=</span> <span class="s2">&quot;1&quot;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; </span>
+<span class="sd">    </span>
+<span class="sd">        Computation of the hip joint center position from Harrington&#39;s regressions.         </span>
+<span class="sd">    </span>
+<span class="sd">        :Parameters:</span>
+<span class="sd">            - `proxMotionRef` (list of numpy.array(3,3)) - motion of the proximal referential             </span>
+<span class="sd">            - `distMotionRef` (list of numpy.array(3,3)) - motion of the distal referential</span>
+<span class="sd">            - `gap` (double) - distance in mm for positionning an axis limit</span>
+<span class="sd">            - `method` (int) - affect the objective function (see Ehrig et al.). </span>
+
+<span class="sd">        :Returns:</span>
+<span class="sd">            - `prox_origin` (np.array(3)) - position of the origin in the proximal referential             </span>
+<span class="sd">            - `prox_axisLim` (np.array(3)) - position on a point on the axis in the proximal referential             </span>
+<span class="sd">            - `dist_origin` (np.array(3)) - position of the origin in the distal referential             </span>
+<span class="sd">            - `dist_axisLim` (np.array(3)) - position on a point on the axis in the distal referential</span>
+<span class="sd">            - `prox_axisNorm` (np.array(3)) - axis in the proximal frame</span>
+<span class="sd">            - `dist_axisNorm` (np.array(3)) - axis in the proximal frame       </span>
+<span class="sd">            - `coeffDet`     (double) - See about it with morgan          </span>
+
+
+<span class="sd">        .. warning :: </span>
+<span class="sd">            </span>
+<span class="sd">            linalg.svd and matlab are different. V from scipy has to be transposed. </span>
+<span class="sd">            In addition, singular values are returned in a 1d array not a diagonal matrix</span>
+
+<span class="sd">        **Reference**</span>
+<span class="sd">        </span>
+<span class="sd">        Ehrig, R., Taylor, W. R., Duda, G., &amp; Heller, M. (2007). A survey of formal methods for determining functional joint axes. Journal of Biomechanics, 40(10), 2150–7.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span> 
+    
+    <span class="c1">#TODO: Validate     </span>
+    
+    <span class="k">if</span> <span class="n">method</span> <span class="o">==</span><span class="s2">&quot;1&quot;</span><span class="p">:</span> 
+  
+        <span class="n">nFrames</span><span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">proxMotionRef</span><span class="p">)</span>  
+        
+        <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">nFrames</span><span class="o">*</span><span class="mi">3</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+        <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">nFrames</span><span class="o">*</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span> 
+        
+        
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">nFrames</span><span class="p">):</span>
+            <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="o">*</span><span class="mi">3</span><span class="p">:</span><span class="n">i</span><span class="o">*</span><span class="mi">3</span><span class="o">+</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">proxMotionRef</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">getRotation</span><span class="p">()</span>
+            <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="o">*</span><span class="mi">3</span><span class="p">:</span><span class="n">i</span><span class="o">*</span><span class="mi">3</span><span class="o">+</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1.0</span> <span class="o">*</span> <span class="n">distMotionRef</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">getRotation</span><span class="p">()</span>
+            <span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="o">*</span><span class="mi">3</span><span class="p">:</span><span class="n">i</span><span class="o">*</span><span class="mi">3</span><span class="o">+</span><span class="mi">3</span><span class="p">,:]</span> <span class="o">=</span> <span class="p">(</span><span class="n">distMotionRef</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">getTranslation</span><span class="p">()</span> <span class="o">-</span> <span class="n">proxMotionRef</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">getTranslation</span><span class="p">())</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>       
+    
+    
+        
+        
+        <span class="n">U</span><span class="p">,</span><span class="n">s</span><span class="p">,</span><span class="n">V</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">svd</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">full_matrices</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">V</span> <span class="o">=</span> <span class="n">V</span><span class="o">.</span><span class="n">T</span> <span class="c1"># beware of V ( there is a difference between numpy and matlab)       </span>
+        <span class="n">invDiagS</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">identity</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">s</span><span class="p">)</span> <span class="c1">#s from sv is a line array not a matrix</span>
+    
+        <span class="n">diagS</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">identity</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">s</span><span class="p">)</span>
+    
+        <span class="n">CoR</span> <span class="o">=</span> <span class="n">V</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">invDiagS</span><span class="p">)</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">U</span><span class="o">.</span><span class="n">T</span><span class="p">)</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+        <span class="n">AoR</span> <span class="o">=</span> <span class="n">V</span><span class="p">[:,</span><span class="mi">5</span><span class="p">]</span>     
+    
+        
+        
+    <span class="k">elif</span> <span class="n">method</span> <span class="o">==</span><span class="s2">&quot;2&quot;</span><span class="p">:</span> <span class="c1"># idem programmation morgan</span>
+        <span class="nb">print</span> <span class="s2">&quot;morgan&quot;</span>
+        <span class="n">nFrames</span><span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">proxMotionRef</span><span class="p">)</span>  
+    
+    
+        <span class="n">SR</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+        <span class="n">Sd</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+        <span class="n">SRd</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+    
+        <span class="c1"># For each frame compute the transformation matrix of the distal</span>
+        <span class="c1"># segment in the proximal reference system</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">nFrames</span><span class="p">):</span> 
+            <span class="n">Rprox</span> <span class="o">=</span> <span class="n">proxMotionRef</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">getRotation</span><span class="p">()</span> 
+            <span class="n">tprox</span> <span class="o">=</span> <span class="n">proxMotionRef</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">getTranslation</span><span class="p">()</span>
+    
+            <span class="n">Rdist</span> <span class="o">=</span> <span class="n">distMotionRef</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">getRotation</span><span class="p">()</span> 
+            <span class="n">tdist</span> <span class="o">=</span> <span class="n">distMotionRef</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">getTranslation</span><span class="p">()</span> 
+           
+            <span class="n">P</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">Rprox</span><span class="p">,</span><span class="n">tprox</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">T</span><span class="p">),</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]])),</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+            <span class="n">D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">Rdist</span><span class="p">,</span><span class="n">tdist</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">T</span><span class="p">),</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]])),</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    
+        
+            <span class="n">T</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">pinv</span><span class="p">(</span><span class="n">P</span><span class="p">),</span><span class="n">D</span><span class="p">)</span>
+            <span class="n">R</span> <span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span> <span class="p">]</span>
+            <span class="n">d</span><span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> 
+            
+
+            <span class="n">SR</span> <span class="o">=</span> <span class="n">SR</span> <span class="o">+</span> <span class="n">R</span>
+            <span class="n">Sd</span> <span class="o">=</span> <span class="n">Sd</span> <span class="o">+</span> <span class="n">d</span>
+            <span class="n">SRd</span> <span class="o">=</span> <span class="n">SRd</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">R</span><span class="o">.</span><span class="n">T</span><span class="p">,</span><span class="n">d</span><span class="p">)</span>
+            
+
+         
+        <span class="n">A0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">nFrames</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span><span class="o">-</span><span class="n">SR</span><span class="p">),</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>        
+        <span class="n">A1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="o">-</span><span class="n">SR</span><span class="o">.</span><span class="n">T</span><span class="p">,</span><span class="n">nFrames</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">3</span><span class="p">)),</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>                
+        
+        <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">A0</span><span class="p">,</span><span class="n">A1</span><span class="p">))</span>
+        <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">Sd</span><span class="p">,</span><span class="o">-</span><span class="n">SRd</span><span class="p">))</span>
+        
+        <span class="c1"># CoR</span>
+        <span class="n">CoR</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">pinv</span><span class="p">(</span><span class="n">A</span><span class="p">),</span><span class="n">b</span><span class="p">)</span> 
+   
+        <span class="c1"># AoR    </span>
+        <span class="n">U</span><span class="p">,</span><span class="n">s</span><span class="p">,</span><span class="n">V</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">svd</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">full_matrices</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">V</span> <span class="o">=</span> <span class="n">V</span><span class="o">.</span><span class="n">T</span> <span class="c1"># beware of V ( there is a difference between numpy and matlab)</span>
+        
+        <span class="n">diagS</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">identity</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">s</span><span class="p">)</span>   <span class="c1"># s from sv is a line array not a matrix  </span>
+    
+        <span class="n">AoR</span> <span class="o">=</span> <span class="n">V</span><span class="p">[:,</span><span class="mi">5</span><span class="p">]</span> 
+    
+    <span class="n">CoR_prox</span> <span class="o">=</span> <span class="n">CoR</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
+    <span class="n">CoR_dist</span> <span class="o">=</span> <span class="n">CoR</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span>
+    
+    <span class="n">prox_axisNorm</span><span class="o">=</span><span class="n">AoR</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">AoR</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span>
+    <span class="n">dist_axisNorm</span><span class="o">=</span><span class="n">AoR</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">AoR</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">6</span><span class="p">])</span>
+
+    <span class="n">prox_origin</span> <span class="o">=</span> <span class="n">CoR_prox</span> <span class="o">-</span>  <span class="n">gap</span> <span class="o">*</span> <span class="n">prox_axisNorm</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">prox_axisLim</span> <span class="o">=</span> <span class="n">CoR_prox</span> <span class="o">+</span> <span class="n">gap</span> <span class="o">*</span> <span class="n">prox_axisNorm</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="n">dist_origin</span> <span class="o">=</span> <span class="n">CoR_dist</span> <span class="o">-</span> <span class="n">gap</span> <span class="o">*</span> <span class="n">dist_axisNorm</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">dist_axisLim</span> <span class="o">=</span> <span class="n">CoR_dist</span> <span class="o">+</span> <span class="n">gap</span> <span class="o">*</span> <span class="n">dist_axisNorm</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+
+
+    <span class="n">S</span> <span class="o">=</span> <span class="n">diagS</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span><span class="mi">3</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span>
+    <span class="n">coeffDet</span> <span class="o">=</span> <span class="n">S</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span><span class="o">/</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">trace</span><span class="p">(</span><span class="n">S</span><span class="p">)</span><span class="o">-</span><span class="n">S</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span> <span class="c1">#TODO : explanation ? where does it come up</span>
+
+    <span class="k">return</span> <span class="n">prox_origin</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span><span class="n">prox_axisLim</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span><span class="n">dist_origin</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span><span class="n">dist_axisLim</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span><span class="n">prox_axisNorm</span><span class="p">,</span><span class="n">dist_axisNorm</span><span class="p">,</span><span class="n">coeffDet</span></div>
+   
+   
+   
+   
+   
+<div class="viewcode-block" id="haraRegression"><a class="viewcode-back" href="../../../../pyCGM2.Model.CGM2.html#pyCGM2.Model.CGM2.modelDecorator.haraRegression">[docs]</a><span class="k">def</span> <span class="nf">haraRegression</span><span class="p">(</span><span class="n">mp_input</span><span class="p">,</span><span class="n">mp_computed</span><span class="p">,</span><span class="n">markerDiameter</span> <span class="o">=</span> <span class="mf">14.0</span><span class="p">,</span>  <span class="n">basePlate</span> <span class="o">=</span> <span class="mf">2.0</span><span class="p">):</span>   
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Hip joint centre regression from Hara et al, 2016</span>
+
+<span class="sd">        :Parameters:</span>
+<span class="sd">            - `mp_input` (dict) - dictionnary of the measured anthropometric parameters</span>
+<span class="sd">            - `mp_computed` (dict) - dictionnary of the cgm-computed anthropometric parameters</span>
+<span class="sd">            - `markerDiameter` (double) - diameter of the marker</span>
+<span class="sd">            - `basePlate` (double) - thickness of the base plate</span>
+<span class="sd">        </span>
+<span class="sd">        **Reference**</span>
+<span class="sd">        </span>
+<span class="sd">        Hara, R., Mcginley, J. L., C, B., Baker, R., &amp; Sangeux, M. (2016). Generation of age and sex specific regression equations to locate the Hip Joint Centres. Gait &amp; Posture</span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1">#TODO : remove mp_computed</span>
+   
+   
+    <span class="n">HJCx_L</span><span class="o">=</span> <span class="mf">11.0</span> <span class="o">-</span><span class="mf">0.063</span><span class="o">*</span><span class="n">mp_input</span><span class="p">[</span><span class="s2">&quot;leftLegLength&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">markerDiameter</span><span class="o">/</span><span class="mf">2.0</span> <span class="o">-</span> <span class="n">basePlate</span>
+    <span class="n">HJCy_L</span><span class="o">=</span><span class="mf">8.0</span><span class="o">+</span><span class="mf">0.086</span><span class="o">*</span><span class="n">mp_input</span><span class="p">[</span><span class="s2">&quot;leftLegLength&quot;</span><span class="p">]</span>
+    <span class="n">HJCz_L</span><span class="o">=-</span><span class="mf">9.0</span><span class="o">-</span><span class="mf">0.078</span><span class="o">*</span><span class="n">mp_input</span><span class="p">[</span><span class="s2">&quot;leftLegLength&quot;</span><span class="p">]</span>
+    
+    <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Left HJC position from Hara [ X = </span><span class="si">%s</span><span class="s2">, Y = </span><span class="si">%s</span><span class="s2">, Z = </span><span class="si">%s</span><span class="s2">]&quot;</span> <span class="o">%</span><span class="p">(</span><span class="n">HJCx_L</span><span class="p">,</span><span class="n">HJCy_L</span><span class="p">,</span><span class="n">HJCz_L</span><span class="p">))</span>    
+    <span class="n">HJC_L_hara</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">HJCx_L</span><span class="p">,</span><span class="n">HJCy_L</span><span class="p">,</span><span class="n">HJCz_L</span><span class="p">])</span>
+    
+    <span class="n">HJCx_R</span><span class="o">=</span> <span class="mf">11.0</span> <span class="o">-</span><span class="mf">0.063</span><span class="o">*</span><span class="n">mp_input</span><span class="p">[</span><span class="s2">&quot;rightLegLength&quot;</span><span class="p">]</span><span class="o">-</span> <span class="n">markerDiameter</span><span class="o">/</span><span class="mf">2.0</span> <span class="o">-</span> <span class="n">basePlate</span>
+    <span class="n">HJCy_R</span><span class="o">=-</span><span class="mf">1.0</span><span class="o">*</span><span class="p">(</span><span class="mf">8.0</span><span class="o">+</span><span class="mf">0.086</span><span class="o">*</span><span class="n">mp_input</span><span class="p">[</span><span class="s2">&quot;rightLegLength&quot;</span><span class="p">])</span>
+    <span class="n">HJCz_R</span><span class="o">=-</span><span class="mf">9.0</span><span class="o">-</span><span class="mf">0.078</span><span class="o">*</span><span class="n">mp_input</span><span class="p">[</span><span class="s2">&quot;rightLegLength&quot;</span><span class="p">]</span>
+        
+    <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Right HJC position from Hara [ X = </span><span class="si">%s</span><span class="s2">, Y = </span><span class="si">%s</span><span class="s2">, Z = </span><span class="si">%s</span><span class="s2">]&quot;</span> <span class="o">%</span><span class="p">(</span><span class="n">HJCx_R</span><span class="p">,</span><span class="n">HJCy_R</span><span class="p">,</span><span class="n">HJCz_R</span><span class="p">))</span>    
+    <span class="n">HJC_R_hara</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">HJCx_R</span><span class="p">,</span><span class="n">HJCy_R</span><span class="p">,</span><span class="n">HJCz_R</span><span class="p">])</span>
+   
+    <span class="n">HJC_L</span> <span class="o">=</span> <span class="n">HJC_L_hara</span>       
+    <span class="n">HJC_R</span> <span class="o">=</span> <span class="n">HJC_R_hara</span>
+    
+    <span class="k">return</span> <span class="n">HJC_L</span><span class="p">,</span><span class="n">HJC_R</span></div>
+
+
+
+<div class="viewcode-block" id="harringtonRegression"><a class="viewcode-back" href="../../../../pyCGM2.Model.CGM2.html#pyCGM2.Model.CGM2.modelDecorator.harringtonRegression">[docs]</a><span class="k">def</span> <span class="nf">harringtonRegression</span><span class="p">(</span><span class="n">mp_input</span><span class="p">,</span><span class="n">mp_computed</span><span class="p">,</span> <span class="n">predictors</span><span class="p">,</span> <span class="n">markerDiameter</span> <span class="o">=</span> <span class="mf">14.0</span><span class="p">,</span> <span class="n">basePlate</span> <span class="o">=</span> <span class="mf">2.0</span><span class="p">,</span> <span class="n">cgmReferential</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Hip joint centre regression from Harrington et al, 2007</span>
+
+<span class="sd">        :Parameters:</span>
+<span class="sd">            - `mp_input` (dict) - dictionnary of the measured anthropometric parameters</span>
+<span class="sd">            - `mp_computed` (dict) - dictionnary of the cgm-computed anthropometric parameters</span>
+<span class="sd">            - `predictors` (str) - predictor choice of the regression (full,PWonly,LLonly)</span>
+<span class="sd">            - `markerDiameter` (double) - diameter of the marker</span>
+<span class="sd">            - `basePlate` (double) - thickness of the base plate</span>
+<span class="sd">            - `cgmReferential` (bool) - flag indicating HJC position will be expressed in the CGM pelvis Coordinate system</span>
+<span class="sd">    </span>
+<span class="sd">        .. note:: Predictor choice allow using modified Harrington&#39;s regression from Sangeux 2015  </span>
+<span class="sd">    </span>
+<span class="sd">        &#39;&#39; warning:: this function requires pelvisDepth,asisDistance and meanlegLength which are automaticcly computed during CGM calibration</span>
+
+<span class="sd">    </span>
+<span class="sd">        **Reference**</span>
+<span class="sd">       </span>
+<span class="sd">          - Harrington, M., Zavatsky, A., Lawson, S., Yuan, Z., &amp; Theologis, T. (2007). Prediction of the hip joint centre in adults, children, and patients with cerebral palsy based on magnetic resonance imaging. Journal of Biomechanics, 40(3), 595–602</span>
+<span class="sd">          - Sangeux, M. (2015). On the implementation of predictive methods to locate the hip joint centres. Gait and Posture, 42(3), 402–405.</span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1">#TODO : how to work without CGM calibration</span>
+
+    <span class="k">if</span> <span class="n">predictors</span><span class="o">.</span><span class="n">value</span> <span class="o">==</span> <span class="s2">&quot;full&quot;</span><span class="p">:</span>
+        <span class="n">HJCx_L</span><span class="o">=-</span><span class="mf">0.24</span><span class="o">*</span><span class="n">mp_computed</span><span class="p">[</span><span class="s2">&quot;pelvisDepth&quot;</span><span class="p">]</span><span class="o">-</span><span class="mf">9.9</span>  <span class="o">-</span> <span class="n">markerDiameter</span><span class="o">/</span><span class="mf">2.0</span> <span class="o">-</span> <span class="n">basePlate</span> <span class="c1"># post/ant</span>
+        <span class="n">HJCy_L</span><span class="o">=-</span><span class="mf">0.16</span><span class="o">*</span><span class="n">mp_computed</span><span class="p">[</span><span class="s2">&quot;asisDistance&quot;</span><span class="p">]</span><span class="o">-</span><span class="mf">0.04</span><span class="o">*</span><span class="n">mp_computed</span><span class="p">[</span><span class="s2">&quot;meanlegLength&quot;</span><span class="p">]</span><span class="o">-</span><span class="mf">7.1</span> 
+        <span class="n">HJCz_L</span><span class="o">=-</span><span class="mi">1</span><span class="o">*</span><span class="p">(</span><span class="mf">0.28</span><span class="o">*</span><span class="n">mp_computed</span><span class="p">[</span><span class="s2">&quot;pelvisDepth&quot;</span><span class="p">]</span><span class="o">+</span><span class="mf">0.16</span><span class="o">*</span><span class="n">mp_computed</span><span class="p">[</span><span class="s2">&quot;asisDistance&quot;</span><span class="p">]</span><span class="o">+</span><span class="mf">7.9</span><span class="p">)</span>
+        <span class="n">HJC_L_har</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">HJCx_L</span><span class="p">,</span><span class="n">HJCy_L</span><span class="p">,</span><span class="n">HJCz_L</span><span class="p">])</span>
+
+        <span class="n">HJCx_R</span><span class="o">=-</span><span class="mf">0.24</span><span class="o">*</span><span class="n">mp_computed</span><span class="p">[</span><span class="s2">&quot;pelvisDepth&quot;</span><span class="p">]</span><span class="o">-</span><span class="mf">9.9</span> <span class="o">-</span> <span class="n">markerDiameter</span><span class="o">/</span><span class="mf">2.0</span> <span class="o">-</span> <span class="n">basePlate</span><span class="c1"># post/ant</span>
+        <span class="n">HJCy_R</span><span class="o">=-</span><span class="mf">0.16</span><span class="o">*</span><span class="n">mp_computed</span><span class="p">[</span><span class="s2">&quot;asisDistance&quot;</span><span class="p">]</span><span class="o">-</span><span class="mf">0.04</span><span class="o">*</span><span class="n">mp_computed</span><span class="p">[</span><span class="s2">&quot;meanlegLength&quot;</span><span class="p">]</span><span class="o">-</span><span class="mf">7.1</span> 
+        <span class="n">HJCz_R</span><span class="o">=</span><span class="mi">1</span><span class="o">*</span><span class="p">(</span><span class="mf">0.28</span><span class="o">*</span><span class="n">mp_computed</span><span class="p">[</span><span class="s2">&quot;pelvisDepth&quot;</span><span class="p">]</span><span class="o">+</span><span class="mf">0.16</span><span class="o">*</span><span class="n">mp_computed</span><span class="p">[</span><span class="s2">&quot;asisDistance&quot;</span><span class="p">]</span><span class="o">+</span><span class="mf">7.9</span><span class="p">)</span> 
+        <span class="n">HJC_R_har</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">HJCx_R</span><span class="p">,</span><span class="n">HJCy_R</span><span class="p">,</span><span class="n">HJCz_R</span><span class="p">])</span>    
+
+    <span class="k">elif</span> <span class="n">predictors</span><span class="o">.</span><span class="n">value</span><span class="o">==</span><span class="s2">&quot;PWonly&quot;</span><span class="p">:</span>
+        <span class="n">HJCx_L</span><span class="o">=-</span><span class="mf">0.138</span><span class="o">*</span><span class="n">mp_computed</span><span class="p">[</span><span class="s2">&quot;asisDistance&quot;</span><span class="p">]</span><span class="o">-</span><span class="mf">10.4</span> <span class="o">-</span> <span class="n">markerDiameter</span><span class="o">/</span><span class="mf">2.0</span> <span class="o">-</span> <span class="n">basePlate</span>
+        <span class="n">HJCy_L</span><span class="o">=-</span><span class="mf">0.305</span><span class="o">*</span><span class="n">mp_computed</span><span class="p">[</span><span class="s2">&quot;asisDistance&quot;</span><span class="p">]</span><span class="o">-</span><span class="mf">10.9</span>
+        <span class="n">HJCz_L</span><span class="o">=-</span><span class="mi">1</span><span class="o">*</span><span class="p">(</span><span class="mf">0.33</span><span class="o">*</span><span class="n">mp_computed</span><span class="p">[</span><span class="s2">&quot;asisDistance&quot;</span><span class="p">]</span><span class="o">+</span><span class="mf">7.3</span><span class="p">)</span>
+        
+        <span class="n">HJC_L_har</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">HJCx_L</span><span class="p">,</span><span class="n">HJCy_L</span><span class="p">,</span><span class="n">HJCz_L</span><span class="p">])</span>
+    
+        <span class="n">HJCx_R</span><span class="o">=-</span><span class="mf">0.138</span><span class="o">*</span><span class="n">mp_computed</span><span class="p">[</span><span class="s2">&quot;asisDistance&quot;</span><span class="p">]</span><span class="o">-</span><span class="mf">10.4</span> <span class="o">-</span> <span class="n">markerDiameter</span><span class="o">/</span><span class="mf">2.0</span> <span class="o">-</span> <span class="n">basePlate</span>
+        <span class="n">HJCy_R</span><span class="o">=-</span><span class="mf">0.305</span><span class="o">*</span><span class="n">mp_computed</span><span class="p">[</span><span class="s2">&quot;asisDistance&quot;</span><span class="p">]</span><span class="o">-</span><span class="mf">10.9</span>
+        <span class="n">HJCz_R</span><span class="o">=</span><span class="mi">1</span><span class="o">*</span><span class="p">(</span><span class="mf">0.33</span><span class="o">*</span><span class="n">mp_computed</span><span class="p">[</span><span class="s2">&quot;asisDistance&quot;</span><span class="p">]</span><span class="o">+</span><span class="mf">7.3</span><span class="p">)</span>
+        
+        <span class="n">HJC_R_har</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">HJCx_R</span><span class="p">,</span><span class="n">HJCy_R</span><span class="p">,</span><span class="n">HJCz_R</span><span class="p">])</span> 
+    
+
+    <span class="k">elif</span> <span class="n">predictors</span><span class="o">.</span><span class="n">value</span><span class="o">==</span><span class="s2">&quot;LLonly&quot;</span><span class="p">:</span>
+        <span class="n">HJCx_L</span><span class="o">=-</span><span class="mf">0.041</span><span class="o">*</span><span class="n">mp_computed</span><span class="p">[</span><span class="s2">&quot;meanlegLength&quot;</span><span class="p">]</span><span class="o">-</span><span class="mf">6.3</span> <span class="o">-</span> <span class="n">markerDiameter</span><span class="o">/</span><span class="mf">2.0</span> <span class="o">-</span> <span class="n">basePlate</span>
+        <span class="n">HJCy_L</span><span class="o">=-</span><span class="mf">0.083</span><span class="o">*</span><span class="n">mp_computed</span><span class="p">[</span><span class="s2">&quot;meanlegLength&quot;</span><span class="p">]</span><span class="o">-</span><span class="mf">7.9</span>
+        <span class="n">HJCz_L</span><span class="o">=-</span><span class="mi">1</span><span class="o">*</span><span class="p">(</span><span class="mf">0.0874</span><span class="o">*</span><span class="n">mp_computed</span><span class="p">[</span><span class="s2">&quot;meanlegLength&quot;</span><span class="p">]</span><span class="o">+</span><span class="mf">5.4</span><span class="p">)</span>
+        
+        <span class="n">HJC_L_har</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">HJCx_L</span><span class="p">,</span><span class="n">HJCy_L</span><span class="p">,</span><span class="n">HJCz_L</span><span class="p">])</span>
+    
+        <span class="n">HJCx_R</span><span class="o">=-</span><span class="mf">0.041</span><span class="o">*</span><span class="n">mp_computed</span><span class="p">[</span><span class="s2">&quot;meanlegLength&quot;</span><span class="p">]</span><span class="o">-</span><span class="mf">6.3</span> <span class="o">-</span> <span class="n">markerDiameter</span><span class="o">/</span><span class="mf">2.0</span> <span class="o">-</span> <span class="n">basePlate</span>
+        <span class="n">HJCy_R</span><span class="o">=-</span><span class="mf">0.083</span><span class="o">*</span><span class="n">mp_computed</span><span class="p">[</span><span class="s2">&quot;meanlegLength&quot;</span><span class="p">]</span><span class="o">-</span><span class="mf">7.9</span>
+        <span class="n">HJCz_R</span><span class="o">=</span><span class="mi">1</span><span class="o">*</span><span class="p">(</span><span class="mf">0.0874</span><span class="o">*</span><span class="n">mp_computed</span><span class="p">[</span><span class="s2">&quot;meanlegLength&quot;</span><span class="p">]</span><span class="o">+</span><span class="mf">5.4</span><span class="p">)</span>
+        
+        <span class="n">HJC_R_har</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">HJCx_R</span><span class="p">,</span><span class="n">HJCy_R</span><span class="p">,</span><span class="n">HJCz_R</span><span class="p">])</span>
+        
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;[pycga] Predictor is unknown choixe possible : full, PWonly, LLonly&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">cgmReferential</span> <span class="p">:</span>
+        <span class="n">Rhar_cgm1</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
+        <span class="n">HJC_L</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">Rhar_cgm1</span><span class="p">,</span><span class="n">HJC_L_har</span><span class="p">)</span>       
+        <span class="n">HJC_R</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">Rhar_cgm1</span><span class="p">,</span><span class="n">HJC_R_har</span><span class="p">)</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;computation in cgm pelvis referential&quot;</span><span class="p">)</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Left HJC position from Harrington [ X = </span><span class="si">%s</span><span class="s2">, Y = </span><span class="si">%s</span><span class="s2">, Z = </span><span class="si">%s</span><span class="s2">]&quot;</span> <span class="o">%</span><span class="p">(</span><span class="n">HJC_L</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">HJC_L</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">HJC_L</span><span class="p">[</span><span class="mi">2</span><span class="p">]))</span> 
+        <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Right HJC position from Harrington [ X = </span><span class="si">%s</span><span class="s2">, Y = </span><span class="si">%s</span><span class="s2">, Z = </span><span class="si">%s</span><span class="s2">]&quot;</span> <span class="o">%</span><span class="p">(</span><span class="n">HJC_L</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">HJC_L</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">HJC_L</span><span class="p">[</span><span class="mi">2</span><span class="p">]))</span> 
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">HJC_L</span> <span class="o">=</span> <span class="n">HJC_L_har</span>       
+        <span class="n">HJC_R</span> <span class="o">=</span> <span class="n">HJC_R_har</span>
+    
+    <span class="k">return</span> <span class="n">HJC_L</span><span class="p">,</span><span class="n">HJC_R</span></div>
+
+
+<span class="c1"># -------- ABSTRACT DECORATOR MODEL : INTERFACE ---------</span>
+
+<div class="viewcode-block" id="DecoratorModel"><a class="viewcode-back" href="../../../../pyCGM2.Model.CGM2.html#pyCGM2.Model.CGM2.modelDecorator.DecoratorModel">[docs]</a><span class="k">class</span> <span class="nc">DecoratorModel</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="c1"># interface    </span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">iModel</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">DecoratorModel</span><span class="p">,</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">iModel</span></div>
+
+<span class="c1">#-------- CONCRETE DECORATOR MODEL ---------</span>
+<div class="viewcode-block" id="Kad"><a class="viewcode-back" href="../../../../pyCGM2.Model.CGM2.html#pyCGM2.Model.CGM2.modelDecorator.Kad">[docs]</a><span class="k">class</span> <span class="nc">Kad</span><span class="p">(</span><span class="n">DecoratorModel</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">         A concrete CGM decorator altering the knee joint centre from the Knee Aligment device    </span>
+<span class="sd">    &quot;&quot;&quot;</span> 
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">iModel</span><span class="p">,</span><span class="n">iAcq</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            :Parameters:</span>
+<span class="sd">                - `iModel` (pyCGM2.Model.CGM2.cgm.CGM) - a CGM instance   </span>
+<span class="sd">                - `iAcq` (btkAcquisition) - btk aquisition inctance of a static c3d with the KAD          </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="nb">super</span><span class="p">(</span><span class="n">Kad</span><span class="p">,</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="n">iModel</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">acq</span> <span class="o">=</span> <span class="n">iAcq</span>
+        
+<div class="viewcode-block" id="Kad.compute"><a class="viewcode-back" href="../../../../pyCGM2.Model.CGM2.html#pyCGM2.Model.CGM2.modelDecorator.Kad.compute">[docs]</a>    <span class="k">def</span> <span class="nf">compute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">side</span><span class="o">=</span><span class="s2">&quot;both&quot;</span><span class="p">,</span><span class="n">markerDiameter</span> <span class="o">=</span> <span class="mi">14</span><span class="p">,</span><span class="n">displayMarkers</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>    
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">             :Parameters:</span>
+<span class="sd">                - `side` (str) - body side </span>
+<span class="sd">                - `markerDiameter` (double) - diameter of the marker</span>
+<span class="sd">                - `displayMarkers` (bool) - display markers RKNE, RKJC and RAJC from KAD processing  </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">distSkin</span> <span class="o">=</span> <span class="mi">0</span>           
+        
+        <span class="n">ff</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">acq</span><span class="o">.</span><span class="n">GetFirstFrame</span><span class="p">()</span> 
+
+        <span class="n">frameInit</span> <span class="o">=</span>  <span class="bp">self</span><span class="o">.</span><span class="n">acq</span><span class="o">.</span><span class="n">GetFirstFrame</span><span class="p">()</span><span class="o">-</span><span class="n">ff</span>  
+        <span class="n">frameEnd</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">acq</span><span class="o">.</span><span class="n">GetLastFrame</span><span class="p">()</span><span class="o">-</span><span class="n">ff</span><span class="o">+</span><span class="mi">1</span>
+                
+        <span class="c1">#self.model.nativeCgm1 = False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">decoratedModel</span> <span class="o">=</span> <span class="kc">True</span>
+
+        <span class="k">if</span> <span class="n">side</span> <span class="o">==</span> <span class="s2">&quot;both&quot;</span> <span class="ow">or</span> <span class="n">side</span> <span class="o">==</span> <span class="s2">&quot;left&quot;</span><span class="p">:</span>
+            
+            <span class="c1">#  compute points left and right lateral condyle</span>
+            <span class="n">LKAX</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">acq</span><span class="o">.</span><span class="n">GetPoint</span><span class="p">(</span><span class="s2">&quot;LKAX&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">GetValues</span><span class="p">()[</span><span class="n">frameInit</span><span class="p">:</span><span class="n">frameEnd</span><span class="p">,:]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+            <span class="n">LKD1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">acq</span><span class="o">.</span><span class="n">GetPoint</span><span class="p">(</span><span class="s2">&quot;LKD1&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">GetValues</span><span class="p">()[</span><span class="n">frameInit</span><span class="p">:</span><span class="n">frameEnd</span><span class="p">,:]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+            <span class="n">LKD2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">acq</span><span class="o">.</span><span class="n">GetPoint</span><span class="p">(</span><span class="s2">&quot;LKD2&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">GetValues</span><span class="p">()[</span><span class="n">frameInit</span><span class="p">:</span><span class="n">frameEnd</span><span class="p">,:]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+                
+            <span class="n">dist</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">LKAX</span><span class="o">-</span><span class="n">LKD1</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">LKAX</span><span class="o">-</span><span class="n">LKD2</span><span class="p">),</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">LKD1</span><span class="o">-</span><span class="n">LKD2</span><span class="p">)]</span> <span class="p">)</span>
+            <span class="n">dist</span> <span class="o">=</span>  <span class="n">dist</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+            <span class="n">res</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dist</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">dist</span><span class="p">)])</span>
+            <span class="n">n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cross</span><span class="p">(</span><span class="n">LKD2</span><span class="o">-</span><span class="n">LKD1</span> <span class="p">,</span> <span class="n">LKAX</span><span class="o">-</span><span class="n">LKD1</span><span class="p">)</span>
+            <span class="n">n</span><span class="o">=</span> <span class="n">n</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+            
+            <span class="n">I</span> <span class="o">=</span> <span class="p">(</span><span class="n">LKD1</span><span class="o">+</span><span class="n">LKAX</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
+            <span class="n">PP1</span> <span class="o">=</span> <span class="mi">2</span><span class="o">/</span><span class="mf">3.0</span><span class="o">*</span><span class="p">(</span><span class="n">I</span><span class="o">-</span><span class="n">LKD2</span><span class="p">)</span><span class="o">+</span><span class="n">LKD2</span>
+            <span class="n">O</span> <span class="o">=</span> <span class="n">PP1</span> <span class="o">-</span> <span class="n">n</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">*</span><span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="mf">3.0</span>   
+            <span class="n">LKAXO</span> <span class="o">=</span> <span class="p">(</span><span class="n">O</span><span class="o">-</span><span class="n">LKAX</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">O</span><span class="o">-</span><span class="n">LKAX</span><span class="p">)</span>
+
+            <span class="n">LKNE</span> <span class="o">=</span> <span class="n">O</span> <span class="o">+</span> <span class="n">LKAXO</span> <span class="o">*</span> <span class="n">distSkin</span>
+        
+            <span class="c1"># locate KJC</span>
+<span class="c1">#            LKJC = LKNE + LKAXO * (self.model.mp[&quot;leftKneeWidth&quot;]+markerDiameter )/2.0</span>
+            <span class="k">if</span> <span class="n">btkTools</span><span class="o">.</span><span class="n">isPointExist</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">acq</span><span class="p">,</span><span class="s2">&quot;LHJC&quot;</span><span class="p">):</span>
+                <span class="n">LHJC</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">acq</span><span class="o">.</span><span class="n">GetPoint</span><span class="p">(</span><span class="s2">&quot;LHJC&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">GetValues</span><span class="p">()[</span><span class="n">frameInit</span><span class="p">:</span><span class="n">frameEnd</span><span class="p">,:]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+                <span class="n">LKJC</span> <span class="o">=</span> <span class="n">cgm</span><span class="o">.</span><span class="n">CGM1ModelInf</span><span class="o">.</span><span class="n">chord</span><span class="p">(</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">mp</span><span class="p">[</span><span class="s2">&quot;leftKneeWidth&quot;</span><span class="p">]</span><span class="o">+</span><span class="n">markerDiameter</span> <span class="p">)</span><span class="o">/</span><span class="mf">2.0</span> <span class="p">,</span><span class="n">LKNE</span><span class="p">,</span><span class="n">LHJC</span><span class="p">,</span><span class="n">LKAX</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span> <span class="mf">0.0</span> <span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">LKJC</span> <span class="o">=</span> <span class="n">LKNE</span> <span class="o">+</span> <span class="n">LKAXO</span> <span class="o">*</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">mp</span><span class="p">[</span><span class="s2">&quot;leftKneeWidth&quot;</span><span class="p">]</span><span class="o">+</span><span class="n">markerDiameter</span> <span class="p">)</span><span class="o">/</span><span class="mf">2.0</span>
+            
+            
+            
+            <span class="c1"># locate AJC</span>
+            <span class="n">LANK</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">acq</span><span class="o">.</span><span class="n">GetPoint</span><span class="p">(</span><span class="s2">&quot;LANK&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">GetValues</span><span class="p">()[</span><span class="n">frameInit</span><span class="p">:</span><span class="n">frameEnd</span><span class="p">,:]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+            <span class="n">LAJC</span> <span class="o">=</span> <span class="n">cgm</span><span class="o">.</span><span class="n">CGM1ModelInf</span><span class="o">.</span><span class="n">chord</span><span class="p">(</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">mp</span><span class="p">[</span><span class="s2">&quot;leftAnkleWidth&quot;</span><span class="p">]</span><span class="o">+</span><span class="n">markerDiameter</span> <span class="p">)</span><span class="o">/</span><span class="mf">2.0</span> <span class="p">,</span><span class="n">LANK</span><span class="p">,</span><span class="n">LKJC</span><span class="p">,</span><span class="n">LKAX</span><span class="p">,</span><span class="n">beta</span><span class="o">=</span> <span class="mf">0.0</span> <span class="p">)</span>
+            
+            
+            <span class="c1"># add nodes to referential </span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="s2">&quot;Left Thigh&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getReferential</span><span class="p">(</span><span class="s2">&quot;TF&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">static</span><span class="o">.</span><span class="n">addNode</span><span class="p">(</span><span class="s2">&quot;LKNE_kad&quot;</span><span class="p">,</span><span class="n">LKNE</span><span class="p">,</span><span class="n">positionType</span><span class="o">=</span><span class="s2">&quot;Global&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="s2">&quot;Left Thigh&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getReferential</span><span class="p">(</span><span class="s2">&quot;TF&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">static</span><span class="o">.</span><span class="n">addNode</span><span class="p">(</span><span class="s2">&quot;LKJC_kad&quot;</span><span class="p">,</span><span class="n">LKJC</span><span class="p">,</span><span class="n">positionType</span><span class="o">=</span><span class="s2">&quot;Global&quot;</span><span class="p">)</span>  
+            
+            <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="s2">&quot;Left Shank&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getReferential</span><span class="p">(</span><span class="s2">&quot;TF&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">static</span><span class="o">.</span><span class="n">addNode</span><span class="p">(</span><span class="s2">&quot;LKNE_kad&quot;</span><span class="p">,</span><span class="n">LKNE</span><span class="p">,</span><span class="n">positionType</span><span class="o">=</span><span class="s2">&quot;Global&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="s2">&quot;Left Shank&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getReferential</span><span class="p">(</span><span class="s2">&quot;TF&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">static</span><span class="o">.</span><span class="n">addNode</span><span class="p">(</span><span class="s2">&quot;LKJC_kad&quot;</span><span class="p">,</span><span class="n">LKJC</span><span class="p">,</span><span class="n">positionType</span><span class="o">=</span><span class="s2">&quot;Global&quot;</span><span class="p">)</span> 
+            <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="s2">&quot;Left Shank&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getReferential</span><span class="p">(</span><span class="s2">&quot;TF&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">static</span><span class="o">.</span><span class="n">addNode</span><span class="p">(</span><span class="s2">&quot;LAJC_kad&quot;</span><span class="p">,</span><span class="n">LAJC</span><span class="p">,</span><span class="n">positionType</span><span class="o">=</span><span class="s2">&quot;Global&quot;</span><span class="p">)</span>
+
+            
+        <span class="k">if</span> <span class="n">side</span> <span class="o">==</span> <span class="s2">&quot;both&quot;</span> <span class="ow">or</span> <span class="n">side</span> <span class="o">==</span> <span class="s2">&quot;right&quot;</span><span class="p">:</span>
+
+            <span class="c1">#  compute points left and right lateral condyle                    </span>
+            <span class="n">RKAX</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">acq</span><span class="o">.</span><span class="n">GetPoint</span><span class="p">(</span><span class="s2">&quot;RKAX&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">GetValues</span><span class="p">()[</span><span class="n">frameInit</span><span class="p">:</span><span class="n">frameEnd</span><span class="p">,:]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+            <span class="n">RKD1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">acq</span><span class="o">.</span><span class="n">GetPoint</span><span class="p">(</span><span class="s2">&quot;RKD1&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">GetValues</span><span class="p">()[</span><span class="n">frameInit</span><span class="p">:</span><span class="n">frameEnd</span><span class="p">,:]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+            <span class="n">RKD2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">acq</span><span class="o">.</span><span class="n">GetPoint</span><span class="p">(</span><span class="s2">&quot;RKD2&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">GetValues</span><span class="p">()[</span><span class="n">frameInit</span><span class="p">:</span><span class="n">frameEnd</span><span class="p">,:]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+                
+            <span class="n">dist</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">RKAX</span><span class="o">-</span><span class="n">RKD1</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">RKAX</span><span class="o">-</span><span class="n">RKD2</span><span class="p">),</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">RKD1</span><span class="o">-</span><span class="n">RKD2</span><span class="p">)]</span> <span class="p">)</span>
+            <span class="n">dist</span> <span class="o">=</span>  <span class="n">dist</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+            <span class="n">res</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dist</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">dist</span><span class="p">)])</span>
+            <span class="n">n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cross</span><span class="p">(</span><span class="n">RKD2</span><span class="o">-</span><span class="n">RKD1</span> <span class="p">,</span> <span class="n">RKAX</span><span class="o">-</span><span class="n">RKD1</span><span class="p">)</span>
+            <span class="n">n</span><span class="o">=</span> <span class="n">n</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+            
+            <span class="n">n</span><span class="o">=-</span><span class="n">n</span> <span class="c1"># look out the negative sign</span>
+            
+            
+            <span class="n">I</span> <span class="o">=</span> <span class="p">(</span><span class="n">RKD1</span><span class="o">+</span><span class="n">RKAX</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
+            <span class="n">PP1</span> <span class="o">=</span> <span class="mi">2</span><span class="o">/</span><span class="mf">3.0</span><span class="o">*</span><span class="p">(</span><span class="n">I</span><span class="o">-</span><span class="n">RKD2</span><span class="p">)</span><span class="o">+</span><span class="n">RKD2</span>
+            <span class="n">O</span> <span class="o">=</span> <span class="n">PP1</span> <span class="o">-</span> <span class="n">n</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">*</span><span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="mf">3.0</span>   
+            <span class="n">RKAXO</span> <span class="o">=</span> <span class="p">(</span><span class="n">O</span><span class="o">-</span><span class="n">RKAX</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">O</span><span class="o">-</span><span class="n">RKAX</span><span class="p">)</span>
+            <span class="n">RKNE</span> <span class="o">=</span> <span class="n">O</span> <span class="o">+</span> <span class="n">RKAXO</span> <span class="o">*</span> <span class="n">distSkin</span>
+        
+            <span class="c1"># locate KJC</span>
+<span class="c1">#            RKJC = RKNE + RKAXO * (self.model.mp[&quot;rightKneeWidth&quot;]+markerDiameter )/2.0</span>
+            <span class="k">if</span> <span class="n">btkTools</span><span class="o">.</span><span class="n">isPointExist</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">acq</span><span class="p">,</span><span class="s2">&quot;RHJC&quot;</span><span class="p">):</span>
+                <span class="n">RHJC</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">acq</span><span class="o">.</span><span class="n">GetPoint</span><span class="p">(</span><span class="s2">&quot;RHJC&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">GetValues</span><span class="p">()[</span><span class="n">frameInit</span><span class="p">:</span><span class="n">frameEnd</span><span class="p">,:]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+                <span class="n">RKJC</span> <span class="o">=</span> <span class="n">cgm</span><span class="o">.</span><span class="n">CGM1ModelInf</span><span class="o">.</span><span class="n">chord</span><span class="p">(</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">mp</span><span class="p">[</span><span class="s2">&quot;rightKneeWidth&quot;</span><span class="p">]</span><span class="o">+</span><span class="n">markerDiameter</span> <span class="p">)</span><span class="o">/</span><span class="mf">2.0</span> <span class="p">,</span><span class="n">RKNE</span><span class="p">,</span><span class="n">RHJC</span><span class="p">,</span><span class="n">RKAX</span><span class="p">,</span><span class="n">beta</span><span class="o">=</span> <span class="mf">0.0</span> <span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">RKJC</span> <span class="o">=</span> <span class="n">RKNE</span> <span class="o">+</span> <span class="n">RKAXO</span> <span class="o">*</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">mp</span><span class="p">[</span><span class="s2">&quot;rightKneeWidth&quot;</span><span class="p">]</span><span class="o">+</span><span class="n">markerDiameter</span> <span class="p">)</span><span class="o">/</span><span class="mf">2.0</span>
+                
+            <span class="c1"># locate AJC</span>
+            <span class="n">RANK</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">acq</span><span class="o">.</span><span class="n">GetPoint</span><span class="p">(</span><span class="s2">&quot;RANK&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">GetValues</span><span class="p">()[</span><span class="n">frameInit</span><span class="p">:</span><span class="n">frameEnd</span><span class="p">,:]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+            <span class="n">RAJC</span> <span class="o">=</span> <span class="n">cgm</span><span class="o">.</span><span class="n">CGM1ModelInf</span><span class="o">.</span><span class="n">chord</span><span class="p">(</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">mp</span><span class="p">[</span><span class="s2">&quot;rightAnkleWidth&quot;</span><span class="p">]</span><span class="o">+</span><span class="n">markerDiameter</span> <span class="p">)</span><span class="o">/</span><span class="mf">2.0</span> <span class="p">,</span><span class="n">RANK</span><span class="p">,</span><span class="n">RKJC</span><span class="p">,</span><span class="n">RKAX</span><span class="p">,</span><span class="n">beta</span><span class="o">=</span> <span class="mf">0.0</span> <span class="p">)</span>
+            
+            <span class="c1"># add nodes to referential</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="s2">&quot;Right Thigh&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getReferential</span><span class="p">(</span><span class="s2">&quot;TF&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">static</span><span class="o">.</span><span class="n">addNode</span><span class="p">(</span><span class="s2">&quot;RKNE_kad&quot;</span><span class="p">,</span><span class="n">RKNE</span><span class="p">,</span><span class="n">positionType</span><span class="o">=</span><span class="s2">&quot;Global&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="s2">&quot;Right Thigh&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getReferential</span><span class="p">(</span><span class="s2">&quot;TF&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">static</span><span class="o">.</span><span class="n">addNode</span><span class="p">(</span><span class="s2">&quot;RKJC_kad&quot;</span><span class="p">,</span><span class="n">RKJC</span><span class="p">,</span><span class="n">positionType</span><span class="o">=</span><span class="s2">&quot;Global&quot;</span><span class="p">)</span>  
+            
+            <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="s2">&quot;Right Shank&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getReferential</span><span class="p">(</span><span class="s2">&quot;TF&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">static</span><span class="o">.</span><span class="n">addNode</span><span class="p">(</span><span class="s2">&quot;RKNE_kad&quot;</span><span class="p">,</span><span class="n">RKNE</span><span class="p">,</span><span class="n">positionType</span><span class="o">=</span><span class="s2">&quot;Global&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="s2">&quot;Right Shank&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getReferential</span><span class="p">(</span><span class="s2">&quot;TF&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">static</span><span class="o">.</span><span class="n">addNode</span><span class="p">(</span><span class="s2">&quot;RKJC_kad&quot;</span><span class="p">,</span><span class="n">RKJC</span><span class="p">,</span><span class="n">positionType</span><span class="o">=</span><span class="s2">&quot;Global&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="s2">&quot;Right Shank&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getReferential</span><span class="p">(</span><span class="s2">&quot;TF&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">static</span><span class="o">.</span><span class="n">addNode</span><span class="p">(</span><span class="s2">&quot;RAJC_kad&quot;</span><span class="p">,</span><span class="n">RAJC</span><span class="p">,</span><span class="n">positionType</span><span class="o">=</span><span class="s2">&quot;Global&quot;</span><span class="p">)</span>
+    
+    
+
+        <span class="k">if</span> <span class="n">displayMarkers</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">side</span> <span class="o">==</span> <span class="s2">&quot;both&quot;</span> <span class="ow">or</span> <span class="n">side</span> <span class="o">==</span> <span class="s2">&quot;right&quot;</span><span class="p">:</span>
+                <span class="n">val</span> <span class="o">=</span> <span class="n">RKNE</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">acq</span><span class="o">.</span><span class="n">GetPointFrameNumber</span><span class="p">(),</span><span class="mi">3</span><span class="p">))</span>      
+                <span class="n">btkTools</span><span class="o">.</span><span class="n">smartAppendPoint</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">acq</span><span class="p">,</span><span class="s2">&quot;RKNE&quot;</span><span class="p">,</span><span class="n">val</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s2">&quot;KAD&quot;</span><span class="p">)</span> <span class="c1"># KNE updated. </span>
+
+                <span class="n">val</span> <span class="o">=</span> <span class="n">RKJC</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">acq</span><span class="o">.</span><span class="n">GetPointFrameNumber</span><span class="p">(),</span><span class="mi">3</span><span class="p">))</span>      
+                <span class="n">btkTools</span><span class="o">.</span><span class="n">smartAppendPoint</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">acq</span><span class="p">,</span><span class="s2">&quot;RKJC-KAD&quot;</span><span class="p">,</span><span class="n">val</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s2">&quot;KAD&quot;</span><span class="p">)</span>
+                
+                <span class="n">val</span> <span class="o">=</span> <span class="n">RAJC</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">acq</span><span class="o">.</span><span class="n">GetPointFrameNumber</span><span class="p">(),</span><span class="mi">3</span><span class="p">))</span>      
+                <span class="n">btkTools</span><span class="o">.</span><span class="n">smartAppendPoint</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">acq</span><span class="p">,</span><span class="s2">&quot;RAJC-KAD&quot;</span><span class="p">,</span><span class="n">val</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s2">&quot;KAD&quot;</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">side</span> <span class="o">==</span> <span class="s2">&quot;both&quot;</span> <span class="ow">or</span> <span class="n">side</span> <span class="o">==</span> <span class="s2">&quot;left&quot;</span><span class="p">:</span>
+                <span class="n">val</span> <span class="o">=</span> <span class="n">LKNE</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">acq</span><span class="o">.</span><span class="n">GetPointFrameNumber</span><span class="p">(),</span><span class="mi">3</span><span class="p">))</span>      
+                <span class="n">btkTools</span><span class="o">.</span><span class="n">smartAppendPoint</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">acq</span><span class="p">,</span><span class="s2">&quot;LKNE&quot;</span><span class="p">,</span><span class="n">val</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s2">&quot;KAD&quot;</span><span class="p">)</span> 
+
+                
+                <span class="n">val</span> <span class="o">=</span> <span class="n">LKJC</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">acq</span><span class="o">.</span><span class="n">GetPointFrameNumber</span><span class="p">(),</span><span class="mi">3</span><span class="p">))</span>      
+                <span class="n">btkTools</span><span class="o">.</span><span class="n">smartAppendPoint</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">acq</span><span class="p">,</span><span class="s2">&quot;LKJC-KAD&quot;</span><span class="p">,</span><span class="n">val</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s2">&quot;KAD&quot;</span><span class="p">)</span>
+                <span class="n">val</span> <span class="o">=</span> <span class="n">LAJC</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">acq</span><span class="o">.</span><span class="n">GetPointFrameNumber</span><span class="p">(),</span><span class="mi">3</span><span class="p">))</span>      
+                <span class="n">btkTools</span><span class="o">.</span><span class="n">smartAppendPoint</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">acq</span><span class="p">,</span><span class="s2">&quot;LAJC-KAD&quot;</span><span class="p">,</span><span class="n">val</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s2">&quot;KAD&quot;</span><span class="p">)</span></div></div>
+
+<span class="c1">#            writer = btk.btkAcquisitionFileWriter() </span>
+<span class="c1">#            writer.SetInput(self.acq)</span>
+<span class="c1">#            writer.SetFilename(&quot;C:\\Users\\AAA34169\\Documents\\Programming\\API\\pyCGA-DATA\\tmp-static-KAD.c3d&quot;)</span>
+<span class="c1">#            writer.Update()</span>
+
+            
+
+
+<div class="viewcode-block" id="HipJointCenterDecorator"><a class="viewcode-back" href="../../../../pyCGM2.Model.CGM2.html#pyCGM2.Model.CGM2.modelDecorator.HipJointCenterDecorator">[docs]</a><span class="k">class</span> <span class="nc">HipJointCenterDecorator</span><span class="p">(</span><span class="n">DecoratorModel</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Concrete CGM decorators altering the hip joint centre     </span>
+<span class="sd">    &quot;&quot;&quot;</span> 
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">iModel</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            :Parameters:</span>
+<span class="sd">              - `iModel` (pyCGM2.Model.CGM2.cgm.CGM) - a CGM instance </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">HipJointCenterDecorator</span><span class="p">,</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="n">iModel</span><span class="p">)</span>
+        
+<div class="viewcode-block" id="HipJointCenterDecorator.custom"><a class="viewcode-back" href="../../../../pyCGM2.Model.CGM2.html#pyCGM2.Model.CGM2.modelDecorator.HipJointCenterDecorator.custom">[docs]</a>    <span class="k">def</span> <span class="nf">custom</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">position_Left</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">position_Right</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">methodDesc</span><span class="o">=</span><span class="s2">&quot;custom&quot;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; </span>
+<span class="sd">        </span>
+<span class="sd">            Locate hip joint centres manually          </span>
+<span class="sd">        </span>
+<span class="sd">            :Parameters:</span>
+<span class="sd">               - `position_Left` (np.array(3,)) - position of the left hip center in the Pelvis Referential           </span>
+<span class="sd">               - `position_Right` (np.array(3,)) - position of the right hip center in the Pelvis Referential</span>
+<span class="sd">               - `methodDesc` (str) - short description of the method </span>
+<span class="sd">           </span>
+<span class="sd">           .. warning :: look out the Pelvis referential. It has to be similar with cgm1. </span>
+<span class="sd">    </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">decoratedModel</span> <span class="o">=</span> <span class="kc">True</span>
+
+        <span class="k">if</span> <span class="n">position_Left</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span><span class="p">(</span><span class="mi">3</span><span class="p">,):</span>
+            <span class="n">nodeLabel</span><span class="o">=</span> <span class="s2">&quot;LHJC_&quot;</span><span class="o">+</span> <span class="n">methodDesc</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="s2">&quot;Pelvis&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getReferential</span><span class="p">(</span><span class="s2">&quot;TF&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">static</span><span class="o">.</span><span class="n">addNode</span><span class="p">(</span><span class="n">nodeLabel</span><span class="p">,</span><span class="n">position_Left</span><span class="p">,</span> <span class="n">positionType</span><span class="o">=</span><span class="s2">&quot;Local&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">position_Left</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span><span class="p">(</span><span class="mi">3</span><span class="p">,):</span>
+            <span class="n">nodeLabel</span><span class="o">=</span> <span class="s2">&quot;RHJC_&quot;</span><span class="o">+</span> <span class="n">methodDesc</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="s2">&quot;Pelvis&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getReferential</span><span class="p">(</span><span class="s2">&quot;TF&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">static</span><span class="o">.</span><span class="n">addNode</span><span class="p">(</span><span class="n">nodeLabel</span><span class="p">,</span><span class="n">position_Right</span><span class="p">,</span> <span class="n">positionType</span><span class="o">=</span><span class="s2">&quot;Local&quot;</span><span class="p">)</span></div>
+
+        
+        
+
+        
+<div class="viewcode-block" id="HipJointCenterDecorator.harrington"><a class="viewcode-back" href="../../../../pyCGM2.Model.CGM2.html#pyCGM2.Model.CGM2.modelDecorator.HipJointCenterDecorator.harrington">[docs]</a>    <span class="k">def</span> <span class="nf">harrington</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">predictors</span><span class="o">=</span> <span class="n">pyCGM2Enums</span><span class="o">.</span><span class="n">HarringtonPredictor</span><span class="o">.</span><span class="n">Native</span><span class="p">,</span> <span class="n">side</span><span class="o">=</span><span class="s2">&quot;both&quot;</span><span class="p">):</span>    
+        <span class="sd">&quot;&quot;&quot; </span>
+<span class="sd">            Use of the Harrington&#39;s regressions        </span>
+<span class="sd">        </span>
+<span class="sd">            :Parameters:</span>
+<span class="sd">               - `predictors` (pyCGM2.enums) - enums specifying harrington&#39;s predictors to use</span>
+<span class="sd">               - `side` (str) - body side </span>
+<span class="sd">        </span>
+<span class="sd">        &quot;&quot;&quot;</span> 
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">decoratedModel</span> <span class="o">=</span> <span class="kc">True</span>
+
+        <span class="n">LHJC_har</span><span class="p">,</span><span class="n">RHJC_har</span><span class="o">=</span><span class="n">harringtonRegression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">mp</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">mp_computed</span><span class="p">,</span><span class="n">predictors</span><span class="p">)</span>
+
+        
+        <span class="k">if</span> <span class="n">side</span> <span class="o">==</span> <span class="s2">&quot;both&quot;</span><span class="p">:</span>
+            
+            <span class="c1"># add nodes to pelvis            </span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="s2">&quot;Pelvis&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getReferential</span><span class="p">(</span><span class="s2">&quot;TF&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">static</span><span class="o">.</span><span class="n">addNode</span><span class="p">(</span><span class="s2">&quot;LHJC_har&quot;</span><span class="p">,</span><span class="n">LHJC_har</span><span class="p">,</span> <span class="n">positionType</span><span class="o">=</span><span class="s2">&quot;Local&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="s2">&quot;Pelvis&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getReferential</span><span class="p">(</span><span class="s2">&quot;TF&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">static</span><span class="o">.</span><span class="n">addNode</span><span class="p">(</span><span class="s2">&quot;RHJC_har&quot;</span><span class="p">,</span><span class="n">RHJC_har</span><span class="p">,</span> <span class="n">positionType</span><span class="o">=</span><span class="s2">&quot;Local&quot;</span><span class="p">)</span>
+
+            <span class="c1"># add nodes Thigh</span>
+            <span class="n">pos_L</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="s2">&quot;Pelvis&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getReferential</span><span class="p">(</span><span class="s2">&quot;TF&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">static</span><span class="o">.</span><span class="n">getNode_byLabel</span><span class="p">(</span><span class="s2">&quot;LHJC_har&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">m_global</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="s2">&quot;Left Thigh&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getReferential</span><span class="p">(</span><span class="s2">&quot;TF&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">static</span><span class="o">.</span><span class="n">addNode</span><span class="p">(</span><span class="s2">&quot;LHJC_har&quot;</span><span class="p">,</span><span class="n">pos_L</span><span class="p">,</span> <span class="n">positionType</span><span class="o">=</span><span class="s2">&quot;Global&quot;</span><span class="p">)</span>
+
+            <span class="n">pos_R</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="s2">&quot;Pelvis&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getReferential</span><span class="p">(</span><span class="s2">&quot;TF&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">static</span><span class="o">.</span><span class="n">getNode_byLabel</span><span class="p">(</span><span class="s2">&quot;RHJC_har&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">m_global</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="s2">&quot;Right Thigh&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getReferential</span><span class="p">(</span><span class="s2">&quot;TF&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">static</span><span class="o">.</span><span class="n">addNode</span><span class="p">(</span><span class="s2">&quot;RHJC_har&quot;</span><span class="p">,</span><span class="n">pos_R</span><span class="p">,</span> <span class="n">positionType</span><span class="o">=</span><span class="s2">&quot;Global&quot;</span><span class="p">)</span>
+
+
+        <span class="k">elif</span> <span class="n">side</span> <span class="o">==</span> <span class="s2">&quot;left&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="s2">&quot;Pelvis&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getReferential</span><span class="p">(</span><span class="s2">&quot;TF&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">static</span><span class="o">.</span><span class="n">addNode</span><span class="p">(</span><span class="s2">&quot;LHJC_har&quot;</span><span class="p">,</span><span class="n">LHJC_har</span><span class="p">,</span> <span class="n">positionType</span><span class="o">=</span><span class="s2">&quot;Local&quot;</span><span class="p">)</span>
+            <span class="n">pos_L</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="s2">&quot;Pelvis&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getReferential</span><span class="p">(</span><span class="s2">&quot;TF&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">static</span><span class="o">.</span><span class="n">getNode_byLabel</span><span class="p">(</span><span class="s2">&quot;LHJC_har&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">m_global</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="s2">&quot;Left Thigh&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getReferential</span><span class="p">(</span><span class="s2">&quot;TF&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">static</span><span class="o">.</span><span class="n">addNode</span><span class="p">(</span><span class="s2">&quot;LHJC_har&quot;</span><span class="p">,</span><span class="n">pos_L</span><span class="p">,</span> <span class="n">positionType</span><span class="o">=</span><span class="s2">&quot;Global&quot;</span><span class="p">)</span>
+
+
+        <span class="k">elif</span> <span class="n">side</span> <span class="o">==</span> <span class="s2">&quot;right&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="s2">&quot;Pelvis&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getReferential</span><span class="p">(</span><span class="s2">&quot;TF&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">static</span><span class="o">.</span><span class="n">addNode</span><span class="p">(</span><span class="s2">&quot;RHJC_har&quot;</span><span class="p">,</span><span class="n">RHJC_har</span><span class="p">,</span> <span class="n">positionType</span><span class="o">=</span><span class="s2">&quot;Local&quot;</span><span class="p">)</span>
+            <span class="n">pos_R</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="s2">&quot;Pelvis&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getReferential</span><span class="p">(</span><span class="s2">&quot;TF&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">static</span><span class="o">.</span><span class="n">getNode_byLabel</span><span class="p">(</span><span class="s2">&quot;RHJC_har&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">m_global</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="s2">&quot;Right Thigh&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getReferential</span><span class="p">(</span><span class="s2">&quot;TF&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">static</span><span class="o">.</span><span class="n">addNode</span><span class="p">(</span><span class="s2">&quot;RHJC_har&quot;</span><span class="p">,</span><span class="n">pos_R</span><span class="p">,</span> <span class="n">positionType</span><span class="o">=</span><span class="s2">&quot;Global&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="HipJointCenterDecorator.hara"><a class="viewcode-back" href="../../../../pyCGM2.Model.CGM2.html#pyCGM2.Model.CGM2.modelDecorator.HipJointCenterDecorator.hara">[docs]</a>    <span class="k">def</span> <span class="nf">hara</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">side</span><span class="o">=</span><span class="s2">&quot;both&quot;</span><span class="p">):</span>    
+        <span class="sd">&quot;&quot;&quot; </span>
+<span class="sd">            Use of the Hara&#39;s regressions        </span>
+<span class="sd">        </span>
+<span class="sd">            :Parameters:</span>
+<span class="sd">               - `side` (str) - body side </span>
+<span class="sd">        </span>
+<span class="sd">        &quot;&quot;&quot;</span> 
+ 
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">decoratedModel</span> <span class="o">=</span> <span class="kc">True</span>
+
+        <span class="n">LHJC_hara</span><span class="p">,</span><span class="n">RHJC_hara</span><span class="o">=</span><span class="n">haraRegression</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">mp</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">mp_computed</span><span class="p">)</span>
+
+        
+        <span class="k">if</span> <span class="n">side</span> <span class="o">==</span> <span class="s2">&quot;both&quot;</span><span class="p">:</span>
+            <span class="c1"># add nodes to pelvis            </span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="s2">&quot;Pelvis&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getReferential</span><span class="p">(</span><span class="s2">&quot;TF&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">static</span><span class="o">.</span><span class="n">addNode</span><span class="p">(</span><span class="s2">&quot;LHJC_hara&quot;</span><span class="p">,</span><span class="n">LHJC_hara</span><span class="p">,</span> <span class="n">positionType</span><span class="o">=</span><span class="s2">&quot;Local&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="s2">&quot;Pelvis&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getReferential</span><span class="p">(</span><span class="s2">&quot;TF&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">static</span><span class="o">.</span><span class="n">addNode</span><span class="p">(</span><span class="s2">&quot;RHJC_hara&quot;</span><span class="p">,</span><span class="n">RHJC_hara</span><span class="p">,</span> <span class="n">positionType</span><span class="o">=</span><span class="s2">&quot;Local&quot;</span><span class="p">)</span>
+            
+            <span class="c1"># add nodes Thigh</span>
+            <span class="n">pos_L</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="s2">&quot;Pelvis&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getReferential</span><span class="p">(</span><span class="s2">&quot;TF&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">static</span><span class="o">.</span><span class="n">getNode_byLabel</span><span class="p">(</span><span class="s2">&quot;LHJC_hara&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">m_global</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="s2">&quot;Left Thigh&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getReferential</span><span class="p">(</span><span class="s2">&quot;TF&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">static</span><span class="o">.</span><span class="n">addNode</span><span class="p">(</span><span class="s2">&quot;LHJC_hara&quot;</span><span class="p">,</span><span class="n">pos_L</span><span class="p">,</span> <span class="n">positionType</span><span class="o">=</span><span class="s2">&quot;Global&quot;</span><span class="p">)</span>
+
+            <span class="n">pos_R</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="s2">&quot;Pelvis&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getReferential</span><span class="p">(</span><span class="s2">&quot;TF&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">static</span><span class="o">.</span><span class="n">getNode_byLabel</span><span class="p">(</span><span class="s2">&quot;RHJC_hara&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">m_global</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="s2">&quot;Right Thigh&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getReferential</span><span class="p">(</span><span class="s2">&quot;TF&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">static</span><span class="o">.</span><span class="n">addNode</span><span class="p">(</span><span class="s2">&quot;RHJC_hara&quot;</span><span class="p">,</span><span class="n">pos_R</span><span class="p">,</span> <span class="n">positionType</span><span class="o">=</span><span class="s2">&quot;Global&quot;</span><span class="p">)</span></div></div>
+    
+    
+    
+
+<div class="viewcode-block" id="KneeCalibrationDecorator"><a class="viewcode-back" href="../../../../pyCGM2.Model.CGM2.html#pyCGM2.Model.CGM2.modelDecorator.KneeCalibrationDecorator">[docs]</a><span class="k">class</span> <span class="nc">KneeCalibrationDecorator</span><span class="p">(</span><span class="n">DecoratorModel</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Concrete cgm decorator altering the knee joint      </span>
+<span class="sd">    &quot;&quot;&quot;</span> 
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">iModel</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            :Parameters:</span>
+<span class="sd">              - `iModel` (pyCGM2.Model.CGM2.cgm.CGM) - a CGM instance </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="nb">super</span><span class="p">(</span><span class="n">KneeCalibrationDecorator</span><span class="p">,</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="n">iModel</span><span class="p">)</span>
+        
+<div class="viewcode-block" id="KneeCalibrationDecorator.midCondyles"><a class="viewcode-back" href="../../../../pyCGM2.Model.CGM2.html#pyCGM2.Model.CGM2.modelDecorator.KneeCalibrationDecorator.midCondyles">[docs]</a>    <span class="k">def</span> <span class="nf">midCondyles</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">acq</span><span class="p">,</span> <span class="n">side</span><span class="o">=</span><span class="s2">&quot;both&quot;</span><span class="p">,</span><span class="n">leftLateralKneeLabel</span><span class="o">=</span><span class="s2">&quot;LKNE&quot;</span><span class="p">,</span> <span class="n">leftMedialKneeLabel</span><span class="o">=</span><span class="s2">&quot;LMEPI&quot;</span><span class="p">,</span><span class="n">rightLateralKneeLabel</span><span class="o">=</span><span class="s2">&quot;RKNE&quot;</span><span class="p">,</span> <span class="n">rightMedialKneeLabel</span><span class="o">=</span><span class="s2">&quot;RMEPI&quot;</span><span class="p">,</span> <span class="n">markerDiameter</span> <span class="o">=</span> <span class="mi">14</span><span class="p">,</span> <span class="n">withNoModelParameter</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>   
+        <span class="sd">&quot;&quot;&quot; </span>
+<span class="sd">            Compute Knee joint centre from mid condyles         </span>
+<span class="sd">        </span>
+<span class="sd">            :Parameters:</span>
+<span class="sd">                - `acq` (btkAcquisition) - a btk acquisition instance of a static c3d           </span>
+<span class="sd">                - `side` (str) - body side</span>
+<span class="sd">                - `leftLateralKneeLabel` (str) -  label of the left lateral knee marker</span>
+<span class="sd">                - `leftMedialKneeLabel` (str) -  label of the left medial knee marker   </span>
+<span class="sd">        </span>
+<span class="sd">        &quot;&quot;&quot;</span>         
+        <span class="c1"># TODO : coding exception if label doesn t find.        </span>
+         
+        <span class="n">ff</span> <span class="o">=</span> <span class="n">acq</span><span class="o">.</span><span class="n">GetFirstFrame</span><span class="p">()</span>     
+    
+        <span class="n">frameInit</span> <span class="o">=</span>  <span class="n">acq</span><span class="o">.</span><span class="n">GetFirstFrame</span><span class="p">()</span><span class="o">-</span><span class="n">ff</span>  
+        <span class="n">frameEnd</span> <span class="o">=</span> <span class="n">acq</span><span class="o">.</span><span class="n">GetLastFrame</span><span class="p">()</span><span class="o">-</span><span class="n">ff</span><span class="o">+</span><span class="mi">1</span>
+                
+        <span class="c1">#self.model.nativeCgm1 = False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">decoratedModel</span> <span class="o">=</span> <span class="kc">True</span>
+        
+        <span class="k">if</span> <span class="n">side</span><span class="o">==</span><span class="s2">&quot;both&quot;</span> <span class="ow">or</span> <span class="n">side</span><span class="o">==</span><span class="s2">&quot;left&quot;</span><span class="p">:</span>
+
+            <span class="n">mid_L</span> <span class="o">=</span> <span class="p">(</span><span class="n">acq</span><span class="o">.</span><span class="n">GetPoint</span><span class="p">(</span><span class="n">leftLateralKneeLabel</span><span class="p">)</span><span class="o">.</span><span class="n">GetValues</span><span class="p">()[</span><span class="n">frameInit</span><span class="p">:</span><span class="n">frameEnd</span><span class="p">,:]</span> <span class="o">+</span> 
+                     <span class="n">acq</span><span class="o">.</span><span class="n">GetPoint</span><span class="p">(</span><span class="n">leftMedialKneeLabel</span><span class="p">)</span><span class="o">.</span><span class="n">GetValues</span><span class="p">()[</span><span class="n">frameInit</span><span class="p">:</span><span class="n">frameEnd</span><span class="p">,:])</span><span class="o">/</span><span class="mf">2.0</span>
+            <span class="n">mid_L</span> <span class="o">=</span> <span class="n">mid_L</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span> <span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+
+            <span class="n">LKNE</span> <span class="o">=</span> <span class="n">acq</span><span class="o">.</span><span class="n">GetPoint</span><span class="p">(</span><span class="n">leftLateralKneeLabel</span><span class="p">)</span><span class="o">.</span><span class="n">GetValues</span><span class="p">()[</span><span class="n">frameInit</span><span class="p">:</span><span class="n">frameEnd</span><span class="p">,:]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+            <span class="n">LMEPI</span> <span class="o">=</span> <span class="n">acq</span><span class="o">.</span><span class="n">GetPoint</span><span class="p">(</span><span class="n">leftMedialKneeLabel</span><span class="p">)</span><span class="o">.</span><span class="n">GetValues</span><span class="p">()[</span><span class="n">frameInit</span><span class="p">:</span><span class="n">frameEnd</span><span class="p">,:]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>  
+           
+            <span class="n">v</span> <span class="o">=</span> <span class="n">LMEPI</span><span class="o">-</span><span class="n">LKNE</span>
+            <span class="n">v</span><span class="o">=</span><span class="n">v</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+           
+            <span class="n">LKJC</span> <span class="o">=</span> <span class="n">LKNE</span> <span class="o">+</span> <span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">mp</span><span class="p">[</span><span class="s2">&quot;leftKneeWidth&quot;</span><span class="p">]</span><span class="o">+</span><span class="n">markerDiameter</span> <span class="p">)</span><span class="o">/</span><span class="mf">2.0</span><span class="p">)</span><span class="o">*</span><span class="n">v</span>
+           
+            <span class="k">if</span> <span class="n">withNoModelParameter</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="s2">&quot;Left Thigh&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getReferential</span><span class="p">(</span><span class="s2">&quot;TF&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">static</span><span class="o">.</span><span class="n">addNode</span><span class="p">(</span><span class="s2">&quot;LKJC_mid&quot;</span><span class="p">,</span><span class="n">mid_L</span><span class="p">,</span> <span class="n">positionType</span><span class="o">=</span><span class="s2">&quot;Global&quot;</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="s2">&quot;Left Shank&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getReferential</span><span class="p">(</span><span class="s2">&quot;TF&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">static</span><span class="o">.</span><span class="n">addNode</span><span class="p">(</span><span class="s2">&quot;LKJC_mid&quot;</span><span class="p">,</span><span class="n">mid_L</span><span class="p">,</span> <span class="n">positionType</span><span class="o">=</span><span class="s2">&quot;Global&quot;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="s2">&quot;Left Thigh&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getReferential</span><span class="p">(</span><span class="s2">&quot;TF&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">static</span><span class="o">.</span><span class="n">addNode</span><span class="p">(</span><span class="s2">&quot;LKJC_mid&quot;</span><span class="p">,</span><span class="n">LKJC</span><span class="p">,</span> <span class="n">positionType</span><span class="o">=</span><span class="s2">&quot;Global&quot;</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="s2">&quot;Left Shank&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getReferential</span><span class="p">(</span><span class="s2">&quot;TF&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">static</span><span class="o">.</span><span class="n">addNode</span><span class="p">(</span><span class="s2">&quot;LKJC_mid&quot;</span><span class="p">,</span><span class="n">LKJC</span><span class="p">,</span> <span class="n">positionType</span><span class="o">=</span><span class="s2">&quot;Global&quot;</span><span class="p">)</span>
+            
+        <span class="k">if</span> <span class="n">side</span><span class="o">==</span><span class="s2">&quot;both&quot;</span> <span class="ow">or</span> <span class="n">side</span><span class="o">==</span><span class="s2">&quot;right&quot;</span><span class="p">:</span>
+
+            <span class="n">mid_R</span> <span class="o">=</span> <span class="p">(</span><span class="n">acq</span><span class="o">.</span><span class="n">GetPoint</span><span class="p">(</span><span class="n">rightLateralKneeLabel</span><span class="p">)</span><span class="o">.</span><span class="n">GetValues</span><span class="p">()[</span><span class="n">frameInit</span><span class="p">:</span><span class="n">frameEnd</span><span class="p">,:]</span> <span class="o">+</span> 
+                     <span class="n">acq</span><span class="o">.</span><span class="n">GetPoint</span><span class="p">(</span><span class="n">rightMedialKneeLabel</span><span class="p">)</span><span class="o">.</span><span class="n">GetValues</span><span class="p">()[</span><span class="n">frameInit</span><span class="p">:</span><span class="n">frameEnd</span><span class="p">,:])</span><span class="o">/</span><span class="mf">2.0</span>
+                     
+            <span class="n">mid_R</span> <span class="o">=</span> <span class="n">mid_R</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span> <span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+
+            <span class="n">RKNE</span> <span class="o">=</span> <span class="n">acq</span><span class="o">.</span><span class="n">GetPoint</span><span class="p">(</span><span class="n">rightLateralKneeLabel</span><span class="p">)</span><span class="o">.</span><span class="n">GetValues</span><span class="p">()[</span><span class="n">frameInit</span><span class="p">:</span><span class="n">frameEnd</span><span class="p">,:]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+            <span class="n">RMEPI</span> <span class="o">=</span> <span class="n">acq</span><span class="o">.</span><span class="n">GetPoint</span><span class="p">(</span><span class="n">rightMedialKneeLabel</span><span class="p">)</span><span class="o">.</span><span class="n">GetValues</span><span class="p">()[</span><span class="n">frameInit</span><span class="p">:</span><span class="n">frameEnd</span><span class="p">,:]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>  
+           
+            <span class="n">v</span> <span class="o">=</span> <span class="n">RMEPI</span><span class="o">-</span><span class="n">RKNE</span>
+            <span class="n">v</span><span class="o">=</span><span class="n">v</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+           
+            <span class="n">RKJC</span> <span class="o">=</span> <span class="n">RKNE</span> <span class="o">+</span> <span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">mp</span><span class="p">[</span><span class="s2">&quot;rightKneeWidth&quot;</span><span class="p">]</span><span class="o">+</span><span class="n">markerDiameter</span> <span class="p">)</span><span class="o">/</span><span class="mf">2.0</span><span class="p">)</span><span class="o">*</span><span class="n">v</span>
+
+            <span class="k">if</span> <span class="n">withNoModelParameter</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="s2">&quot;Right Thigh&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getReferential</span><span class="p">(</span><span class="s2">&quot;TF&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">static</span><span class="o">.</span><span class="n">addNode</span><span class="p">(</span><span class="s2">&quot;RKJC_mid&quot;</span><span class="p">,</span><span class="n">mid_R</span><span class="p">,</span> <span class="n">positionType</span><span class="o">=</span><span class="s2">&quot;Global&quot;</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="s2">&quot;Right Shank&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getReferential</span><span class="p">(</span><span class="s2">&quot;TF&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">static</span><span class="o">.</span><span class="n">addNode</span><span class="p">(</span><span class="s2">&quot;RKJC_mid&quot;</span><span class="p">,</span><span class="n">mid_R</span><span class="p">,</span> <span class="n">positionType</span><span class="o">=</span><span class="s2">&quot;Global&quot;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="s2">&quot;Right Thigh&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getReferential</span><span class="p">(</span><span class="s2">&quot;TF&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">static</span><span class="o">.</span><span class="n">addNode</span><span class="p">(</span><span class="s2">&quot;RKJC_mid&quot;</span><span class="p">,</span><span class="n">RKJC</span><span class="p">,</span> <span class="n">positionType</span><span class="o">=</span><span class="s2">&quot;Global&quot;</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="s2">&quot;Right Shank&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getReferential</span><span class="p">(</span><span class="s2">&quot;TF&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">static</span><span class="o">.</span><span class="n">addNode</span><span class="p">(</span><span class="s2">&quot;RKJC_mid&quot;</span><span class="p">,</span><span class="n">RKJC</span><span class="p">,</span> <span class="n">positionType</span><span class="o">=</span><span class="s2">&quot;Global&quot;</span><span class="p">)</span>             </div>
+                   
+        
+        
+        
+        
+
+    
+<div class="viewcode-block" id="KneeCalibrationDecorator.sara"><a class="viewcode-back" href="../../../../pyCGM2.Model.CGM2.html#pyCGM2.Model.CGM2.modelDecorator.KneeCalibrationDecorator.sara">[docs]</a>    <span class="k">def</span> <span class="nf">sara</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">side</span><span class="p">):</span>    
+        <span class="sd">&quot;&quot;&quot; </span>
+<span class="sd">            Compute Knee flexion axis and relocate knee joint centre from SARA functional calibration         </span>
+<span class="sd">        </span>
+<span class="sd">            :Parameters:</span>
+<span class="sd">                - `side` (str) - body side</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+         
+
+        <span class="c1">#self.model.nativeCgm1 = False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">decoratedModel</span> <span class="o">=</span> <span class="kc">True</span>
+
+        <span class="n">proxMotion</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="s2">&quot;Left Thigh&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getReferential</span><span class="p">(</span><span class="s2">&quot;TF_anaCalib&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">motion</span>
+        <span class="n">distMotion</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="s2">&quot;Left Shank&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getReferential</span><span class="p">(</span><span class="s2">&quot;TF_anaCalib&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">motion</span>
+        
+        <span class="c1"># -- main function -----</span>
+        <span class="n">prox_ori</span><span class="p">,</span><span class="n">prox_axisLim</span><span class="p">,</span><span class="n">dist_ori</span><span class="p">,</span><span class="n">dist_axisLim</span><span class="p">,</span><span class="n">axis_prox</span><span class="p">,</span><span class="n">axis_dist</span><span class="p">,</span><span class="n">quality</span> <span class="o">=</span> <span class="n">saraCalibration</span><span class="p">(</span><span class="n">proxMotion</span><span class="p">,</span><span class="n">distMotion</span><span class="p">,</span><span class="n">method</span><span class="o">=</span><span class="s2">&quot;2&quot;</span><span class="p">)</span>
+        <span class="c1"># end function -----</span>
+
+
+        <span class="c1"># add nodes        </span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="s2">&quot;Left Thigh&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getReferential</span><span class="p">(</span><span class="s2">&quot;TF_anaCalib&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">static</span><span class="o">.</span><span class="n">addNode</span><span class="p">(</span><span class="s2">&quot;KneeFlexionOri&quot;</span><span class="p">,</span><span class="n">prox_ori</span><span class="p">,</span><span class="n">positionType</span><span class="o">=</span><span class="s2">&quot;Local&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="s2">&quot;Left Thigh&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getReferential</span><span class="p">(</span><span class="s2">&quot;TF_anaCalib&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">static</span><span class="o">.</span><span class="n">addNode</span><span class="p">(</span><span class="s2">&quot;KneeFlexionAxis&quot;</span><span class="p">,</span><span class="n">prox_axisLim</span><span class="p">,</span><span class="n">positionType</span><span class="o">=</span><span class="s2">&quot;Local&quot;</span><span class="p">)</span>
+    
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="s2">&quot;Left Shank&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getReferential</span><span class="p">(</span><span class="s2">&quot;TF_anaCalib&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">static</span><span class="o">.</span><span class="n">addNode</span><span class="p">(</span><span class="s2">&quot;KneeFlexionOri&quot;</span><span class="p">,</span><span class="n">dist_ori</span><span class="p">,</span><span class="n">positionType</span><span class="o">=</span><span class="s2">&quot;Local&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="s2">&quot;Left Shank&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getReferential</span><span class="p">(</span><span class="s2">&quot;TF_anaCalib&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">static</span><span class="o">.</span><span class="n">addNode</span><span class="p">(</span><span class="s2">&quot;KneeFlexionAxis&quot;</span><span class="p">,</span><span class="n">dist_axisLim</span><span class="p">,</span><span class="n">positionType</span><span class="o">=</span><span class="s2">&quot;Local&quot;</span><span class="p">)</span>     
+   
+        <span class="c1"># compute error</span>
+        <span class="n">xp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="s2">&quot;Left Thigh&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getReferential</span><span class="p">(</span><span class="s2">&quot;TF_anaCalib&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getNodeTrajectory</span><span class="p">(</span><span class="s2">&quot;KneeFlexionOri&quot;</span><span class="p">)</span>
+        <span class="n">xd</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="s2">&quot;Left Shank&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getReferential</span><span class="p">(</span><span class="s2">&quot;TF_anaCalib&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getNodeTrajectory</span><span class="p">(</span><span class="s2">&quot;KneeFlexionOri&quot;</span><span class="p">)</span>
+
+        
+
+        <span class="n">ferr</span> <span class="o">=</span> <span class="n">xp</span><span class="o">-</span><span class="n">xd</span>
+        <span class="n">Merr</span> <span class="o">=</span> <span class="n">numeric</span><span class="o">.</span><span class="n">rms</span><span class="p">(</span><span class="n">ferr</span><span class="p">)</span>
+        <span class="nb">print</span> <span class="s2">&quot; sara rms error : </span><span class="si">%s</span><span class="s2"> &quot;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">Merr</span><span class="p">)</span>
+
+        <span class="c1"># --- registration of the Knee center ---</span>
+        
+        <span class="c1"># longitudinal axis of the femur </span>
+        <span class="n">p1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="s2">&quot;Left Thigh&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getReferential</span><span class="p">(</span><span class="s2">&quot;TF_anaCalib&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">static</span><span class="o">.</span><span class="n">getNode_byLabel</span><span class="p">(</span><span class="s2">&quot;LHJC&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">m_global</span>
+        <span class="n">p2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="s2">&quot;Left Thigh&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getReferential</span><span class="p">(</span><span class="s2">&quot;TF_anaCalib&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">static</span><span class="o">.</span><span class="n">getNode_byLabel</span><span class="p">(</span><span class="s2">&quot;LKJC&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">m_global</span>
+
+        <span class="c1"># middle of origin in Global</span>
+        <span class="n">p_proxOri</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="s2">&quot;Left Thigh&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getReferential</span><span class="p">(</span><span class="s2">&quot;TF_anaCalib&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">static</span><span class="o">.</span><span class="n">getNode_byLabel</span><span class="p">(</span><span class="s2">&quot;KneeFlexionOri&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">m_global</span>
+        <span class="n">p_distOri</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="s2">&quot;Left Shank&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getReferential</span><span class="p">(</span><span class="s2">&quot;TF_anaCalib&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">static</span><span class="o">.</span><span class="n">getNode_byLabel</span><span class="p">(</span><span class="s2">&quot;KneeFlexionOri&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">m_global</span>        
+        <span class="n">center</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">((</span><span class="n">p_distOri</span><span class="p">,</span><span class="n">p_proxOri</span><span class="p">),</span><span class="n">axis</span><span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+        
+        <span class="c1"># axis lim</span>
+        <span class="n">p_proxAxis</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="s2">&quot;Left Thigh&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getReferential</span><span class="p">(</span><span class="s2">&quot;TF_anaCalib&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">static</span><span class="o">.</span><span class="n">getNode_byLabel</span><span class="p">(</span><span class="s2">&quot;KneeFlexionAxis&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">m_global</span>
+        <span class="n">p_distAxis</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="s2">&quot;Left Shank&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getReferential</span><span class="p">(</span><span class="s2">&quot;TF_anaCalib&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">static</span><span class="o">.</span><span class="n">getNode_byLabel</span><span class="p">(</span><span class="s2">&quot;KneeFlexionAxis&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">m_global</span>
+
+        <span class="c1"># intersection beetween midcenter-axis and logitudinal axis</span>
+        <span class="n">proxIntersect</span><span class="p">,</span><span class="n">pb1</span> <span class="o">=</span> <span class="n">geometry</span><span class="o">.</span><span class="n">LineLineIntersect</span><span class="p">(</span><span class="n">center</span><span class="p">,</span><span class="n">p_proxAxis</span><span class="p">,</span><span class="n">p1</span><span class="p">,</span><span class="n">p2</span><span class="p">)</span>
+        <span class="n">distIntersect</span><span class="p">,</span><span class="n">pb2</span> <span class="o">=</span> <span class="n">geometry</span><span class="o">.</span><span class="n">LineLineIntersect</span><span class="p">(</span><span class="n">center</span><span class="p">,</span><span class="n">p_distAxis</span><span class="p">,</span><span class="n">p1</span><span class="p">,</span><span class="n">p2</span><span class="p">)</span><span class="c1"># </span>
+
+
+        <span class="c1"># shortest distance                </span>
+        <span class="n">shortestDistance_prox</span> <span class="o">=</span>  <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">proxIntersect</span><span class="o">-</span><span class="n">pb1</span><span class="p">)</span>
+        <span class="nb">print</span> <span class="s2">&quot; 3d line intersect : shortest distance beetween logidudinal axis and flexion axis sur Proximal  : </span><span class="si">%s</span><span class="s2">  &quot;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">shortestDistance_prox</span><span class="p">)</span>
+        <span class="n">shortestDistance_dist</span> <span class="o">=</span>  <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">distIntersect</span><span class="o">-</span><span class="n">pb2</span><span class="p">)</span>
+        <span class="nb">print</span> <span class="s2">&quot; 3d line intersect : shortest distance beetween logidudinal axis and flexion axis sur Distal  : </span><span class="si">%s</span><span class="s2">  &quot;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">shortestDistance_dist</span><span class="p">)</span>
+
+        <span class="c1"># mean of the intersection point        </span>
+        <span class="n">center</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">((</span><span class="n">proxIntersect</span><span class="p">,</span><span class="n">distIntersect</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+        <span class="c1"># Node manager</span>
+        <span class="c1">#  the node LKJC_sara is added in all &quot;Referentials. </span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="s2">&quot;Left Thigh&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getReferential</span><span class="p">(</span><span class="s2">&quot;TF_anaCalib&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">static</span><span class="o">.</span><span class="n">addNode</span><span class="p">(</span><span class="s2">&quot;LKJC_sara&quot;</span><span class="p">,</span><span class="n">center</span><span class="p">,</span> <span class="n">positionType</span><span class="o">=</span><span class="s2">&quot;Global&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="s2">&quot;Left Thigh&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getReferential</span><span class="p">(</span><span class="s2">&quot;TF&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">static</span><span class="o">.</span><span class="n">addNode</span><span class="p">(</span><span class="s2">&quot;LKJC_sara&quot;</span><span class="p">,</span><span class="n">center</span><span class="p">,</span> <span class="n">positionType</span><span class="o">=</span><span class="s2">&quot;Global&quot;</span><span class="p">)</span>        
+       
+        <span class="nb">print</span> <span class="s2">&quot; in  TF-------&quot;</span> 
+        <span class="nb">print</span> <span class="s2">&quot; LKJC &quot;</span>
+        <span class="nb">print</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="s2">&quot;Left Thigh&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getReferential</span><span class="p">(</span><span class="s2">&quot;TF&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">static</span><span class="o">.</span><span class="n">getNode_byLabel</span><span class="p">(</span><span class="s2">&quot;LKJC&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">m_local</span>
+        <span class="nb">print</span> <span class="s2">&quot; LKJC sara &quot;</span>
+        <span class="nb">print</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="s2">&quot;Left Thigh&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getReferential</span><span class="p">(</span><span class="s2">&quot;TF&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">static</span><span class="o">.</span><span class="n">getNode_byLabel</span><span class="p">(</span><span class="s2">&quot;LKJC_sara&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">m_local</span>
+
+        <span class="nb">print</span> <span class="s2">&quot; in  TF_anaCalib-------&quot;</span> 
+        <span class="nb">print</span> <span class="s2">&quot; LKJC &quot;</span>
+        <span class="nb">print</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="s2">&quot;Left Thigh&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getReferential</span><span class="p">(</span><span class="s2">&quot;TF_anaCalib&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">static</span><span class="o">.</span><span class="n">getNode_byLabel</span><span class="p">(</span><span class="s2">&quot;LKJC&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">m_local</span>
+        <span class="nb">print</span> <span class="s2">&quot; LKJC sara &quot;</span>
+        <span class="nb">print</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="s2">&quot;Left Thigh&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getReferential</span><span class="p">(</span><span class="s2">&quot;TF_anaCalib&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">static</span><span class="o">.</span><span class="n">getNode_byLabel</span><span class="p">(</span><span class="s2">&quot;LKJC_sara&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">m_local</span></div></div>
+        
+
+
+
+<div class="viewcode-block" id="AnkleCalibrationDecorator"><a class="viewcode-back" href="../../../../pyCGM2.Model.CGM2.html#pyCGM2.Model.CGM2.modelDecorator.AnkleCalibrationDecorator">[docs]</a><span class="k">class</span> <span class="nc">AnkleCalibrationDecorator</span><span class="p">(</span><span class="n">DecoratorModel</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Concrete cgm decorator altering the ankle joint     </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">iModel</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            :Parameters:</span>
+<span class="sd">              - `iModel` (pyCGM2.Model.CGM2.cgm.CGM) - a CGM instance </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">AnkleCalibrationDecorator</span><span class="p">,</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="n">iModel</span><span class="p">)</span>
+        
+<div class="viewcode-block" id="AnkleCalibrationDecorator.midMaleolus"><a class="viewcode-back" href="../../../../pyCGM2.Model.CGM2.html#pyCGM2.Model.CGM2.modelDecorator.AnkleCalibrationDecorator.midMaleolus">[docs]</a>    <span class="k">def</span> <span class="nf">midMaleolus</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">acq</span><span class="p">,</span> <span class="n">side</span><span class="o">=</span><span class="s2">&quot;both&quot;</span><span class="p">,</span>
+                    <span class="n">leftLateralAnkleLabel</span><span class="o">=</span><span class="s2">&quot;LANK&quot;</span><span class="p">,</span> <span class="n">leftMedialAnkleLabel</span><span class="o">=</span><span class="s2">&quot;LMED&quot;</span><span class="p">,</span>
+                    <span class="n">rightLateralAnkleLabel</span><span class="o">=</span><span class="s2">&quot;RANK&quot;</span><span class="p">,</span> <span class="n">rightMedialAnkleLabel</span><span class="o">=</span><span class="s2">&quot;RMED&quot;</span><span class="p">,</span> <span class="n">markerDiameter</span><span class="o">=</span> <span class="mi">14</span><span class="p">,</span> <span class="n">withNoModelParameter</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span> 
+
+        <span class="sd">&quot;&quot;&quot; </span>
+<span class="sd">            Compute Ankle joint centre from mid malleoli         </span>
+<span class="sd">        </span>
+<span class="sd">            :Parameters:</span>
+<span class="sd">                - `acq` (btkAcquisition) - a btk acquisition instance of a static c3d           </span>
+<span class="sd">                - `side` (str) - body side</span>
+<span class="sd">                - `leftLateralAnkleLabel` (str) -  label of the left lateral knee marker</span>
+<span class="sd">                - `leftMedialAnkleLabel` (str) -  label of the left medial knee marker   </span>
+<span class="sd">        </span>
+<span class="sd">        &quot;&quot;&quot;</span>                         
+                        
+                        
+        <span class="n">ff</span> <span class="o">=</span> <span class="n">acq</span><span class="o">.</span><span class="n">GetFirstFrame</span><span class="p">()</span>     
+    
+        <span class="n">frameInit</span> <span class="o">=</span>  <span class="n">acq</span><span class="o">.</span><span class="n">GetFirstFrame</span><span class="p">()</span><span class="o">-</span><span class="n">ff</span>  
+        <span class="n">frameEnd</span> <span class="o">=</span> <span class="n">acq</span><span class="o">.</span><span class="n">GetLastFrame</span><span class="p">()</span><span class="o">-</span><span class="n">ff</span><span class="o">+</span><span class="mi">1</span>
+                
+        <span class="c1">#self.model.nativeCgm1 = False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">decoratedModel</span> <span class="o">=</span> <span class="kc">True</span>
+        
+        
+        <span class="k">if</span> <span class="n">side</span><span class="o">==</span><span class="s2">&quot;both&quot;</span> <span class="ow">or</span> <span class="n">side</span><span class="o">==</span><span class="s2">&quot;left&quot;</span><span class="p">:</span>
+            
+            <span class="n">mid_L</span> <span class="o">=</span> <span class="p">(</span><span class="n">acq</span><span class="o">.</span><span class="n">GetPoint</span><span class="p">(</span><span class="n">leftLateralAnkleLabel</span><span class="p">)</span><span class="o">.</span><span class="n">GetValues</span><span class="p">()[</span><span class="n">frameInit</span><span class="p">:</span><span class="n">frameEnd</span><span class="p">,:]</span> <span class="o">+</span> 
+                     <span class="n">acq</span><span class="o">.</span><span class="n">GetPoint</span><span class="p">(</span><span class="n">leftMedialAnkleLabel</span><span class="p">)</span><span class="o">.</span><span class="n">GetValues</span><span class="p">()[</span><span class="n">frameInit</span><span class="p">:</span><span class="n">frameEnd</span><span class="p">,:])</span><span class="o">/</span><span class="mf">2.0</span>
+            <span class="n">mid_L</span> <span class="o">=</span> <span class="n">mid_L</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span> <span class="o">=</span><span class="mi">0</span><span class="p">)</span>            
+            
+            <span class="n">LANK</span> <span class="o">=</span> <span class="n">acq</span><span class="o">.</span><span class="n">GetPoint</span><span class="p">(</span><span class="n">leftLateralAnkleLabel</span><span class="p">)</span><span class="o">.</span><span class="n">GetValues</span><span class="p">()[</span><span class="n">frameInit</span><span class="p">:</span><span class="n">frameEnd</span><span class="p">,:]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+            <span class="n">LMED</span> <span class="o">=</span> <span class="n">acq</span><span class="o">.</span><span class="n">GetPoint</span><span class="p">(</span><span class="n">leftMedialAnkleLabel</span><span class="p">)</span><span class="o">.</span><span class="n">GetValues</span><span class="p">()[</span><span class="n">frameInit</span><span class="p">:</span><span class="n">frameEnd</span><span class="p">,:]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>  
+           
+            <span class="n">v</span> <span class="o">=</span> <span class="n">LMED</span><span class="o">-</span><span class="n">LANK</span>
+            <span class="n">v</span><span class="o">=</span><span class="n">v</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+           
+            <span class="n">LAJC</span> <span class="o">=</span> <span class="n">LANK</span> <span class="o">+</span> <span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">mp</span><span class="p">[</span><span class="s2">&quot;leftAnkleWidth&quot;</span><span class="p">]</span><span class="o">+</span><span class="n">markerDiameter</span> <span class="p">)</span><span class="o">/</span><span class="mf">2.0</span><span class="p">)</span><span class="o">*</span><span class="n">v</span>
+            
+            <span class="k">if</span> <span class="n">withNoModelParameter</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="s2">&quot;Left Shank&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getReferential</span><span class="p">(</span><span class="s2">&quot;TF&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">static</span><span class="o">.</span><span class="n">addNode</span><span class="p">(</span><span class="s2">&quot;LAJC_mid&quot;</span><span class="p">,</span><span class="n">mid_L</span><span class="p">,</span> <span class="n">positionType</span><span class="o">=</span><span class="s2">&quot;Global&quot;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="s2">&quot;Left Shank&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getReferential</span><span class="p">(</span><span class="s2">&quot;TF&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">static</span><span class="o">.</span><span class="n">addNode</span><span class="p">(</span><span class="s2">&quot;LAJC_mid&quot;</span><span class="p">,</span><span class="n">LAJC</span><span class="p">,</span> <span class="n">positionType</span><span class="o">=</span><span class="s2">&quot;Global&quot;</span><span class="p">)</span>
+            <span class="c1"># add line below when foot referential will be built</span>
+            <span class="c1">#self.model.getSegment(&quot;Left Foot&quot;).getReferential(&quot;TF&quot;).static.addNode(&quot;LAJC_mid&quot;,mid_L.mean(axis=0), positionType=&quot;Global&quot;)</span>
+
+        <span class="k">if</span> <span class="n">side</span><span class="o">==</span><span class="s2">&quot;both&quot;</span> <span class="ow">or</span> <span class="n">side</span><span class="o">==</span><span class="s2">&quot;right&quot;</span><span class="p">:</span>
+            
+            <span class="n">mid_R</span> <span class="o">=</span> <span class="p">(</span><span class="n">acq</span><span class="o">.</span><span class="n">GetPoint</span><span class="p">(</span><span class="n">rightLateralAnkleLabel</span><span class="p">)</span><span class="o">.</span><span class="n">GetValues</span><span class="p">()[</span><span class="n">frameInit</span><span class="p">:</span><span class="n">frameEnd</span><span class="p">,:]</span> <span class="o">+</span> 
+                     <span class="n">acq</span><span class="o">.</span><span class="n">GetPoint</span><span class="p">(</span><span class="n">rightMedialAnkleLabel</span><span class="p">)</span><span class="o">.</span><span class="n">GetValues</span><span class="p">()[</span><span class="n">frameInit</span><span class="p">:</span><span class="n">frameEnd</span><span class="p">,:])</span><span class="o">/</span><span class="mf">2.0</span>
+            <span class="n">mid_R</span> <span class="o">=</span> <span class="n">mid_R</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span> <span class="o">=</span><span class="mi">0</span><span class="p">)</span> 
+            
+            <span class="n">RANK</span> <span class="o">=</span> <span class="n">acq</span><span class="o">.</span><span class="n">GetPoint</span><span class="p">(</span><span class="n">rightLateralAnkleLabel</span><span class="p">)</span><span class="o">.</span><span class="n">GetValues</span><span class="p">()[</span><span class="n">frameInit</span><span class="p">:</span><span class="n">frameEnd</span><span class="p">,:]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+            <span class="n">RMED</span> <span class="o">=</span> <span class="n">acq</span><span class="o">.</span><span class="n">GetPoint</span><span class="p">(</span><span class="n">rightMedialAnkleLabel</span><span class="p">)</span><span class="o">.</span><span class="n">GetValues</span><span class="p">()[</span><span class="n">frameInit</span><span class="p">:</span><span class="n">frameEnd</span><span class="p">,:]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>  
+           
+            <span class="n">v</span> <span class="o">=</span> <span class="n">RMED</span><span class="o">-</span><span class="n">RANK</span>
+            <span class="n">v</span><span class="o">=</span><span class="n">v</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+           
+            <span class="n">RAJC</span> <span class="o">=</span>  <span class="n">RANK</span> <span class="o">+</span> <span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">mp</span><span class="p">[</span><span class="s2">&quot;rightAnkleWidth&quot;</span><span class="p">]</span><span class="o">+</span><span class="n">markerDiameter</span> <span class="p">)</span><span class="o">/</span><span class="mf">2.0</span><span class="p">)</span><span class="o">*</span><span class="n">v</span>
+
+            <span class="k">if</span> <span class="n">withNoModelParameter</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="s2">&quot;Right Shank&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getReferential</span><span class="p">(</span><span class="s2">&quot;TF&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">static</span><span class="o">.</span><span class="n">addNode</span><span class="p">(</span><span class="s2">&quot;RAJC_mid&quot;</span><span class="p">,</span><span class="n">mid_R</span><span class="p">,</span> <span class="n">positionType</span><span class="o">=</span><span class="s2">&quot;Global&quot;</span><span class="p">)</span>
+                <span class="c1"># TODO : foot</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="s2">&quot;Right Shank&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getReferential</span><span class="p">(</span><span class="s2">&quot;TF&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">static</span><span class="o">.</span><span class="n">addNode</span><span class="p">(</span><span class="s2">&quot;RAJC_mid&quot;</span><span class="p">,</span><span class="n">RAJC</span><span class="p">,</span> <span class="n">positionType</span><span class="o">=</span><span class="s2">&quot;Global&quot;</span><span class="p">)</span>             </div>
+
+<div class="viewcode-block" id="AnkleCalibrationDecorator.midMaleolusAxis"><a class="viewcode-back" href="../../../../pyCGM2.Model.CGM2.html#pyCGM2.Model.CGM2.modelDecorator.AnkleCalibrationDecorator.midMaleolusAxis">[docs]</a>    <span class="k">def</span> <span class="nf">midMaleolusAxis</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">acq</span><span class="p">,</span> <span class="n">side</span><span class="o">=</span><span class="s2">&quot;both&quot;</span><span class="p">,</span>
+                    <span class="n">leftLateralAnkleLabel</span><span class="o">=</span><span class="s2">&quot;LANK&quot;</span><span class="p">,</span> <span class="n">leftMedialAnkleLabel</span><span class="o">=</span><span class="s2">&quot;LMED&quot;</span><span class="p">,</span>
+                    <span class="n">rightLateralAnkleLabel</span><span class="o">=</span><span class="s2">&quot;RANK&quot;</span><span class="p">,</span> <span class="n">rightMedialAnkleLabel</span><span class="o">=</span><span class="s2">&quot;RMED&quot;</span><span class="p">,</span> <span class="n">markerDiameter</span><span class="o">=</span> <span class="mi">14</span><span class="p">,</span> <span class="n">withNoModelParameter</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>   
+        
+        
+        <span class="n">ff</span> <span class="o">=</span> <span class="n">acq</span><span class="o">.</span><span class="n">GetFirstFrame</span><span class="p">()</span>     
+    
+        <span class="n">frameInit</span> <span class="o">=</span>  <span class="n">acq</span><span class="o">.</span><span class="n">GetFirstFrame</span><span class="p">()</span><span class="o">-</span><span class="n">ff</span>  
+        <span class="n">frameEnd</span> <span class="o">=</span> <span class="n">acq</span><span class="o">.</span><span class="n">GetLastFrame</span><span class="p">()</span><span class="o">-</span><span class="n">ff</span><span class="o">+</span><span class="mi">1</span>
+                
+        <span class="c1">#self.model.nativeCgm1 = False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">decoratedModel</span> <span class="o">=</span> <span class="kc">True</span>
+        
+        <span class="k">if</span> <span class="n">side</span><span class="o">==</span><span class="s2">&quot;both&quot;</span> <span class="ow">or</span> <span class="n">side</span><span class="o">==</span><span class="s2">&quot;left&quot;</span><span class="p">:</span>
+            <span class="k">pass</span>
+            
+            
+
+        <span class="k">if</span> <span class="n">side</span><span class="o">==</span><span class="s2">&quot;both&quot;</span> <span class="ow">or</span> <span class="n">side</span><span class="o">==</span><span class="s2">&quot;right&quot;</span><span class="p">:</span>
+            
+            
+            <span class="n">pt1</span><span class="o">=</span><span class="n">acq</span><span class="o">.</span><span class="n">GetPoint</span><span class="p">(</span><span class="s2">&quot;RANK&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">GetValues</span><span class="p">()</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+            <span class="n">pt2</span><span class="o">=</span><span class="n">acq</span><span class="o">.</span><span class="n">GetPoint</span><span class="p">(</span><span class="s2">&quot;RMED&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">GetValues</span><span class="p">()</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>        
+            <span class="n">a1</span><span class="o">=</span><span class="p">(</span><span class="n">pt2</span><span class="o">-</span><span class="n">pt1</span><span class="p">)</span> <span class="c1">#KJC-AJC</span>
+            <span class="n">midMaleolusAxis</span><span class="o">=</span><span class="n">a1</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">a1</span><span class="p">)</span>            
+            
+            <span class="n">loc1</span><span class="o">=</span>    <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="s2">&quot;Right Shank&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">anatomicalFrame</span><span class="o">.</span><span class="n">static</span><span class="o">.</span><span class="n">getRotation</span><span class="p">()</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> 
+                        <span class="n">midMaleolusAxis</span><span class="p">)</span>
+                        
+            <span class="n">proj1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span> <span class="n">loc1</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+                               <span class="n">loc1</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+                                 <span class="mi">0</span><span class="p">])</span> 
+                             
+            <span class="n">v1</span> <span class="o">=</span> <span class="n">proj1</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">proj1</span><span class="p">)</span>                             
+
+            <span class="n">loc2</span><span class="o">=</span>    <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="s2">&quot;Right Shank&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">anatomicalFrame</span><span class="o">.</span><span class="n">static</span><span class="o">.</span><span class="n">getRotation</span><span class="p">()</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> 
+                        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">getSegment</span><span class="p">(</span><span class="s2">&quot;Right Thigh&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">anatomicalFrame</span><span class="o">.</span><span class="n">static</span><span class="o">.</span><span class="n">m_axisY</span><span class="p">)</span>
+
+            <span class="n">proj2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span> <span class="n">loc2</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+                               <span class="n">loc2</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+                                 <span class="mi">0</span><span class="p">])</span> 
+                                 
+            <span class="n">v2</span> <span class="o">=</span> <span class="n">proj2</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">proj2</span><span class="p">)</span> 
+    
+            <span class="n">angle</span><span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arccos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">v2</span><span class="p">,</span><span class="n">v1</span><span class="p">))</span>
+        
+            <span class="nb">print</span> <span class="s2">&quot;****** right Tibial Main **********&quot;</span>
+            <span class="nb">print</span> <span class="n">np</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cross</span><span class="p">(</span><span class="n">v2</span><span class="p">,</span><span class="n">v1</span><span class="p">)[</span><span class="mi">2</span><span class="p">])</span><span class="o">*</span><span class="n">angle</span><span class="o">*</span><span class="mf">360.0</span><span class="o">/</span><span class="p">(</span><span class="mf">2.0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span></div></div>
+        
+        
+
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../../index.html">pyCGM2 0.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../../index.html" >Module code</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017, Fabien Leboeuf.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.1.
+    </div>
+  </body>
+</html>

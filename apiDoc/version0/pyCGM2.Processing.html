@@ -1,0 +1,871 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>pyCGM2.Processing subpackage &#8212; pyCGM2 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="pyCGM2.Report subpackage" href="pyCGM2.Report.html" />
+    <link rel="prev" title="pyCGM2.Model.CGM2 subpackage" href="pyCGM2.Model.CGM2.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pyCGM2.Report.html" title="pyCGM2.Report subpackage"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="pyCGM2.Model.CGM2.html" title="pyCGM2.Model.CGM2 subpackage"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">pyCGM2 0.1 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="pycgm2-processing-subpackage">
+<h1>pyCGM2.Processing subpackage<a class="headerlink" href="#pycgm2-processing-subpackage" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="pycgm2-processing-cycle-module">
+<h2>pyCGM2.Processing.cycle (module)<a class="headerlink" href="#pycgm2-processing-cycle-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-pyCGM2.Processing.cycle">
+<span id="basis-classes-and-functions"></span><h3>Basis Classes and functions<a class="headerlink" href="#module-pyCGM2.Processing.cycle" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="pyCGM2.Processing.cycle.Cycle">
+<em class="property">class </em><code class="descclassname">pyCGM2.Processing.cycle.</code><code class="descname">Cycle</code><span class="sig-paren">(</span><em>trial</em>, <em>startTime</em>, <em>endTime</em>, <em>context</em>, <em>enableFlag=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Processing/cycle.html#Cycle"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Processing.cycle.Cycle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cut out a trial and create a generic Cycle from specific times</p>
+<dl class="method">
+<dt id="pyCGM2.Processing.cycle.Cycle.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>trial</em>, <em>startTime</em>, <em>endTime</em>, <em>context</em>, <em>enableFlag=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Processing/cycle.html#Cycle.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Processing.cycle.Cycle.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>trial</cite> (openma-trial) - openma from a c3d</li>
+<li><cite>startTime</cite> (double) -  start time of the cycle</li>
+<li><cite>endTime</cite> (double) - end time of the cycle</li>
+<li><cite>enableFlag</cite> (bool) - flag the Cycle in order to indicate if we can use it in a analysis process.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyCGM2.Processing.cycle.Cycle.getAnalogTimeSequenceData">
+<code class="descname">getAnalogTimeSequenceData</code><span class="sig-paren">(</span><em>analogLabel</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Processing/cycle.html#Cycle.getAnalogTimeSequenceData"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Processing.cycle.Cycle.getAnalogTimeSequenceData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get analog data of the cycle</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>analogLabel</cite> (str) - analog Label</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyCGM2.Processing.cycle.Cycle.getAnalogTimeSequenceDataNormalized">
+<code class="descname">getAnalogTimeSequenceDataNormalized</code><span class="sig-paren">(</span><em>analogLabel</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Processing/cycle.html#Cycle.getAnalogTimeSequenceDataNormalized"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Processing.cycle.Cycle.getAnalogTimeSequenceDataNormalized" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get analog data of the cycle</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>analogLabel</cite> (str) - analog Label</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyCGM2.Processing.cycle.Cycle.getEvents">
+<code class="descname">getEvents</code><span class="sig-paren">(</span><em>context='All'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Processing/cycle.html#Cycle.getEvents"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Processing.cycle.Cycle.getEvents" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all events of the cycle</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>context</cite> (str) - event context ( All, Left or Right)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyCGM2.Processing.cycle.Cycle.getPointTimeSequenceData">
+<code class="descname">getPointTimeSequenceData</code><span class="sig-paren">(</span><em>pointLabel</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Processing/cycle.html#Cycle.getPointTimeSequenceData"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Processing.cycle.Cycle.getPointTimeSequenceData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get temporal point data of the cycle</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>pointLabel</cite> (str) - point Label</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyCGM2.Processing.cycle.Cycle.getPointTimeSequenceDataNormalized">
+<code class="descname">getPointTimeSequenceDataNormalized</code><span class="sig-paren">(</span><em>pointLabel</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Processing/cycle.html#Cycle.getPointTimeSequenceDataNormalized"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Processing.cycle.Cycle.getPointTimeSequenceDataNormalized" title="Permalink to this definition">¶</a></dt>
+<dd><p>Normalisation of a point label</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>pointLabel</cite> (str) - point Label</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyCGM2.Processing.cycle.Cycle.setEnableFlag">
+<code class="descname">setEnableFlag</code><span class="sig-paren">(</span><em>flag</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Processing/cycle.html#Cycle.setEnableFlag"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Processing.cycle.Cycle.setEnableFlag" title="Permalink to this definition">¶</a></dt>
+<dd><p>set the cycle flag</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>flag</cite> (bool) - boolean flag</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pyCGM2.Processing.cycle.GaitCycle">
+<em class="property">class </em><code class="descclassname">pyCGM2.Processing.cycle.</code><code class="descname">GaitCycle</code><span class="sig-paren">(</span><em>gaitTrial</em>, <em>startTime</em>, <em>endTime</em>, <em>context</em>, <em>enableFlag=True</em>, <em>longitudinal_axis=0</em>, <em>lateral_axis=1</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Processing/cycle.html#GaitCycle"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Processing.cycle.GaitCycle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Herited method of Cycle specifying a Gait Cycle</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<ul class="last">
+<li><p class="first">By default, X0 and Yo are the longitudinal and lateral global axis respectively</p>
+</li>
+<li><p class="first">Each GaitCycle creation computes spatio-temporal parameters automatically.</p>
+</li>
+<li><dl class="first docutils">
+<dt>spatio-temporal parameters are :</dt>
+<dd><p class="first last">&#8220;duration&#8221;, &#8220;cadence&#8221;, 
+&#8220;stanceDuration&#8221;, &#8220;stancePhase&#8221;, 
+&#8220;swingDuration&#8221;, &#8220;swingPhase&#8221;, &#8220;doubleStance1&#8221;, &#8220;doubleStance2&#8221;,
+&#8220;simpleStance&#8221;, &#8220;strideLength&#8221;, &#8220;stepLength&#8221;,
+&#8220;strideWidth&#8221;, &#8220;speed&#8221;</p>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<dl class="method">
+<dt id="pyCGM2.Processing.cycle.GaitCycle.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>gaitTrial</em>, <em>startTime</em>, <em>endTime</em>, <em>context</em>, <em>enableFlag=True</em>, <em>longitudinal_axis=0</em>, <em>lateral_axis=1</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Processing/cycle.html#GaitCycle.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Processing.cycle.GaitCycle.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>trial</cite> (openma-trial) - openma from a c3d</li>
+<li><cite>startTime</cite> (double) -  start time of the cycle</li>
+<li><cite>endTime</cite> (double) - end time of the cycle</li>
+<li><cite>enableFlag</cite> (bool) - flag the Cycle in order to indicate if we can use it in a analysis process.</li>
+<li><cite>longitudinal_axis</cite> (int) - index of the  longitudinal global axis (X=0, Y=1, Z=2)</li>
+<li><cite>lateral_axis</cite> (int) - index of the lateral global axis (X=0, Y=1, Z=2)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyCGM2.Processing.cycle.GaitCycle.getSpatioTemporalParameter">
+<code class="descname">getSpatioTemporalParameter</code><span class="sig-paren">(</span><em>label</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Processing/cycle.html#GaitCycle.getSpatioTemporalParameter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Processing.cycle.GaitCycle.getSpatioTemporalParameter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a spatio-temporal parameter</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>label</cite> (str) - label of the desired spatio-temporal parameter</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="pyCGM2.Processing.cycle.spatioTemporelParameter_descriptiveStats">
+<code class="descclassname">pyCGM2.Processing.cycle.</code><code class="descname">spatioTemporelParameter_descriptiveStats</code><span class="sig-paren">(</span><em>cycles</em>, <em>label</em>, <em>context</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Processing/cycle.html#spatioTemporelParameter_descriptiveStats"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Processing.cycle.spatioTemporelParameter_descriptiveStats" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute descriptive statistics of spatio-temporal parameters from a <cite>cycles</cite> instance</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><cite>cycles</cite> (pyCGM2.Processing.cycle.Cycles) - Cycles instance built fron CycleFilter</li>
+<li><cite>label</cite> (str) - spatio-temporal label</li>
+<li><cite>context</cite> (str) - cycle side context ( Left, Right)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return:</th><td class="field-body"><ul class="first last simple">
+<li><cite>outDict</cite> (dict)  - dictionnary with descriptive statistics ( mean, std, median).  Addictional Item <em>val</em> collects cycle values</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyCGM2.Processing.cycle.point_descriptiveStats">
+<code class="descclassname">pyCGM2.Processing.cycle.</code><code class="descname">point_descriptiveStats</code><span class="sig-paren">(</span><em>cycles</em>, <em>label</em>, <em>context</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Processing/cycle.html#point_descriptiveStats"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Processing.cycle.point_descriptiveStats" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute descriptive statistics of point parameters from a <cite>cycles</cite> instance</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><cite>cycles</cite> (pyCGM2.Processing.cycle.Cycles) - Cycles instance built fron CycleFilter</li>
+<li><cite>label</cite> (str) - point label</li>
+<li><cite>context</cite> (str) - cycle side context ( Left, Right)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return:</th><td class="field-body"><ul class="first last simple">
+<li><cite>outDict</cite> (dict)  - dictionnary with descriptive statistics ( mean, std, median).  Addictional Item <em>values</em> collects cycle values</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyCGM2.Processing.cycle.analog_descriptiveStats">
+<code class="descclassname">pyCGM2.Processing.cycle.</code><code class="descname">analog_descriptiveStats</code><span class="sig-paren">(</span><em>cycles</em>, <em>label</em>, <em>context</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Processing/cycle.html#analog_descriptiveStats"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Processing.cycle.analog_descriptiveStats" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute descriptive statistics of analog parameters from a <cite>cycles</cite> instance</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><cite>cycles</cite> (pyCGM2.Processing.cycle.Cycles) - Cycles instance built fron CycleFilter</li>
+<li><cite>label</cite> (str) - analog label</li>
+<li><cite>context</cite> (str) - cycle side context ( Left, Right)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return:</th><td class="field-body"><ul class="first last simple">
+<li><cite>outDict</cite> (dict)  - dictionnary with descriptive statistics ( mean, std, median).  Addictional Item <em>values</em> collects cycle values</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-pyCGM2.Processing.cycle">
+<span id="cycle-builder"></span><h3>Cycle builder<a class="headerlink" href="#module-pyCGM2.Processing.cycle" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="pyCGM2.Processing.cycle.GaitCyclesBuilder">
+<em class="property">class </em><code class="descclassname">pyCGM2.Processing.cycle.</code><code class="descname">GaitCyclesBuilder</code><span class="sig-paren">(</span><em>spatioTemporalTrials=None</em>, <em>kinematicTrials=None</em>, <em>kineticTrials=None</em>, <em>emgTrials=None</em>, <em>longitudinal_axis='X'</em>, <em>lateral_axis='Y'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Processing/cycle.html#GaitCyclesBuilder"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Processing.cycle.GaitCyclesBuilder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Concrete builder extracting Cycles from gait trials</p>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<p class="last">The underlying concept is spatio-temporal parameters, kinematic outputs, kinetic ouputs or emg  could be extracted from different gait trials.</p>
+</div>
+<dl class="method">
+<dt id="pyCGM2.Processing.cycle.GaitCyclesBuilder.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>spatioTemporalTrials=None</em>, <em>kinematicTrials=None</em>, <em>kineticTrials=None</em>, <em>emgTrials=None</em>, <em>longitudinal_axis='X'</em>, <em>lateral_axis='Y'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Processing/cycle.html#GaitCyclesBuilder.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Processing.cycle.GaitCyclesBuilder.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>spatioTemporalTrials</cite> (list of openma trials) - list of trials of which Cycles will be extracted for computing spatio-temporal parameters</li>
+<li><cite>kinematicTrials</cite> (list of openma trials) - list of trials of which Cycles will be extracted for computing kinematic outputs</li>
+<li><cite>kineticTrials</cite> (list of openma trials) - list of trials of which Cycles will be extracted for computing kinetic outputs</li>
+<li><cite>emgTrials</cite> (list of openma trials) - list of trials of which Cycles will be extracted for emg</li>
+<li><cite>longitudinal_axis</cite> (str) - label of the  longitudinal global axis (X, Y or Z)</li>
+<li><cite>lateral_axis</cite> (str) - label of the  longitudinal global axis (X, Y or Z)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyCGM2.Processing.cycle.GaitCyclesBuilder.getEmg">
+<code class="descname">getEmg</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Processing/cycle.html#GaitCyclesBuilder.getEmg"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Processing.cycle.GaitCyclesBuilder.getEmg" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extract Cycles used for emg</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">-<cite>emgCycles</cite> (list of GaitCycle)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyCGM2.Processing.cycle.GaitCyclesBuilder.getKinematics">
+<code class="descname">getKinematics</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Processing/cycle.html#GaitCyclesBuilder.getKinematics"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Processing.cycle.GaitCyclesBuilder.getKinematics" title="Permalink to this definition">¶</a></dt>
+<dd><p>extract Cycles used for kinematic outputs</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">-<cite>kinematicCycles</cite> (list of GaitCycle)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyCGM2.Processing.cycle.GaitCyclesBuilder.getKinetics">
+<code class="descname">getKinetics</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Processing/cycle.html#GaitCyclesBuilder.getKinetics"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Processing.cycle.GaitCyclesBuilder.getKinetics" title="Permalink to this definition">¶</a></dt>
+<dd><p>extract Cycles used for kinetic outputs</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">-<cite>kineticCycles</cite> (list of GaitCycle)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyCGM2.Processing.cycle.GaitCyclesBuilder.getSpatioTemporal">
+<code class="descname">getSpatioTemporal</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Processing/cycle.html#GaitCyclesBuilder.getSpatioTemporal"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Processing.cycle.GaitCyclesBuilder.getSpatioTemporal" title="Permalink to this definition">¶</a></dt>
+<dd><p>extract Cycles used for  spatio Temporal parameters</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">-<cite>spatioTemporalCycles</cite> (list of GaitCycle)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="cycle-filter">
+<h3>Cycle filter<a class="headerlink" href="#cycle-filter" title="Permalink to this headline">¶</a></h3>
+<p><strong>Usage</strong></p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="c1"># from pyCGM2.Processing import cycle</span>
+<span class="n">cycleBuilder</span> <span class="o">=</span> <span class="n">cycle</span><span class="o">.</span><span class="n">GaitCyclesBuilder</span><span class="p">(</span><span class="n">spatioTemporalTrials</span><span class="o">=</span><span class="n">kinematicTrials</span><span class="p">,</span>
+                                   <span class="n">kinematicTrials</span> <span class="o">=</span> <span class="n">kinematicTrials</span><span class="p">,</span>
+                                   <span class="n">kineticTrials</span> <span class="o">=</span> <span class="n">kineticTrials</span><span class="p">,</span>
+                                   <span class="n">emgTrials</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                                   <span class="n">longitudinal_axis</span><span class="o">=</span> <span class="s2">&quot;X&quot;</span><span class="p">,</span><span class="n">lateral_axis</span><span class="o">=</span><span class="s2">&quot;Y&quot;</span><span class="p">)</span>
+
+<span class="n">cyclefilter</span> <span class="o">=</span> <span class="n">cycle</span><span class="o">.</span><span class="n">CyclesFilter</span><span class="p">()</span>
+<span class="n">cyclefilter</span><span class="o">.</span><span class="n">setBuilder</span><span class="p">(</span><span class="n">cycleBuilder</span><span class="p">)</span>
+<span class="n">cycles</span> <span class="o">=</span> <span class="n">cyclefilter</span><span class="o">.</span><span class="n">build</span><span class="p">()</span>
+</pre></div>
+</div>
+<span class="target" id="module-pyCGM2.Processing.cycle"></span><dl class="class">
+<dt id="pyCGM2.Processing.cycle.CyclesFilter">
+<em class="property">class </em><code class="descclassname">pyCGM2.Processing.cycle.</code><code class="descname">CyclesFilter</code><a class="reference internal" href="_modules/pyCGM2/Processing/cycle.html#CyclesFilter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Processing.cycle.CyclesFilter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Filter buiding a Cycles instance.</p>
+<dl class="method">
+<dt id="pyCGM2.Processing.cycle.CyclesFilter.build">
+<code class="descname">build</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Processing/cycle.html#CyclesFilter.build"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Processing.cycle.CyclesFilter.build" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a <cite>Cycles</cite> instance</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyCGM2.Processing.cycle.CyclesFilter.setBuilder">
+<code class="descname">setBuilder</code><span class="sig-paren">(</span><em>builder</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Processing/cycle.html#CyclesFilter.setBuilder"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Processing.cycle.CyclesFilter.setBuilder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the cycle builder</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>builder</cite> (concrete cycleBuilder) - a concrete cycle builder</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-pyCGM2.Processing.cycle">
+<span id="cycle-built-object"></span><span id="cyclesobject"></span><h3>Cycle Built object<a class="headerlink" href="#module-pyCGM2.Processing.cycle" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="pyCGM2.Processing.cycle.Cycles">
+<em class="property">class </em><code class="descclassname">pyCGM2.Processing.cycle.</code><code class="descname">Cycles</code><a class="reference internal" href="_modules/pyCGM2/Processing/cycle.html#Cycles"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Processing.cycle.Cycles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Object to build from CycleFilter.</p>
+<p>Cycles work as <strong>class-container</strong>. Its attribute member collects list of build Cycle</p>
+<p>Attribute :</p>
+<blockquote>
+<div><ul class="simple">
+<li><cite>spatioTemporalCycles</cite> - (list of Cycle) - collect list of build cycles uses for spatiotemporal analysis</li>
+<li><cite>kinematicCycles</cite> - (list of Cycle) - collect list of build cycles uses for kinematic analysis</li>
+<li><cite>kineticCycles</cite> - (list of Cycle) - collect list of build cycles uses for kinetic analysis</li>
+<li><cite>emgCycles</cite> - (list of Cycle) - collect list of build cycles uses for emg analysis</li>
+</ul>
+</div></blockquote>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="pycgm2-processing-analysis-module">
+<h2>pyCGM2.Processing.analysis (module)<a class="headerlink" href="#pycgm2-processing-analysis-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-pyCGM2.Processing.analysis">
+<span id="analysis-builder"></span><h3>Analysis builder<a class="headerlink" href="#module-pyCGM2.Processing.analysis" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="pyCGM2.Processing.analysis.GaitAnalysisBuilder">
+<em class="property">class </em><code class="descclassname">pyCGM2.Processing.analysis.</code><code class="descname">GaitAnalysisBuilder</code><span class="sig-paren">(</span><em>cycles</em>, <em>kinematicLabelsDict=None</em>, <em>kineticLabelsDict=None</em>, <em>pointlabelSuffix=''</em>, <em>emgLabelList=None</em>, <em>modelInfos=None</em>, <em>subjectInfos=None</em>, <em>experimentalInfos=None</em>, <em>emgs=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Processing/analysis.html#GaitAnalysisBuilder"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Processing.analysis.GaitAnalysisBuilder" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Description</strong> : builder of a common clinical gait analysis</p>
+<dl class="method">
+<dt id="pyCGM2.Processing.analysis.GaitAnalysisBuilder.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>cycles</em>, <em>kinematicLabelsDict=None</em>, <em>kineticLabelsDict=None</em>, <em>pointlabelSuffix=''</em>, <em>emgLabelList=None</em>, <em>modelInfos=None</em>, <em>subjectInfos=None</em>, <em>experimentalInfos=None</em>, <em>emgs=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Processing/analysis.html#GaitAnalysisBuilder.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Processing.analysis.GaitAnalysisBuilder.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last">
+<li><p class="first"><cite>cycles</cite> (pyCGM2.Processing.cycle.Cycles) - Cycles instance built from CycleFilter</p>
+</li>
+<li><p class="first"><cite>kinematicLabelsDict</cite> (dict) - dictionnary with two items (Left and Right) grouping kinematic output label</p>
+</li>
+<li><p class="first"><cite>kineticLabelsDict</cite> (dict) - dictionnary with two items (Left and Right) grouping kinetic output label</p>
+</li>
+<li><p class="first"><cite>pointlabelSuffix</cite> (dict) - suffix ending kinematicLabels and kineticLabels dictionnaries</p>
+</li>
+<li><p class="first"><cite>emgLabelList</cite> (list of str) - labels of used emg</p>
+</li>
+<li><p class="first"><cite>subjectInfos</cite> (dict) - information about the subject</p>
+</li>
+<li><p class="first"><cite>modelInfos</cite> (dict) - information about the model</p>
+</li>
+<li><p class="first"><cite>experimentalInfos</cite> (dict) - information about the experimental conditions</p>
+</li>
+<li><div class="first admonition attention">
+<p class="first admonition-title">Attention</p>
+<p class="last"><cite>emgs</cite> (pyCGM2emg) - object in progress</p>
+</div>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">modelInfos,experimentalInfos, subjectInfos are convenient dictionnaries in which you can store different sort of information</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyCGM2.Processing.analysis.GaitAnalysisBuilder.computeEmgEnvelopes">
+<code class="descname">computeEmgEnvelopes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Processing/analysis.html#GaitAnalysisBuilder.computeEmgEnvelopes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Processing.analysis.GaitAnalysisBuilder.computeEmgEnvelopes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute descriptive of emg values</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><ul class="simple">
+<li><cite>out</cite> (dict) - dictionnary with descriptive statictics of emg envelopes</li>
+<li><cite>outPst</cite> ( dict) - dictionnary with descriptive statictics of spatio-temporal parameters matching emg envelopes</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyCGM2.Processing.analysis.GaitAnalysisBuilder.computeKinematics">
+<code class="descname">computeKinematics</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Processing/analysis.html#GaitAnalysisBuilder.computeKinematics"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Processing.analysis.GaitAnalysisBuilder.computeKinematics" title="Permalink to this definition">¶</a></dt>
+<dd><p>compute descriptive of kinematics parameters</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><ul class="simple">
+<li><cite>out</cite> (dict) - dictionnary with descriptive statictics of kinematics parameters</li>
+<li><cite>outPst</cite> ( dict) - dictionnary with descriptive statictics of spatio-temporal parameters matching  kinematics parameters</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyCGM2.Processing.analysis.GaitAnalysisBuilder.computeKinetics">
+<code class="descname">computeKinetics</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Processing/analysis.html#GaitAnalysisBuilder.computeKinetics"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Processing.analysis.GaitAnalysisBuilder.computeKinetics" title="Permalink to this definition">¶</a></dt>
+<dd><p>compute descriptive of kinetics parameters</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><ul class="simple">
+<li><cite>out</cite> (dict) - dictionnary with descriptive statictics of kinetics parameters</li>
+<li><cite>outPst</cite> ( dict) - dictionnary with descriptive statictics of spatio-temporal parameters matching  kinetics parameters</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyCGM2.Processing.analysis.GaitAnalysisBuilder.computeSpatioTemporel">
+<code class="descname">computeSpatioTemporel</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Processing/analysis.html#GaitAnalysisBuilder.computeSpatioTemporel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Processing.analysis.GaitAnalysisBuilder.computeSpatioTemporel" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Description:</strong> compute descriptive of spatio-temporal parameters</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><ul class="simple">
+<li><cite>out</cite> (dict) - dictionnary with descriptive statictics of spatio-temporal parameters</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="analysis-filter">
+<h3>Analysis Filter<a class="headerlink" href="#analysis-filter" title="Permalink to this headline">¶</a></h3>
+<p><strong>Usage</strong></p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="c1"># from pyCGM2.Processing import cycle</span>
+<span class="n">modelInfo</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;type&quot;</span> <span class="p">:</span> <span class="s2">&quot;cgm1&quot;</span><span class="p">}</span>
+<span class="n">subjectInfo</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;firstname&quot;</span> <span class="p">:</span> <span class="s2">&quot;Hannibal&quot;</span><span class="p">}</span>
+<span class="n">experimentalInfo</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;task&quot;</span> <span class="p">:</span> <span class="s2">&quot;spontaneous walk&quot;</span><span class="p">}</span>
+<span class="n">kinematicLabelsDict</span> <span class="o">=</span><span class="p">{</span> <span class="s1">&#39;Left&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;LHipAngles&quot;</span><span class="p">,</span><span class="s2">&quot;LKneeAngles&quot;</span><span class="p">,</span><span class="s2">&quot;LAnkleAngles&quot;</span><span class="p">,</span><span class="s2">&quot;LFootProgressAngles&quot;</span><span class="p">,</span><span class="s2">&quot;LPelvisAngles&quot;</span><span class="p">]},</span>
+                       <span class="s1">&#39;Right&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;RHipAngles&quot;</span><span class="p">,</span><span class="s2">&quot;RKneeAngles&quot;</span><span class="p">,</span><span class="s2">&quot;RAnkleAngles&quot;</span><span class="p">,</span><span class="s2">&quot;RFootProgressAngles&quot;</span><span class="p">,</span><span class="s2">&quot;RPelvisAngles&quot;</span><span class="p">]</span> <span class="p">}</span>
+
+<span class="n">kineticLabelsDict</span> <span class="o">=</span><span class="p">{</span> <span class="s1">&#39;Left&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;LHipMoment&quot;</span><span class="p">,</span><span class="s2">&quot;LKneeMoment&quot;</span><span class="p">,</span><span class="s2">&quot;LAnkleMoment&quot;</span><span class="p">,</span> <span class="s2">&quot;LHipPower&quot;</span><span class="p">,</span><span class="s2">&quot;LKneePower&quot;</span><span class="p">,</span><span class="s2">&quot;LAnklePower&quot;</span><span class="p">],</span>
+                <span class="s1">&#39;Right&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;RHipMoment&quot;</span><span class="p">,</span><span class="s2">&quot;RKneeMoment&quot;</span><span class="p">,</span><span class="s2">&quot;RAnkleMoment&quot;</span><span class="p">,</span> <span class="s2">&quot;RHipPower&quot;</span><span class="p">,</span><span class="s2">&quot;RKneePower&quot;</span><span class="p">,</span><span class="s2">&quot;RAnklePower&quot;</span><span class="p">]}</span>
+
+
+<span class="n">analysisBuilder</span> <span class="o">=</span> <span class="n">analysis</span><span class="o">.</span><span class="n">GaitAnalysisBuilder</span><span class="p">(</span><span class="n">cycles</span><span class="p">,</span>
+                                          <span class="n">kinematicLabelsDict</span> <span class="o">=</span> <span class="n">kinematicLabelsDict</span><span class="p">,</span>
+                                          <span class="n">kineticLabelsDict</span> <span class="o">=</span> <span class="n">kineticLabelsDict</span><span class="p">,</span>
+                                          <span class="n">subjectInfos</span><span class="o">=</span><span class="n">subjectInfo</span><span class="p">,</span>
+                                          <span class="n">modelInfos</span><span class="o">=</span><span class="n">modelInfo</span><span class="p">,</span>
+                                          <span class="n">experimentalInfos</span><span class="o">=</span><span class="n">experimentalInfo</span><span class="p">)</span>
+
+<span class="n">analysisFilter</span> <span class="o">=</span> <span class="n">analysis</span><span class="o">.</span><span class="n">AnalysisFilter</span><span class="p">()</span>
+<span class="n">analysisFilter</span><span class="o">.</span><span class="n">setBuilder</span><span class="p">(</span><span class="n">analysisBuilder</span><span class="p">)</span>
+<span class="n">analysisFilter</span><span class="o">.</span><span class="n">build</span><span class="p">()</span>
+</pre></div>
+</div>
+<span class="target" id="module-pyCGM2.Processing.analysis"></span><dl class="class">
+<dt id="pyCGM2.Processing.analysis.StaticAnalysisFilter">
+<em class="property">class </em><code class="descclassname">pyCGM2.Processing.analysis.</code><code class="descname">StaticAnalysisFilter</code><span class="sig-paren">(</span><em>trial</em>, <em>angleList</em>, <em>subjectInfos=None</em>, <em>modelInfos=None</em>, <em>experimentalInfos=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Processing/analysis.html#StaticAnalysisFilter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Processing.analysis.StaticAnalysisFilter" title="Permalink to this definition">¶</a></dt>
+<dd><p>filter building a StaticAnalysis instance from a static trial</p>
+<dl class="method">
+<dt id="pyCGM2.Processing.analysis.StaticAnalysisFilter.build">
+<code class="descname">build</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Processing/analysis.html#StaticAnalysisFilter.build"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Processing.analysis.StaticAnalysisFilter.build" title="Permalink to this definition">¶</a></dt>
+<dd><p>build a StaticAnalysis instance</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyCGM2.Processing.analysis.StaticAnalysisFilter.exportDataFrame">
+<code class="descname">exportDataFrame</code><span class="sig-paren">(</span><em>outputName</em>, <em>path=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Processing/analysis.html#StaticAnalysisFilter.exportDataFrame"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Processing.analysis.StaticAnalysisFilter.exportDataFrame" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div>export the member <em>analysis</em> as xls file</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>outputName</cite> (str) - name of the xls file ( without xls extension)</li>
+<li><cite>path</cite> (str) - folder in which xls files will be stored</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pyCGM2.Processing.analysis.AnalysisFilter">
+<em class="property">class </em><code class="descclassname">pyCGM2.Processing.analysis.</code><code class="descname">AnalysisFilter</code><a class="reference internal" href="_modules/pyCGM2/Processing/analysis.html#AnalysisFilter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Processing.analysis.AnalysisFilter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Filter building an Analysis instance.</p>
+<dl class="method">
+<dt id="pyCGM2.Processing.analysis.AnalysisFilter.build">
+<code class="descname">build</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Processing/analysis.html#AnalysisFilter.build"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Processing.analysis.AnalysisFilter.build" title="Permalink to this definition">¶</a></dt>
+<dd><p>build member analysis from a concrete builder</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyCGM2.Processing.analysis.AnalysisFilter.exportAdvancedDataFrame">
+<code class="descname">exportAdvancedDataFrame</code><span class="sig-paren">(</span><em>outputName</em>, <em>path=None</em>, <em>excelFormat='xls'</em>, <em>csvFileExport=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Processing/analysis.html#AnalysisFilter.exportAdvancedDataFrame"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Processing.analysis.AnalysisFilter.exportAdvancedDataFrame" title="Permalink to this definition">¶</a></dt>
+<dd><p>export  member <em>analysis</em> as xls file in a Advanced mode. 
+A Advanced xls report outputs in a single sheet and put frames in row.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<dl class="last docutils">
+<dt>an advanced xls contains the folowing sheets: </dt>
+<dd><ul class="first last simple">
+<li><cite>descriptive stp</cite> : descriptive statistic of spatio-tenporal parameters</li>
+<li><cite>stp cycles</cite> : all cycles used for computing descriptive statistics of spatio-temporal parameters</li>
+<li><cite>descriptive kinematics</cite> : descriptive statistic of kinematic parameters</li>
+<li><cite>kinematics cycles</cite> : all cycles used for computing descriptive statistics of kinematic parameters</li>
+<li><cite>descriptive kinetics</cite> : descriptive statistic of kinetic parameters</li>
+<li><cite>kinetics cycles</cite> : all cycles used for computing descriptive statistics of kinetic parameters</li>
+</ul>
+</dd>
+</dl>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>outputName</cite> (str) - name of the xls file ( without xls extension)</li>
+<li><cite>path</cite> (str) - folder in which xls files will be stored</li>
+<li><cite>excelFormat</cite> (str) - by default : xls. xlsx is also available</li>
+<li><cite>csvFileExport</cite> (bool) - enable export of csv files</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyCGM2.Processing.analysis.AnalysisFilter.exportAnalysisC3d">
+<code class="descname">exportAnalysisC3d</code><span class="sig-paren">(</span><em>outputName</em>, <em>path=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Processing/analysis.html#AnalysisFilter.exportAnalysisC3d"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Processing.analysis.AnalysisFilter.exportAnalysisC3d" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div>export a  101-frames c3d grouping all cycle parameters</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>outputName</cite> (str) - name of the xls file ( without xls extension)</li>
+<li><cite>path</cite> (str) - folder in which xls files will be stored</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyCGM2.Processing.analysis.AnalysisFilter.exportBasicDataFrame">
+<code class="descname">exportBasicDataFrame</code><span class="sig-paren">(</span><em>outputName</em>, <em>path=None</em>, <em>excelFormat='xls'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Processing/analysis.html#AnalysisFilter.exportBasicDataFrame"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Processing.analysis.AnalysisFilter.exportBasicDataFrame" title="Permalink to this definition">¶</a></dt>
+<dd><p>export  member <em>analysis</em> as xls file in a basic mode. 
+A basic xls puts Frame number in column. Each outputs is included as new sheet.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>outputName</cite> (str) - name of the xls file ( without xls extension)</li>
+<li><cite>path</cite> (str) - folder in which xls files will be stored</li>
+<li><cite>excelFormat</cite> (str) - by default : xls. xlsx is also available</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyCGM2.Processing.analysis.AnalysisFilter.setBuilder">
+<code class="descname">setBuilder</code><span class="sig-paren">(</span><em>concreteBuilder</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Processing/analysis.html#AnalysisFilter.setBuilder"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Processing.analysis.AnalysisFilter.setBuilder" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div>set a concrete builder</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>concreteBuilder</cite> (Builder) - a concrete Builder</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-pyCGM2.Processing.analysis">
+<span id="analysis-built-object"></span><span id="analysisobject"></span><h3>Analysis built object<a class="headerlink" href="#module-pyCGM2.Processing.analysis" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="pyCGM2.Processing.analysis.Analysis">
+<em class="property">class </em><code class="descclassname">pyCGM2.Processing.analysis.</code><code class="descname">Analysis</code><a class="reference internal" href="_modules/pyCGM2/Processing/analysis.html#Analysis"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Processing.analysis.Analysis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Object built from AnalysisFilter.build().</p>
+<p>Analysis work as <strong>class-container</strong>. Its attribute members return descriptive statistics</p>
+<p>Attributes :</p>
+<blockquote>
+<div><ul class="simple">
+<li><cite>stpStats</cite> (dict)  - descritive statictics of stapiotemporal parameters</li>
+<li><cite>kinematicStats</cite> (Analysis.Structure)  - descritive statictics of kinematics data.</li>
+<li><cite>kineticStats</cite> (Analysis.Structure)  - descritive statictics of kinetics data.</li>
+<li><cite>emgStats</cite> (Analysis.Structure)  - descritive statictics of emg data.</li>
+</ul>
+</div></blockquote>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyCGM2.Processing.analysis.StaticAnalysis">
+<em class="property">class </em><code class="descclassname">pyCGM2.Processing.analysis.</code><code class="descname">StaticAnalysis</code><a class="reference internal" href="_modules/pyCGM2/Processing/analysis.html#StaticAnalysis"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Processing.analysis.StaticAnalysis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Object built from StaticAnalysisFilter.build(). Its member <em>data</em> is a pandas dataframe</p>
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">pyCGM2.Processing subpackage</a><ul>
+<li><a class="reference internal" href="#pycgm2-processing-cycle-module">pyCGM2.Processing.cycle (module)</a><ul>
+<li><a class="reference internal" href="#module-pyCGM2.Processing.cycle">Basis Classes and functions</a></li>
+<li><a class="reference internal" href="#module-pyCGM2.Processing.cycle">Cycle builder</a></li>
+<li><a class="reference internal" href="#cycle-filter">Cycle filter</a></li>
+<li><a class="reference internal" href="#module-pyCGM2.Processing.cycle">Cycle Built object</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pycgm2-processing-analysis-module">pyCGM2.Processing.analysis (module)</a><ul>
+<li><a class="reference internal" href="#module-pyCGM2.Processing.analysis">Analysis builder</a></li>
+<li><a class="reference internal" href="#analysis-filter">Analysis Filter</a></li>
+<li><a class="reference internal" href="#module-pyCGM2.Processing.analysis">Analysis built object</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="pyCGM2.Model.CGM2.html"
+                        title="previous chapter">pyCGM2.Model.CGM2 subpackage</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="pyCGM2.Report.html"
+                        title="next chapter">pyCGM2.Report subpackage</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/pyCGM2.Processing.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pyCGM2.Report.html" title="pyCGM2.Report subpackage"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="pyCGM2.Model.CGM2.html" title="pyCGM2.Model.CGM2 subpackage"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">pyCGM2 0.1 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017, Fabien Leboeuf.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.1.
+    </div>
+  </body>
+</html>

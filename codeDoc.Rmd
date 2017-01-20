@@ -22,8 +22,7 @@ output:
       <div class="inner">
 	      <h3>pyCGM2</h3>
         <p>
-        GitHub <a href="href="https://github.com/pyCGM2/pyCGM2"">Code</a> and
-        <a href="href="https://github.com/pyCGM2/pyCGM2"">Documentation</a>
+        GitHub <a href="https://github.com/pyCGM2/pyCGM2"">Code</a>
         </p>
       </div>
     </div>

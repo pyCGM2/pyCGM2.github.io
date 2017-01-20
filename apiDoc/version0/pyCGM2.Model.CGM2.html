@@ -1,0 +1,2178 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>pyCGM2.Model.CGM2 subpackage &#8212; pyCGM2 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="pyCGM2.Processing subpackage" href="pyCGM2.Processing.html" />
+    <link rel="prev" title="pyCGM2 package" href="pyCGM2.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pyCGM2.Processing.html" title="pyCGM2.Processing subpackage"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="pyCGM2.html" title="pyCGM2 package"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">pyCGM2 0.1 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="pycgm2-model-cgm2-subpackage">
+<h1>pyCGM2.Model.CGM2 subpackage<a class="headerlink" href="#pycgm2-model-cgm2-subpackage" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="model-componants">
+<h2>Model componants<a class="headerlink" href="#model-componants" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-pyCGM2.Model.CGM2.model">
+<span id="pycgm2-model-cgm2-model-module"></span><h3>pyCGM2.Model.CGM2.model (module)<a class="headerlink" href="#module-pyCGM2.Model.CGM2.model" title="Permalink to this headline">¶</a></h3>
+<p>Created on Thu Jan 15 14:27:51 2015
+&#64;author: fleboeuf</p>
+<dl class="class">
+<dt id="pyCGM2.Model.CGM2.model.AnatomicalReferential">
+<em class="property">class </em><code class="descclassname">pyCGM2.Model.CGM2.model.</code><code class="descname">AnatomicalReferential</code><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/model.html#AnatomicalReferential"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.model.AnatomicalReferential" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pyCGM2.Model.CGM2.model.Referential" title="pyCGM2.Model.CGM2.model.Referential"><code class="xref py py-class docutils literal"><span class="pre">pyCGM2.Model.CGM2.model.Referential</span></code></a></p>
+<p>A <cite>AnatomicalReferential</cite> inherit from <cite>Referential</cite>. This specification defines the <em>Anatomical</em> Coordinate system of a segment</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyCGM2.Model.CGM2.model.Joint">
+<em class="property">class </em><code class="descclassname">pyCGM2.Model.CGM2.model.</code><code class="descname">Joint</code><span class="sig-paren">(</span><em>label</em>, <em>proxLabel</em>, <em>distLabel</em>, <em>sequence</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/model.html#Joint"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.model.Joint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>a Joint defines relative motion between a proximal and a distal segment</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyCGM2.Model.CGM2.model.Model">
+<em class="property">class </em><code class="descclassname">pyCGM2.Model.CGM2.model.</code><code class="descname">Model</code><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/model.html#Model"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.model.Model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>Abstract class <cite>Model</cite>.
+<cite>Model</cite> collects <em>segments</em>, <em>joints</em>, <em>body segment parameters</em> and present convenient model-componant accessors</p>
+<dl class="method">
+<dt id="pyCGM2.Model.CGM2.model.Model.addAnthropoInputParameter">
+<code class="descname">addAnthropoInputParameter</code><span class="sig-paren">(</span><em>iDict</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/model.html#Model.addAnthropoInputParameter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.model.Model.addAnthropoInputParameter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add measured anthropometric data to the model</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>iDict</cite> (dict) - dictionnary of anthropometric data</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyCGM2.Model.CGM2.model.Model.addChain">
+<code class="descname">addChain</code><span class="sig-paren">(</span><em>label</em>, <em>indexSegmentList</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/model.html#Model.addChain"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.model.Model.addChain" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a segment chain</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>label</cite> (str) - label of the chain</li>
+<li><cite>indexSegmentList</cite> (list of int) - index of segment</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyCGM2.Model.CGM2.model.Model.addJoint">
+<code class="descname">addJoint</code><span class="sig-paren">(</span><em>label</em>, <em>proxLabel</em>, <em>distLabel</em>, <em>sequence</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/model.html#Model.addJoint"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.model.Model.addJoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a joint</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>label</cite> (str) - label of the chain</li>
+<li><cite>proxLabel</cite> (str) - label of the proximal segment</li>
+<li><cite>distLabel</cite> (str) - label of the distal segment</li>
+<li><cite>sequence</cite> (str) - sequence angle</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyCGM2.Model.CGM2.model.Model.addSegment">
+<code class="descname">addSegment</code><span class="sig-paren">(</span><em>label</em>, <em>index</em>, <em>sideEnum</em>, <em>lst_markerlabel=[]</em>, <em>tracking_markers=[]</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/model.html#Model.addSegment"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.model.Model.addSegment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a segment</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>label</cite> (str) - label of the segment</li>
+<li><cite>index</cite> (str) - index of the segment</li>
+<li><cite>sideEnum</cite> (pyCGM2.enums) - body side</li>
+<li><cite>lst_markerlabel</cite> (list of str) - sequence angle</li>
+<li><cite>tracking_markers</cite> (list of str) - sequence angle</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyCGM2.Model.CGM2.model.Model.decomposeTrackingMarkers">
+<code class="descname">decomposeTrackingMarkers</code><span class="sig-paren">(</span><em>acq</em>, <em>TechnicalFrameLabel</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/model.html#Model.decomposeTrackingMarkers"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.model.Model.decomposeTrackingMarkers" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pyCGM2.Model.CGM2.model.Model.getJoint">
+<code class="descname">getJoint</code><span class="sig-paren">(</span><em>label</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/model.html#Model.getJoint"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.model.Model.getJoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get <cite>Joint</cite> from its label</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><cite>label</cite> (str) - label of the joint</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return:</th><td class="field-body"><ul class="first last simple">
+<li><cite>na</cite> (pyCGM2.Model.CGM2.model.Joint) - pyCGM2.Model.CGM2.model.Joint instance</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyCGM2.Model.CGM2.model.Model.getSegment">
+<code class="descname">getSegment</code><span class="sig-paren">(</span><em>label</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/model.html#Model.getSegment"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.model.Model.getSegment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get <cite>Segment</cite> from its label</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><cite>label</cite> (str) - label of the Segment</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return:</th><td class="field-body"><ul class="first last simple">
+<li><cite>na</cite> (pyCGM2.Model.CGM2.model.Segment) - pyCGM2.Model.CGM2.model.Segment instance</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyCGM2.Model.CGM2.model.Model.getSegmentByIndex">
+<code class="descname">getSegmentByIndex</code><span class="sig-paren">(</span><em>index</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/model.html#Model.getSegmentByIndex"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.model.Model.getSegmentByIndex" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get <cite>Segment</cite> from its index</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><cite>index</cite> (int) - index of the Segment</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return:</th><td class="field-body"><ul class="first last simple">
+<li><cite>na</cite> (pyCGM2.Model.CGM2.model.Segment) - pyCGM2.Model.CGM2.model.Segment instance</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyCGM2.Model.CGM2.model.Model.getSegmentIndex">
+<code class="descname">getSegmentIndex</code><span class="sig-paren">(</span><em>label</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/model.html#Model.getSegmentIndex"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.model.Model.getSegmentIndex" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get Segment index</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><cite>label</cite> (str) - label of the Segment</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return:</th><td class="field-body"><ul class="first last simple">
+<li><cite>na</cite> (int) - index</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyCGM2.Model.CGM2.model.Model.updateSegmentFromCopy">
+<code class="descname">updateSegmentFromCopy</code><span class="sig-paren">(</span><em>targetLabel</em>, <em>segmentToCopy</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/model.html#Model.updateSegmentFromCopy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.model.Model.updateSegmentFromCopy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update a segment from a copy of  another segment instance</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>targetLabel</cite> (str) - label of the segment</li>
+<li><cite>segmentToCopy</cite> (pyCGM2.Model.CGM2.model.Segment) - pyCGM2.Model.CGM2.model.Segment instance</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pyCGM2.Model.CGM2.model.Referential">
+<em class="property">class </em><code class="descclassname">pyCGM2.Model.CGM2.model.</code><code class="descname">Referential</code><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/model.html#Referential"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.model.Referential" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>A <cite>Referential</cite> is a coordinate system</p>
+<dl class="method">
+<dt id="pyCGM2.Model.CGM2.model.Referential.addMotionFrame">
+<code class="descname">addMotionFrame</code><span class="sig-paren">(</span><em>Frame</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/model.html#Referential.addMotionFrame"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.model.Referential.addMotionFrame" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div>Add a <cite>Frame</cite> to the motion member of the <cite>Referential</cite></div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>Frame</cite> (pyCGM2.Model.CGM2.frame.Frame) - pyCGM2-Frame instance</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyCGM2.Model.CGM2.model.Referential.getNodeTrajectory">
+<code class="descname">getNodeTrajectory</code><span class="sig-paren">(</span><em>label</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/model.html#Referential.getNodeTrajectory"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.model.Referential.getNodeTrajectory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get trajectory of a node</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><cite>label</cite> (str) - label of the desired node</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return:</th><td class="field-body"><ul class="first last simple">
+<li><cite>pt</cite> (numpy.array(:,3)) - values of the global point trajectory</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyCGM2.Model.CGM2.model.Referential.setStaticFrame">
+<code class="descname">setStaticFrame</code><span class="sig-paren">(</span><em>Frame</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/model.html#Referential.setStaticFrame"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.model.Referential.setStaticFrame" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set a <cite>Frame</cite> to the member Static of the <cite>Referential</cite></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>Frame</cite> (pyCGM2.Model.CGM2.frame.Frame) - pyCGM2-Frame instance</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pyCGM2.Model.CGM2.model.Segment">
+<em class="property">class </em><code class="descclassname">pyCGM2.Model.CGM2.model.</code><code class="descname">Segment</code><span class="sig-paren">(</span><em>label</em>, <em>index</em>, <em>sideEnum</em>, <em>lst_markerlabel=[]</em>, <em>tracking_markers=[]</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/model.html#Segment"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.model.Segment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>A Segment defines a solid composing of the model</p>
+<dl class="method">
+<dt id="pyCGM2.Model.CGM2.model.Segment.addExternalDeviceWrench">
+<code class="descname">addExternalDeviceWrench</code><span class="sig-paren">(</span><em>btkWrench</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/model.html#Segment.addExternalDeviceWrench"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.model.Segment.addExternalDeviceWrench" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add an external device wrench</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>btkWrench</cite> (btk.wrench) - a btk wrench instance</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyCGM2.Model.CGM2.model.Segment.addMarkerLabel">
+<code class="descname">addMarkerLabel</code><span class="sig-paren">(</span><em>label</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/model.html#Segment.addMarkerLabel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.model.Segment.addMarkerLabel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a marker</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>label</cite> (str) - marker label</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyCGM2.Model.CGM2.model.Segment.addTechnicalReferential">
+<code class="descname">addTechnicalReferential</code><span class="sig-paren">(</span><em>label</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/model.html#Segment.addTechnicalReferential"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.model.Segment.addTechnicalReferential" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a technical referential</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>label</cite> (str) - technical frame label</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyCGM2.Model.CGM2.model.Segment.addTrackingMarkerLabel">
+<code class="descname">addTrackingMarkerLabel</code><span class="sig-paren">(</span><em>label</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/model.html#Segment.addTrackingMarkerLabel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.model.Segment.addTrackingMarkerLabel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a tracking marker</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>label</cite> (str) - marker label</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyCGM2.Model.CGM2.model.Segment.downSampleExternalDeviceWrenchs">
+<code class="descname">downSampleExternalDeviceWrenchs</code><span class="sig-paren">(</span><em>appf</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/model.html#Segment.downSampleExternalDeviceWrenchs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.model.Segment.downSampleExternalDeviceWrenchs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Downsample external device wrenchs</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>appf</cite> (int) - analog point per frame</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyCGM2.Model.CGM2.model.Segment.getAngularAcceleration">
+<code class="descname">getAngularAcceleration</code><span class="sig-paren">(</span><em>sampleFrequency</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/model.html#Segment.getAngularAcceleration"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.model.Segment.getAngularAcceleration" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get angular acceleration</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><cite>sampleFrequency</cite> (double) - point frequency</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return:</th><td class="field-body"><ul class="first last simple">
+<li><cite>values</cite> (numpy.array(n,3)) - values of the angular accelration</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">A first order differention of the angular velocity is used</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyCGM2.Model.CGM2.model.Segment.getAngularVelocity">
+<code class="descname">getAngularVelocity</code><span class="sig-paren">(</span><em>sampleFrequency</em>, <em>method='conventional'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/model.html#Segment.getAngularVelocity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.model.Segment.getAngularVelocity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get angular velocity</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><cite>sampleFrequency</cite> (double) - point frequency</li>
+<li><cite>method</cite> (str) - method used for computing the angular velocity</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return:</th><td class="field-body"><ul class="first last simple">
+<li><cite>AngularVelocValues</cite> (numpy.array(n,3)) - values of the angular velocity</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>The <em>pig</em> method reproduce a  bodybuilder code of the plug-in gait.</p>
+<p class="last">The <em>conventional</em> method computes angular velocity through this statement <span class="math">\(\dot{R}R^t\)</span></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyCGM2.Model.CGM2.model.Segment.getComAcceleration">
+<code class="descname">getComAcceleration</code><span class="sig-paren">(</span><em>pointFrequency</em>, <em>method='spline'</em>, <em>**options</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/model.html#Segment.getComAcceleration"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.model.Segment.getComAcceleration" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get global linear acceleration of the centre of mass</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><cite>pointFrequency</cite> (double) - point frequency</li>
+<li><cite>method</cite> (str) - derivation method (spline, spline fitting)</li>
+<li><cite>**options</cite> (kwargs) - options pass to method.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return:</th><td class="field-body"><ul class="first last simple">
+<li><cite>values</cite> (numpy.array(n,3)) - values of the com acceleration</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition attention">
+<p class="first admonition-title">Attention</p>
+<p class="last">com trajectory can be smoothed  by calling fc and order, the cut-off frequency and the order of the low-pass filter respectively</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">if method doesnt recognize, numerical second order derivation is used</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyCGM2.Model.CGM2.model.Segment.getComTrajectory">
+<code class="descname">getComTrajectory</code><span class="sig-paren">(</span><em>exportBtkPoint=False</em>, <em>btkAcq=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/model.html#Segment.getComTrajectory"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.model.Segment.getComTrajectory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get global trajectory of the centre of mass</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><cite>exportBtkPoint</cite> (bool) - enable export as btk point</li>
+<li><cite>btkAcq</cite> (btk acquisition) - a btk acquisition instance</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return:</th><td class="field-body"><ul class="first last simple">
+<li><cite>values</cite> (numpy.array(n,3)) - values of the com trajectory</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyCGM2.Model.CGM2.model.Segment.getComVelocity">
+<code class="descname">getComVelocity</code><span class="sig-paren">(</span><em>pointFrequency</em>, <em>method='spline'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/model.html#Segment.getComVelocity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.model.Segment.getComVelocity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get global linear velocity of the centre of mass</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><cite>pointFrequency</cite> (double) - point frequency</li>
+<li><cite>method</cite> (str) - derivation method (spline, spline fitting)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return:</th><td class="field-body"><ul class="first last simple">
+<li><cite>values</cite> (numpy.array(n,3)) - values of the com velocity</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">if method doesnt recognize, numerical first order derivation is used</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyCGM2.Model.CGM2.model.Segment.getReferential">
+<code class="descname">getReferential</code><span class="sig-paren">(</span><em>label</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/model.html#Segment.getReferential"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.model.Segment.getReferential" title="Permalink to this definition">¶</a></dt>
+<dd><p>Access a referential from its label</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>label</cite> (str) - technical referential label</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyCGM2.Model.CGM2.model.Segment.isExternalDeviceWrenchsConnected">
+<code class="descname">isExternalDeviceWrenchsConnected</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/model.html#Segment.isExternalDeviceWrenchsConnected"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.model.Segment.isExternalDeviceWrenchsConnected" title="Permalink to this definition">¶</a></dt>
+<dd><p>Detect external device wrenchs</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyCGM2.Model.CGM2.model.Segment.setComPosition">
+<code class="descname">setComPosition</code><span class="sig-paren">(</span><em>array3</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/model.html#Segment.setComPosition"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.model.Segment.setComPosition" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set local position of the centre of mass</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>array3</cite> (numpy.array(3,)) - centre of mass position</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyCGM2.Model.CGM2.model.Segment.setInertiaTensor">
+<code class="descname">setInertiaTensor</code><span class="sig-paren">(</span><em>array33</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/model.html#Segment.setInertiaTensor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.model.Segment.setInertiaTensor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set segment inertia tensor</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>array33</cite> (numpy.array(3,3)) - tensor of inertia</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyCGM2.Model.CGM2.model.Segment.setLength">
+<code class="descname">setLength</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/model.html#Segment.setLength"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.model.Segment.setLength" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set segment length</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>value</cite> (float) - length</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyCGM2.Model.CGM2.model.Segment.setMass">
+<code class="descname">setMass</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/model.html#Segment.setMass"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.model.Segment.setMass" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set segment mass</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>value</cite> (float) - mass</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyCGM2.Model.CGM2.model.Segment.setRog">
+<code class="descname">setRog</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/model.html#Segment.setRog"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.model.Segment.setRog" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set segment radius of giration</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>value</cite> (float) - radius of giration</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyCGM2.Model.CGM2.model.Segment.zeroingExternalDevice">
+<code class="descname">zeroingExternalDevice</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/model.html#Segment.zeroingExternalDevice"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.model.Segment.zeroingExternalDevice" title="Permalink to this definition">¶</a></dt>
+<dd><p>Zeroing external device wrench</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyCGM2.Model.CGM2.model.Segment.zeroingProximalWrench">
+<code class="descname">zeroingProximalWrench</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/model.html#Segment.zeroingProximalWrench"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.model.Segment.zeroingProximalWrench" title="Permalink to this definition">¶</a></dt>
+<dd><p>Zeroing proximal wrench</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pyCGM2.Model.CGM2.model.TechnicalReferential">
+<em class="property">class </em><code class="descclassname">pyCGM2.Model.CGM2.model.</code><code class="descname">TechnicalReferential</code><span class="sig-paren">(</span><em>label</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/model.html#TechnicalReferential"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.model.TechnicalReferential" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pyCGM2.Model.CGM2.model.Referential" title="pyCGM2.Model.CGM2.model.Referential"><code class="xref py py-class docutils literal"><span class="pre">pyCGM2.Model.CGM2.model.Referential</span></code></a></p>
+<p>A <cite>TechnicalReferential</cite> inherit from <cite>Referential</cite>. This specification defines a <em>Technical</em> Coordinate system of the segment</p>
+<dl class="method">
+<dt id="pyCGM2.Model.CGM2.model.TechnicalReferential.setRelativeMatrixAnatomic">
+<code class="descname">setRelativeMatrixAnatomic</code><span class="sig-paren">(</span><em>array</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/model.html#TechnicalReferential.setRelativeMatrixAnatomic"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.model.TechnicalReferential.setRelativeMatrixAnatomic" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the relative rigid rotation of the anatomical Referential expressed in the technical referential (<span class="math">\(R^a_t\)</span>).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>array</cite> (numpy.array(3,3) - rigid rotation</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="pycgm2-model-cgm2-frame-module">
+<h3>pyCGM2.Model.CGM2.frame (module)<a class="headerlink" href="#pycgm2-model-cgm2-frame-module" title="Permalink to this headline">¶</a></h3>
+<span class="target" id="module-pyCGM2.Model.CGM2.frame"></span><dl class="class">
+<dt id="pyCGM2.Model.CGM2.frame.Frame">
+<em class="property">class </em><code class="descclassname">pyCGM2.Model.CGM2.frame.</code><code class="descname">Frame</code><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/frame.html#Frame"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.frame.Frame" title="Permalink to this definition">¶</a></dt>
+<dd><p>A Frame defined a segment pose</p>
+<dl class="class">
+<dt id="pyCGM2.Model.CGM2.frame.Frame.Node">
+<em class="property">class </em><code class="descname">Node</code><span class="sig-paren">(</span><em>label</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/frame.html#Frame.Node"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.frame.Frame.Node" title="Permalink to this definition">¶</a></dt>
+<dd><p>A node is a local position of a point in a Frame</p>
+<dl class="method">
+<dt id="pyCGM2.Model.CGM2.frame.Frame.Node.computeGlobal">
+<code class="descname">computeGlobal</code><span class="sig-paren">(</span><em>rot</em>, <em>t</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/frame.html#Frame.Node.computeGlobal"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.frame.Frame.Node.computeGlobal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute global position from local</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>rot</cite> (np.array((3,3))) - a rotation matrix</li>
+<li><cite>t</cite> (np.array((1,3))) - a translation vector</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyCGM2.Model.CGM2.frame.Frame.Node.computeLocal">
+<code class="descname">computeLocal</code><span class="sig-paren">(</span><em>rot</em>, <em>t</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/frame.html#Frame.Node.computeLocal"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.frame.Frame.Node.computeLocal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute local position from global position</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>rot</cite> (np.array(3,3)) - a rotation matrix</li>
+<li><cite>t</cite> (np.array((1,3))) - a translation vector</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="method">
+<dt id="pyCGM2.Model.CGM2.frame.Frame.addNode">
+<code class="descclassname">Frame.</code><code class="descname">addNode</code><span class="sig-paren">(</span><em>nodeLabel</em>, <em>position</em>, <em>positionType='Global'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/frame.html#Frame.addNode"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.frame.Frame.addNode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Append a <cite>Node</cite> to a Frame</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>nodeLabel</cite> (str) - node label</li>
+<li><cite>position</cite> (np.array(3,)) - a translation vector</li>
+<li><cite>positionType</cite> (str) - two choice Global or Local</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyCGM2.Model.CGM2.frame.Frame.eraseNodes">
+<code class="descclassname">Frame.</code><code class="descname">eraseNodes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/frame.html#Frame.eraseNodes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.frame.Frame.eraseNodes" title="Permalink to this definition">¶</a></dt>
+<dd><p>erase all nodes</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyCGM2.Model.CGM2.frame.Frame.getNode_byIndex">
+<code class="descclassname">Frame.</code><code class="descname">getNode_byIndex</code><span class="sig-paren">(</span><em>index</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/frame.html#Frame.getNode_byIndex"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.frame.Frame.getNode_byIndex" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a node within the list from its index</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><cite>index</cite> (int) - index of the node within the list</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return:</th><td class="field-body"><ul class="first last simple">
+<li><cite>na</cite> (pyCGM2.pyCGM2.Model.CGM2.Frame.Node) - a node instance</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyCGM2.Model.CGM2.frame.Frame.getNode_byLabel">
+<code class="descclassname">Frame.</code><code class="descname">getNode_byLabel</code><span class="sig-paren">(</span><em>label</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/frame.html#Frame.getNode_byLabel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.frame.Frame.getNode_byLabel" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div>Return a node in the list from its label</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><cite>label</cite> (str) - label of the node you want to find</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return:</th><td class="field-body"><ul class="first last simple">
+<li><cite>na</cite> (pyCGM2.pyCGM2.Model.CGM2.Frame.Node) - a node instance</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyCGM2.Model.CGM2.frame.Frame.getRotation">
+<code class="descclassname">Frame.</code><code class="descname">getRotation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/frame.html#Frame.getRotation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.frame.Frame.getRotation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get rotation matrix</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return:</th><td class="field-body"><ul class="first last simple">
+<li><cite>na</cite> (np.array((3,3))) - a rotation matrix</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyCGM2.Model.CGM2.frame.Frame.getTranslation">
+<code class="descclassname">Frame.</code><code class="descname">getTranslation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/frame.html#Frame.getTranslation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.frame.Frame.getTranslation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get translation vector</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return:</th><td class="field-body"><ul class="first last simple">
+<li><cite>na</cite> (np.array((3,))) - a translation vector</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyCGM2.Model.CGM2.frame.Frame.printAllNodes">
+<code class="descclassname">Frame.</code><code class="descname">printAllNodes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/frame.html#Frame.printAllNodes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.frame.Frame.printAllNodes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Display all node labels</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyCGM2.Model.CGM2.frame.Frame.setRotation">
+<code class="descclassname">Frame.</code><code class="descname">setRotation</code><span class="sig-paren">(</span><em>R</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/frame.html#Frame.setRotation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.frame.Frame.setRotation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set rotation matrix</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>R</cite> (np.array(3,3) - a rotation matrix</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyCGM2.Model.CGM2.frame.Frame.setTranslation">
+<code class="descclassname">Frame.</code><code class="descname">setTranslation</code><span class="sig-paren">(</span><em>t</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/frame.html#Frame.setTranslation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.frame.Frame.setTranslation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set translation vector</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>t</cite> (np.array(3,)) - a translation vector</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyCGM2.Model.CGM2.frame.Frame.update">
+<code class="descclassname">Frame.</code><code class="descname">update</code><span class="sig-paren">(</span><em>R</em>, <em>t</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/frame.html#Frame.update"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.frame.Frame.update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update both rotation matrix and translation vector</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>R</cite> (np.array(3,3) - a rotation matrix</li>
+<li><cite>t</cite> (np.array(3,)) - a translation vector</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyCGM2.Model.CGM2.frame.Frame.updateAxisFromRotation">
+<code class="descclassname">Frame.</code><code class="descname">updateAxisFromRotation</code><span class="sig-paren">(</span><em>R</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/frame.html#Frame.updateAxisFromRotation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.frame.Frame.updateAxisFromRotation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update a rotation matrix</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>R</cite> (np.array(3,3) - a rotation matrix</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="pyCGM2.Model.CGM2.frame.setFrameData">
+<code class="descclassname">pyCGM2.Model.CGM2.frame.</code><code class="descname">setFrameData</code><span class="sig-paren">(</span><em>a1</em>, <em>a2</em>, <em>sequence</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/frame.html#setFrameData"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.frame.setFrameData" title="Permalink to this definition">¶</a></dt>
+<dd><p>set Frame of a ccordinate system accoring two vector and a sequence</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><cite>a1</cite> (numy.array(1,3)) - first vector</li>
+<li><cite>a2</cite> (str) - second vector</li>
+<li><cite>sequence</cite> (str) - construction sequence (XYZ, XYiZ)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return:</th><td class="field-body"><ul class="first last simple">
+<li><cite>axisX</cite> (numy.array(1,3)) - x-axis of the coordinate system</li>
+<li><cite>axisY</cite> (numy.array(1,3)) - y-axis of the coordinate system</li>
+<li><cite>axisZ</cite> (numy.array(1,3)) - z-axis of the coordinate system</li>
+<li><cite>rot</cite> (numy.array(3,3)) - rotation matrix of the coordinate system</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">if sequence includes a <em>i</em> ( ex: XYiZ), opposite of vector a2 is considered</p>
+</div>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="conventional-gait-models">
+<h2>Conventional Gait Models<a class="headerlink" href="#conventional-gait-models" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-pyCGM2.Model.CGM2.cgm">
+<span id="pycgm2-model-cgm2-cgm-module"></span><h3>pyCGM2.Model.CGM2.cgm (module)<a class="headerlink" href="#module-pyCGM2.Model.CGM2.cgm" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="pyCGM2.Model.CGM2.cgm.CGM">
+<em class="property">class </em><code class="descclassname">pyCGM2.Model.CGM2.cgm.</code><code class="descname">CGM</code><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/cgm.html#CGM"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.cgm.CGM" title="Permalink to this definition">¶</a></dt>
+<dd><p>Abstract Class of the Conventional Gait Model</p>
+<dl class="classmethod">
+<dt id="pyCGM2.Model.CGM2.cgm.CGM.chord">
+<em class="property">classmethod </em><code class="descname">chord</code><span class="sig-paren">(</span><em>offset</em>, <em>I</em>, <em>J</em>, <em>K</em>, <em>beta=0.0</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/cgm.html#CGM.chord"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.cgm.CGM.chord" title="Permalink to this definition">¶</a></dt>
+<dd><p>Modified Chord method</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>offset</cite> (double) - offset to apply from the base point</li>
+<li><cite>I</cite> (double) - base point</li>
+<li><cite>J</cite> (double) - top point</li>
+<li><cite>K</cite> (double) - lateral point</li>
+<li><cite>beta</cite> (double) - angle offset</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">For locating Knee Joint centre, native CGM uses I=KNE, J=HJC and K=THI and offset = knee radius</p>
+</div>
+<p><strong>Reference</strong></p>
+<p>Kabada, M., Ramakrishan, H., &amp; Wooten, M. (1990). Measurement of lower extremity kinematics during level walking. Journal of Orthopaedic Research, 8, 383–392.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyCGM2.Model.CGM2.cgm.CGM.displayStaticCoordinateSystem">
+<code class="descname">displayStaticCoordinateSystem</code><span class="sig-paren">(</span><em>aquiStatic</em>, <em>segmentLabel</em>, <em>targetPointLabel</em>, <em>referential='Anatomic'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/cgm.html#CGM.displayStaticCoordinateSystem"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.cgm.CGM.displayStaticCoordinateSystem" title="Permalink to this definition">¶</a></dt>
+<dd><p>Display a coordinate system. Its Axis are represented by 3 virtual markers suffixed by (_X,_Y,_Z)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>aquiStatic</cite> (btkAcquisition) - btkAcquisition instance from a static c3d</li>
+<li><cite>segmentLabel</cite> (str) - segment label</li>
+<li><cite>targetPointLabel</cite> (str) - label of the point defining axis limits</li>
+<li><cite>referential</cite> (str) - type of segment coordinate system you want dislay ( if other than <em>Anatomic</em>, Technical Coordinate system will be displayed )</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="pyCGM2.Model.CGM2.cgm.CGM.hipJointCenters">
+<em class="property">classmethod </em><code class="descname">hipJointCenters</code><span class="sig-paren">(</span><em>mp_input</em>, <em>mp_computed</em>, <em>markerDiameter</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/cgm.html#CGM.hipJointCenters"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.cgm.CGM.hipJointCenters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hip joint centre regression according Davis et al, 1991</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>mp_input</cite> (dict) - dictionnary of anthropometric parameters inputed manually</li>
+<li><cite>mp_computed</cite> (dict) - dictionnary of anthropometric parameters computed automatically by the CGM processing</li>
+<li><cite>markerDiameter</cite> (double) - diameter of optoelectronic marker</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition danger">
+<p class="first admonition-title">Danger</p>
+<p class="last">Don t use a marker set with different diameters.</p>
+</div>
+<p><strong>Reference</strong></p>
+<p>Davis, R., Ounpuu, S., Tyburski, D., &amp; Gage, J. (1991). A gait analysis data collection and reduction technique. Human Movement Science, 10, 575–587.</p>
+</dd></dl>
+
+</dd></dl>
+
+<div class="section" id="module-pyCGM2.Model.CGM2.cgm">
+<span id="convention-gait-model-1"></span><h4>Convention Gait Model 1<a class="headerlink" href="#module-pyCGM2.Model.CGM2.cgm" title="Permalink to this headline">¶</a></h4>
+<dl class="class">
+<dt id="pyCGM2.Model.CGM2.cgm.CGM1ModelInf">
+<em class="property">class </em><code class="descclassname">pyCGM2.Model.CGM2.cgm.</code><code class="descname">CGM1ModelInf</code><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/cgm.html#CGM1ModelInf"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.cgm.CGM1ModelInf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lower limb conventional Gait Model 1 (i.e. Vicon Plugin Gait)</p>
+<dl class="method">
+<dt id="pyCGM2.Model.CGM2.cgm.CGM1ModelInf.calibrate">
+<code class="descname">calibrate</code><span class="sig-paren">(</span><em>aquiStatic</em>, <em>dictRef</em>, <em>dictAnatomic</em>, <em>options=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/cgm.html#CGM1ModelInf.calibrate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.cgm.CGM1ModelInf.calibrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform full CGM1 calibration.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>aquiStatic</cite> (btkAcquisition) - btkAcquisition instance from a static c3d</li>
+<li><cite>dictRef</cite> (dict) - dictionnary reporting markers and sequence use for building <strong>Technical</strong> coordinate system</li>
+<li><cite>dictAnatomic</cite> (dict) - dictionnary reporting markers and sequence use for building <strong>Anatomical</strong>  coordinate system</li>
+<li><cite>options</cite> (dict) - use to pass options, like options altering the standard segment construction.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This method constructs technical and anatomical frane sucessively.</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyCGM2.Model.CGM2.cgm.CGM1ModelInf.calibrationProcedure">
+<code class="descname">calibrationProcedure</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/cgm.html#CGM1ModelInf.calibrationProcedure"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.cgm.CGM1ModelInf.calibrationProcedure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Define the calibration Procedure</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return:</th><td class="field-body"><ul class="first last simple">
+<li><cite>dictRef</cite> (dict) - dictionnary reporting markers and sequence use for building Technical coordinate system</li>
+<li><cite>dictRefAnatomical</cite> (dict) - dictionnary reporting markers and sequence use for building Anatomical coordinate system</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="pyCGM2.Model.CGM2.cgm.CGM1ModelInf.cleanAcquisition">
+<em class="property">classmethod </em><code class="descname">cleanAcquisition</code><span class="sig-paren">(</span><em>acq</em>, <em>subjetPrefix=''</em>, <em>removelateralKnee=False</em>, <em>kadEnable=False</em>, <em>ankleMedEnable=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/cgm.html#CGM1ModelInf.cleanAcquisition"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.cgm.CGM1ModelInf.cleanAcquisition" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convenient class for cleaning an acquisition and keeping CGM1 markers only.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>acq</cite> (btkAcquisition) - btkAcquisition instance from a  c3d</li>
+<li><cite>subjetPrefix</cite> (str) - prefix identifying a subjet ( ex : hannibal:)</li>
+<li><cite>removelateralKnee</cite> (bool) - remove lateral knee marker (True if you deal with a static KAD acquisition)</li>
+<li><cite>kadEnable</cite> (bool) - keep KAD markers</li>
+<li><cite>ankleMedEnable</cite> (bool) -keep medial ankle markers</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">With Vicon Nexus, subject name prefixed marker label if you selected different subjets ( mean vsk) within your session</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyCGM2.Model.CGM2.cgm.CGM1ModelInf.computeMotion">
+<code class="descname">computeMotion</code><span class="sig-paren">(</span><em>aqui</em>, <em>dictRef</em>, <em>dictAnat</em>, <em>motionMethod</em>, <em>options=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/cgm.html#CGM1ModelInf.computeMotion"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.cgm.CGM1ModelInf.computeMotion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute Motion of both <strong>Technical and Anatomical</strong> coordinate systems</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>aqui</cite> (btkAcquisition) - acquisition instance of a dynamic trial</li>
+<li><cite>dictRef</cite> (dict) - dictionnary reporting markers and sequence use for building Technical coordinate system</li>
+<li><cite>dictAnat</cite> (dict) - dictionnary reporting markers and sequence use for building Anatomical coordinate system</li>
+<li><cite>motionMethod</cite> (pyCGM2.enums) - method use to compute segment pose</li>
+<li><cite>options</cite> (dict) - dictionnary use to pass options</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyCGM2.Model.CGM2.cgm.CGM1ModelInf.configure">
+<code class="descname">configure</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/cgm.html#CGM1ModelInf.configure"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.cgm.CGM1ModelInf.configure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Model configuration. Define Segment, joint, ...</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyCGM2.Model.CGM2.cgm.CGM1ModelInf.finalizeAbsoluteAngles">
+<code class="descname">finalizeAbsoluteAngles</code><span class="sig-paren">(</span><em>SegmentLabel</em>, <em>anglesValues</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/cgm.html#CGM1ModelInf.finalizeAbsoluteAngles"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.cgm.CGM1ModelInf.finalizeAbsoluteAngles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Finalize absolute angles for clinical interpretation</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>SegmentLabel</cite> (str) - label of the segment</li>
+<li><cite>anglesValues</cite> (numpy.array(:,3)) - angle values</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyCGM2.Model.CGM2.cgm.CGM1ModelInf.finalizeJCS">
+<code class="descname">finalizeJCS</code><span class="sig-paren">(</span><em>jointLabel</em>, <em>jointValues</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/cgm.html#CGM1ModelInf.finalizeJCS"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.cgm.CGM1ModelInf.finalizeJCS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Finalize joint angles for clinical interpretation</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>SegmentLabel</cite> (str) - label of the segment</li>
+<li><cite>jointValues</cite> (numpy.array(:,3)) - angle values</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyCGM2.Model.CGM2.cgm.CGM1ModelInf.finalizeKinetics">
+<code class="descname">finalizeKinetics</code><span class="sig-paren">(</span><em>jointLabel</em>, <em>forceValues</em>, <em>momentValues</em>, <em>projection</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/cgm.html#CGM1ModelInf.finalizeKinetics"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.cgm.CGM1ModelInf.finalizeKinetics" title="Permalink to this definition">¶</a></dt>
+<dd><p>Finalize kinetic ouputs for clinical interpretation</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>jointLabel</cite> (str) - label of the segment</li>
+<li><cite>forceValues</cite> (numpy.array(:,3)) - global joint Force</li>
+<li><cite>momentValues</cite> (numpy.array(:,3)) - global joint moment</li>
+<li><cite>projection</cite> (pyCGM2.enums) - type of projection</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyCGM2.Model.CGM2.cgm.CGM1ModelInf.getAbdAddAnkleJointOffset">
+<code class="descname">getAbdAddAnkleJointOffset</code><span class="sig-paren">(</span><em>side='both'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/cgm.html#CGM1ModelInf.getAbdAddAnkleJointOffset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.cgm.CGM1ModelInf.getAbdAddAnkleJointOffset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get Abd/Add ankle offset : angle n the frontal plan between the ankle marker and the ankle flexion axis</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>side</cite> (str) - body side  (both, left, right)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyCGM2.Model.CGM2.cgm.CGM1ModelInf.getFootOffset">
+<code class="descname">getFootOffset</code><span class="sig-paren">(</span><em>side='both'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/cgm.html#CGM1ModelInf.getFootOffset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.cgm.CGM1ModelInf.getFootOffset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get foot offsets :</p>
+<blockquote>
+<div><ul class="simple">
+<li>plantar flexion offset</li>
+<li>rotation offset</li>
+</ul>
+</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>side</cite> (str) - body side  (both, left, right)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyCGM2.Model.CGM2.cgm.CGM1ModelInf.getShankOffsets">
+<code class="descname">getShankOffsets</code><span class="sig-paren">(</span><em>side='both'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/cgm.html#CGM1ModelInf.getShankOffsets"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.cgm.CGM1ModelInf.getShankOffsets" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get shank offsets :</p>
+<blockquote>
+<div><ul class="simple">
+<li>Angle between the projection of the lateral shank marker and the ankle flexion axis</li>
+<li>tibial torsion</li>
+<li>Angle between the projection of the lateral ankle marker and the ankle flexion axis</li>
+</ul>
+</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>side</cite> (str) - body side  (both, left, right)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyCGM2.Model.CGM2.cgm.CGM1ModelInf.getThighOffset">
+<code class="descname">getThighOffset</code><span class="sig-paren">(</span><em>side='both'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/cgm.html#CGM1ModelInf.getThighOffset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.cgm.CGM1ModelInf.getThighOffset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get Thigh offset. Angle between the projection of the lateral thigh marker and the knee flexion axis</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>side</cite> (str) - body side  (both, left, right)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyCGM2.Model.CGM2.cgm.CGM1ModelInf.getViconFootOffset">
+<code class="descname">getViconFootOffset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/cgm.html#CGM1ModelInf.getViconFootOffset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.cgm.CGM1ModelInf.getViconFootOffset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get vicon compatible foot offsets :</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>side</cite> (str) - body side  (both, left, right)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyCGM2.Model.CGM2.cgm.CGM1ModelInf.getViconShankOffset">
+<code class="descname">getViconShankOffset</code><span class="sig-paren">(</span><em>side</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/cgm.html#CGM1ModelInf.getViconShankOffset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.cgm.CGM1ModelInf.getViconShankOffset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get vicon compatible shank offset</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>side</cite> (str) - body side  (both, left, right)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyCGM2.Model.CGM2.cgm.CGM1ModelInf.getViconThighOffset">
+<code class="descname">getViconThighOffset</code><span class="sig-paren">(</span><em>side</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/cgm.html#CGM1ModelInf.getViconThighOffset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.cgm.CGM1ModelInf.getViconThighOffset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get vicon compatible thigh offset</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>side</cite> (str) - body side  (both, left, right)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+</div>
+<div class="section" id="module-pyCGM2.Model.CGM2.modelFilters">
+<span id="model-procedures"></span><h2>Model Procedures<a class="headerlink" href="#module-pyCGM2.Model.CGM2.modelFilters" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="pyCGM2.Model.CGM2.modelFilters.GeneralCalibrationProcedure">
+<em class="property">class </em><code class="descclassname">pyCGM2.Model.CGM2.modelFilters.</code><code class="descname">GeneralCalibrationProcedure</code><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/modelFilters.html#GeneralCalibrationProcedure"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.modelFilters.GeneralCalibrationProcedure" title="Permalink to this definition">¶</a></dt>
+<dd><p>General Procedure to call in the Model Calibration Filter if you work on a custom model</p>
+<dl class="method">
+<dt id="pyCGM2.Model.CGM2.modelFilters.GeneralCalibrationProcedure.setDefinition">
+<code class="descname">setDefinition</code><span class="sig-paren">(</span><em>segmentName</em>, <em>referentialLabel</em>, <em>sequence=''</em>, <em>pointLabel1=0</em>, <em>pointLabel2=0</em>, <em>pointLabel3=0</em>, <em>pointLabelOrigin=0</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/modelFilters.html#GeneralCalibrationProcedure.setDefinition"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.modelFilters.GeneralCalibrationProcedure.setDefinition" title="Permalink to this definition">¶</a></dt>
+<dd><p>method defining how to construct a referential for a given segment</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>segmentName</cite> (str) - name of the segment</li>
+<li><cite>referentialLabel</cite> (str) - label of the referential</li>
+<li><cite>sequence</cite> (str) - construction sequence (XYZ,XYiZ)</li>
+<li><cite>pointLabel1</cite> (str) - marker label</li>
+<li><cite>pointLabel2</cite> (str) - marker label</li>
+<li><cite>pointLabel3</cite> (str) - marker label</li>
+<li><cite>pointLabelOrigin</cite> (str) - marker label</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition-todo admonition" id="index-0">
+<p class="first admonition-title">Todo</p>
+<ul class="last simple">
+<li>add optional markers i.e marker only use for segmental least square computation</li>
+<li>use an ENUM for sequence</li>
+</ul>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pyCGM2.Model.CGM2.modelFilters.StaticCalibrationProcedure">
+<em class="property">class </em><code class="descclassname">pyCGM2.Model.CGM2.modelFilters.</code><code class="descname">StaticCalibrationProcedure</code><span class="sig-paren">(</span><em>model</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/modelFilters.html#StaticCalibrationProcedure"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.modelFilters.StaticCalibrationProcedure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Procedure to call if you work with pyCGM2 embedded-model instance ( like the cgm)</p>
+<p>This procedure internally calls the <cite>calibrationProcedure</cite> method of the model</p>
+</dd></dl>
+
+</div>
+<div class="section" id="model-decorators">
+<h2>Model Decorators<a class="headerlink" href="#model-decorators" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-pyCGM2.Model.CGM2.modelDecorator">
+<span id="pycgm2-model-cgm2-modeldecorator-module"></span><h3>pyCGM2.Model.CGM2.modelDecorator (module)<a class="headerlink" href="#module-pyCGM2.Model.CGM2.modelDecorator" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="pyCGM2.Model.CGM2.modelDecorator.AnkleCalibrationDecorator">
+<em class="property">class </em><code class="descclassname">pyCGM2.Model.CGM2.modelDecorator.</code><code class="descname">AnkleCalibrationDecorator</code><span class="sig-paren">(</span><em>iModel</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/modelDecorator.html#AnkleCalibrationDecorator"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.modelDecorator.AnkleCalibrationDecorator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Concrete cgm decorator altering the ankle joint</p>
+<dl class="method">
+<dt id="pyCGM2.Model.CGM2.modelDecorator.AnkleCalibrationDecorator.midMaleolus">
+<code class="descname">midMaleolus</code><span class="sig-paren">(</span><em>acq</em>, <em>side='both'</em>, <em>leftLateralAnkleLabel='LANK'</em>, <em>leftMedialAnkleLabel='LMED'</em>, <em>rightLateralAnkleLabel='RANK'</em>, <em>rightMedialAnkleLabel='RMED'</em>, <em>markerDiameter=14</em>, <em>withNoModelParameter=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/modelDecorator.html#AnkleCalibrationDecorator.midMaleolus"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.modelDecorator.AnkleCalibrationDecorator.midMaleolus" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute Ankle joint centre from mid malleoli</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>acq</cite> (btkAcquisition) - a btk acquisition instance of a static c3d</li>
+<li><cite>side</cite> (str) - body side</li>
+<li><cite>leftLateralAnkleLabel</cite> (str) -  label of the left lateral knee marker</li>
+<li><cite>leftMedialAnkleLabel</cite> (str) -  label of the left medial knee marker</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pyCGM2.Model.CGM2.modelDecorator.HipJointCenterDecorator">
+<em class="property">class </em><code class="descclassname">pyCGM2.Model.CGM2.modelDecorator.</code><code class="descname">HipJointCenterDecorator</code><span class="sig-paren">(</span><em>iModel</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/modelDecorator.html#HipJointCenterDecorator"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.modelDecorator.HipJointCenterDecorator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Concrete CGM decorators altering the hip joint centre</p>
+<dl class="method">
+<dt id="pyCGM2.Model.CGM2.modelDecorator.HipJointCenterDecorator.custom">
+<code class="descname">custom</code><span class="sig-paren">(</span><em>position_Left=0</em>, <em>position_Right=0</em>, <em>methodDesc='custom'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/modelDecorator.html#HipJointCenterDecorator.custom"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.modelDecorator.HipJointCenterDecorator.custom" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div><p>Locate hip joint centres manually</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>position_Left</cite> (np.array(3,)) - position of the left hip center in the Pelvis Referential</li>
+<li><cite>position_Right</cite> (np.array(3,)) - position of the right hip center in the Pelvis Referential</li>
+<li><cite>methodDesc</cite> (str) - short description of the method</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">look out the Pelvis referential. It has to be similar with cgm1.</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyCGM2.Model.CGM2.modelDecorator.HipJointCenterDecorator.hara">
+<code class="descname">hara</code><span class="sig-paren">(</span><em>side='both'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/modelDecorator.html#HipJointCenterDecorator.hara"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.modelDecorator.HipJointCenterDecorator.hara" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use of the Hara&#8217;s regressions</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>side</cite> (str) - body side</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyCGM2.Model.CGM2.modelDecorator.HipJointCenterDecorator.harrington">
+<code class="descname">harrington</code><span class="sig-paren">(</span><em>predictors=&lt;HarringtonPredictor.Native: 'full'&gt;</em>, <em>side='both'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/modelDecorator.html#HipJointCenterDecorator.harrington"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.modelDecorator.HipJointCenterDecorator.harrington" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use of the Harrington&#8217;s regressions</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>predictors</cite> (pyCGM2.enums) - enums specifying harrington&#8217;s predictors to use</li>
+<li><cite>side</cite> (str) - body side</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pyCGM2.Model.CGM2.modelDecorator.Kad">
+<em class="property">class </em><code class="descclassname">pyCGM2.Model.CGM2.modelDecorator.</code><code class="descname">Kad</code><span class="sig-paren">(</span><em>iModel</em>, <em>iAcq</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/modelDecorator.html#Kad"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.modelDecorator.Kad" title="Permalink to this definition">¶</a></dt>
+<dd><p>A concrete CGM decorator altering the knee joint centre from the Knee Aligment device</p>
+<dl class="method">
+<dt id="pyCGM2.Model.CGM2.modelDecorator.Kad.compute">
+<code class="descname">compute</code><span class="sig-paren">(</span><em>side='both'</em>, <em>markerDiameter=14</em>, <em>displayMarkers=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/modelDecorator.html#Kad.compute"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.modelDecorator.Kad.compute" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>side</cite> (str) - body side</li>
+<li><cite>markerDiameter</cite> (double) - diameter of the marker</li>
+<li><cite>displayMarkers</cite> (bool) - display markers RKNE, RKJC and RAJC from KAD processing</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pyCGM2.Model.CGM2.modelDecorator.KneeCalibrationDecorator">
+<em class="property">class </em><code class="descclassname">pyCGM2.Model.CGM2.modelDecorator.</code><code class="descname">KneeCalibrationDecorator</code><span class="sig-paren">(</span><em>iModel</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/modelDecorator.html#KneeCalibrationDecorator"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.modelDecorator.KneeCalibrationDecorator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Concrete cgm decorator altering the knee joint</p>
+<dl class="method">
+<dt id="pyCGM2.Model.CGM2.modelDecorator.KneeCalibrationDecorator.midCondyles">
+<code class="descname">midCondyles</code><span class="sig-paren">(</span><em>acq</em>, <em>side='both'</em>, <em>leftLateralKneeLabel='LKNE'</em>, <em>leftMedialKneeLabel='LMEPI'</em>, <em>rightLateralKneeLabel='RKNE'</em>, <em>rightMedialKneeLabel='RMEPI'</em>, <em>markerDiameter=14</em>, <em>withNoModelParameter=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/modelDecorator.html#KneeCalibrationDecorator.midCondyles"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.modelDecorator.KneeCalibrationDecorator.midCondyles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute Knee joint centre from mid condyles</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>acq</cite> (btkAcquisition) - a btk acquisition instance of a static c3d</li>
+<li><cite>side</cite> (str) - body side</li>
+<li><cite>leftLateralKneeLabel</cite> (str) -  label of the left lateral knee marker</li>
+<li><cite>leftMedialKneeLabel</cite> (str) -  label of the left medial knee marker</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyCGM2.Model.CGM2.modelDecorator.KneeCalibrationDecorator.sara">
+<code class="descname">sara</code><span class="sig-paren">(</span><em>side</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/modelDecorator.html#KneeCalibrationDecorator.sara"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.modelDecorator.KneeCalibrationDecorator.sara" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute Knee flexion axis and relocate knee joint centre from SARA functional calibration</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>side</cite> (str) - body side</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="pyCGM2.Model.CGM2.modelDecorator.haraRegression">
+<code class="descclassname">pyCGM2.Model.CGM2.modelDecorator.</code><code class="descname">haraRegression</code><span class="sig-paren">(</span><em>mp_input</em>, <em>mp_computed</em>, <em>markerDiameter=14.0</em>, <em>basePlate=2.0</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/modelDecorator.html#haraRegression"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.modelDecorator.haraRegression" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hip joint centre regression from Hara et al, 2016</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>mp_input</cite> (dict) - dictionnary of the measured anthropometric parameters</li>
+<li><cite>mp_computed</cite> (dict) - dictionnary of the cgm-computed anthropometric parameters</li>
+<li><cite>markerDiameter</cite> (double) - diameter of the marker</li>
+<li><cite>basePlate</cite> (double) - thickness of the base plate</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Reference</strong></p>
+<p>Hara, R., Mcginley, J. L., C, B., Baker, R., &amp; Sangeux, M. (2016). Generation of age and sex specific regression equations to locate the Hip Joint Centres. Gait &amp; Posture</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyCGM2.Model.CGM2.modelDecorator.harringtonRegression">
+<code class="descclassname">pyCGM2.Model.CGM2.modelDecorator.</code><code class="descname">harringtonRegression</code><span class="sig-paren">(</span><em>mp_input</em>, <em>mp_computed</em>, <em>predictors</em>, <em>markerDiameter=14.0</em>, <em>basePlate=2.0</em>, <em>cgmReferential=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/modelDecorator.html#harringtonRegression"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.modelDecorator.harringtonRegression" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hip joint centre regression from Harrington et al, 2007</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>mp_input</cite> (dict) - dictionnary of the measured anthropometric parameters</li>
+<li><cite>mp_computed</cite> (dict) - dictionnary of the cgm-computed anthropometric parameters</li>
+<li><cite>predictors</cite> (str) - predictor choice of the regression (full,PWonly,LLonly)</li>
+<li><cite>markerDiameter</cite> (double) - diameter of the marker</li>
+<li><cite>basePlate</cite> (double) - thickness of the base plate</li>
+<li><cite>cgmReferential</cite> (bool) - flag indicating HJC position will be expressed in the CGM pelvis Coordinate system</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Predictor choice allow using modified Harrington&#8217;s regression from Sangeux 2015</p>
+</div>
+<p>&#8216;&#8217; warning:: this function requires pelvisDepth,asisDistance and meanlegLength which are automaticcly computed during CGM calibration</p>
+<p><strong>Reference</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li>Harrington, M., Zavatsky, A., Lawson, S., Yuan, Z., &amp; Theologis, T. (2007). Prediction of the hip joint centre in adults, children, and patients with cerebral palsy based on magnetic resonance imaging. Journal of Biomechanics, 40(3), 595–602</li>
+<li>Sangeux, M. (2015). On the implementation of predictive methods to locate the hip joint centres. Gait and Posture, 42(3), 402–405.</li>
+</ul>
+</div></blockquote>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyCGM2.Model.CGM2.modelDecorator.saraCalibration">
+<code class="descclassname">pyCGM2.Model.CGM2.modelDecorator.</code><code class="descname">saraCalibration</code><span class="sig-paren">(</span><em>proxMotionRef</em>, <em>distMotionRef</em>, <em>gap=100</em>, <em>method='1'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/modelDecorator.html#saraCalibration"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.modelDecorator.saraCalibration" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computation of the hip joint center position from Harrington&#8217;s regressions.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><cite>proxMotionRef</cite> (list of numpy.array(3,3)) - motion of the proximal referential</li>
+<li><cite>distMotionRef</cite> (list of numpy.array(3,3)) - motion of the distal referential</li>
+<li><cite>gap</cite> (double) - distance in mm for positionning an axis limit</li>
+<li><cite>method</cite> (int) - affect the objective function (see Ehrig et al.).</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><ul class="first last simple">
+<li><cite>prox_origin</cite> (np.array(3)) - position of the origin in the proximal referential</li>
+<li><cite>prox_axisLim</cite> (np.array(3)) - position on a point on the axis in the proximal referential</li>
+<li><cite>dist_origin</cite> (np.array(3)) - position of the origin in the distal referential</li>
+<li><cite>dist_axisLim</cite> (np.array(3)) - position on a point on the axis in the distal referential</li>
+<li><cite>prox_axisNorm</cite> (np.array(3)) - axis in the proximal frame</li>
+<li><cite>dist_axisNorm</cite> (np.array(3)) - axis in the proximal frame</li>
+<li><cite>coeffDet</cite>     (double) - See about it with morgan</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">linalg.svd and matlab are different. V from scipy has to be transposed. 
+In addition, singular values are returned in a 1d array not a diagonal matrix</p>
+</div>
+<p><strong>Reference</strong></p>
+<p>Ehrig, R., Taylor, W. R., Duda, G., &amp; Heller, M. (2007). A survey of formal methods for determining functional joint axes. Journal of Biomechanics, 40(10), 2150–7.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyCGM2.Model.CGM2.modelDecorator.setDescription">
+<code class="descclassname">pyCGM2.Model.CGM2.modelDecorator.</code><code class="descname">setDescription</code><span class="sig-paren">(</span><em>nodeLabel</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/modelDecorator.html#setDescription"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.modelDecorator.setDescription" title="Permalink to this definition">¶</a></dt>
+<dd><p>return a node description</p>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="model-filters">
+<h2>Model Filters<a class="headerlink" href="#model-filters" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-pyCGM2.Model.CGM2.modelFilters">
+<span id="pycgm2-model-cgm2-modelfilters-module"></span><h3>pyCGM2.Model.CGM2.modelFilters (module)<a class="headerlink" href="#module-pyCGM2.Model.CGM2.modelFilters" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="pyCGM2.Model.CGM2.modelFilters.ModelCalibrationFilter">
+<em class="property">class </em><code class="descclassname">pyCGM2.Model.CGM2.modelFilters.</code><code class="descname">ModelCalibrationFilter</code><span class="sig-paren">(</span><em>procedure</em>, <em>acq</em>, <em>iMod</em>, <em>**options</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/modelFilters.html#ModelCalibrationFilter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.modelFilters.ModelCalibrationFilter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform model calibration from a static acquisition</p>
+<dl class="method">
+<dt id="pyCGM2.Model.CGM2.modelFilters.ModelCalibrationFilter.compute">
+<code class="descname">compute</code><span class="sig-paren">(</span><em>firstFrameOnly=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/modelFilters.html#ModelCalibrationFilter.compute"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.modelFilters.ModelCalibrationFilter.compute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Run Calibration filter</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>firstFrameOnly</cite> (bool) - flag indicating calibration on the first frame</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pyCGM2.Model.CGM2.modelFilters.ModelMotionFilter">
+<em class="property">class </em><code class="descclassname">pyCGM2.Model.CGM2.modelFilters.</code><code class="descname">ModelMotionFilter</code><span class="sig-paren">(</span><em>procedure</em>, <em>acq</em>, <em>iMod</em>, <em>method</em>, <em>**options</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/modelFilters.html#ModelMotionFilter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.modelFilters.ModelMotionFilter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute Motion of each segment</p>
+<dl class="method">
+<dt id="pyCGM2.Model.CGM2.modelFilters.ModelMotionFilter.compute">
+<code class="descname">compute</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/modelFilters.html#ModelMotionFilter.compute"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.modelFilters.ModelMotionFilter.compute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Run the motion filter</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pyCGM2.Model.CGM2.modelFilters.ModelJCSFilter">
+<em class="property">class </em><code class="descclassname">pyCGM2.Model.CGM2.modelFilters.</code><code class="descname">ModelJCSFilter</code><span class="sig-paren">(</span><em>iMod</em>, <em>acq</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/modelFilters.html#ModelJCSFilter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.modelFilters.ModelJCSFilter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute joint angles</p>
+<dl class="method">
+<dt id="pyCGM2.Model.CGM2.modelFilters.ModelJCSFilter.compute">
+<code class="descname">compute</code><span class="sig-paren">(</span><em>description=''</em>, <em>pointLabelSuffix=''</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/modelFilters.html#ModelJCSFilter.compute"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.modelFilters.ModelJCSFilter.compute" title="Permalink to this definition">¶</a></dt>
+<dd><p>run <cite>ModelJCSFilter</cite></p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">All angles are stored as btk point</p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>description</cite> (str) -short description added to the btkPoint storing joint angles</li>
+<li><cite>pointLabelSuffix</cite> (str) - suffix ending the angle label</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pyCGM2.Model.CGM2.modelFilters.ModelAbsoluteAnglesFilter">
+<em class="property">class </em><code class="descclassname">pyCGM2.Model.CGM2.modelFilters.</code><code class="descname">ModelAbsoluteAnglesFilter</code><span class="sig-paren">(</span><em>iMod</em>, <em>acq</em>, <em>segmentLabels</em>, <em>angleLabels</em>, <em>globalFrameOrientation='XYZ'</em>, <em>forwardProgression=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/modelFilters.html#ModelAbsoluteAnglesFilter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.modelFilters.ModelAbsoluteAnglesFilter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute absolute angles</p>
+<dl class="method">
+<dt id="pyCGM2.Model.CGM2.modelFilters.ModelAbsoluteAnglesFilter.compute">
+<code class="descname">compute</code><span class="sig-paren">(</span><em>description='absolute'</em>, <em>pointLabelSuffix=''</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/modelFilters.html#ModelAbsoluteAnglesFilter.compute"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.modelFilters.ModelAbsoluteAnglesFilter.compute" title="Permalink to this definition">¶</a></dt>
+<dd><p>run <cite>ModelAbsoluteAnglesFilter</cite></p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">All angles are stored as btk point</p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>description</cite> (str) -short description added to the btkPoint storing joint angles</li>
+<li><cite>pointLabelSuffix</cite> (str) - suffix ending the angle label</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pyCGM2.Model.CGM2.modelFilters.ForcePlateAssemblyFilter">
+<em class="property">class </em><code class="descclassname">pyCGM2.Model.CGM2.modelFilters.</code><code class="descname">ForcePlateAssemblyFilter</code><span class="sig-paren">(</span><em>iMod</em>, <em>btkAcq</em>, <em>mappedForcePlateLetters</em>, <em>leftSegmentLabel='Left Foot'</em>, <em>rightSegmentLabel='Right Foot'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/modelFilters.html#ForcePlateAssemblyFilter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.modelFilters.ForcePlateAssemblyFilter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Assemble Force plate with the model</p>
+<dl class="method">
+<dt id="pyCGM2.Model.CGM2.modelFilters.ForcePlateAssemblyFilter.compute">
+<code class="descname">compute</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/modelFilters.html#ForcePlateAssemblyFilter.compute"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.modelFilters.ForcePlateAssemblyFilter.compute" title="Permalink to this definition">¶</a></dt>
+<dd><p>run <cite>ForcePlateAssemblyFilter</cite></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pyCGM2.Model.CGM2.modelFilters.InverseDynamicFilter">
+<em class="property">class </em><code class="descclassname">pyCGM2.Model.CGM2.modelFilters.</code><code class="descname">InverseDynamicFilter</code><span class="sig-paren">(</span><em>iMod</em>, <em>btkAcq</em>, <em>procedure=None</em>, <em>gravityVector=array([ 0</em>, <em>0</em>, <em>-1])</em>, <em>scaleToMeter=0.001</em>, <em>projection=&lt;MomentProjection.Distal: 2&gt;</em>, <em>exportMomentContributions=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/modelFilters.html#InverseDynamicFilter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.modelFilters.InverseDynamicFilter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute joint Force and moment from Inverse dynamics</p>
+<dl class="method">
+<dt id="pyCGM2.Model.CGM2.modelFilters.InverseDynamicFilter.compute">
+<code class="descname">compute</code><span class="sig-paren">(</span><em>pointLabelSuffix=''</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/modelFilters.html#InverseDynamicFilter.compute"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.modelFilters.InverseDynamicFilter.compute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Run`InverseDynamicFilter`</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">forces and Moments are stored as btk point</p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>pointLabelSuffix</cite> (str) - suffix ending the force/moment label</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pyCGM2.Model.CGM2.modelFilters.JointPowerFilter">
+<em class="property">class </em><code class="descclassname">pyCGM2.Model.CGM2.modelFilters.</code><code class="descname">JointPowerFilter</code><span class="sig-paren">(</span><em>iMod</em>, <em>btkAcq</em>, <em>scaleToMeter=0.001</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/modelFilters.html#JointPowerFilter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.modelFilters.JointPowerFilter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute joint power</p>
+<dl class="method">
+<dt id="pyCGM2.Model.CGM2.modelFilters.JointPowerFilter.compute">
+<code class="descname">compute</code><span class="sig-paren">(</span><em>pointLabelSuffix=''</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/modelFilters.html#JointPowerFilter.compute"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.modelFilters.JointPowerFilter.compute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Run <cite>JointPowerFilter</cite></p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">powers are stored as btk point</p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>pointLabelSuffix</cite> (str) - suffix ending the power label</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="miscellaneous">
+<h2>Miscellaneous<a class="headerlink" href="#miscellaneous" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-pyCGM2.Model.CGM2.bodySegmentParameters">
+<span id="pycgm2-model-cgm2-bodysegmentparameters-module"></span><h3>pyCGM2.Model.CGM2.bodySegmentParameters (module)<a class="headerlink" href="#module-pyCGM2.Model.CGM2.bodySegmentParameters" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="pyCGM2.Model.CGM2.bodySegmentParameters.Bsp">
+<em class="property">class </em><code class="descclassname">pyCGM2.Model.CGM2.bodySegmentParameters.</code><code class="descname">Bsp</code><span class="sig-paren">(</span><em>iModel</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/bodySegmentParameters.html#Bsp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.bodySegmentParameters.Bsp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Body Segment Parameter of the lower limb according Dempster 1995</p>
+<p><strong>Reference</strong></p>
+<p>Dempster. (1955). Body Segment Parameter Data for 2-D Studies</p>
+<dl class="method">
+<dt id="pyCGM2.Model.CGM2.bodySegmentParameters.Bsp.compute">
+<code class="descname">compute</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/bodySegmentParameters.html#Bsp.compute"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.bodySegmentParameters.Bsp.compute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute body segment parameters of a Model</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="pyCGM2.Model.CGM2.bodySegmentParameters.Bsp.setParameters">
+<em class="property">classmethod </em><code class="descname">setParameters</code><span class="sig-paren">(</span><em>bspSegmentLabel</em>, <em>segmentLength</em>, <em>bodymass</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/bodySegmentParameters.html#Bsp.setParameters"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.bodySegmentParameters.Bsp.setParameters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute body parameter of a selected lower limb segment</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>bspSegmentLabel</cite> (str) - segment label defined in the class object <cite>TABLE</cite></li>
+<li><cite>segmentLength</cite> (double) - length of the segment</li>
+<li><cite>bodymass</cite> (double) - mass of the subject</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-pyCGM2.Model.CGM2.euler">
+<span id="pycgm2-model-cgm2-euler-module"></span><h3>pyCGM2.Model.CGM2.euler (module)<a class="headerlink" href="#module-pyCGM2.Model.CGM2.euler" title="Permalink to this headline">¶</a></h3>
+<dl class="function">
+<dt id="pyCGM2.Model.CGM2.euler.euler_xyz">
+<code class="descclassname">pyCGM2.Model.CGM2.euler.</code><code class="descname">euler_xyz</code><span class="sig-paren">(</span><em>Matrix</em>, <em>similarOrder=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/euler.html#euler_xyz"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.euler.euler_xyz" title="Permalink to this definition">¶</a></dt>
+<dd><p>Decomposition of a rotation matrix according the sequence XYZ</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><cite>Matrix</cite> (numpy.array(3,3)) - Rotation matrix</li>
+<li><cite>similarOrder</cite> (bool) - return in same order than sequence</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return:</th><td class="field-body"><ul class="first last simple">
+<li><cite>euler1</cite> (float) - angle for X-axis</li>
+<li><cite>euler2</cite> (float) - angle for Y-axis</li>
+<li><cite>euler3</cite> (float) - angle for Z-axis</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyCGM2.Model.CGM2.euler.euler_xzy">
+<code class="descclassname">pyCGM2.Model.CGM2.euler.</code><code class="descname">euler_xzy</code><span class="sig-paren">(</span><em>Matrix</em>, <em>similarOrder=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/euler.html#euler_xzy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.euler.euler_xzy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Decomposition of a rotation matrix according the sequence XZY</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><cite>Matrix</cite> (numpy.array(3,3)) : Rotation matrix</li>
+<li><cite>similarOrder</cite> (bool) : return in same order than sequence</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return:</th><td class="field-body"><ul class="first last simple">
+<li><cite>euler1</cite> (float) - angle for X-axis</li>
+<li><cite>euler2</cite> (float) - angle for Y-axis</li>
+<li><cite>euler3</cite> (float) - angle for Z-axis</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyCGM2.Model.CGM2.euler.euler_yxz">
+<code class="descclassname">pyCGM2.Model.CGM2.euler.</code><code class="descname">euler_yxz</code><span class="sig-paren">(</span><em>Matrix</em>, <em>similarOrder=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/euler.html#euler_yxz"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.euler.euler_yxz" title="Permalink to this definition">¶</a></dt>
+<dd><p>Decomposition of a rotation matrix according the sequence YXZ</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><cite>Matrix</cite> (numpy.array(3,3)) : Rotation matrix</li>
+<li><cite>similarOrder</cite> (bool) : return in same order than sequence</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return:</th><td class="field-body"><ul class="first last simple">
+<li><cite>euler1</cite> (float) - angle for X-axis</li>
+<li><cite>euler2</cite> (float) - angle for Y-axis</li>
+<li><cite>euler3</cite> (float) - angle for Z-axis</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyCGM2.Model.CGM2.euler.euler_yzx">
+<code class="descclassname">pyCGM2.Model.CGM2.euler.</code><code class="descname">euler_yzx</code><span class="sig-paren">(</span><em>Matrix</em>, <em>similarOrder=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/euler.html#euler_yzx"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.euler.euler_yzx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Decomposition of a rotation matrix according the sequence YZX</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><cite>Matrix</cite> (numpy.array(3,3)) : Rotation matrix</li>
+<li><cite>similarOrder</cite> (bool) : return in same order than sequence</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return:</th><td class="field-body"><ul class="first last simple">
+<li><cite>euler1</cite> (float) - angle for X-axis</li>
+<li><cite>euler2</cite> (float) - angle for Y-axis</li>
+<li><cite>euler3</cite> (float) - angle for Z-axis</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyCGM2.Model.CGM2.euler.euler_zxy">
+<code class="descclassname">pyCGM2.Model.CGM2.euler.</code><code class="descname">euler_zxy</code><span class="sig-paren">(</span><em>Matrix</em>, <em>similarOrder=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/euler.html#euler_zxy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.euler.euler_zxy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Decomposition of a rotation matrix according the sequence ZXY</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><cite>Matrix</cite> (numpy.array(3,3)) : Rotation matrix</li>
+<li><cite>similarOrder</cite> (bool) : return in same order than sequence</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return:</th><td class="field-body"><ul class="first last simple">
+<li><cite>euler1</cite> (float) - angle for X-axis</li>
+<li><cite>euler2</cite> (float) - angle for Y-axis</li>
+<li><cite>euler3</cite> (float) - angle for Z-axis</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyCGM2.Model.CGM2.euler.euler_zyx">
+<code class="descclassname">pyCGM2.Model.CGM2.euler.</code><code class="descname">euler_zyx</code><span class="sig-paren">(</span><em>Matrix</em>, <em>similarOrder=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/euler.html#euler_zyx"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.euler.euler_zyx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Decomposition of a rotation matrix according the sequence ZYX</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><cite>Matrix</cite> (numpy.array(3,3)) : Rotation matrix</li>
+<li><cite>similarOrder</cite> (bool) : return in same order than sequence</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return:</th><td class="field-body"><ul class="first last simple">
+<li><cite>euler1</cite> (float) - angle for X-axis</li>
+<li><cite>euler2</cite> (float) - angle for Y-axis</li>
+<li><cite>euler3</cite> (float) - angle for Z-axis</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-pyCGM2.Model.CGM2.forceplates">
+<span id="pycgm2-model-cgm2-forceplates-module"></span><h3>pyCGM2.Model.CGM2.forceplates (module)<a class="headerlink" href="#module-pyCGM2.Model.CGM2.forceplates" title="Permalink to this headline">¶</a></h3>
+<dl class="function">
+<dt id="pyCGM2.Model.CGM2.forceplates.appendForcePlateCornerAsMarker">
+<code class="descclassname">pyCGM2.Model.CGM2.forceplates.</code><code class="descname">appendForcePlateCornerAsMarker</code><span class="sig-paren">(</span><em>btkAcq</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/forceplates.html#appendForcePlateCornerAsMarker"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.forceplates.appendForcePlateCornerAsMarker" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a marker at each force plate corners</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>btkAcq</cite> (btkAcquisition) : Btk acquisition instance from a c3d</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyCGM2.Model.CGM2.forceplates.matchingFootSideOnForceplate">
+<code class="descclassname">pyCGM2.Model.CGM2.forceplates.</code><code class="descname">matchingFootSideOnForceplate</code><span class="sig-paren">(</span><em>btkAcq</em>, <em>left_markerLabelToe='LTOE'</em>, <em>left_markerLabelHeel='LHEE'</em>, <em>right_markerLabelToe='RTOE'</em>, <em>right_markerLabelHeel='RHEE'</em>, <em>display=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/forceplates.html#matchingFootSideOnForceplate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.forceplates.matchingFootSideOnForceplate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convenient function detecting foot in contact with a force plate</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>btkAcq</cite> (btkAcquisition) - Btk acquisition instance from a c3d</li>
+<li><cite>left_markerLabelToe</cite> (str) - label of the left toe marker</li>
+<li><cite>left_markerLabelHeel</cite> (str) - label of the left heel marker</li>
+<li><cite>right_markerLabelToe</cite> (str) - label of the right toe marker</li>
+<li><cite>right_markerLabelHeel</cite> (str) - label of the right heel marker</li>
+<li><cite>display</cite> (bool) - display n figures ( n depend on force plate number) presenting relative distance between mid foot and the orgin of the force plate</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-pyCGM2.Model.CGM2.motion">
+<span id="pycgm2-model-cgm2-motion-module"></span><h3>pyCGM2.Model.CGM2.motion (module)<a class="headerlink" href="#module-pyCGM2.Model.CGM2.motion" title="Permalink to this headline">¶</a></h3>
+<dl class="function">
+<dt id="pyCGM2.Model.CGM2.motion.segmentalLeastSquare">
+<code class="descclassname">pyCGM2.Model.CGM2.motion.</code><code class="descname">segmentalLeastSquare</code><span class="sig-paren">(</span><em>A</em>, <em>B</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Model/CGM2/motion.html#segmentalLeastSquare"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Model.CGM2.motion.segmentalLeastSquare" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the transformation between two coordinate systems using SVD.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><cite>A</cite> (numpy.array(n,3)) - Coordinates [x,y,z] of at least three markers</li>
+<li><cite>B</cite> (numpy.array(n,3)) - Coordinates [x,y,z] of at least three markers</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return:</th><td class="field-body"><ul class="first last simple">
+<li><cite>R</cite> (numpy.array(3,3)) - Rotation matrix between A and B</li>
+<li><cite>L</cite> (numpy.array(3,)) - Translation vector between A and B</li>
+<li><cite>RMSE</cite> (float) - Root-mean-squared error for the rigid body model( :math:` B = R*A + L + err`).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">pyCGM2.Model.CGM2 subpackage</a><ul>
+<li><a class="reference internal" href="#model-componants">Model componants</a><ul>
+<li><a class="reference internal" href="#module-pyCGM2.Model.CGM2.model">pyCGM2.Model.CGM2.model (module)</a></li>
+<li><a class="reference internal" href="#pycgm2-model-cgm2-frame-module">pyCGM2.Model.CGM2.frame (module)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#conventional-gait-models">Conventional Gait Models</a><ul>
+<li><a class="reference internal" href="#module-pyCGM2.Model.CGM2.cgm">pyCGM2.Model.CGM2.cgm (module)</a><ul>
+<li><a class="reference internal" href="#module-pyCGM2.Model.CGM2.cgm">Convention Gait Model 1</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-pyCGM2.Model.CGM2.modelFilters">Model Procedures</a></li>
+<li><a class="reference internal" href="#model-decorators">Model Decorators</a><ul>
+<li><a class="reference internal" href="#module-pyCGM2.Model.CGM2.modelDecorator">pyCGM2.Model.CGM2.modelDecorator (module)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#model-filters">Model Filters</a><ul>
+<li><a class="reference internal" href="#module-pyCGM2.Model.CGM2.modelFilters">pyCGM2.Model.CGM2.modelFilters (module)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#miscellaneous">Miscellaneous</a><ul>
+<li><a class="reference internal" href="#module-pyCGM2.Model.CGM2.bodySegmentParameters">pyCGM2.Model.CGM2.bodySegmentParameters (module)</a></li>
+<li><a class="reference internal" href="#module-pyCGM2.Model.CGM2.euler">pyCGM2.Model.CGM2.euler (module)</a></li>
+<li><a class="reference internal" href="#module-pyCGM2.Model.CGM2.forceplates">pyCGM2.Model.CGM2.forceplates (module)</a></li>
+<li><a class="reference internal" href="#module-pyCGM2.Model.CGM2.motion">pyCGM2.Model.CGM2.motion (module)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="pyCGM2.html"
+                        title="previous chapter">pyCGM2 package</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="pyCGM2.Processing.html"
+                        title="next chapter">pyCGM2.Processing subpackage</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/pyCGM2.Model.CGM2.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pyCGM2.Processing.html" title="pyCGM2.Processing subpackage"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="pyCGM2.html" title="pyCGM2 package"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">pyCGM2 0.1 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017, Fabien Leboeuf.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.1.
+    </div>
+  </body>
+</html>

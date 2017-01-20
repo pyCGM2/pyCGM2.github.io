@@ -1,0 +1,218 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>pyCGM2 package &#8212; pyCGM2 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="pyCGM2.Model.CGM2 subpackage" href="pyCGM2.Model.CGM2.html" />
+    <link rel="prev" title="Gait normative datasets" href="normativeData.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pyCGM2.Model.CGM2.html" title="pyCGM2.Model.CGM2 subpackage"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="normativeData.html" title="Gait normative datasets"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">pyCGM2 0.1 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="pycgm2-package">
+<h1>pyCGM2 package<a class="headerlink" href="#pycgm2-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-pyCGM2.enums">
+<span id="pycgm2-enums-module"></span><h2>pyCGM2.enums (module)<a class="headerlink" href="#module-pyCGM2.enums" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="pyCGM2.enums.HarringtonPredictor">
+<em class="property">class </em><code class="descclassname">pyCGM2.enums.</code><code class="descname">HarringtonPredictor</code><a class="reference internal" href="_modules/pyCGM2/enums.html#HarringtonPredictor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.enums.HarringtonPredictor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enum defining harrington&#8217;s regression predictor</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyCGM2.enums.MomentProjection">
+<em class="property">class </em><code class="descclassname">pyCGM2.enums.</code><code class="descname">MomentProjection</code><a class="reference internal" href="_modules/pyCGM2/enums.html#MomentProjection"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.enums.MomentProjection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enum defining in which Segment expressed kinetics</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyCGM2.enums.SegmentSide">
+<em class="property">class </em><code class="descclassname">pyCGM2.enums.</code><code class="descname">SegmentSide</code><a class="reference internal" href="_modules/pyCGM2/enums.html#SegmentSide"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.enums.SegmentSide" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enum defining segment side</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyCGM2.enums.isEnumMember">
+<code class="descclassname">pyCGM2.enums.</code><code class="descname">isEnumMember</code><span class="sig-paren">(</span><em>member</em>, <em>enum</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/enums.html#isEnumMember"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.enums.isEnumMember" title="Permalink to this definition">¶</a></dt>
+<dd><p>check if member of an enum</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyCGM2.enums.motionMethod">
+<em class="property">class </em><code class="descclassname">pyCGM2.enums.</code><code class="descname">motionMethod</code><a class="reference internal" href="_modules/pyCGM2/enums.html#motionMethod"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.enums.motionMethod" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enum defining method uses for computing a segment pose</p>
+</dd></dl>
+
+</div>
+<div class="section" id="pycgm2-smartfunctions-module">
+<h2>pyCGM2.smartFunctions (module)<a class="headerlink" href="#pycgm2-smartfunctions-module" title="Permalink to this headline">¶</a></h2>
+<p>smartFunctions are high-level functions hiding code pipeline.</p>
+<span class="target" id="module-pyCGM2.smartFunctions"></span><dl class="function">
+<dt id="pyCGM2.smartFunctions.gaitProcessing_cgm1">
+<code class="descclassname">pyCGM2.smartFunctions.</code><code class="descname">gaitProcessing_cgm1</code><span class="sig-paren">(</span><em>modelledFilenames</em>, <em>DATA_PATH</em>, <em>modelInfo</em>, <em>subjectInfo</em>, <em>experimentalInfo</em>, <em>pointLabelSuffix=''</em>, <em>plotFlag=True</em>, <em>exportBasicSpreadSheetFlag=True</em>, <em>exportAdvancedSpreadSheetFlag=True</em>, <em>exportAnalysisC3dFlag=True</em>, <em>consistencyOnly=False</em>, <em>normativeDataDict=None</em>, <em>name_out=None</em>, <em>DATA_PATH_OUT=None</em>, <em>longitudinal_axis=None</em>, <em>lateral_axis=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/smartFunctions.html#gaitProcessing_cgm1"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.smartFunctions.gaitProcessing_cgm1" title="Permalink to this definition">¶</a></dt>
+<dd><p>Proces  of multiple gait c3d with lower limb CGM outputs</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>modelledFilenames</cite> (list of str) - filenames of gai trial with kinematics and kinetics</li>
+<li><cite>DATA_PATH</cite> (str) - folder where  modelledFilenames are stored</li>
+<li><cite>modelInfo</cite> (dict) - info about the model</li>
+<li><cite>subjectInfo</cite> (dict) - info about the subject</li>
+<li><cite>experimentalInfo</cite> (dict) - info about experimental conditions</li>
+<li><cite>pointLabelSuffix</cite> (str) - suffix added to standard cgm nomenclature</li>
+<li><cite>exportBasicSpreadSheetFlag</cite> (bool) - enable xls export of a basic spreadsheet</li>
+<li><cite>exportAdvancedSpreadSheetFlag</cite> (bool) - enable xls export of an advanced spreadsheet</li>
+<li><cite>exportAnalysisC3dFlag</cite> (bool) - export a single 101-frames c3d storing all gait cycle</li>
+<li><cite>longitudinal_axis</cite> (str) - label of the global longitudinal axis</li>
+<li><cite>lateral_axis</cite> (str) - label of the global lateral axis</li>
+<li><cite>name_out</cite> (str) - new filename of any output files</li>
+<li><cite>DATA_PATH_OUT</cite> (str) - new folder to store any  output files</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyCGM2.smartFunctions.staticProcessing_cgm1">
+<code class="descclassname">pyCGM2.smartFunctions.</code><code class="descname">staticProcessing_cgm1</code><span class="sig-paren">(</span><em>modelledStaticFilename</em>, <em>DATA_PATH</em>, <em>modelInfo</em>, <em>subjectInfo</em>, <em>experimentalInfo</em>, <em>exportSpreadSheet=False</em>, <em>pointLabelSuffix=''</em>, <em>name_out=None</em>, <em>DATA_PATH_OUT=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/smartFunctions.html#staticProcessing_cgm1"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.smartFunctions.staticProcessing_cgm1" title="Permalink to this definition">¶</a></dt>
+<dd><p>Process a static c3d with lower limb CGM outputs</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>modelledStaticFilename</cite> (str) - filename of the static c3d including cgm kinematics</li>
+<li><cite>DATA_PATH</cite> (str) - folder ofthe static file ( must end with )</li>
+<li><cite>modelInfo</cite> (dict) - info about the model</li>
+<li><cite>subjectInfo</cite> (dict) -  info about the subject</li>
+<li><cite>experimentalInfo</cite> (dict) - info about experimental conditions</li>
+<li><cite>exportSpreadSheet</cite> (bool) - flag enable xls export</li>
+<li><cite>pointLabelSuffix</cite> (str) - suffix added to standard cgm nomenclature</li>
+<li><cite>name_out</cite> (str) - new filename of any output file ( instead modelledStaticFilename)</li>
+<li><cite>DATA_PATH_OUT</cite> (str) - new folder to store any output file</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">pyCGM2 package</a><ul>
+<li><a class="reference internal" href="#module-pyCGM2.enums">pyCGM2.enums (module)</a></li>
+<li><a class="reference internal" href="#pycgm2-smartfunctions-module">pyCGM2.smartFunctions (module)</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="normativeData.html"
+                        title="previous chapter">Gait normative datasets</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="pyCGM2.Model.CGM2.html"
+                        title="next chapter">pyCGM2.Model.CGM2 subpackage</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/pyCGM2.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pyCGM2.Model.CGM2.html" title="pyCGM2.Model.CGM2 subpackage"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="normativeData.html" title="Gait normative datasets"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">pyCGM2 0.1 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017, Fabien Leboeuf.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.1.
+    </div>
+  </body>
+</html>

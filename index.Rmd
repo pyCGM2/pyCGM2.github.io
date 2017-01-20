@@ -12,8 +12,15 @@
 			<section class="4u 12u(narrower)">
 				<div class="box highlight">
 					<i class="icon major fa-code"></i>
-					<a href="codeDoc.html"> <h3> Code and Doc</h3></a>
-					<p> Code and Documentation</p>
+					<a href="codeDoc.html"> <h3> Code</h3></a>
+					<p> Code and apps</p>
+				</div>
+			</section>
+			<section class="4u 12u(narrower)">
+				<div class="box highlight">
+					<i class="icon major fa-book "></i>
+					<a href="apiDoc/version0/index.html""><h3>Documentation</h3></a>
+					<p> API Documentation</p>
 				</div>
 			</section>
 		</div>

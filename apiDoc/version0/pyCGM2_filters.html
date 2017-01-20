@@ -1,0 +1,172 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>pyCGM2 Filters &#8212; pyCGM2 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">pyCGM2 0.1 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="pycgm2-filters">
+<h1>pyCGM2 Filters<a class="headerlink" href="#pycgm2-filters" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-pyCGM2.Report.plot">
+<span id="plotting-filter"></span><h2>Plotting filter<a class="headerlink" href="#module-pyCGM2.Report.plot" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="pyCGM2.Report.plot.PlottingFilter">
+<em class="property">class </em><code class="descclassname">pyCGM2.Report.plot.</code><code class="descname">PlottingFilter</code><a class="reference internal" href="_modules/pyCGM2/Report/plot.html#PlottingFilter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Report.plot.PlottingFilter" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Description :</strong> This filter calls a concrete PlotBuilder and run  its plot-embedded method</p>
+<dl class="method">
+<dt id="pyCGM2.Report.plot.PlottingFilter.plot">
+<code class="descname">plot</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Report/plot.html#PlottingFilter.plot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Report.plot.PlottingFilter.plot" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Description :</strong> Generate plot panels</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyCGM2.Report.plot.PlottingFilter.setBuilder">
+<code class="descname">setBuilder</code><span class="sig-paren">(</span><em>concretePlotBuilder</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Report/plot.html#PlottingFilter.setBuilder"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Report.plot.PlottingFilter.setBuilder" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Description :</strong> load a concrete plot builder</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>concretePlotBuilder</cite> (pyCGM2.Report.plot PlotBuilder) - concrete plot builder from pyCGM2.Report.plot module</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyCGM2.Report.plot.PlottingFilter.setPath">
+<code class="descname">setPath</code><span class="sig-paren">(</span><em>path</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Report/plot.html#PlottingFilter.setPath"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Report.plot.PlottingFilter.setPath" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Description :</strong> define path  of the desired output folder</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>path</cite> (str) - path must end with </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyCGM2.Report.plot.PlottingFilter.setPdfName">
+<code class="descname">setPdfName</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Report/plot.html#PlottingFilter.setPdfName"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Report.plot.PlottingFilter.setPdfName" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Description :</strong> set filename of the pdf</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>name</cite> (str)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">pyCGM2 Filters</a><ul>
+<li><a class="reference internal" href="#module-pyCGM2.Report.plot">Plotting filter</a></li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/pyCGM2_filters.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">pyCGM2 0.1 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017, Fabien Leboeuf.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.1.
+    </div>
+  </body>
+</html>

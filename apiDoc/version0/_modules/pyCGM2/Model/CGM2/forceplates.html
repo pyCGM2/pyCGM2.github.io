@@ -1,0 +1,200 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>pyCGM2.Model.CGM2.forceplates &#8212; pyCGM2 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="../../../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../../index.html">pyCGM2 0.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../../index.html" accesskey="U">Module code</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for pyCGM2.Model.CGM2.forceplates</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+
+<span class="kn">import</span> <span class="nn">btk</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">pdb</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="kn">from</span> <span class="nn">pyCGM2.Tools</span> <span class="k">import</span>  <span class="n">btkTools</span>
+
+
+
+
+
+<div class="viewcode-block" id="appendForcePlateCornerAsMarker"><a class="viewcode-back" href="../../../../pyCGM2.Model.CGM2.html#pyCGM2.Model.CGM2.forceplates.appendForcePlateCornerAsMarker">[docs]</a><span class="k">def</span> <span class="nf">appendForcePlateCornerAsMarker</span> <span class="p">(</span><span class="n">btkAcq</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Add a marker at each force plate corners</span>
+<span class="sd">        </span>
+<span class="sd">        :Parameters:</span>
+<span class="sd">           - `btkAcq` (btkAcquisition) : Btk acquisition instance from a c3d        </span>
+<span class="sd">        </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+
+    <span class="c1"># --- ground reaction force wrench ---</span>
+    <span class="n">pfe</span> <span class="o">=</span> <span class="n">btk</span><span class="o">.</span><span class="n">btkForcePlatformsExtractor</span><span class="p">()</span>
+    <span class="n">pfe</span><span class="o">.</span><span class="n">SetInput</span><span class="p">(</span><span class="n">btkAcq</span><span class="p">)</span>
+    <span class="n">pfc</span> <span class="o">=</span> <span class="n">pfe</span><span class="o">.</span><span class="n">GetOutput</span><span class="p">()</span>
+    <span class="n">pfc</span><span class="o">.</span><span class="n">Update</span><span class="p">()</span>
+    
+    
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">pfc</span><span class="o">.</span><span class="n">GetItemNumber</span><span class="p">()):</span>
+        <span class="n">val_corner0</span> <span class="o">=</span> <span class="n">pfc</span><span class="o">.</span><span class="n">GetItem</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">.</span><span class="n">GetCorner</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">T</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">btkAcq</span><span class="o">.</span><span class="n">GetPointFrameNumber</span><span class="p">(),</span><span class="mi">3</span><span class="p">))</span>      
+        <span class="n">btkTools</span><span class="o">.</span><span class="n">smartAppendPoint</span><span class="p">(</span><span class="n">btkAcq</span><span class="p">,</span><span class="s2">&quot;fp&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;corner0&quot;</span><span class="p">,</span><span class="n">val_corner0</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s2">&quot;forcePlate&quot;</span><span class="p">)</span> 
+        
+        <span class="n">val_corner1</span> <span class="o">=</span> <span class="n">pfc</span><span class="o">.</span><span class="n">GetItem</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">.</span><span class="n">GetCorner</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">T</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">btkAcq</span><span class="o">.</span><span class="n">GetPointFrameNumber</span><span class="p">(),</span><span class="mi">3</span><span class="p">))</span>      
+        <span class="n">btkTools</span><span class="o">.</span><span class="n">smartAppendPoint</span><span class="p">(</span><span class="n">btkAcq</span><span class="p">,</span><span class="s2">&quot;fp&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;corner1&quot;</span><span class="p">,</span><span class="n">val_corner1</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s2">&quot;forcePlate&quot;</span><span class="p">)</span> 
+        
+        <span class="n">val_corner2</span> <span class="o">=</span> <span class="n">pfc</span><span class="o">.</span><span class="n">GetItem</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">.</span><span class="n">GetCorner</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">T</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">btkAcq</span><span class="o">.</span><span class="n">GetPointFrameNumber</span><span class="p">(),</span><span class="mi">3</span><span class="p">))</span>      
+        <span class="n">btkTools</span><span class="o">.</span><span class="n">smartAppendPoint</span><span class="p">(</span><span class="n">btkAcq</span><span class="p">,</span><span class="s2">&quot;fp&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;corner2&quot;</span><span class="p">,</span> <span class="n">val_corner2</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s2">&quot;forcePlate&quot;</span><span class="p">)</span> 
+    
+        <span class="n">val_corner3</span> <span class="o">=</span> <span class="n">pfc</span><span class="o">.</span><span class="n">GetItem</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">.</span><span class="n">GetCorner</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">T</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">btkAcq</span><span class="o">.</span><span class="n">GetPointFrameNumber</span><span class="p">(),</span><span class="mi">3</span><span class="p">))</span>      
+        <span class="n">btkTools</span><span class="o">.</span><span class="n">smartAppendPoint</span><span class="p">(</span><span class="n">btkAcq</span><span class="p">,</span><span class="s2">&quot;fp&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;corner3&quot;</span><span class="p">,</span><span class="n">val_corner3</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s2">&quot;forcePlate&quot;</span><span class="p">)</span> </div>
+
+
+
+
+
+
+
+<div class="viewcode-block" id="matchingFootSideOnForceplate"><a class="viewcode-back" href="../../../../pyCGM2.Model.CGM2.html#pyCGM2.Model.CGM2.forceplates.matchingFootSideOnForceplate">[docs]</a><span class="k">def</span> <span class="nf">matchingFootSideOnForceplate</span> <span class="p">(</span><span class="n">btkAcq</span><span class="p">,</span> <span class="n">left_markerLabelToe</span> <span class="o">=</span><span class="s2">&quot;LTOE&quot;</span><span class="p">,</span> <span class="n">left_markerLabelHeel</span> <span class="o">=</span><span class="s2">&quot;LHEE&quot;</span><span class="p">,</span> 
+                 <span class="n">right_markerLabelToe</span> <span class="o">=</span><span class="s2">&quot;RTOE&quot;</span><span class="p">,</span> <span class="n">right_markerLabelHeel</span> <span class="o">=</span><span class="s2">&quot;RHEE&quot;</span><span class="p">,</span>  <span class="n">display</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Convenient function detecting foot in contact with a force plate</span>
+<span class="sd">        </span>
+<span class="sd">        :Parameters:</span>
+<span class="sd">           - `btkAcq` (btkAcquisition) - Btk acquisition instance from a c3d        </span>
+<span class="sd">           - `left_markerLabelToe` (str) - label of the left toe marker  </span>
+<span class="sd">           - `left_markerLabelHeel` (str) - label of the left heel marker </span>
+<span class="sd">           - `right_markerLabelToe` (str) - label of the right toe marker</span>
+<span class="sd">           - `right_markerLabelHeel` (str) - label of the right heel marker </span>
+<span class="sd">           - `display` (bool) - display n figures ( n depend on force plate number) presenting relative distance between mid foot and the orgin of the force plate </span>
+<span class="sd">        </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+     
+    <span class="n">ff</span><span class="o">=</span><span class="n">btkAcq</span><span class="o">.</span><span class="n">GetFirstFrame</span><span class="p">()</span>
+    <span class="n">lf</span><span class="o">=</span><span class="n">btkAcq</span><span class="o">.</span><span class="n">GetLastFrame</span><span class="p">()</span>
+    <span class="n">appf</span><span class="o">=</span><span class="n">btkAcq</span><span class="o">.</span><span class="n">GetNumberAnalogSamplePerFrame</span><span class="p">()</span>
+    
+    
+    <span class="c1"># --- ground reaction force wrench ---</span>
+    <span class="n">pfe</span> <span class="o">=</span> <span class="n">btk</span><span class="o">.</span><span class="n">btkForcePlatformsExtractor</span><span class="p">()</span>
+    <span class="n">grwf</span> <span class="o">=</span> <span class="n">btk</span><span class="o">.</span><span class="n">btkGroundReactionWrenchFilter</span><span class="p">()</span>
+    <span class="n">pfe</span><span class="o">.</span><span class="n">SetInput</span><span class="p">(</span><span class="n">btkAcq</span><span class="p">)</span>
+    <span class="n">pfc</span> <span class="o">=</span> <span class="n">pfe</span><span class="o">.</span><span class="n">GetOutput</span><span class="p">()</span>
+    <span class="n">grwf</span><span class="o">.</span><span class="n">SetInput</span><span class="p">(</span><span class="n">pfc</span><span class="p">)</span>
+    <span class="n">grwc</span> <span class="o">=</span> <span class="n">grwf</span><span class="o">.</span><span class="n">GetOutput</span><span class="p">()</span>
+    <span class="n">grwc</span><span class="o">.</span><span class="n">Update</span><span class="p">()</span>
+                
+    <span class="n">midfoot_L</span><span class="o">=</span><span class="p">(</span><span class="n">btkAcq</span><span class="o">.</span><span class="n">GetPoint</span><span class="p">(</span><span class="n">left_markerLabelToe</span><span class="p">)</span><span class="o">.</span><span class="n">GetValues</span><span class="p">()</span> <span class="o">+</span> <span class="n">btkAcq</span><span class="o">.</span><span class="n">GetPoint</span><span class="p">(</span><span class="n">left_markerLabelHeel</span><span class="p">)</span><span class="o">.</span><span class="n">GetValues</span><span class="p">())</span><span class="o">/</span><span class="mf">2.0</span> 
+    <span class="n">midfoot_R</span><span class="o">=</span><span class="p">(</span><span class="n">btkAcq</span><span class="o">.</span><span class="n">GetPoint</span><span class="p">(</span><span class="n">right_markerLabelToe</span><span class="p">)</span><span class="o">.</span><span class="n">GetValues</span><span class="p">()</span> <span class="o">+</span> <span class="n">btkAcq</span><span class="o">.</span><span class="n">GetPoint</span><span class="p">(</span><span class="n">right_markerLabelHeel</span><span class="p">)</span><span class="o">.</span><span class="n">GetValues</span><span class="p">())</span><span class="o">/</span><span class="mf">2.0</span>           
+    
+    <span class="n">suffix</span><span class="o">=</span><span class="nb">str</span><span class="p">()</span>
+
+    
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">grwc</span><span class="o">.</span><span class="n">GetItemNumber</span><span class="p">()):</span>
+        <span class="n">pos</span><span class="o">=</span> <span class="n">grwc</span><span class="o">.</span><span class="n">GetItem</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">.</span><span class="n">GetPosition</span><span class="p">()</span><span class="o">.</span><span class="n">GetValues</span><span class="p">()</span>
+        <span class="n">pos_downsample</span> <span class="o">=</span> <span class="n">pos</span><span class="p">[</span><span class="mi">0</span><span class="p">:(</span><span class="n">lf</span><span class="o">-</span><span class="n">ff</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">appf</span><span class="p">:</span><span class="n">appf</span><span class="p">]</span>   <span class="c1"># downsample </span>
+      
+        <span class="n">diffL</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span> <span class="n">midfoot_L</span><span class="o">-</span><span class="n">pos_downsample</span><span class="p">,</span><span class="n">axis</span> <span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">diffR</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span> <span class="n">midfoot_R</span><span class="o">-</span><span class="n">pos_downsample</span><span class="p">,</span><span class="n">axis</span> <span class="o">=</span><span class="mi">1</span><span class="p">)</span>      
+        
+        <span class="k">if</span> <span class="n">display</span><span class="p">:</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+            <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Force plate &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">diffL</span><span class="p">,</span><span class="s1">&#39;-r&#39;</span><span class="p">)</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">diffR</span><span class="p">,</span><span class="s1">&#39;-b&#39;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">diffL</span><span class="p">)</span><span class="o">&lt;</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">diffR</span><span class="p">):</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot; Force plate &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; : left foot&quot;</span><span class="p">)</span>
+            <span class="n">suffix</span> <span class="o">=</span> <span class="n">suffix</span> <span class="o">+</span>  <span class="s2">&quot;L&quot;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot; Force plate &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; : right foot&quot;</span><span class="p">)</span>
+            <span class="n">suffix</span> <span class="o">=</span> <span class="n">suffix</span> <span class="o">+</span>  <span class="s2">&quot;R&quot;</span>
+
+    <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Matched Force plate ===&gt; </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">suffix</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">suffix</span></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../../index.html">pyCGM2 0.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../../index.html" >Module code</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017, Fabien Leboeuf.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.1.
+    </div>
+  </body>
+</html>

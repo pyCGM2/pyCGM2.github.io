@@ -1,0 +1,98 @@
+pyCGM2.Model.CGM2 subpackage
+=============================
+
+
+Model componants
+----------------------------
+
+pyCGM2.Model.CGM2.model (module)
+.................................
+
+.. automodule:: pyCGM2.Model.CGM2.model
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+pyCGM2.Model.CGM2.frame (module)
+...............................
+
+.. automodule:: pyCGM2.Model.CGM2.frame
+    :members:
+
+Conventional Gait Models
+----------------------------
+
+pyCGM2.Model.CGM2.cgm (module)
+..............................
+
+.. automodule:: pyCGM2.Model.CGM2.cgm
+    :members: CGM
+
+Convention Gait Model 1
+"""""""""""""""""""""""""""""
+
+.. automodule:: pyCGM2.Model.CGM2.cgm
+    :members: CGM1ModelInf
+
+
+Model Procedures
+----------------------------
+
+.. automodule:: pyCGM2.Model.CGM2.modelFilters
+    :members: GeneralCalibrationProcedure, StaticCalibrationProcedure, CGMLowerlimbInverseDynamicProcedure
+
+
+Model Decorators
+----------------------------
+pyCGM2.Model.CGM2.modelDecorator (module)
+...........................................
+
+.. automodule:: pyCGM2.Model.CGM2.modelDecorator
+    :members:
+
+Model Filters
+----------------------------
+
+pyCGM2.Model.CGM2.modelFilters (module)
+.........................................
+
+.. automodule:: pyCGM2.Model.CGM2.modelFilters
+    :members: ModelCalibrationFilter,ModelMotionFilter, ModelJCSFilter,ModelAbsoluteAnglesFilter,ForcePlateAssemblyFilter,InverseDynamicFilter,JointPowerFilter
+
+
+Miscellaneous
+----------------------------
+
+pyCGM2.Model.CGM2.bodySegmentParameters (module)
+...................................................
+
+.. automodule:: pyCGM2.Model.CGM2.bodySegmentParameters
+    :members:
+
+
+
+pyCGM2.Model.CGM2.euler (module)
+...................................................
+
+.. automodule:: pyCGM2.Model.CGM2.euler
+    :members:
+
+
+
+pyCGM2.Model.CGM2.forceplates (module)
+...................................................
+
+.. automodule:: pyCGM2.Model.CGM2.forceplates
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+pyCGM2.Model.CGM2.motion (module)
+..................................................
+
+.. automodule:: pyCGM2.Model.CGM2.motion
+    :members:
+    :undoc-members:
+    :show-inheritance:

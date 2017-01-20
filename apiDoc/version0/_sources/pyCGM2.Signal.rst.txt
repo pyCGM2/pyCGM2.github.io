@@ -1,0 +1,9 @@
+pyCGM2.Signal subpackage
+=====================
+
+
+pyCGM2.Signal.signal_processing (module)
+------------------------------------------
+
+.. automodule:: pyCGM2.Signal.signal_processing
+    :members:

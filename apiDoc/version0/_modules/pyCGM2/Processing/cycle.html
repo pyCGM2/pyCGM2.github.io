@@ -1,0 +1,832 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>pyCGM2.Processing.cycle &#8212; pyCGM2 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">pyCGM2 0.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" accesskey="U">Module code</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for pyCGM2.Processing.cycle</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pdb</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="kn">import</span> <span class="nn">ma.io</span>
+<span class="kn">import</span> <span class="nn">ma.body</span>
+
+
+<span class="kn">import</span> <span class="nn">pyCGM2.Tools.trialTools</span> <span class="k">as</span> <span class="nn">CGM2trialTools</span>
+<span class="kn">import</span> <span class="nn">pyCGM2.Math.normalisation</span>  <span class="k">as</span> <span class="nn">MathNormalisation</span>
+
+<span class="c1">#----module methods ------</span>
+
+<div class="viewcode-block" id="spatioTemporelParameter_descriptiveStats"><a class="viewcode-back" href="../../../pyCGM2.Processing.html#pyCGM2.Processing.cycle.spatioTemporelParameter_descriptiveStats">[docs]</a><span class="k">def</span> <span class="nf">spatioTemporelParameter_descriptiveStats</span><span class="p">(</span><span class="n">cycles</span><span class="p">,</span><span class="n">label</span><span class="p">,</span><span class="n">context</span><span class="p">):</span>
+    
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Compute descriptive statistics of spatio-temporal parameters from a `cycles` instance  </span>
+<span class="sd">        </span>
+<span class="sd">        :Parameters:</span>
+<span class="sd">             - `cycles` (pyCGM2.Processing.cycle.Cycles) - Cycles instance built fron CycleFilter</span>
+<span class="sd">             - `label` (str) - spatio-temporal label</span>
+<span class="sd">             - `context` (str) - cycle side context ( Left, Right) </span>
+<span class="sd"> </span>
+<span class="sd">        :Return:</span>
+<span class="sd">            - `outDict` (dict)  - dictionnary with descriptive statistics ( mean, std, median).  Addictional Item *val* collects cycle values</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">outDict</span><span class="o">=</span><span class="nb">dict</span><span class="p">()</span>    
+    
+    <span class="n">n</span><span class="o">=</span><span class="nb">len</span><span class="p">([</span><span class="n">cycle</span> <span class="k">for</span> <span class="n">cycle</span> <span class="ow">in</span> <span class="n">cycles</span> <span class="k">if</span> <span class="n">cycle</span><span class="o">.</span><span class="n">enableFlag</span> <span class="ow">and</span> <span class="n">cycle</span><span class="o">.</span><span class="n">context</span><span class="o">==</span><span class="n">context</span><span class="p">])</span>  
+    <span class="n">val</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n</span><span class="p">))</span>
+    
+    <span class="n">i</span><span class="o">=</span><span class="mi">0</span>
+    <span class="k">for</span> <span class="n">cycle</span> <span class="ow">in</span> <span class="n">cycles</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">cycle</span><span class="o">.</span><span class="n">enableFlag</span> <span class="ow">and</span> <span class="n">cycle</span><span class="o">.</span><span class="n">context</span><span class="o">==</span><span class="n">context</span><span class="p">:</span>
+            <span class="n">val</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">cycle</span><span class="o">.</span><span class="n">getSpatioTemporalParameter</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
+            <span class="n">i</span><span class="o">+=</span><span class="mi">1</span>
+    <span class="n">outDict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;mean&#39;</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">val</span><span class="p">),</span><span class="s1">&#39;std&#39;</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">val</span><span class="p">),</span><span class="s1">&#39;median&#39;</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">val</span><span class="p">),</span><span class="s1">&#39;values&#39;</span><span class="p">:</span> <span class="n">val</span><span class="p">}</span>
+            
+    <span class="k">return</span> <span class="n">outDict</span></div>
+
+
+<div class="viewcode-block" id="point_descriptiveStats"><a class="viewcode-back" href="../../../pyCGM2.Processing.html#pyCGM2.Processing.cycle.point_descriptiveStats">[docs]</a><span class="k">def</span> <span class="nf">point_descriptiveStats</span><span class="p">(</span><span class="n">cycles</span><span class="p">,</span><span class="n">label</span><span class="p">,</span><span class="n">context</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Compute descriptive statistics of point parameters from a `cycles` instance  </span>
+<span class="sd">        </span>
+<span class="sd">        :Parameters:</span>
+<span class="sd">             - `cycles` (pyCGM2.Processing.cycle.Cycles) - Cycles instance built fron CycleFilter</span>
+<span class="sd">             - `label` (str) - point label</span>
+<span class="sd">             - `context` (str) - cycle side context ( Left, Right) </span>
+<span class="sd"> </span>
+<span class="sd">        :Return:</span>
+<span class="sd">            - `outDict` (dict)  - dictionnary with descriptive statistics ( mean, std, median).  Addictional Item *values* collects cycle values</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+       
+    <span class="n">outDict</span><span class="o">=</span><span class="nb">dict</span><span class="p">()</span>    
+    
+    <span class="n">n</span><span class="o">=</span><span class="nb">len</span><span class="p">([</span><span class="n">cycle</span> <span class="k">for</span> <span class="n">cycle</span> <span class="ow">in</span> <span class="n">cycles</span> <span class="k">if</span> <span class="n">cycle</span><span class="o">.</span><span class="n">enableFlag</span> <span class="ow">and</span> <span class="n">cycle</span><span class="o">.</span><span class="n">context</span><span class="o">==</span><span class="n">context</span><span class="p">])</span> <span class="c1"># list comprehension , get number of enabled cycle </span>
+    
+    <span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="mi">101</span><span class="p">,</span><span class="n">n</span><span class="p">))</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="mi">101</span><span class="p">,</span><span class="n">n</span><span class="p">))</span>
+    <span class="n">z</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="mi">101</span><span class="p">,</span><span class="n">n</span><span class="p">))</span>
+
+    <span class="n">listOfPointValues</span><span class="o">=</span><span class="nb">list</span><span class="p">()</span>
+
+    <span class="n">i</span><span class="o">=</span><span class="mi">0</span>
+    <span class="k">for</span> <span class="n">cycle</span> <span class="ow">in</span> <span class="n">cycles</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">cycle</span><span class="o">.</span><span class="n">enableFlag</span> <span class="ow">and</span> <span class="n">cycle</span><span class="o">.</span><span class="n">context</span><span class="o">==</span><span class="n">context</span><span class="p">:</span>
+            <span class="n">tmp</span> <span class="o">=</span> <span class="n">cycle</span><span class="o">.</span><span class="n">getPointTimeSequenceDataNormalized</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
+            <span class="n">x</span><span class="p">[:,</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">tmp</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">y</span><span class="p">[:,</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">tmp</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">z</span><span class="p">[:,</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">tmp</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]</span>
+            
+            <span class="n">listOfPointValues</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tmp</span><span class="p">)</span>
+            
+            <span class="n">i</span><span class="o">+=</span><span class="mi">1</span>
+                
+            
+    <span class="n">meanData</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">101</span><span class="p">,</span><span class="mi">3</span><span class="p">)))</span>    
+    <span class="n">meanData</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">meanData</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">meanData</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">z</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    
+    <span class="n">stdData</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">101</span><span class="p">,</span><span class="mi">3</span><span class="p">)))</span>    
+    <span class="n">stdData</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">stdData</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">stdData</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">z</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+
+    <span class="n">medianData</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">101</span><span class="p">,</span><span class="mi">3</span><span class="p">)))</span>    
+    <span class="n">medianData</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">medianData</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">medianData</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">z</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+
+    <span class="n">outDict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;mean&#39;</span><span class="p">:</span><span class="n">meanData</span><span class="p">,</span> <span class="s1">&#39;median&#39;</span><span class="p">:</span><span class="n">medianData</span><span class="p">,</span> <span class="s1">&#39;std&#39;</span><span class="p">:</span><span class="n">stdData</span><span class="p">,</span> <span class="s1">&#39;values&#39;</span><span class="p">:</span> <span class="n">listOfPointValues</span> <span class="p">}</span>
+    
+
+            
+    <span class="k">return</span> <span class="n">outDict</span></div>
+    
+    
+    
+<div class="viewcode-block" id="analog_descriptiveStats"><a class="viewcode-back" href="../../../pyCGM2.Processing.html#pyCGM2.Processing.cycle.analog_descriptiveStats">[docs]</a><span class="k">def</span> <span class="nf">analog_descriptiveStats</span><span class="p">(</span><span class="n">cycles</span><span class="p">,</span><span class="n">label</span><span class="p">,</span><span class="n">context</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Compute descriptive statistics of analog parameters from a `cycles` instance  </span>
+<span class="sd">        </span>
+<span class="sd">        :Parameters:</span>
+<span class="sd">             - `cycles` (pyCGM2.Processing.cycle.Cycles) - Cycles instance built fron CycleFilter</span>
+<span class="sd">             - `label` (str) - analog label</span>
+<span class="sd">             - `context` (str) - cycle side context ( Left, Right) </span>
+<span class="sd"> </span>
+<span class="sd">        :Return:</span>
+<span class="sd">            - `outDict` (dict)  - dictionnary with descriptive statistics ( mean, std, median).  Addictional Item *values* collects cycle values</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+
+
+    <span class="n">outDict</span><span class="o">=</span><span class="nb">dict</span><span class="p">()</span>    
+
+
+    
+    <span class="n">n</span><span class="o">=</span><span class="nb">len</span><span class="p">([</span><span class="n">cycle</span> <span class="k">for</span> <span class="n">cycle</span> <span class="ow">in</span> <span class="n">cycles</span> <span class="k">if</span> <span class="n">cycle</span><span class="o">.</span><span class="n">enableFlag</span> <span class="ow">and</span> <span class="n">cycle</span><span class="o">.</span><span class="n">context</span><span class="o">==</span><span class="n">context</span><span class="p">])</span> <span class="c1"># list comprehension , get number of enabled cycle </span>
+    
+    <span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="mi">1001</span><span class="p">,</span><span class="n">n</span><span class="p">))</span>
+
+    <span class="n">i</span><span class="o">=</span><span class="mi">0</span>
+    <span class="k">for</span> <span class="n">cycle</span> <span class="ow">in</span> <span class="n">cycles</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">cycle</span><span class="o">.</span><span class="n">enableFlag</span> <span class="ow">and</span> <span class="n">cycle</span><span class="o">.</span><span class="n">context</span><span class="o">==</span><span class="n">context</span><span class="p">:</span>
+            <span class="n">tmp</span> <span class="o">=</span> <span class="n">cycle</span><span class="o">.</span><span class="n">getAnalogTimeSequenceDataNormalized</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
+            <span class="n">x</span><span class="p">[:,</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">tmp</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span>
+          
+            
+            <span class="n">i</span><span class="o">+=</span><span class="mi">1</span>
+
+    <span class="n">x_resize</span><span class="o">=</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">1001</span><span class="p">:</span><span class="mi">10</span><span class="p">,:]</span>
+            
+    <span class="n">meanData</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">101</span><span class="p">,</span><span class="mi">1</span><span class="p">)))</span>    
+    <span class="n">meanData</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x_resize</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    
+    <span class="n">stdData</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">101</span><span class="p">,</span><span class="mi">1</span><span class="p">)))</span>    
+    <span class="n">stdData</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">x_resize</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="n">medianData</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">101</span><span class="p">,</span><span class="mi">1</span><span class="p">)))</span>    
+    <span class="n">medianData</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">x_resize</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+
+    <span class="n">outDict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;mean&#39;</span><span class="p">:</span><span class="n">meanData</span><span class="p">,</span> <span class="s1">&#39;median&#39;</span><span class="p">:</span><span class="n">medianData</span><span class="p">,</span> <span class="s1">&#39;std&#39;</span><span class="p">:</span><span class="n">stdData</span><span class="p">,</span> <span class="s1">&#39;values&#39;</span><span class="p">:</span> <span class="n">x_resize</span> <span class="p">}</span>
+            
+    <span class="k">return</span> <span class="n">outDict</span></div>
+
+<span class="c1">#----module classes ------</span>
+
+<div class="viewcode-block" id="Cycle"><a class="viewcode-back" href="../../../pyCGM2.Processing.html#pyCGM2.Processing.cycle.Cycle">[docs]</a><span class="k">class</span> <span class="nc">Cycle</span><span class="p">(</span><span class="n">ma</span><span class="o">.</span><span class="n">Node</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Cut out a trial and create a generic Cycle from specific times </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1">#pour definir un label, il faut passer par la methode setName de l objet node</span>
+
+
+    
+<div class="viewcode-block" id="Cycle.__init__"><a class="viewcode-back" href="../../../pyCGM2.Processing.html#pyCGM2.Processing.cycle.Cycle.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">trial</span><span class="p">,</span><span class="n">startTime</span><span class="p">,</span><span class="n">endTime</span><span class="p">,</span><span class="n">context</span><span class="p">,</span> <span class="n">enableFlag</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :Parameters:</span>
+<span class="sd">             - `trial` (openma-trial) - openma from a c3d</span>
+<span class="sd">             - `startTime` (double) -  start time of the cycle</span>
+<span class="sd">             - `endTime` (double) - end time of the cycle </span>
+<span class="sd">             - `enableFlag` (bool) - flag the Cycle in order to indicate if we can use it in a analysis process.   </span>
+<span class="sd">         </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+  
+        <span class="n">nodeLabel</span> <span class="o">=</span> <span class="s2">&quot;Cycle&quot;</span>   
+        <span class="nb">super</span><span class="p">(</span><span class="n">Cycle</span><span class="p">,</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="n">nodeLabel</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">trial</span><span class="o">=</span><span class="n">trial</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pointfrequency</span> <span class="o">=</span> <span class="n">trial</span><span class="o">.</span><span class="n">findChild</span><span class="p">(</span><span class="n">ma</span><span class="o">.</span><span class="n">T_TimeSequence</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">,[[</span><span class="s2">&quot;type&quot;</span><span class="p">,</span><span class="n">ma</span><span class="o">.</span><span class="n">TimeSequence</span><span class="o">.</span><span class="n">Type_Marker</span><span class="p">]])</span><span class="o">.</span><span class="n">sampleRate</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">analogfrequency</span> <span class="o">=</span> <span class="n">trial</span><span class="o">.</span><span class="n">findChild</span><span class="p">(</span><span class="n">ma</span><span class="o">.</span><span class="n">T_TimeSequence</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">,[[</span><span class="s2">&quot;type&quot;</span><span class="p">,</span><span class="n">ma</span><span class="o">.</span><span class="n">TimeSequence</span><span class="o">.</span><span class="n">Type_Analog</span><span class="p">]])</span><span class="o">.</span><span class="n">sampleRate</span><span class="p">()</span> 
+        <span class="bp">self</span><span class="o">.</span><span class="n">appf</span> <span class="o">=</span>  <span class="bp">self</span><span class="o">.</span><span class="n">analogfrequency</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">pointfrequency</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">firstFrame</span> <span class="o">=</span> <span class="n">trial</span><span class="o">.</span><span class="n">findChild</span><span class="p">(</span><span class="n">ma</span><span class="o">.</span><span class="n">T_TimeSequence</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">,[[</span><span class="s2">&quot;type&quot;</span><span class="p">,</span><span class="n">ma</span><span class="o">.</span><span class="n">TimeSequence</span><span class="o">.</span><span class="n">Type_Marker</span><span class="p">]])</span><span class="o">.</span><span class="n">startTime</span><span class="p">()</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">pointfrequency</span>
+
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">begin</span> <span class="o">=</span>  <span class="nb">round</span><span class="p">(</span><span class="n">startTime</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">pointfrequency</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">end</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">endTime</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">pointfrequency</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">context</span><span class="o">=</span><span class="n">context</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">enableFlag</span> <span class="o">=</span> <span class="n">enableFlag</span>
+                        
+        <span class="bp">self</span><span class="o">.</span><span class="n">discreteDataList</span><span class="o">=</span><span class="p">[]</span>
+
+        <span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;cycle makes from Frame </span><span class="si">%d</span><span class="s2">   to  </span><span class="si">%d</span><span class="s2">   (</span><span class="si">%s</span><span class="s2">) &quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">begin</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">end</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">context</span><span class="p">))</span></div>
+        
+
+
+<div class="viewcode-block" id="Cycle.setEnableFlag"><a class="viewcode-back" href="../../../pyCGM2.Processing.html#pyCGM2.Processing.cycle.Cycle.setEnableFlag">[docs]</a>    <span class="k">def</span> <span class="nf">setEnableFlag</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">flag</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        set the cycle flag</span>
+<span class="sd">        </span>
+<span class="sd">        :Parameters:</span>
+<span class="sd">             - `flag` (bool) - boolean flag </span>
+<span class="sd">         </span>
+<span class="sd">        &quot;&quot;&quot;</span>        
+        <span class="bp">self</span><span class="o">.</span><span class="n">enableFlag</span> <span class="o">=</span> <span class="n">flag</span>        </div>
+        
+    <span class="k">def</span> <span class="nf">addDiscreteData</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">label</span><span class="p">,</span><span class="n">value</span><span class="p">,</span><span class="n">instant</span><span class="p">):</span>
+        <span class="k">pass</span> <span class="c1">#todo</span>
+
+<div class="viewcode-block" id="Cycle.getPointTimeSequenceData"><a class="viewcode-back" href="../../../pyCGM2.Processing.html#pyCGM2.Processing.cycle.Cycle.getPointTimeSequenceData">[docs]</a>    <span class="k">def</span> <span class="nf">getPointTimeSequenceData</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">pointLabel</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Get temporal point data of the cycle  </span>
+<span class="sd">        </span>
+<span class="sd">            :Parameters:</span>
+<span class="sd">                - `pointLabel` (str) - point Label</span>
+<span class="sd">         </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">CGM2trialTools</span><span class="o">.</span><span class="n">isTimeSequenceExist</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">trial</span><span class="p">,</span><span class="n">pointLabel</span><span class="p">):</span>
+            <span class="k">return</span>  <span class="bp">self</span><span class="o">.</span><span class="n">trial</span><span class="o">.</span><span class="n">findChild</span><span class="p">(</span><span class="n">ma</span><span class="o">.</span><span class="n">T_TimeSequence</span><span class="p">,</span> <span class="n">pointLabel</span><span class="p">)</span><span class="o">.</span><span class="n">data</span><span class="p">()[</span><span class="bp">self</span><span class="o">.</span><span class="n">begin</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">firstFrame</span><span class="p">:</span><span class="bp">self</span><span class="o">.</span><span class="n">end</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">firstFrame</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="c1"># 0.3 because openma::Ts includes a forth column (i.e residual)  </span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;[pyCGM2] marker </span><span class="si">%s</span><span class="s2"> doesn t exist&quot;</span><span class="o">%</span> <span class="n">pointLabel</span> <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Cycle.getPointTimeSequenceDataNormalized"><a class="viewcode-back" href="../../../pyCGM2.Processing.html#pyCGM2.Processing.cycle.Cycle.getPointTimeSequenceDataNormalized">[docs]</a>    <span class="k">def</span> <span class="nf">getPointTimeSequenceDataNormalized</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">pointLabel</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Normalisation of a point label </span>
+<span class="sd">        </span>
+<span class="sd">            :Parameters:</span>
+<span class="sd">                - `pointLabel` (str) - point Label</span>
+<span class="sd">         </span>
+<span class="sd">        &quot;&quot;&quot;</span>         
+        
+        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getPointTimeSequenceData</span><span class="p">(</span><span class="n">pointLabel</span><span class="p">)</span>
+        <span class="k">return</span>  <span class="n">MathNormalisation</span><span class="o">.</span><span class="n">timeSequenceNormalisation</span><span class="p">(</span><span class="mi">101</span><span class="p">,</span><span class="n">data</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Cycle.getAnalogTimeSequenceData"><a class="viewcode-back" href="../../../pyCGM2.Processing.html#pyCGM2.Processing.cycle.Cycle.getAnalogTimeSequenceData">[docs]</a>    <span class="k">def</span> <span class="nf">getAnalogTimeSequenceData</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">analogLabel</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Get analog data of the cycle  </span>
+<span class="sd">        </span>
+<span class="sd">            :Parameters:</span>
+<span class="sd">                - `analogLabel` (str) - analog Label</span>
+<span class="sd">         </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">CGM2trialTools</span><span class="o">.</span><span class="n">isTimeSequenceExist</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">trial</span><span class="p">,</span><span class="n">analogLabel</span><span class="p">):</span>
+            <span class="k">return</span>  <span class="bp">self</span><span class="o">.</span><span class="n">trial</span><span class="o">.</span><span class="n">findChild</span><span class="p">(</span><span class="n">ma</span><span class="o">.</span><span class="n">T_TimeSequence</span><span class="p">,</span> <span class="n">analogLabel</span><span class="p">)</span><span class="o">.</span><span class="n">data</span><span class="p">()[(</span><span class="bp">self</span><span class="o">.</span><span class="n">begin</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">firstFrame</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">appf</span> <span class="p">:</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">end</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">firstFrame</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">appf</span><span class="p">,:]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;[pyCGM2] Analog </span><span class="si">%s</span><span class="s2"> doesn t exist&quot;</span><span class="o">%</span> <span class="n">analogLabel</span> <span class="p">)</span></div>
+        
+<div class="viewcode-block" id="Cycle.getAnalogTimeSequenceDataNormalized"><a class="viewcode-back" href="../../../pyCGM2.Processing.html#pyCGM2.Processing.cycle.Cycle.getAnalogTimeSequenceDataNormalized">[docs]</a>    <span class="k">def</span> <span class="nf">getAnalogTimeSequenceDataNormalized</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">analogLabel</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Get analog data of the cycle  </span>
+<span class="sd">            </span>
+<span class="sd">            :Parameters:</span>
+<span class="sd">                - `analogLabel` (str) - analog Label</span>
+<span class="sd">        &quot;&quot;&quot;</span>                 
+        
+        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getAnalogTimeSequenceData</span><span class="p">(</span><span class="n">analogLabel</span><span class="p">)</span>
+        <span class="k">return</span>  <span class="n">MathNormalisation</span><span class="o">.</span><span class="n">timeSequenceNormalisation</span><span class="p">(</span><span class="mi">101</span><span class="p">,</span><span class="n">data</span><span class="p">)</span>        </div>
+
+<div class="viewcode-block" id="Cycle.getEvents"><a class="viewcode-back" href="../../../pyCGM2.Processing.html#pyCGM2.Processing.cycle.Cycle.getEvents">[docs]</a>    <span class="k">def</span> <span class="nf">getEvents</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">context</span><span class="o">=</span><span class="s2">&quot;All&quot;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Get all events of the cycle  </span>
+<span class="sd">            </span>
+<span class="sd">            :Parameters:</span>
+<span class="sd">                - `context` (str) - event context ( All, Left or Right) </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="n">events</span> <span class="o">=</span> <span class="n">ma</span><span class="o">.</span><span class="n">Node</span><span class="p">(</span><span class="s2">&quot;Events&quot;</span><span class="p">)</span>
+        <span class="n">evsn</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">trial</span><span class="o">.</span><span class="n">findChild</span><span class="p">(</span><span class="n">ma</span><span class="o">.</span><span class="n">T_Node</span><span class="p">,</span><span class="s2">&quot;SortedEvents&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">ev</span> <span class="ow">in</span> <span class="n">evsn</span><span class="o">.</span><span class="n">findChildren</span><span class="p">(</span><span class="n">ma</span><span class="o">.</span><span class="n">T_Event</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">context</span><span class="o">==</span><span class="p">(</span><span class="s2">&quot;Left&quot;</span> <span class="ow">or</span> <span class="s2">&quot;Right&quot;</span><span class="p">)</span> <span class="p">:</span>
+                <span class="k">if</span> <span class="n">ev</span><span class="o">.</span><span class="n">context</span><span class="p">()</span> <span class="o">==</span><span class="n">context</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="nb">round</span><span class="p">(</span><span class="n">ev</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">pointfrequency</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>  <span class="o">&gt;</span><span class="bp">self</span><span class="o">.</span><span class="n">begin</span> <span class="ow">and</span>  <span class="nb">round</span><span class="p">(</span><span class="n">ev</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">pointfrequency</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="o">&lt;</span><span class="bp">self</span><span class="o">.</span><span class="n">end</span><span class="p">:</span>
+                        <span class="n">ev</span><span class="o">.</span><span class="n">addParent</span><span class="p">(</span><span class="n">events</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">if</span> <span class="nb">round</span><span class="p">(</span><span class="n">ev</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">pointfrequency</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">begin</span> <span class="ow">and</span>  <span class="nb">round</span><span class="p">(</span><span class="n">ev</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">pointfrequency</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">end</span><span class="p">:</span>
+                    <span class="n">ev</span><span class="o">.</span><span class="n">addParent</span><span class="p">(</span><span class="n">events</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">events</span></div></div>
+        
+        
+<div class="viewcode-block" id="GaitCycle"><a class="viewcode-back" href="../../../pyCGM2.Processing.html#pyCGM2.Processing.cycle.GaitCycle">[docs]</a><span class="k">class</span> <span class="nc">GaitCycle</span><span class="p">(</span><span class="n">Cycle</span><span class="p">):</span>
+
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Herited method of Cycle specifying a Gait Cycle </span>
+<span class="sd">        </span>
+<span class="sd">        .. note:: </span>
+<span class="sd">        </span>
+<span class="sd">            - By default, X0 and Yo are the longitudinal and lateral global axis respectively</span>
+<span class="sd">            - Each GaitCycle creation computes spatio-temporal parameters automatically.</span>
+<span class="sd">            - spatio-temporal parameters are :</span>
+<span class="sd">                &quot;duration&quot;, &quot;cadence&quot;, </span>
+<span class="sd">                &quot;stanceDuration&quot;, &quot;stancePhase&quot;, </span>
+<span class="sd">                &quot;swingDuration&quot;, &quot;swingPhase&quot;, &quot;doubleStance1&quot;, &quot;doubleStance2&quot;,</span>
+<span class="sd">                &quot;simpleStance&quot;, &quot;strideLength&quot;, &quot;stepLength&quot;,</span>
+<span class="sd">                &quot;strideWidth&quot;, &quot;speed&quot;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+
+    <span class="n">STP_LABELS</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;duration&quot;</span><span class="p">,</span><span class="s2">&quot;cadence&quot;</span><span class="p">,</span> <span class="s2">&quot;stanceDuration&quot;</span><span class="p">,</span>  <span class="s2">&quot;stancePhase&quot;</span><span class="p">,</span> 
+                <span class="s2">&quot;swingDuration&quot;</span><span class="p">,</span> <span class="s2">&quot;swingPhase&quot;</span><span class="p">,</span> <span class="s2">&quot;doubleStance1&quot;</span><span class="p">,</span> <span class="s2">&quot;doubleStance2&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;simpleStance&quot;</span><span class="p">,</span> <span class="s2">&quot;strideLength&quot;</span><span class="p">,</span> <span class="s2">&quot;stepLength&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;strideWidth&quot;</span><span class="p">,</span> <span class="s2">&quot;speed&quot;</span><span class="p">]</span>
+
+    
+<div class="viewcode-block" id="GaitCycle.__init__"><a class="viewcode-back" href="../../../pyCGM2.Processing.html#pyCGM2.Processing.cycle.GaitCycle.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">gaitTrial</span><span class="p">,</span><span class="n">startTime</span><span class="p">,</span><span class="n">endTime</span><span class="p">,</span><span class="n">context</span><span class="p">,</span> <span class="n">enableFlag</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+                 <span class="n">longitudinal_axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">lateral_axis</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :Parameters:</span>
+<span class="sd">             - `trial` (openma-trial) - openma from a c3d</span>
+<span class="sd">             - `startTime` (double) -  start time of the cycle</span>
+<span class="sd">             - `endTime` (double) - end time of the cycle </span>
+<span class="sd">             - `enableFlag` (bool) - flag the Cycle in order to indicate if we can use it in a analysis process.</span>
+<span class="sd">             - `longitudinal_axis` (int) - index of the  longitudinal global axis (X=0, Y=1, Z=2)</span>
+<span class="sd">             - `lateral_axis` (int) - index of the lateral global axis (X=0, Y=1, Z=2)                 </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+
+
+        <span class="nb">super</span><span class="p">(</span><span class="n">GaitCycle</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="n">gaitTrial</span><span class="p">,</span><span class="n">startTime</span><span class="p">,</span><span class="n">endTime</span><span class="p">,</span><span class="n">context</span><span class="p">,</span> <span class="n">enableFlag</span> <span class="o">=</span> <span class="n">enableFlag</span><span class="p">)</span>
+        
+        <span class="c1">#ajout des oppositeFO, contraFO,oopositeFS </span>
+        <span class="n">evs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">getEvents</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">context</span><span class="o">==</span><span class="s2">&quot;Right&quot;</span><span class="p">:</span>
+            <span class="n">oppositeSide</span><span class="o">=</span><span class="s2">&quot;Left&quot;</span>
+        <span class="k">elif</span> <span class="n">context</span><span class="o">==</span><span class="s2">&quot;Left&quot;</span><span class="p">:</span>
+            <span class="n">oppositeSide</span><span class="o">=</span><span class="s2">&quot;Right&quot;</span>
+        <span class="k">for</span> <span class="n">ev</span> <span class="ow">in</span> <span class="n">evs</span><span class="o">.</span><span class="n">findChildren</span><span class="p">(</span><span class="n">ma</span><span class="o">.</span><span class="n">T_Event</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">ev</span><span class="o">.</span><span class="n">name</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;Foot Off&quot;</span> <span class="ow">and</span> <span class="n">ev</span><span class="o">.</span><span class="n">context</span><span class="p">()</span><span class="o">==</span><span class="n">oppositeSide</span><span class="p">:</span>
+                <span class="n">oppositeFO</span><span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">ev</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">pointfrequency</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span> 
+            <span class="k">if</span> <span class="n">ev</span><span class="o">.</span><span class="n">name</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;Foot Strike&quot;</span> <span class="ow">and</span> <span class="n">ev</span><span class="o">.</span><span class="n">context</span><span class="p">()</span><span class="o">==</span><span class="n">oppositeSide</span><span class="p">:</span>
+                <span class="n">oppositeFS</span><span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">ev</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">pointfrequency</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+            <span class="k">if</span> <span class="n">ev</span><span class="o">.</span><span class="n">name</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;Foot Off&quot;</span> <span class="ow">and</span> <span class="n">ev</span><span class="o">.</span><span class="n">context</span><span class="p">()</span><span class="o">==</span><span class="n">context</span><span class="p">:</span>
+                <span class="n">contraFO</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">ev</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">pointfrequency</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="n">oppositeFO</span> <span class="o">&gt;</span> <span class="n">oppositeFS</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;[pyCGM2] : check your c3d - Gait event error&quot;</span><span class="p">)</span>
+        
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">m_oppositeFO</span><span class="o">=</span><span class="n">oppositeFO</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">m_oppositeFS</span><span class="o">=</span><span class="n">oppositeFS</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">m_contraFO</span><span class="o">=</span><span class="n">contraFO</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">m_normalizedOppositeFO</span><span class="o">=</span><span class="nb">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">m_oppositeFO</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">begin</span><span class="p">),</span><span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">end</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">begin</span><span class="p">))</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">m_normalizedOppositeFS</span><span class="o">=</span><span class="nb">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">m_oppositeFS</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">begin</span><span class="p">),</span><span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">end</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">begin</span><span class="p">))</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">m_normalizedContraFO</span><span class="o">=</span><span class="nb">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">m_contraFO</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">begin</span><span class="p">),</span><span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">end</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">begin</span><span class="p">))</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span>
+        
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">__computeSpatioTemporalParameter</span><span class="p">(</span><span class="n">longitudinal_axis</span><span class="p">,</span><span class="n">lateral_axis</span><span class="p">)</span></div>
+        
+        
+    <span class="k">def</span> <span class="nf">__computeSpatioTemporalParameter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">longitudinal_axis</span><span class="p">,</span><span class="n">lateral_axis</span><span class="p">):</span>
+
+        <span class="n">duration</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">divide</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">end</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">begin</span><span class="p">),</span><span class="bp">self</span><span class="o">.</span><span class="n">pointfrequency</span><span class="p">)</span>
+
+        <span class="n">pst</span> <span class="o">=</span> <span class="n">ma</span><span class="o">.</span><span class="n">Node</span><span class="p">(</span><span class="s2">&quot;stp&quot;</span><span class="p">,</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">pst</span><span class="o">.</span><span class="n">setProperty</span><span class="p">(</span><span class="s2">&quot;duration&quot;</span><span class="p">,</span> <span class="n">duration</span><span class="p">)</span>
+        <span class="n">pst</span><span class="o">.</span><span class="n">setProperty</span><span class="p">(</span><span class="s2">&quot;cadence&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="mf">60.0</span><span class="p">,</span><span class="n">duration</span><span class="p">))</span>
+        <span class="n">stanceDuration</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">m_contraFO</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">begin</span><span class="p">)</span> <span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">pointfrequency</span><span class="p">)</span>
+        <span class="n">pst</span><span class="o">.</span><span class="n">setProperty</span><span class="p">(</span><span class="s2">&quot;stanceDuration&quot;</span><span class="p">,</span> <span class="n">stanceDuration</span><span class="p">)</span>
+        <span class="n">pst</span><span class="o">.</span><span class="n">setProperty</span><span class="p">(</span><span class="s2">&quot;stancePhase&quot;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="n">stanceDuration</span><span class="p">,</span><span class="n">duration</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span><span class="p">))</span>        
+        <span class="n">swingDuration</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">m_contraFO</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">end</span><span class="p">)</span> <span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">pointfrequency</span><span class="p">)</span>        
+        <span class="n">pst</span><span class="o">.</span><span class="n">setProperty</span><span class="p">(</span><span class="s2">&quot;swingDuration&quot;</span><span class="p">,</span> <span class="n">swingDuration</span><span class="p">)</span>
+        <span class="n">pst</span><span class="o">.</span><span class="n">setProperty</span><span class="p">(</span><span class="s2">&quot;swingPhase&quot;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="n">swingDuration</span><span class="p">,</span><span class="n">duration</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span> <span class="p">))</span>
+        <span class="n">pst</span><span class="o">.</span><span class="n">setProperty</span><span class="p">(</span><span class="s2">&quot;doubleStance1&quot;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">m_oppositeFO</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">begin</span><span class="p">)</span> <span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">pointfrequency</span><span class="p">),</span><span class="n">duration</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span><span class="p">))</span>
+        <span class="n">pst</span><span class="o">.</span><span class="n">setProperty</span><span class="p">(</span><span class="s2">&quot;doubleStance2&quot;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">m_contraFO</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">m_oppositeFS</span><span class="p">)</span> <span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">pointfrequency</span><span class="p">),</span><span class="n">duration</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span><span class="p">))</span>
+        <span class="n">pst</span><span class="o">.</span><span class="n">setProperty</span><span class="p">(</span><span class="s2">&quot;simpleStance&quot;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">m_oppositeFO</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">m_oppositeFS</span><span class="p">)</span> <span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">pointfrequency</span><span class="p">),</span><span class="n">duration</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span><span class="p">))</span>
+
+        <span class="c1">#pst.setProperty(&quot;simpleStance3 &quot;,15.0 )</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">context</span> <span class="o">==</span> <span class="s2">&quot;Left&quot;</span><span class="p">:</span>
+
+            <span class="k">if</span> <span class="n">CGM2trialTools</span><span class="o">.</span><span class="n">isTimeSequenceExist</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">trial</span><span class="p">,</span><span class="s2">&quot;LHEE&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">CGM2trialTools</span><span class="o">.</span><span class="n">isTimeSequenceExist</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">trial</span><span class="p">,</span><span class="s2">&quot;RHEE&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">CGM2trialTools</span><span class="o">.</span><span class="n">isTimeSequenceExist</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">trial</span><span class="p">,</span><span class="s2">&quot;LTOE&quot;</span><span class="p">):</span>
+                
+                <span class="n">strideLength</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">getPointTimeSequenceData</span><span class="p">(</span><span class="s2">&quot;LHEE&quot;</span><span class="p">)[</span><span class="bp">self</span><span class="o">.</span><span class="n">end</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">begin</span><span class="p">,</span><span class="n">longitudinal_axis</span><span class="p">]</span> <span class="o">-</span>\
+                                    <span class="bp">self</span><span class="o">.</span><span class="n">getPointTimeSequenceData</span><span class="p">(</span><span class="s2">&quot;LHEE&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">,</span><span class="n">longitudinal_axis</span><span class="p">])</span><span class="o">/</span><span class="mf">1000.0</span>
+                <span class="n">pst</span><span class="o">.</span><span class="n">setProperty</span><span class="p">(</span><span class="s2">&quot;strideLength&quot;</span><span class="p">,</span> <span class="n">strideLength</span><span class="p">)</span>
+
+                <span class="n">stepLength</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">getPointTimeSequenceData</span><span class="p">(</span><span class="s2">&quot;RHEE&quot;</span><span class="p">)[</span><span class="bp">self</span><span class="o">.</span><span class="n">m_oppositeFS</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">begin</span><span class="p">,</span><span class="n">longitudinal_axis</span><span class="p">]</span> <span class="o">-</span>\
+                                    <span class="bp">self</span><span class="o">.</span><span class="n">getPointTimeSequenceData</span><span class="p">(</span><span class="s2">&quot;LHEE&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">,</span><span class="n">longitudinal_axis</span><span class="p">])</span><span class="o">/</span><span class="mf">1000.0</span>
+                <span class="n">pst</span><span class="o">.</span><span class="n">setProperty</span><span class="p">(</span><span class="s2">&quot;stepLength&quot;</span><span class="p">,</span> <span class="n">stepLength</span><span class="p">)</span>
+                
+                <span class="n">strideWidth</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">getPointTimeSequenceData</span><span class="p">(</span><span class="s2">&quot;LTOE&quot;</span><span class="p">)[</span><span class="bp">self</span><span class="o">.</span><span class="n">end</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">begin</span><span class="p">,</span><span class="n">lateral_axis</span><span class="p">]</span> <span class="o">-</span>\
+                                     <span class="bp">self</span><span class="o">.</span><span class="n">getPointTimeSequenceData</span><span class="p">(</span><span class="s2">&quot;RHEE&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">,</span><span class="n">lateral_axis</span><span class="p">])</span><span class="o">/</span><span class="mf">1000.0</span>
+                <span class="n">pst</span><span class="o">.</span><span class="n">setProperty</span><span class="p">(</span><span class="s2">&quot;strideWidth&quot;</span><span class="p">,</span> <span class="n">strideWidth</span><span class="p">)</span>
+                
+                <span class="n">pst</span><span class="o">.</span><span class="n">setProperty</span><span class="p">(</span><span class="s2">&quot;speed&quot;</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="n">strideLength</span><span class="p">,</span><span class="n">duration</span><span class="p">))</span> 
+                
+                
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">context</span> <span class="o">==</span> <span class="s2">&quot;Right&quot;</span><span class="p">:</span>
+
+            <span class="k">if</span> <span class="n">CGM2trialTools</span><span class="o">.</span><span class="n">isTimeSequenceExist</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">trial</span><span class="p">,</span><span class="s2">&quot;RHEE&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">CGM2trialTools</span><span class="o">.</span><span class="n">isTimeSequenceExist</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">trial</span><span class="p">,</span><span class="s2">&quot;LHEE&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">CGM2trialTools</span><span class="o">.</span><span class="n">isTimeSequenceExist</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">trial</span><span class="p">,</span><span class="s2">&quot;RTOE&quot;</span><span class="p">):</span>               
+                <span class="k">try</span><span class="p">:</span> 
+                    <span class="n">strideLength</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">getPointTimeSequenceData</span><span class="p">(</span><span class="s2">&quot;RHEE&quot;</span><span class="p">)[</span><span class="bp">self</span><span class="o">.</span><span class="n">end</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">begin</span><span class="p">,</span><span class="n">longitudinal_axis</span><span class="p">]</span> <span class="o">-</span>\
+                                        <span class="bp">self</span><span class="o">.</span><span class="n">getPointTimeSequenceData</span><span class="p">(</span><span class="s2">&quot;RHEE&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">,</span><span class="n">longitudinal_axis</span><span class="p">])</span><span class="o">/</span><span class="mf">1000.0</span>
+                     
+                    <span class="n">strideWidth</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">getPointTimeSequenceData</span><span class="p">(</span><span class="s2">&quot;RTOE&quot;</span><span class="p">)[</span><span class="bp">self</span><span class="o">.</span><span class="n">end</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">begin</span><span class="p">,</span><span class="n">lateral_axis</span><span class="p">]</span> <span class="o">-</span>\
+                                     <span class="bp">self</span><span class="o">.</span><span class="n">getPointTimeSequenceData</span><span class="p">(</span><span class="s2">&quot;LHEE&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">,</span><span class="n">lateral_axis</span><span class="p">])</span><span class="o">/</span><span class="mf">1000.0</span> 
+                                        
+                <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
+                    <span class="n">strideLength</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">getPointTimeSequenceData</span><span class="p">(</span><span class="s2">&quot;RHEE&quot;</span><span class="p">)[(</span><span class="bp">self</span><span class="o">.</span><span class="n">end</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">begin</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">longitudinal_axis</span><span class="p">]</span> <span class="o">-</span>\
+                                        <span class="bp">self</span><span class="o">.</span><span class="n">getPointTimeSequenceData</span><span class="p">(</span><span class="s2">&quot;RHEE&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">,</span><span class="n">longitudinal_axis</span><span class="p">])</span><span class="o">/</span><span class="mf">1000.0</span>
+                                        
+                    <span class="n">strideWidth</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">getPointTimeSequenceData</span><span class="p">(</span><span class="s2">&quot;RTOE&quot;</span><span class="p">)[</span><span class="bp">self</span><span class="o">.</span><span class="n">end</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">begin</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">lateral_axis</span><span class="p">]</span> <span class="o">-</span>\
+                                     <span class="bp">self</span><span class="o">.</span><span class="n">getPointTimeSequenceData</span><span class="p">(</span><span class="s2">&quot;LHEE&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">,</span><span class="n">lateral_axis</span><span class="p">])</span><span class="o">/</span><span class="mf">1000.0</span>                                         
+                                        
+                    <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;The last frame of the c3d is probably a foot strike. PyCGM2 takes the before-end Frame fro computing bth stride length and stride width&quot;</span> <span class="p">)</span>
+
+                <span class="n">pst</span><span class="o">.</span><span class="n">setProperty</span><span class="p">(</span><span class="s2">&quot;strideLength&quot;</span><span class="p">,</span> <span class="n">strideLength</span><span class="p">)</span>
+                <span class="n">pst</span><span class="o">.</span><span class="n">setProperty</span><span class="p">(</span><span class="s2">&quot;strideWidth&quot;</span><span class="p">,</span> <span class="n">strideWidth</span><span class="p">)</span>
+
+                <span class="n">stepLength</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">getPointTimeSequenceData</span><span class="p">(</span><span class="s2">&quot;RHEE&quot;</span><span class="p">)[</span><span class="bp">self</span><span class="o">.</span><span class="n">m_oppositeFS</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">begin</span><span class="p">,</span><span class="n">longitudinal_axis</span><span class="p">]</span> <span class="o">-</span>\
+                                    <span class="bp">self</span><span class="o">.</span><span class="n">getPointTimeSequenceData</span><span class="p">(</span><span class="s2">&quot;LHEE&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">,</span><span class="n">longitudinal_axis</span><span class="p">])</span><span class="o">/</span><span class="mf">1000.0</span>
+                <span class="n">pst</span><span class="o">.</span><span class="n">setProperty</span><span class="p">(</span><span class="s2">&quot;stepLength&quot;</span><span class="p">,</span> <span class="n">stepLength</span><span class="p">)</span>
+                
+                <span class="n">pst</span><span class="o">.</span><span class="n">setProperty</span><span class="p">(</span><span class="s2">&quot;speed&quot;</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="n">strideLength</span><span class="p">,</span><span class="n">duration</span><span class="p">))</span>
+
+<div class="viewcode-block" id="GaitCycle.getSpatioTemporalParameter"><a class="viewcode-back" href="../../../pyCGM2.Processing.html#pyCGM2.Processing.cycle.GaitCycle.getSpatioTemporalParameter">[docs]</a>    <span class="k">def</span> <span class="nf">getSpatioTemporalParameter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">label</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return a spatio-temporal parameter</span>
+
+<span class="sd">        :Parameters:</span>
+<span class="sd">             - `label` (str) - label of the desired spatio-temporal parameter</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">stpNode</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">findChild</span><span class="p">(</span><span class="n">ma</span><span class="o">.</span><span class="n">T_Node</span><span class="p">,</span><span class="s2">&quot;stp&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">stpNode</span><span class="o">.</span><span class="n">property</span><span class="p">(</span><span class="n">label</span><span class="p">)</span><span class="o">.</span><span class="n">cast</span><span class="p">()</span></div></div>
+
+
+<span class="c1"># ----- PATTERN BUILDER -----</span>
+
+<span class="c1"># ----- FILTER -----</span>
+<div class="viewcode-block" id="CyclesFilter"><a class="viewcode-back" href="../../../pyCGM2.Processing.html#pyCGM2.Processing.cycle.CyclesFilter">[docs]</a><span class="k">class</span> <span class="nc">CyclesFilter</span><span class="p">:</span> 
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Filter buiding a Cycles instance.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+ 
+    <span class="n">__builder</span> <span class="o">=</span> <span class="kc">None</span>
+ 
+<div class="viewcode-block" id="CyclesFilter.setBuilder"><a class="viewcode-back" href="../../../pyCGM2.Processing.html#pyCGM2.Processing.cycle.CyclesFilter.setBuilder">[docs]</a>    <span class="k">def</span> <span class="nf">setBuilder</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">builder</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Set the cycle builder        </span>
+<span class="sd">        </span>
+<span class="sd">            :Parameters:</span>
+<span class="sd">                 - `builder` (concrete cycleBuilder) - a concrete cycle builder   </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__builder</span> <span class="o">=</span> <span class="n">builder</span></div>
+ 
+
+<div class="viewcode-block" id="CyclesFilter.build"><a class="viewcode-back" href="../../../pyCGM2.Processing.html#pyCGM2.Processing.cycle.CyclesFilter.build">[docs]</a>    <span class="k">def</span> <span class="nf">build</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Build a `Cycles` instance</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">cycles</span> <span class="o">=</span> <span class="n">Cycles</span><span class="p">()</span>
+ 
+        <span class="n">spatioTemporalElements</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__builder</span><span class="o">.</span><span class="n">getSpatioTemporal</span><span class="p">()</span>
+        <span class="n">cycles</span><span class="o">.</span><span class="n">setSpatioTemporalCycles</span><span class="p">(</span><span class="n">spatioTemporalElements</span><span class="p">)</span>        
+
+        <span class="n">kinematicElements</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__builder</span><span class="o">.</span><span class="n">getKinematics</span><span class="p">()</span>            
+        <span class="n">cycles</span><span class="o">.</span><span class="n">setKinematicCycles</span><span class="p">(</span><span class="n">kinematicElements</span><span class="p">)</span>
+  
+        <span class="n">kineticElements</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__builder</span><span class="o">.</span><span class="n">getKinetics</span><span class="p">()</span>
+        <span class="n">cycles</span><span class="o">.</span><span class="n">setKineticCycles</span><span class="p">(</span><span class="n">kineticElements</span><span class="p">)</span>
+
+        <span class="n">emgElements</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__builder</span><span class="o">.</span><span class="n">getEmg</span><span class="p">()</span>
+        <span class="n">cycles</span><span class="o">.</span><span class="n">setEmgCycles</span><span class="p">(</span><span class="n">emgElements</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">cycles</span>   </div></div>
+
+
+<span class="c1"># --- OBJECT TO BUILD</span>
+<div class="viewcode-block" id="Cycles"><a class="viewcode-back" href="../../../pyCGM2.Processing.html#pyCGM2.Processing.cycle.Cycles">[docs]</a><span class="k">class</span> <span class="nc">Cycles</span><span class="p">():</span> 
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Object to build from CycleFilter. </span>
+<span class="sd">    </span>
+<span class="sd">    Cycles work as **class-container**. Its attribute member collects list of build Cycle</span>
+
+<span class="sd">    Attribute :</span>
+<span class="sd">      </span>
+<span class="sd">      - `spatioTemporalCycles` - (list of Cycle) - collect list of build cycles uses for spatiotemporal analysis       </span>
+<span class="sd">      - `kinematicCycles` - (list of Cycle) - collect list of build cycles uses for kinematic analysis</span>
+<span class="sd">      - `kineticCycles` - (list of Cycle) - collect list of build cycles uses for kinetic analysis </span>
+<span class="sd">      - `emgCycles` - (list of Cycle) - collect list of build cycles uses for emg analysis   </span>
+<span class="sd">       </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+   
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">spatioTemporalCycles</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">kinematicCycles</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">kineticCycles</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">emgCycles</span> <span class="o">=</span> <span class="kc">None</span>
+        
+
+    <span class="k">def</span> <span class="nf">setSpatioTemporalCycles</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">spatioTemporalCycles_instance</span><span class="p">):</span>   
+        <span class="bp">self</span><span class="o">.</span><span class="n">spatioTemporalCycles</span> <span class="o">=</span> <span class="n">spatioTemporalCycles_instance</span>    
+       
+    <span class="k">def</span> <span class="nf">setKinematicCycles</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">kinematicCycles_instance</span><span class="p">):</span>   
+        <span class="bp">self</span><span class="o">.</span><span class="n">kinematicCycles</span> <span class="o">=</span> <span class="n">kinematicCycles_instance</span>
+
+    <span class="k">def</span> <span class="nf">setKineticCycles</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">kineticCycles_instance</span><span class="p">):</span>   
+        <span class="bp">self</span><span class="o">.</span><span class="n">kineticCycles</span> <span class="o">=</span> <span class="n">kineticCycles_instance</span>
+
+    <span class="k">def</span> <span class="nf">setEmgCycles</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">emgCycles_instance</span><span class="p">):</span>   
+        <span class="bp">self</span><span class="o">.</span><span class="n">emgCycles</span> <span class="o">=</span> <span class="n">emgCycles_instance</span>    </div>
+    
+    
+<span class="c1"># --- BUILDER </span>
+<span class="k">class</span> <span class="nc">CyclesBuilder</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">spatioTemporalTrials</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">kinematicTrials</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">kineticTrials</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">emgTrials</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">longitudinal_axis</span><span class="o">=</span><span class="s2">&quot;X&quot;</span><span class="p">,</span><span class="n">lateral_axis</span><span class="o">=</span><span class="s2">&quot;Y&quot;</span><span class="p">):</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">spatioTemporalTrials</span> <span class="o">=</span><span class="n">spatioTemporalTrials</span>        
+        <span class="bp">self</span><span class="o">.</span><span class="n">kinematicTrials</span> <span class="o">=</span><span class="n">kinematicTrials</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">kineticTrials</span> <span class="o">=</span><span class="n">kineticTrials</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">emgTrials</span> <span class="o">=</span><span class="n">emgTrials</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">longitudinal_axis</span><span class="o">=</span><span class="n">longitudinal_axis</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lateral_axis</span><span class="o">=</span><span class="n">lateral_axis</span>
+        
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">longitudinal_axis</span> <span class="o">==</span> <span class="s2">&quot;X&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">longitudinal_axis_index</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">longitudinal_axis</span> <span class="o">==</span> <span class="s2">&quot;Y&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">longitudinal_axis_index</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">longitudinal_axis</span> <span class="o">==</span> <span class="s2">&quot;Z&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">longitudinal_axis_index</span> <span class="o">=</span> <span class="mi">2</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">lateral_axis</span> <span class="o">==</span> <span class="s2">&quot;X&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">lateral_axis_index</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">lateral_axis</span> <span class="o">==</span> <span class="s2">&quot;Y&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">lateral_axis_index</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">lateral_axis</span> <span class="o">==</span> <span class="s2">&quot;Z&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">lateral_axis_index</span> <span class="o">=</span> <span class="mi">2</span>
+
+
+
+    <span class="k">def</span> <span class="nf">getSpatioTemporal</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> <span class="k">pass</span>   
+    <span class="k">def</span> <span class="nf">getKinematics</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span><span class="k">pass</span>
+    <span class="k">def</span> <span class="nf">getKinetics</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span><span class="k">pass</span>
+    <span class="k">def</span> <span class="nf">getEmg</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span><span class="k">pass</span>
+
+<div class="viewcode-block" id="GaitCyclesBuilder"><a class="viewcode-back" href="../../../pyCGM2.Processing.html#pyCGM2.Processing.cycle.GaitCyclesBuilder">[docs]</a><span class="k">class</span> <span class="nc">GaitCyclesBuilder</span><span class="p">(</span><span class="n">CyclesBuilder</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Concrete builder extracting Cycles from gait trials</span>
+<span class="sd">        </span>
+<span class="sd">        .. important:: The underlying concept is spatio-temporal parameters, kinematic outputs, kinetic ouputs or emg  could be extracted from different gait trials. </span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="GaitCyclesBuilder.__init__"><a class="viewcode-back" href="../../../pyCGM2.Processing.html#pyCGM2.Processing.cycle.GaitCyclesBuilder.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">spatioTemporalTrials</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">kinematicTrials</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">kineticTrials</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">emgTrials</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">longitudinal_axis</span><span class="o">=</span><span class="s2">&quot;X&quot;</span><span class="p">,</span><span class="n">lateral_axis</span><span class="o">=</span><span class="s2">&quot;Y&quot;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            :Parameters:</span>
+<span class="sd">                 - `spatioTemporalTrials` (list of openma trials) - list of trials of which Cycles will be extracted for computing spatio-temporal parameters   </span>
+<span class="sd">                 - `kinematicTrials` (list of openma trials) - list of trials of which Cycles will be extracted for computing kinematic outputs </span>
+<span class="sd">                 - `kineticTrials` (list of openma trials) - list of trials of which Cycles will be extracted for computing kinetic outputs </span>
+<span class="sd">                 - `emgTrials` (list of openma trials) - list of trials of which Cycles will be extracted for emg </span>
+<span class="sd">                 - `longitudinal_axis` (str) - label of the  longitudinal global axis (X, Y or Z)</span>
+<span class="sd">                 - `lateral_axis` (str) - label of the  longitudinal global axis (X, Y or Z)                </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>        
+        
+        
+        <span class="nb">super</span><span class="p">(</span><span class="n">GaitCyclesBuilder</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span>
+            <span class="n">spatioTemporalTrials</span> <span class="o">=</span> <span class="n">spatioTemporalTrials</span><span class="p">,</span>
+            <span class="n">kinematicTrials</span><span class="o">=</span><span class="n">kinematicTrials</span><span class="p">,</span>
+            <span class="n">kineticTrials</span> <span class="o">=</span> <span class="n">kineticTrials</span><span class="p">,</span>
+            <span class="n">emgTrials</span> <span class="o">=</span> <span class="n">emgTrials</span><span class="p">,</span>
+            <span class="n">longitudinal_axis</span><span class="o">=</span><span class="n">longitudinal_axis</span><span class="p">,</span>
+            <span class="n">lateral_axis</span><span class="o">=</span><span class="n">lateral_axis</span>
+            <span class="p">)</span></div>
+            
+          
+<div class="viewcode-block" id="GaitCyclesBuilder.getSpatioTemporal"><a class="viewcode-back" href="../../../pyCGM2.Processing.html#pyCGM2.Processing.cycle.GaitCyclesBuilder.getSpatioTemporal">[docs]</a>    <span class="k">def</span> <span class="nf">getSpatioTemporal</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">           extract Cycles used for  spatio Temporal parameters</span>
+<span class="sd">       </span>
+<span class="sd">           :return:</span>
+<span class="sd">               -`spatioTemporalCycles` (list of GaitCycle)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">spatioTemporalTrials</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">spatioTemporalCycles</span><span class="o">=</span><span class="nb">list</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">trial</span> <span class="ow">in</span>  <span class="bp">self</span><span class="o">.</span><span class="n">spatioTemporalTrials</span><span class="p">:</span>
+                 
+                <span class="n">context</span> <span class="o">=</span> <span class="s2">&quot;Left&quot;</span>
+                <span class="n">left_fs_times</span><span class="o">=</span><span class="nb">list</span><span class="p">()</span>
+                <span class="k">for</span> <span class="n">ev</span> <span class="ow">in</span>  <span class="n">trial</span><span class="o">.</span><span class="n">findChild</span><span class="p">(</span><span class="n">ma</span><span class="o">.</span><span class="n">T_Node</span><span class="p">,</span><span class="s2">&quot;SortedEvents&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">findChildren</span><span class="p">(</span><span class="n">ma</span><span class="o">.</span><span class="n">T_Event</span><span class="p">,</span><span class="s2">&quot;Foot Strike&quot;</span><span class="p">,[[</span><span class="s2">&quot;context&quot;</span><span class="p">,</span><span class="s2">&quot;Left&quot;</span><span class="p">]]):</span>
+                    <span class="n">left_fs_times</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ev</span><span class="o">.</span><span class="n">time</span><span class="p">())</span>
+
+                <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">left_fs_times</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+                    <span class="n">spatioTemporalCycles</span><span class="o">.</span><span class="n">append</span> <span class="p">(</span><span class="n">GaitCycle</span><span class="p">(</span><span class="n">trial</span><span class="p">,</span> <span class="n">left_fs_times</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">left_fs_times</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span>
+                                                   <span class="n">context</span><span class="p">,</span>
+                                                   <span class="n">longitudinal_axis</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">longitudinal_axis_index</span><span class="p">,</span>
+                                                   <span class="n">lateral_axis</span> <span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">lateral_axis_index</span><span class="p">))</span> 
+
+                <span class="n">context</span> <span class="o">=</span> <span class="s2">&quot;Right&quot;</span>
+                <span class="n">right_fs_times</span><span class="o">=</span><span class="nb">list</span><span class="p">()</span>
+                <span class="k">for</span> <span class="n">ev</span> <span class="ow">in</span>  <span class="n">trial</span><span class="o">.</span><span class="n">findChild</span><span class="p">(</span><span class="n">ma</span><span class="o">.</span><span class="n">T_Node</span><span class="p">,</span><span class="s2">&quot;SortedEvents&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">findChildren</span><span class="p">(</span><span class="n">ma</span><span class="o">.</span><span class="n">T_Event</span><span class="p">,</span><span class="s2">&quot;Foot Strike&quot;</span><span class="p">,[[</span><span class="s2">&quot;context&quot;</span><span class="p">,</span><span class="s2">&quot;Right&quot;</span><span class="p">]]):</span>
+                    <span class="n">right_fs_times</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ev</span><span class="o">.</span><span class="n">time</span><span class="p">())</span>
+
+                <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">right_fs_times</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+                    <span class="n">spatioTemporalCycles</span><span class="o">.</span><span class="n">append</span> <span class="p">(</span><span class="n">GaitCycle</span><span class="p">(</span><span class="n">trial</span><span class="p">,</span> <span class="n">right_fs_times</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">right_fs_times</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span>
+                                                   <span class="n">context</span><span class="p">,</span>
+                                                   <span class="n">longitudinal_axis</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">longitudinal_axis_index</span><span class="p">,</span>
+                                                   <span class="n">lateral_axis</span> <span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">lateral_axis_index</span><span class="p">))</span>
+
+            <span class="k">return</span> <span class="n">spatioTemporalCycles</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="GaitCyclesBuilder.getKinematics"><a class="viewcode-back" href="../../../pyCGM2.Processing.html#pyCGM2.Processing.cycle.GaitCyclesBuilder.getKinematics">[docs]</a>    <span class="k">def</span> <span class="nf">getKinematics</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">           extract Cycles used for kinematic outputs</span>
+<span class="sd">           </span>
+<span class="sd">           :return:</span>
+<span class="sd">             -`kinematicCycles` (list of GaitCycle)</span>
+<span class="sd">        &quot;&quot;&quot;</span>        
+        
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">kinematicTrials</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">kinematicCycles</span><span class="o">=</span><span class="nb">list</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">trial</span> <span class="ow">in</span>  <span class="bp">self</span><span class="o">.</span><span class="n">kinematicTrials</span><span class="p">:</span>
+                 
+                <span class="n">context</span> <span class="o">=</span> <span class="s2">&quot;Left&quot;</span>
+                <span class="n">left_fs_times</span><span class="o">=</span><span class="nb">list</span><span class="p">()</span>
+                <span class="k">for</span> <span class="n">ev</span> <span class="ow">in</span>  <span class="n">trial</span><span class="o">.</span><span class="n">findChild</span><span class="p">(</span><span class="n">ma</span><span class="o">.</span><span class="n">T_Node</span><span class="p">,</span><span class="s2">&quot;SortedEvents&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">findChildren</span><span class="p">(</span><span class="n">ma</span><span class="o">.</span><span class="n">T_Event</span><span class="p">,</span><span class="s2">&quot;Foot Strike&quot;</span><span class="p">,[[</span><span class="s2">&quot;context&quot;</span><span class="p">,</span><span class="s2">&quot;Left&quot;</span><span class="p">]]):</span>
+                    <span class="n">left_fs_times</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ev</span><span class="o">.</span><span class="n">time</span><span class="p">())</span>
+
+                <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">left_fs_times</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+                    <span class="n">kinematicCycles</span><span class="o">.</span><span class="n">append</span> <span class="p">(</span><span class="n">GaitCycle</span><span class="p">(</span><span class="n">trial</span><span class="p">,</span> <span class="n">left_fs_times</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">left_fs_times</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span>
+                                                   <span class="n">context</span><span class="p">,</span>
+                                                   <span class="n">longitudinal_axis</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">longitudinal_axis_index</span><span class="p">,</span>
+                                                   <span class="n">lateral_axis</span> <span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">lateral_axis_index</span><span class="p">))</span> 
+
+                <span class="n">context</span> <span class="o">=</span> <span class="s2">&quot;Right&quot;</span>
+                <span class="n">right_fs_times</span><span class="o">=</span><span class="nb">list</span><span class="p">()</span>
+                <span class="k">for</span> <span class="n">ev</span> <span class="ow">in</span>  <span class="n">trial</span><span class="o">.</span><span class="n">findChild</span><span class="p">(</span><span class="n">ma</span><span class="o">.</span><span class="n">T_Node</span><span class="p">,</span><span class="s2">&quot;SortedEvents&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">findChildren</span><span class="p">(</span><span class="n">ma</span><span class="o">.</span><span class="n">T_Event</span><span class="p">,</span><span class="s2">&quot;Foot Strike&quot;</span><span class="p">,[[</span><span class="s2">&quot;context&quot;</span><span class="p">,</span><span class="s2">&quot;Right&quot;</span><span class="p">]]):</span>
+                    <span class="n">right_fs_times</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ev</span><span class="o">.</span><span class="n">time</span><span class="p">())</span>
+
+                <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">right_fs_times</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+                    <span class="n">kinematicCycles</span><span class="o">.</span><span class="n">append</span> <span class="p">(</span><span class="n">GaitCycle</span><span class="p">(</span><span class="n">trial</span><span class="p">,</span> <span class="n">right_fs_times</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">right_fs_times</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span>
+                                                   <span class="n">context</span><span class="p">,</span>
+                                                   <span class="n">longitudinal_axis</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">longitudinal_axis_index</span><span class="p">,</span>
+                                                   <span class="n">lateral_axis</span> <span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">lateral_axis_index</span><span class="p">))</span>
+
+            <span class="k">return</span> <span class="n">kinematicCycles</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span></div>
+            
+<div class="viewcode-block" id="GaitCyclesBuilder.getKinetics"><a class="viewcode-back" href="../../../pyCGM2.Processing.html#pyCGM2.Processing.cycle.GaitCyclesBuilder.getKinetics">[docs]</a>    <span class="k">def</span> <span class="nf">getKinetics</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            extract Cycles used for kinetic outputs</span>
+<span class="sd">        </span>
+<span class="sd">            :return:</span>
+<span class="sd">                -`kineticCycles` (list of GaitCycle)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">kineticTrials</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            
+            <span class="n">detectionTimeOffset</span> <span class="o">=</span> <span class="mf">0.02</span>            
+            
+            <span class="n">kineticCycles</span><span class="o">=</span><span class="nb">list</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">trial</span> <span class="ow">in</span>  <span class="bp">self</span><span class="o">.</span><span class="n">kineticTrials</span><span class="p">:</span>
+                
+                <span class="n">flag_kinetics</span><span class="p">,</span><span class="n">times</span> <span class="o">=</span> <span class="n">CGM2trialTools</span><span class="o">.</span><span class="n">isKineticFlag</span><span class="p">(</span><span class="n">trial</span><span class="p">)</span>
+                
+                <span class="k">if</span> <span class="n">flag_kinetics</span><span class="p">:</span>
+                    <span class="n">context</span> <span class="o">=</span> <span class="s2">&quot;Left&quot;</span>
+                    <span class="n">count_L</span><span class="o">=</span><span class="mi">0</span>
+                    <span class="n">left_fs_times</span><span class="o">=</span><span class="nb">list</span><span class="p">()</span>
+                    <span class="k">for</span> <span class="n">ev</span> <span class="ow">in</span>  <span class="n">trial</span><span class="o">.</span><span class="n">findChild</span><span class="p">(</span><span class="n">ma</span><span class="o">.</span><span class="n">T_Node</span><span class="p">,</span><span class="s2">&quot;SortedEvents&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">findChildren</span><span class="p">(</span><span class="n">ma</span><span class="o">.</span><span class="n">T_Event</span><span class="p">,</span><span class="s2">&quot;Foot Strike&quot;</span><span class="p">,[[</span><span class="s2">&quot;context&quot;</span><span class="p">,</span><span class="s2">&quot;Left&quot;</span><span class="p">]]):</span>
+                        <span class="n">left_fs_times</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ev</span><span class="o">.</span><span class="n">time</span><span class="p">())</span>
+                                            
+                    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">left_fs_times</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+                        <span class="n">timeDiff_L</span> <span class="o">=</span>  <span class="p">[</span><span class="n">x</span><span class="o">-</span><span class="n">left_fs_times</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">times</span> <span class="p">]</span>
+                        
+                        <span class="k">if</span> <span class="nb">any</span><span class="p">([</span><span class="kc">True</span> <span class="k">if</span> <span class="p">(</span><span class="n">x</span><span class="o">&gt;-</span><span class="n">detectionTimeOffset</span> <span class="ow">and</span> <span class="n">x</span> <span class="o">&lt;</span><span class="n">detectionTimeOffset</span><span class="p">)</span> <span class="k">else</span> <span class="kc">False</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">timeDiff_L</span><span class="p">]):</span>
+                            <span class="n">count_L</span><span class="o">+=</span><span class="mi">1</span>
+                            <span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Left kinetic cycle found from </span><span class="si">%.2f</span><span class="s2"> to </span><span class="si">%.2f</span><span class="s2">&quot;</span> <span class="o">%</span><span class="p">(</span><span class="n">left_fs_times</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">left_fs_times</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]))</span>
+                            <span class="n">kineticCycles</span><span class="o">.</span><span class="n">append</span> <span class="p">(</span><span class="n">GaitCycle</span><span class="p">(</span><span class="n">trial</span><span class="p">,</span> <span class="n">left_fs_times</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">left_fs_times</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span>
+                                                           <span class="n">context</span><span class="p">,</span>
+                                                           <span class="n">longitudinal_axis</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">longitudinal_axis_index</span><span class="p">,</span>
+                                                           <span class="n">lateral_axis</span> <span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">lateral_axis_index</span><span class="p">))</span> 
+                
+                    <span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%i</span><span class="s2"> Left Kinetic cycles available&quot;</span> <span class="o">%</span><span class="p">(</span><span class="n">count_L</span><span class="p">))</span>    
+                    
+                    
+                    <span class="n">context</span> <span class="o">=</span> <span class="s2">&quot;Right&quot;</span>
+                    <span class="n">count_R</span><span class="o">=</span><span class="mi">0</span>                    
+                    <span class="n">right_fs_times</span><span class="o">=</span><span class="nb">list</span><span class="p">()</span>
+                    <span class="k">for</span> <span class="n">ev</span> <span class="ow">in</span>  <span class="n">trial</span><span class="o">.</span><span class="n">findChild</span><span class="p">(</span><span class="n">ma</span><span class="o">.</span><span class="n">T_Node</span><span class="p">,</span><span class="s2">&quot;SortedEvents&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">findChildren</span><span class="p">(</span><span class="n">ma</span><span class="o">.</span><span class="n">T_Event</span><span class="p">,</span><span class="s2">&quot;Foot Strike&quot;</span><span class="p">,[[</span><span class="s2">&quot;context&quot;</span><span class="p">,</span><span class="s2">&quot;Right&quot;</span><span class="p">]]):</span>
+                        <span class="n">right_fs_times</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ev</span><span class="o">.</span><span class="n">time</span><span class="p">())</span>
+    
+                    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">right_fs_times</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+                        <span class="n">timeDiff_R</span> <span class="o">=</span>  <span class="p">[</span><span class="n">x</span><span class="o">-</span><span class="n">right_fs_times</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">times</span> <span class="p">]</span>
+                        <span class="k">if</span> <span class="nb">any</span><span class="p">([</span><span class="kc">True</span> <span class="k">if</span> <span class="p">(</span><span class="n">x</span><span class="o">&gt;-</span><span class="n">detectionTimeOffset</span> <span class="ow">and</span> <span class="n">x</span> <span class="o">&lt;</span><span class="n">detectionTimeOffset</span><span class="p">)</span> <span class="k">else</span> <span class="kc">False</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">timeDiff_R</span><span class="p">]):</span>
+                            <span class="n">count_R</span><span class="o">+=</span><span class="mi">1</span>
+                            <span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;right kinetic cycle found from </span><span class="si">%.2f</span><span class="s2"> to </span><span class="si">%.2f</span><span class="s2">&quot;</span> <span class="o">%</span><span class="p">(</span><span class="n">right_fs_times</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">right_fs_times</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]))</span>
+                            <span class="n">kineticCycles</span><span class="o">.</span><span class="n">append</span> <span class="p">(</span><span class="n">GaitCycle</span><span class="p">(</span><span class="n">trial</span><span class="p">,</span> <span class="n">right_fs_times</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">right_fs_times</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span>
+                                                           <span class="n">context</span><span class="p">,</span>
+                                                           <span class="n">longitudinal_axis</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">longitudinal_axis_index</span><span class="p">,</span>
+                                                           <span class="n">lateral_axis</span> <span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">lateral_axis_index</span><span class="p">))</span>
+                    <span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%i</span><span class="s2"> Right Kinetic cycles available&quot;</span> <span class="o">%</span><span class="p">(</span><span class="n">count_R</span><span class="p">))</span>  
+                      
+            <span class="k">return</span> <span class="n">kineticCycles</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span></div>
+            
+<div class="viewcode-block" id="GaitCyclesBuilder.getEmg"><a class="viewcode-back" href="../../../pyCGM2.Processing.html#pyCGM2.Processing.cycle.GaitCyclesBuilder.getEmg">[docs]</a>    <span class="k">def</span> <span class="nf">getEmg</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Extract Cycles used for emg</span>
+
+<span class="sd">            :return:</span>
+<span class="sd">                -`emgCycles` (list of GaitCycle)</span>
+<span class="sd">        &quot;&quot;&quot;</span>        
+        
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">emgTrials</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">emgCycles</span><span class="o">=</span><span class="nb">list</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">trial</span> <span class="ow">in</span>  <span class="bp">self</span><span class="o">.</span><span class="n">emgTrials</span><span class="p">:</span>
+                 
+                <span class="n">context</span> <span class="o">=</span> <span class="s2">&quot;Left&quot;</span>
+                <span class="n">left_fs_times</span><span class="o">=</span><span class="nb">list</span><span class="p">()</span>
+                <span class="k">for</span> <span class="n">ev</span> <span class="ow">in</span>  <span class="n">trial</span><span class="o">.</span><span class="n">findChild</span><span class="p">(</span><span class="n">ma</span><span class="o">.</span><span class="n">T_Node</span><span class="p">,</span><span class="s2">&quot;SortedEvents&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">findChildren</span><span class="p">(</span><span class="n">ma</span><span class="o">.</span><span class="n">T_Event</span><span class="p">,</span><span class="s2">&quot;Foot Strike&quot;</span><span class="p">,[[</span><span class="s2">&quot;context&quot;</span><span class="p">,</span><span class="s2">&quot;Left&quot;</span><span class="p">]]):</span>
+                    <span class="n">left_fs_times</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ev</span><span class="o">.</span><span class="n">time</span><span class="p">())</span>
+
+                <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">left_fs_times</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+                    <span class="n">emgCycles</span><span class="o">.</span><span class="n">append</span> <span class="p">(</span><span class="n">GaitCycle</span><span class="p">(</span><span class="n">trial</span><span class="p">,</span> <span class="n">left_fs_times</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">left_fs_times</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span>
+                                                   <span class="n">context</span><span class="p">,</span>
+                                                   <span class="n">longitudinal_axis</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">longitudinal_axis_index</span><span class="p">,</span>
+                                                   <span class="n">lateral_axis</span> <span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">lateral_axis_index</span><span class="p">))</span> 
+
+                <span class="n">context</span> <span class="o">=</span> <span class="s2">&quot;Right&quot;</span>
+                <span class="n">right_fs_times</span><span class="o">=</span><span class="nb">list</span><span class="p">()</span>
+                <span class="k">for</span> <span class="n">ev</span> <span class="ow">in</span>  <span class="n">trial</span><span class="o">.</span><span class="n">findChild</span><span class="p">(</span><span class="n">ma</span><span class="o">.</span><span class="n">T_Node</span><span class="p">,</span><span class="s2">&quot;SortedEvents&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">findChildren</span><span class="p">(</span><span class="n">ma</span><span class="o">.</span><span class="n">T_Event</span><span class="p">,</span><span class="s2">&quot;Foot Strike&quot;</span><span class="p">,[[</span><span class="s2">&quot;context&quot;</span><span class="p">,</span><span class="s2">&quot;Right&quot;</span><span class="p">]]):</span>
+                    <span class="n">right_fs_times</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ev</span><span class="o">.</span><span class="n">time</span><span class="p">())</span>
+
+                <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">right_fs_times</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+                    <span class="n">emgCycles</span><span class="o">.</span><span class="n">append</span> <span class="p">(</span><span class="n">GaitCycle</span><span class="p">(</span><span class="n">trial</span><span class="p">,</span> <span class="n">right_fs_times</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">right_fs_times</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span>
+                                                   <span class="n">context</span><span class="p">,</span>
+                                                   <span class="n">longitudinal_axis</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">longitudinal_axis_index</span><span class="p">,</span>
+                                                   <span class="n">lateral_axis</span> <span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">lateral_axis_index</span><span class="p">))</span>
+
+            <span class="k">return</span> <span class="n">emgCycles</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span></div></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">pyCGM2 0.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" >Module code</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017, Fabien Leboeuf.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.1.
+    </div>
+  </body>
+</html>
