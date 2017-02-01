@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="english"
+>
+<head>
+    <title>Installation - PyCGM2</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<link rel="canonical" href="/pages/installation.html">
+
+        <meta name="author" content="Fabien Leboeuf" />
+        <meta name="description" content="Recommanded PC pyCGM2 works fine on a PC following Vicon&#39;s specifications for Nexus 2. Notice Vicon recommands a Windows7-64-bits PC but Vicon-Nexus was compiled on a 32bits system. Therefore, if you need Vicon compatiblity and working with python operations from Vicon-Nexus, you need to install 32-bits python packages only Required …" />
+
+    <meta property="og:site_name" content="PyCGM2" />
+    <meta property="og:type" content="article"/>
+    <meta property="og:title" content="Installation"/>
+    <meta property="og:url" content="/pages/installation.html"/>
+    <meta property="og:description" content="Recommanded PC pyCGM2 works fine on a PC following Vicon&#39;s specifications for Nexus 2. Notice Vicon recommands a Windows7-64-bits PC but Vicon-Nexus was compiled on a 32bits system. Therefore, if you need Vicon compatiblity and working with python operations from Vicon-Nexus, you need to install 32-bits python packages only Required …" />
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="/theme/css/bootstrap.cosmo.min.css" type="text/css"/>
+    <link href="/theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="/theme/css/pygments/native.css" rel="stylesheet">
+    <link rel="stylesheet" href="/theme/css/style.css" type="text/css"/>
+
+        <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="PyCGM2 ATOM Feed"/>
+
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="/" class="navbar-brand">
+PyCGM2            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                    <li><a href="/pages/Team.html">Team</a></li>
+                    <li><a href="/pages/Installation.html">Installation</a></li>
+                    <li><a href="/html/index.html">API Documentation</a></li>
+                        <li >
+                            <a href="/category/nexus2apps.html">Nexus2apps</a>
+                        </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+<!-- Banner -->
+<style>
+	#banner{
+	    background-image:url("/images/bannerGait.png");
+         background-size: 2000px 300px;
+	}
+</style>
+
+<div id="banner">
+	<div class="container">
+		<div class="copy">
+			<h1>PyCGM2</h1>
+				<p class="intro">open source python package of the Conventional Gait Model </p>
+		</div>
+	</div>
+</div><!-- End Banner -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+
+    <section id="content" class="body">
+        <h1 class="entry-title">Installation</h1>
+        
+        <div class="entry-content">
+            <div class="section" id="recommanded-pc">
+<h2>Recommanded PC</h2>
+<p>pyCGM2 works fine on a PC following <a class="reference external" href="https://www.vicon.com/faqs">Vicon's specifications</a> for Nexus 2.</p>
+<div class="alert alert-warning">
+<blockquote>
+<p>Notice Vicon recommands a Windows7-64-bits PC but Vicon-Nexus was compiled on a 32bits system.</p>
+<p>Therefore, if you need Vicon compatiblity and working with python operations from Vicon-Nexus, <strong>you need to install 32-bits python packages only</strong></p>
+</blockquote>
+</div>
+</div>
+<div class="section" id="required-python-environment">
+<h2>Required python environment</h2>
+<p>pyCGM2 was designed according this diagram :</p>
+<img alt="" src="..\images\installation\diagramPyCGM2.png" />
+<p>pyCGM2 was coded in  <strong>python 2.7</strong></p>
+<dl class="docutils">
+<dt>pyCGM2 Code requires common scientifical python packages :</dt>
+<dd><ul class="first last simple">
+<li>numpy</li>
+<li>scipy</li>
+<li>matplotlib</li>
+<li>pandas</li>
+</ul>
+</dd>
+</dl>
+<p>These packages are provided by most of python suite (Anaconda, pythonxy, canopy).</p>
+<div class="alert alert-info">
+<blockquote>
+We recommmand the use of <a class="reference external" href="https://www.continuum.io/downloads">Anaconda2 (32bits)</a></blockquote>
+</div>
+</div>
+<div class="section" id="third-party-open-source-libraries">
+<h2>Third party open source libraries</h2>
+<p>In addition to common scientifical packages, pyCGM2 needs both motion analysis-dedicated packages : <a class="reference external" href="https://openma.org">Openma</a>  and
+<a class="reference external" href="https://github.com/Biomechanical-ToolKit/BTKCore">Btk</a>.</p>
+<p>Notice openMA is an evolution of Btk. <strong>Future release of pyCGM2 will be probably based on openMA only</strong>.</p>
+<div class="note">
+<p class="first admonition-title">Note</p>
+<p class="last">Both pre-built packages of Btk and openMA are embedded in pyCGM2 ( folder third party). <em>It's no use installing one of them</em>.</p>
+</div>
+</div>
+<div class="section" id="installation-instructions">
+<h2>Installation instructions</h2>
+<p><strong>Preliminary:</strong> if you dont already have a python suite, like Anaconda : you need installing <a class="reference external" href="https://pip.pypa.io/en/stable/installing/">pip</a></p>
+<p>Then,</p>
+<ol class="arabic simple">
+<li>Download and unzip last release of  pyCGM2 from [github](<a class="reference external" href="https://github.com/pyCGM2/pyCGM2/releases">https://github.com/pyCGM2/pyCGM2/releases</a>)</li>
+<li><strong>[Optional - if you are a Vicon Nexus 2 user]</strong>.</li>
+</ol>
+<p>Edit file : <em>pyCGM2CONFIG.py</em> and indicate absolute locations :</p>
+<blockquote>
+<div class="highlight"><pre><span></span><span class="n">NEXUS_SDK_WIN32</span> <span class="o">=</span> <span class="s1">&#39;C:/Program Files (x86)/Vicon/Nexus2.5/SDK/Win32&#39;</span>
+<span class="n">NEXUS_SDK_PYTHON</span> <span class="o">=</span> <span class="s1">&#39;C:/Program Files (x86)/Vicon/Nexus2.5/SDK/Python&#39;</span>
+<span class="n">PYTHON_NEXUS</span> <span class="o">=</span> <span class="s1">&#39;C:</span><span class="se">\\</span><span class="s1">Program Files (x86)</span><span class="se">\\</span><span class="s1">Vicon</span><span class="se">\\</span><span class="s1">Nexus2.5</span><span class="se">\\</span><span class="s1">Python&#39;</span>
+</pre></div>
+</blockquote>
+<ol class="arabic simple" start="3">
+<li>Open a MS-DOS console and go to pyCGM2 folder containing <em>setup.py</em></li>
+<li>Type <em>pip install -e .</em> ( don't forget the sign .)</li>
+</ol>
+<p>This command checks your environment and put a link in your python path ( generally <em>Libsite-packages</em>) toward your pyCGM2 folder.</p>
+<div class="alert alert-info">
+<blockquote>
+<p>if you want to keep in touch with early development, use a versioning software and replace step 1 by :</p>
+<ul class="simple">
+<li>Install a versionning sofware (SourceTree, gitHub desktop,...)</li>
+<li>Clone the https adress from github in your versionning software</li>
+</ul>
+</blockquote>
+</div>
+</div>
+<div class="section" id="id1">
+<h2>Installation instructions</h2>
+<ul class="simple">
+<li>Open a python console</li>
+<li>Type this snippet:</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyCGM2</span>
+<span class="n">pyCGM2</span><span class="o">.</span><span class="n">pyCGM2_CONFIG</span><span class="o">.</span><span class="n">checkConfig</span><span class="p">()</span>
+</pre></div>
+<p>pyCGM2 is ready to use if you obviously get no error messages.&lt;br&gt;</p>
+<img alt="" src="..\images\installation\pycgm2-checkConfig-success.png" />
+</div>
+
+        </div>
+    </section>
+        </div>
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+
+<section class="well well-sm">
+    <ul class="list-group list-group-flush">
+
+
+
+            <li class="list-group-item"><a href="/tags.html"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+                <ul class="list-group " id="tags">
+                </ul>
+            </li>
+    <li class="list-group-item"><h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Links</span></h4>
+      <ul class="list-group" id="links">
+        <li class="list-group-item">
+            <a href="http://www.salford.ac.uk/health-sciences/facilities/gait-analysis-clinic" target="_blank">
+                Salford Gait Analysis
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="https://www.vicon.com/" target="_blank">
+                Vicon
+            </a>
+        </li>
+      </ul>
+    </li>
+    </ul>
+</section>
+            </aside>
+        </div>
+    </div>
+</div>
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">&copy; 2017 Fabien Leboeuf
+            &middot; Powered by <a href="https://github.com/DandyDev/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="/theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="/theme/js/respond.min.js"></script>
+
+    <!--<script src="/theme/js/bodypadding.js"></script>-->
+
+</body>
+</html>
