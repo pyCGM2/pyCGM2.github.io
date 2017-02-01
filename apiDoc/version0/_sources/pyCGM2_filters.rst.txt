@@ -1,8 +1,0 @@
-pyCGM2 Filters
-=====================
-
-Plotting filter
------------------------------------------------
-
-.. automodule:: pyCGM2.Report.plot
-    :members: PlottingFilter
