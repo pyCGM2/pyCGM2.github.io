@@ -1,0 +1,20 @@
+pyCGM2.Tools subpackage
+=========================
+
+pyCGM2.Tools.btkTools (module)
+-------------------------------
+
+.. automodule:: pyCGM2.Tools.btkTools
+    :members:
+
+pyCGM2.Tools.exportTools (module)
+----------------------------------
+
+.. automodule:: pyCGM2.Tools.exportTools
+    :members:
+
+pyCGM2.Tools.trialTools (module)
+---------------------------------
+
+.. automodule:: pyCGM2.Tools.trialTools
+    :members:

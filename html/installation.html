@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Installation &#8212; pyCGM2-API 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootswatch-3.3.6/cosmo/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">
+          pyCGM2-API</a>
+        <span class="navbar-text navbar-version pull-left"><b>version 0.1</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+                <li><a href="https://pycgm2.github.io/index.html">pyCGM2</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts.html#nomenclature">Nomenclature</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="nexusApps.html">Nexus Applications</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="normativeData.html">Gait normative datasets</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="pyCGM2.html">pyCGM2 package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pyCGM2.Model.CGM2.html">pyCGM2.Model.CGM2 subpackage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pyCGM2.Processing.html">pyCGM2.Processing subpackage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pyCGM2.Report.html">pyCGM2.Report subpackage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pyCGM2.Signal.html">pyCGM2.Signal subpackage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pyCGM2.Math.html">pyCGM2.Math subpackage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pyCGM2.Tools.html">pyCGM2.Tools subpackage</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Installation</a><ul>
+<li><a class="reference internal" href="#recommanded-pc">Recommanded PC</a></li>
+<li><a class="reference internal" href="#required-python-environment">Required python environment</a></li>
+<li><a class="reference internal" href="#third-party-open-source-libraries">Third party open source libraries</a></li>
+<li><a class="reference internal" href="#installation-instructions">Installation instructions</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+            
+            
+            
+              <li class="hidden-sm">
+<div id="sourcelink">
+  <a href="_sources/installation.rst.txt"
+     rel="nofollow">Source</a>
+</div></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="installation">
+<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last"><strong>I put Instructions in the pycgm2 website. It no worth adding it in sphinx</strong></p>
+</div>
+<div class="section" id="recommanded-pc">
+<h2>Recommanded PC<a class="headerlink" href="#recommanded-pc" title="Permalink to this headline">¶</a></h2>
+<p>pyCGM2 works fine on a PC following <a class="reference external" href="https://www.vicon.com/faqs">Vicon&#8217;s specifications</a> for Nexus 2.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p>Notice Vicon recommands a Windows7-64-bits PC but Vicon-Nexus was compiled on a 32bits system.</p>
+<p class="last">Therefore, if you need Vicon compatiblity and working with python operations from Vicon-Nexus, <strong>you need to install 32-bits python packages only</strong></p>
+</div>
+</div>
+<div class="section" id="required-python-environment">
+<h2>Required python environment<a class="headerlink" href="#required-python-environment" title="Permalink to this headline">¶</a></h2>
+<p>pyCGM2 was designed according this diagram :</p>
+<img alt="_images/diagramPyCGM2.png" src="_images/diagramPyCGM2.png" />
+<p>pyCGM2 was coded in  <strong>python 2.7</strong></p>
+<dl class="docutils">
+<dt>pyCGM2 Code requires common scientifical python packages :</dt>
+<dd><ul class="first last simple">
+<li>numpy</li>
+<li>scipy</li>
+<li>matplotlib</li>
+<li>pandas</li>
+</ul>
+</dd>
+</dl>
+<p>These packages are provided by most of python suite (Anaconda, pythonxy, canopy).</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">We recommmand the use of <a class="reference external" href="https://www.continuum.io/downloads">Anaconda2 (32bits)</a></p>
+</div>
+</div>
+<div class="section" id="third-party-open-source-libraries">
+<h2>Third party open source libraries<a class="headerlink" href="#third-party-open-source-libraries" title="Permalink to this headline">¶</a></h2>
+<p>In addition to common scientifical packages, pyCGM2 needs both motion analysis-dedicated packages : <a class="reference external" href="https://openma.org">Openma</a>  and
+<a class="reference external" href="https://github.com/Biomechanical-ToolKit/BTKCore">Btk</a>.</p>
+<p>Notice openMA is an evolution of Btk. <strong>Future release of pyCGM2 will be probably based on openMA only</strong>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Both pre-built packages of Btk and openMA are embedded in pyCGM2 ( folder third party). <em>It&#8217;s no use installing one of them</em>.</p>
+</div>
+</div>
+<div class="section" id="installation-instructions">
+<h2>Installation instructions<a class="headerlink" href="#installation-instructions" title="Permalink to this headline">¶</a></h2>
+<p><strong>Preliminary:</strong> if you dont already have a python suite, like Anaconda : you need installing <a class="reference external" href="https://pip.pypa.io/en/stable/installing/">pip</a></p>
+<p>Then,</p>
+<ol class="arabic simple">
+<li>Download and unzip last release of  pyCGM2 from [github](<a class="reference external" href="https://github.com/pyCGM2/pyCGM2/releases">https://github.com/pyCGM2/pyCGM2/releases</a>)</li>
+<li><strong>[Optional - if you are a Vicon Nexus 2 user]</strong>.</li>
+</ol>
+<p>Edit file : <em>pyCGM2CONFIG.py</em> and indicate absolute locations :</p>
+<blockquote>
+<div><div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">NEXUS_SDK_WIN32</span> <span class="o">=</span> <span class="s1">&#39;C:/Program Files (x86)/Vicon/Nexus2.5/SDK/Win32&#39;</span>
+<span class="n">NEXUS_SDK_PYTHON</span> <span class="o">=</span> <span class="s1">&#39;C:/Program Files (x86)/Vicon/Nexus2.5/SDK/Python&#39;</span>
+<span class="n">PYTHON_NEXUS</span> <span class="o">=</span> <span class="s1">&#39;C:</span><span class="se">\\</span><span class="s1">Program Files (x86)</span><span class="se">\\</span><span class="s1">Vicon</span><span class="se">\\</span><span class="s1">Nexus2.5</span><span class="se">\\</span><span class="s1">Python&#39;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<ol class="arabic simple" start="3">
+<li>Open a MS-DOS console and go to pyCGM2 folder containing <em>setup.py</em></li>
+<li>Type <em>pip install -e .</em> ( don&#8217;t forget the sign .)</li>
+</ol>
+<p>This command checks your environment and put a link in your python path ( generally <em>Libsite-packages</em>) toward your pyCGM2 folder.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>if you want to keep in touch with early development, use a versioning software and replace step 1 by :</p>
+<ul class="last simple">
+<li>Install a versionning sofware (SourceTree, gitHub desktop,...)</li>
+<li>Clone the https adress from github in your versionning software</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2017, Fabien Leboeuf.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.1.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

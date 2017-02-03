@@ -1,0 +1,65 @@
+pyCGM2.Report subpackage
+=========================
+
+pyCGM2.Report.normativeDatabaseProcedure (module)
+-------------------------------------------------
+
+**Goal :** Construct a dictionnary from normative gait datasets available from literature as xls file.
+
+Example of usage with dataset from Pinzone2014
+
+.. code:: python
+
+    from pyCGM2.Report import normativeDatabaseProcedure
+    nd = normativeDatabaseProcedure.Pinzone2014_normativeDataBases("CentreOne")
+    nd.constructNormativeData() # this function
+    nd.data # dictionnary with all parameters extracted from the dataset CentreOne reference in Pinzone2014
+
+
+.. automodule:: pyCGM2.Report.normativeDatabaseProcedure
+    :members:
+    :special-members: __init__
+    :undoc-members:
+    :show-inheritance:
+
+pyCGM2.Report.plot (module)
+----------------------------
+
+Plot Builders
+.................
+
+**Usage example of GaitAnalysisPlotBuilder**
+
+.. code:: python
+
+    # from pyCGM2.Report import plot
+    plotBuilder = plot.GaitAnalysisPlotBuilder(analysisFilter.analysis)
+    plotBuilder.setNormativeDataProcedure(CGM2normdata.Schwartz2008_normativeDataBases("Free"))
+    plotBuilder.setConsistencyOnly(True)
+
+.. automodule:: pyCGM2.Report.plot
+    :members: StaticAnalysisPlotBuilder,GaitAnalysisPlotBuilder
+    :special-members: __init__
+
+Plot filter
+.................
+
+**Usage example**
+
+.. code:: python
+
+    # from pyCGM2.Report import plot
+    pf = plot.PlottingFilter()
+    pf.setBuilder(plotBuilder)
+    pf.setPath("c:\\myFolder\\")
+    pf.setPdfName("gaitPlot")
+    pf.plot()
+
+.. automodule:: pyCGM2.Report.plot
+    :members: PlottingFilter
+
+Convenient plots
+.................
+
+.. automodule:: pyCGM2.Report.plot
+    :members: gaitKinematicsTemporalPlotPanel, gaitKineticsTemporalPlotPanel, gaitDescriptivePlot,gaitConsistencyPlot

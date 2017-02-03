@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>pyCGM2.CONFIG &#8212; pyCGM2-API 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/bootswatch-3.3.6/cosmo/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          pyCGM2-API</a>
+        <span class="navbar-text navbar-version pull-left"><b>version 0.1</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+                <li><a href="../../https://pycgm2.github.io/index.html">pyCGM2</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts.html#nomenclature">Nomenclature</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../nexusApps.html">Nexus Applications</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../normativeData.html">Gait normative datasets</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../pyCGM2.html">pyCGM2 package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pyCGM2.Model.CGM2.html">pyCGM2.Model.CGM2 subpackage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pyCGM2.Processing.html">pyCGM2.Processing subpackage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pyCGM2.Report.html">pyCGM2.Report subpackage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pyCGM2.Signal.html">pyCGM2.Signal subpackage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pyCGM2.Math.html">pyCGM2.Math subpackage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pyCGM2.Tools.html">pyCGM2.Tools subpackage</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"></ul>
+</li>
+              
+            
+            
+            
+            
+            
+              <li class="hidden-sm"></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <h1>Source code for pyCGM2.CONFIG</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Created on Thu Sep 08 18:03:03 2016</span>
+
+<span class="sd">@author: aaa34169</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="c1"># ------------------- CONSTANTS ------------------------------------------------</span>
+
+<span class="c1"># [REQUIRED - if Vicon USer] configure if you want to run processes from Nexus   </span>
+<span class="n">NEXUS_SDK_WIN32</span> <span class="o">=</span> <span class="s1">&#39;C:/Program Files (x86)/Vicon/Nexus2.5/SDK/Win32&#39;</span>
+<span class="n">NEXUS_SDK_PYTHON</span> <span class="o">=</span> <span class="s1">&#39;C:/Program Files (x86)/Vicon/Nexus2.5/SDK/Python&#39;</span>
+<span class="n">PYTHON_NEXUS</span> <span class="o">=</span> <span class="s1">&#39;C:</span><span class="se">\\</span><span class="s1">Program Files (x86)</span><span class="se">\\</span><span class="s1">Vicon</span><span class="se">\\</span><span class="s1">Nexus2.5</span><span class="se">\\</span><span class="s1">Python&#39;</span>
+
+
+<span class="c1"># [OPTIONAL] ----------------------------------</span>
+<span class="n">MAIN_PYCGM2_PATH</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">realpath</span><span class="p">(</span><span class="n">__file__</span><span class="p">)),</span> <span class="n">os</span><span class="o">.</span><span class="n">pardir</span><span class="p">))</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\\</span><span class="s2">&quot;</span> <span class="c1">#C:\\Users\\AAA34169\\Documents\\Programming\\API\\pyCGM2\\pyCGM2\\&quot; # path toward your pyCGM2 folder ( dont forget \\ ending)  </span>
+
+ 
+<span class="c1"># [Optional]: openMA binding </span>
+<span class="n">THIRDPARTY_PATH</span> <span class="o">=</span> <span class="n">MAIN_PYCGM2_PATH</span> <span class="o">+</span> <span class="s2">&quot;third party</span><span class="se">\\</span><span class="s2">&quot;</span> <span class="c1"># By default, use openMA distribution included in third party folder  </span>
+
+<span class="c1"># [Optional] path to embbbed Normative data base. </span>
+<span class="n">NORMATIVE_DATABASE_PATH</span> <span class="o">=</span> <span class="n">MAIN_PYCGM2_PATH</span> <span class="o">+</span><span class="s2">&quot;Data</span><span class="se">\\</span><span class="s2">normativeData</span><span class="se">\\</span><span class="s2">&quot;</span>  <span class="c1"># By default, use pyCGM2-embedded normative data ( Schartz - Pinzone )  </span>
+
+<span class="c1"># [Optional] main folder containing osim model </span>
+<span class="n">OPENSIM_PREBUILD_MODEL_PATH</span> <span class="o">=</span> <span class="n">MAIN_PYCGM2_PATH</span> <span class="o">+</span> <span class="s2">&quot;Extern</span><span class="se">\\</span><span class="s2">opensim</span><span class="se">\\</span><span class="s2">&quot;</span> 
+
+<span class="c1"># [Optional] path pointing at Data Folders used for Tests</span>
+<span class="n">TEST_DATA_PATH</span> <span class="o">=</span> <span class="s2">&quot;C:</span><span class="se">\\</span><span class="s2">Users</span><span class="se">\\</span><span class="s2">AAA34169</span><span class="se">\\</span><span class="s2">Documents</span><span class="se">\\</span><span class="s2">VICON DATA</span><span class="se">\\</span><span class="s2">pyCGM2-Data</span><span class="se">\\</span><span class="s2">&quot;</span>
+<span class="n">MAIN_BENCHMARK_PATH</span> <span class="o">=</span> <span class="s2">&quot;C:</span><span class="se">\\</span><span class="s2">Users</span><span class="se">\\</span><span class="s2">AAA34169</span><span class="se">\\</span><span class="s2">Documents</span><span class="se">\\</span><span class="s2">VICON DATA</span><span class="se">\\</span><span class="s2">pyCGM2-benchmarks</span><span class="se">\\</span><span class="s2">Gait patterns</span><span class="se">\\</span><span class="s2">&quot;</span>
+
+<span class="c1"># ------------------- METHODS ------------------------------------------------</span>
+
+<div class="viewcode-block" id="setLoggingLevel"><a class="viewcode-back" href="../../pyCGM2.html#pyCGM2.CONFIG.setLoggingLevel">[docs]</a><span class="k">def</span> <span class="nf">setLoggingLevel</span><span class="p">(</span><span class="n">level</span><span class="p">):</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="nb">format</span> <span class="o">=</span> <span class="s2">&quot;[pyCGM2-</span><span class="si">%(levelname)s</span><span class="s2">]-</span><span class="si">%(module)s</span><span class="s2">-</span><span class="si">%(funcName)s</span><span class="s2"> : </span><span class="si">%(message)s</span><span class="s2">&quot;</span><span class="p">,</span><span class="n">level</span> <span class="o">=</span> <span class="n">level</span><span class="p">)</span> </div>
+
+    
+<div class="viewcode-block" id="addNexusPythonSdk"><a class="viewcode-back" href="../../pyCGM2.html#pyCGM2.CONFIG.addNexusPythonSdk">[docs]</a><span class="k">def</span> <span class="nf">addNexusPythonSdk</span><span class="p">():</span>
+    
+    <span class="k">if</span> <span class="n">NEXUS_SDK_WIN32</span>  <span class="ow">not</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="p">:</span>
+        <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="n">NEXUS_SDK_WIN32</span><span class="p">)</span>
+        <span class="nb">print</span> <span class="n">NEXUS_SDK_WIN32</span> <span class="o">+</span> <span class="s2">&quot; added to the python path&quot;</span>
+    <span class="k">if</span> <span class="n">NEXUS_SDK_PYTHON</span>  <span class="ow">not</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="p">:</span>
+        <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="n">NEXUS_SDK_PYTHON</span><span class="p">)</span>
+        <span class="nb">print</span> <span class="n">NEXUS_SDK_WIN32</span> <span class="o">+</span> <span class="s2">&quot; added to the python path&quot;</span>
+
+    <span class="n">NEXUS_PYTHON_USE</span> <span class="o">=</span> <span class="kc">True</span> <span class="k">if</span> <span class="n">PYTHON_NEXUS</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">path</span> <span class="k">else</span> <span class="kc">False</span>
+    <span class="k">if</span> <span class="n">NEXUS_PYTHON_USE</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;untick Use nexus Python in your python pipeline operation. pyCGA apps recommand anaconda Packages &quot;</span><span class="p">)</span></div>
+        
+
+<div class="viewcode-block" id="addOpenma"><a class="viewcode-back" href="../../pyCGM2.html#pyCGM2.CONFIG.addOpenma">[docs]</a><span class="k">def</span> <span class="nf">addOpenma</span><span class="p">(</span><span class="n">branch</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+
+    <span class="k">if</span> <span class="n">branch</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">THIRDPARTY_PATH</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\\</span><span class="s2">openma&quot;</span><span class="p">)</span>
+        <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">THIRDPARTY_PATH</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\\</span><span class="s2">openma</span><span class="se">\\</span><span class="s2">ma&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">branch</span><span class="o">==</span><span class="s2">&quot;master&quot;</span><span class="p">:</span>
+            <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;C:</span><span class="se">\\</span><span class="s2">Users</span><span class="se">\\</span><span class="s2">AAA34169</span><span class="se">\\</span><span class="s2">Documents</span><span class="se">\\</span><span class="s2">Programming</span><span class="se">\\</span><span class="s2">openMA</span><span class="se">\\</span><span class="s2">distribuable</span><span class="se">\\</span><span class="s2">OpenMA</span><span class="se">\\</span><span class="s2">openma&quot;</span><span class="p">)</span>
+            <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;C:</span><span class="se">\\</span><span class="s2">Users</span><span class="se">\\</span><span class="s2">AAA34169</span><span class="se">\\</span><span class="s2">Documents</span><span class="se">\\</span><span class="s2">Programming</span><span class="se">\\</span><span class="s2">openMA</span><span class="se">\\</span><span class="s2">distribuable</span><span class="se">\\</span><span class="s2">OpenMA</span><span class="se">\\</span><span class="s2">openma</span><span class="se">\\</span><span class="s2">ma&quot;</span><span class="p">)</span>
+            
+            <span class="c1"># method 1 : with path definition</span>
+            <span class="c1"># need definition in the PATH, I appended these two folders: </span>
+            <span class="c1"># C:\Users\AAA34169\Documents\Programming\openMA\Build\master\bin;</span>
+            <span class="c1"># C:\Users\AAA34169\Documents\Programming\openMA\Build\master\bin\swig\python\openma\ma;</span>
+            <span class="c1">#sys.path.append(&quot;C:\\Users\\AAA34169\\Documents\\Programming\\openMA\\Build\\master\\bin\\swig\\python\\openma&quot;)</span>
+            <span class="c1">#sys.path.append(&quot;C:\\Users\\AAA34169\\Documents\\Programming\\openMA\\Build\\master\\bin\\swig\\python\\openma\\ma&quot;)</span>
+            
+            <span class="c1"># method 2 : with openMA distribution made manually </span>
+            <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;C:</span><span class="se">\\</span><span class="s2">Users</span><span class="se">\\</span><span class="s2">AAA34169</span><span class="se">\\</span><span class="s2">Documents</span><span class="se">\\</span><span class="s2">Programming</span><span class="se">\\</span><span class="s2">openMA</span><span class="se">\\</span><span class="s2">distribuable</span><span class="se">\\</span><span class="s2">OpenMA</span><span class="se">\\</span><span class="s2">openma&quot;</span><span class="p">)</span>
+            <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;C:</span><span class="se">\\</span><span class="s2">Users</span><span class="se">\\</span><span class="s2">AAA34169</span><span class="se">\\</span><span class="s2">Documents</span><span class="se">\\</span><span class="s2">Programming</span><span class="se">\\</span><span class="s2">openMA</span><span class="se">\\</span><span class="s2">distribuable</span><span class="se">\\</span><span class="s2">OpenMA</span><span class="se">\\</span><span class="s2">openma</span><span class="se">\\</span><span class="s2">ma&quot;</span><span class="p">)</span>
+    
+        <span class="k">elif</span> <span class="n">branch</span><span class="o">==</span><span class="s2">&quot;plugin-gait-kad&quot;</span><span class="p">:</span>
+            
+            <span class="c1"># method 2 : with openMA distribution made manually </span>
+            <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;C:</span><span class="se">\\</span><span class="s2">Users</span><span class="se">\\</span><span class="s2">AAA34169</span><span class="se">\\</span><span class="s2">Documents</span><span class="se">\\</span><span class="s2">Programming</span><span class="se">\\</span><span class="s2">openMA</span><span class="se">\\</span><span class="s2">distribuable</span><span class="se">\\</span><span class="s2">OpenMA-KAD</span><span class="se">\\</span><span class="s2">openma&quot;</span><span class="p">)</span>
+            <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;C:</span><span class="se">\\</span><span class="s2">Users</span><span class="se">\\</span><span class="s2">AAA34169</span><span class="se">\\</span><span class="s2">Documents</span><span class="se">\\</span><span class="s2">Programming</span><span class="se">\\</span><span class="s2">openMA</span><span class="se">\\</span><span class="s2">distribuable</span><span class="se">\\</span><span class="s2">OpenMA-KAD</span><span class="se">\\</span><span class="s2">openma</span><span class="se">\\</span><span class="s2">ma&quot;</span><span class="p">)</span></div>
+            
+
+<div class="viewcode-block" id="addBtk"><a class="viewcode-back" href="../../pyCGM2.html#pyCGM2.CONFIG.addBtk">[docs]</a><span class="k">def</span> <span class="nf">addBtk</span><span class="p">():</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">THIRDPARTY_PATH</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\\</span><span class="s2">btk&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="checkConfig"><a class="viewcode-back" href="../../pyCGM2.html#pyCGM2.CONFIG.checkConfig">[docs]</a><span class="k">def</span> <span class="nf">checkConfig</span><span class="p">():</span>
+
+    <span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="p">:</span> 
+        <span class="k">if</span> <span class="s2">&quot;pyCGM2&quot;</span> <span class="ow">in</span> <span class="n">it</span><span class="p">:</span> 
+            <span class="nb">print</span> <span class="s2">&quot;OK&quot;</span>    
+    <span class="k">try</span><span class="p">:</span>
+        <span class="kn">import</span> <span class="nn">pyCGM2</span>
+        <span class="kn">import</span> <span class="nn">pyCGM2.CONFIG</span>
+        <span class="n">pyCGM2</span><span class="o">.</span><span class="n">CONFIG</span><span class="o">.</span><span class="n">setLoggingLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;pyCGM2 ---&gt; OK&quot;</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">Exception</span> <span class="p">(</span><span class="s2">&quot;[pyCGM2] : pyCGM2 module not in your python path&quot;</span><span class="p">)</span>
+    
+    
+    <span class="c1"># vicon nexus</span>
+    <span class="n">pyCGM2</span><span class="o">.</span><span class="n">CONFIG</span><span class="o">.</span><span class="n">addNexusPythonSdk</span><span class="p">()</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="kn">import</span> <span class="nn">ViconNexus</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;vicon API ---&gt; OK&quot;</span> <span class="p">)</span>
+    <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">error</span> <span class="p">(</span><span class="s2">&quot;[pyCGM2] : viconNexus is not in your python path. Check CONFIG&quot;</span><span class="p">)</span>
+    
+    
+    <span class="c1"># openMA</span>
+    <span class="n">pyCGM2</span><span class="o">.</span><span class="n">CONFIG</span><span class="o">.</span><span class="n">addOpenma</span><span class="p">()</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="kn">import</span> <span class="nn">ma.io</span>
+        <span class="kn">import</span> <span class="nn">ma.body</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;openMA API ---&gt; OK&quot;</span> <span class="p">)</span>        
+    <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">error</span> <span class="p">(</span><span class="s2">&quot;[pyCGM2] : openma is not in your python path. Check CONFIG&quot;</span><span class="p">)</span>
+        
+        
+    <span class="c1"># btk</span>
+    <span class="n">pyCGM2</span><span class="o">.</span><span class="n">CONFIG</span><span class="o">.</span><span class="n">addBtk</span><span class="p">()</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="kn">import</span> <span class="nn">btk</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;btk API ---&gt; OK&quot;</span> <span class="p">)</span>        
+    <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">error</span> <span class="p">(</span><span class="s2">&quot;[pyCGM2] : btk is not in your python path. Check CONFIG&quot;</span><span class="p">)</span>        </div>
+</pre></div>
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2017, Fabien Leboeuf.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.1.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

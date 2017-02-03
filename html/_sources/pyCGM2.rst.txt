@@ -1,0 +1,18 @@
+pyCGM2 package
+==============
+
+
+pyCGM2.enums (module)
+----------------------
+
+.. automodule:: pyCGM2.enums
+    :members:
+
+
+pyCGM2.smartFunctions (module)
+-------------------------------
+
+smartFunctions are high-level functions hiding code pipeline.
+
+.. automodule:: pyCGM2.smartFunctions
+    :members:

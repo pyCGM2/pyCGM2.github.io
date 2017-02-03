@@ -1,0 +1,7 @@
+pyCGM2
+======
+
+.. toctree::
+   :maxdepth: 4
+
+   pyCGM2

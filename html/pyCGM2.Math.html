@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>pyCGM2.Math subpackage &#8212; pyCGM2-API 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootswatch-3.3.6/cosmo/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="pyCGM2.Tools subpackage" href="pyCGM2.Tools.html" />
+    <link rel="prev" title="pyCGM2.Signal subpackage" href="pyCGM2.Signal.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">
+          pyCGM2-API</a>
+        <span class="navbar-text navbar-version pull-left"><b>version 0.1</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+                <li><a href="https://pycgm2.github.io/index.html">pyCGM2</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts.html#nomenclature">Nomenclature</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="nexusApps.html">Nexus Applications</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="normativeData.html">Gait normative datasets</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="pyCGM2.html">pyCGM2 package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pyCGM2.Model.CGM2.html">pyCGM2.Model.CGM2 subpackage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pyCGM2.Processing.html">pyCGM2.Processing subpackage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pyCGM2.Report.html">pyCGM2.Report subpackage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pyCGM2.Signal.html">pyCGM2.Signal subpackage</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">pyCGM2.Math subpackage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pyCGM2.Tools.html">pyCGM2.Tools subpackage</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">pyCGM2.Math subpackage</a><ul>
+<li><a class="reference internal" href="#module-pyCGM2.Math.derivation">pyCGM2.Math.derivation (module)</a></li>
+<li><a class="reference internal" href="#module-pyCGM2.Math.geometry">pyCGM2.Math.geometry (module)</a></li>
+<li><a class="reference internal" href="#module-pyCGM2.Math.normalisation">pyCGM2.Math.normalisation (module)</a></li>
+<li><a class="reference internal" href="#module-pyCGM2.Math.numeric">pyCGM2.Math.numeric (module)</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+            
+            
+            
+              <li class="hidden-sm">
+<div id="sourcelink">
+  <a href="_sources/pyCGM2.Math.rst.txt"
+     rel="nofollow">Source</a>
+</div></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="pycgm2-math-subpackage">
+<h1>pyCGM2.Math subpackage<a class="headerlink" href="#pycgm2-math-subpackage" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-pyCGM2.Math.derivation">
+<span id="pycgm2-math-derivation-module"></span><h2>pyCGM2.Math.derivation (module)<a class="headerlink" href="#module-pyCGM2.Math.derivation" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="pyCGM2.Math.derivation.firstOrderFiniteDifference">
+<code class="descclassname">pyCGM2.Math.derivation.</code><code class="descname">firstOrderFiniteDifference</code><span class="sig-paren">(</span><em>values</em>, <em>sampleFrequency</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Math/derivation.html#firstOrderFiniteDifference"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Math.derivation.firstOrderFiniteDifference" title="Permalink to this definition">¶</a></dt>
+<dd><p>First-order differentiation of an array</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><cite>values</cite> (numpy.array(m,n)) - array of values</li>
+<li><cite>sampleFrequency</cite> (double) - sample frequency</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return:</th><td class="field-body"><ul class="first last simple">
+<li><cite>out</cite> (numpy.array(m,n)) - derivated values</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyCGM2.Math.derivation.matrixFirstDerivation">
+<code class="descclassname">pyCGM2.Math.derivation.</code><code class="descname">matrixFirstDerivation</code><span class="sig-paren">(</span><em>motionList</em>, <em>sampleFrequency</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Math/derivation.html#matrixFirstDerivation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Math.derivation.matrixFirstDerivation" title="Permalink to this definition">¶</a></dt>
+<dd><p>First-order differentiation of a list of array</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><cite>values</cite> (list of numpy.array(m,n)) - array of values</li>
+<li><cite>sampleFrequency</cite> (double) - sample frequency</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return:</th><td class="field-body"><ul class="first last simple">
+<li><cite>out</cite> (list numpy.array(m,n)) - derivated values</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyCGM2.Math.derivation.matrixSecondDerivation">
+<code class="descclassname">pyCGM2.Math.derivation.</code><code class="descname">matrixSecondDerivation</code><span class="sig-paren">(</span><em>motionList</em>, <em>sampleFrequency</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Math/derivation.html#matrixSecondDerivation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Math.derivation.matrixSecondDerivation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Second-order differentiation of a list of array</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><cite>values</cite> (list of numpy.array(m,n)) - array of values</li>
+<li><cite>sampleFrequency</cite> (double) - sample frequency</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return:</th><td class="field-body"><ul class="first last simple">
+<li><cite>out</cite> (list numpy.array(m,n)) - derivated values</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyCGM2.Math.derivation.secondOrderFiniteDifference">
+<code class="descclassname">pyCGM2.Math.derivation.</code><code class="descname">secondOrderFiniteDifference</code><span class="sig-paren">(</span><em>values</em>, <em>sampleFrequency</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Math/derivation.html#secondOrderFiniteDifference"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Math.derivation.secondOrderFiniteDifference" title="Permalink to this definition">¶</a></dt>
+<dd><p>Second-order differentiation of an array</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><cite>values</cite> (numpy.array(m,n)) - array of values</li>
+<li><cite>sampleFrequency</cite> (double) - sample frequency</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return:</th><td class="field-body"><ul class="first last simple">
+<li><cite>out</cite> (numpy.array(m,n)) - derivated values</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyCGM2.Math.derivation.splineDerivation">
+<code class="descclassname">pyCGM2.Math.derivation.</code><code class="descname">splineDerivation</code><span class="sig-paren">(</span><em>values</em>, <em>sampleFrequency</em>, <em>order=1</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Math/derivation.html#splineDerivation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Math.derivation.splineDerivation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Spline derivation</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><cite>values</cite> (numpy.array(m,n)) - array of values</li>
+<li><cite>sampleFrequency</cite> (double) - sample frequency</li>
+<li><cite>order</cite> (order) -  order of derivation</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return:</th><td class="field-body"><ul class="first last simple">
+<li><cite>out</cite> (numpy.array(m,n)) - derivated values</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyCGM2.Math.derivation.splineFittingDerivation">
+<code class="descclassname">pyCGM2.Math.derivation.</code><code class="descname">splineFittingDerivation</code><span class="sig-paren">(</span><em>values</em>, <em>sampleFrequency</em>, <em>order=1</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Math/derivation.html#splineFittingDerivation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Math.derivation.splineFittingDerivation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Spline fitting derivation</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><cite>values</cite> (numpy.array(m,n)) - array of values</li>
+<li><cite>sampleFrequency</cite> (double) - sample frequency</li>
+<li><cite>order</cite> (order) -  order of derivation</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return:</th><td class="field-body"><ul class="first last simple">
+<li><cite>out</cite> (numpy.array(m,n)) - derivated values</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-pyCGM2.Math.geometry">
+<span id="pycgm2-math-geometry-module"></span><h2>pyCGM2.Math.geometry (module)<a class="headerlink" href="#module-pyCGM2.Math.geometry" title="Permalink to this headline">¶</a></h2>
+<p>Created on Mon Oct 10 11:47:01 2016</p>
+<p>&#64;author: Fabien Leboeuf ( Salford Univ, UK)</p>
+<dl class="function">
+<dt id="pyCGM2.Math.geometry.LineLineIntersect">
+<code class="descclassname">pyCGM2.Math.geometry.</code><code class="descname">LineLineIntersect</code><span class="sig-paren">(</span><em>p1</em>, <em>p2</em>, <em>p3</em>, <em>p4</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Math/geometry.html#LineLineIntersect"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Math.geometry.LineLineIntersect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the line segment pa_pb that is the shortest route
+between two lines p1_p2 and p3_p4. Calculates also the values of
+mua and mub where:</p>
+<blockquote>
+<div><ul class="simple">
+<li>pa = p1 + mua (p2 - p1)</li>
+<li>pb = p3 + mub (p4 - p3)</li>
+</ul>
+</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li>p1 (&#8216;np.array(3)&#8217;) : 3d coordinates</li>
+<li>p2 (&#8216;np.array(3)&#8217;) : 3d coordinates</li>
+<li>p3 (&#8216;np.array(3)&#8217;) : 3d coordinates</li>
+<li>p4 (&#8216;np.array(3)&#8217;) : 3d coordinates</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">this a python conversion from the code proposed by
+Paul Bourke at <a class="reference external" href="http://astronomy.swin.edu.au/~pbourke/geometry/lineline3d/">http://astronomy.swin.edu.au/~pbourke/geometry/lineline3d/</a></p>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyCGM2.Math.geometry.angleFrom2Vectors">
+<code class="descclassname">pyCGM2.Math.geometry.</code><code class="descname">angleFrom2Vectors</code><span class="sig-paren">(</span><em>v1</em>, <em>v2</em>, <em>vn</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Math/geometry.html#angleFrom2Vectors"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Math.geometry.angleFrom2Vectors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a signed angle between 2 vectors</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">the common orthogonal vector is used for defining the sign of the angle</p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><cite>v1</cite> (numpy.array(3,)) - first vector</li>
+<li><cite>v2</cite> (numpy.array(3,)) - second vector</li>
+<li><cite>vn</cite> (numpy.array(3,)) - common orthogonal vector.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return:</th><td class="field-body"><ul class="first last simple">
+<li><cite>angle</cite> (double) - signed angle</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-pyCGM2.Math.normalisation">
+<span id="pycgm2-math-normalisation-module"></span><h2>pyCGM2.Math.normalisation (module)<a class="headerlink" href="#module-pyCGM2.Math.normalisation" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="pyCGM2.Math.normalisation.timeSequenceNormalisation">
+<code class="descclassname">pyCGM2.Math.normalisation.</code><code class="descname">timeSequenceNormalisation</code><span class="sig-paren">(</span><em>Nrow</em>, <em>data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Math/normalisation.html#timeSequenceNormalisation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Math.normalisation.timeSequenceNormalisation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Normalisation of an array</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>Nrow</cite> (double) : number of interval</li>
+<li><cite>data</cite> (numpy.array(m,n)) : number of interval</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-pyCGM2.Math.numeric">
+<span id="pycgm2-math-numeric-module"></span><h2>pyCGM2.Math.numeric (module)<a class="headerlink" href="#module-pyCGM2.Math.numeric" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="pyCGM2.Math.numeric.rms">
+<code class="descclassname">pyCGM2.Math.numeric.</code><code class="descname">rms</code><span class="sig-paren">(</span><em>x</em>, <em>axis=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Math/numeric.html#rms"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Math.numeric.rms" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the rms of an array</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>x</cite> (numpy.array(m,n)) : array</li>
+<li><cite>axis</cite> (int) direction of computation</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<ul class="last simple">
+<li>if axis=0 , you get rms for each column</li>
+<li>if axis=1 , you get rms for each row</li>
+</ul>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return:</th><td class="field-body"><ul class="first last simple">
+<li><cite>na</cite> (numpy.array(?,?))  array dimension depend on axis argument</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyCGM2.Math.numeric.skewMatrix">
+<code class="descclassname">pyCGM2.Math.numeric.</code><code class="descname">skewMatrix</code><span class="sig-paren">(</span><em>vector</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Math/numeric.html#skewMatrix"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Math.numeric.skewMatrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>return a skew matrix from a vector</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><cite>vector</cite> (numpy.array(3,)) : array</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return:</th><td class="field-body"><ul class="first last simple">
+<li><cite>na</cite> (numpy.matrix) : skew matrix</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2017, Fabien Leboeuf.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.1.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

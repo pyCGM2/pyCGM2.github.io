@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>pyCGM2.Signal subpackage &#8212; pyCGM2-API 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootswatch-3.3.6/cosmo/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="pyCGM2.Math subpackage" href="pyCGM2.Math.html" />
+    <link rel="prev" title="pyCGM2.Report subpackage" href="pyCGM2.Report.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">
+          pyCGM2-API</a>
+        <span class="navbar-text navbar-version pull-left"><b>version 0.1</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+                <li><a href="https://pycgm2.github.io/index.html">pyCGM2</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts.html#nomenclature">Nomenclature</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="nexusApps.html">Nexus Applications</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="normativeData.html">Gait normative datasets</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="pyCGM2.html">pyCGM2 package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pyCGM2.Model.CGM2.html">pyCGM2.Model.CGM2 subpackage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pyCGM2.Processing.html">pyCGM2.Processing subpackage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pyCGM2.Report.html">pyCGM2.Report subpackage</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">pyCGM2.Signal subpackage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pyCGM2.Math.html">pyCGM2.Math subpackage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pyCGM2.Tools.html">pyCGM2.Tools subpackage</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">pyCGM2.Signal subpackage</a><ul>
+<li><a class="reference internal" href="#module-pyCGM2.Signal.signal_processing">pyCGM2.Signal.signal_processing (module)</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+            
+            
+            
+              <li class="hidden-sm">
+<div id="sourcelink">
+  <a href="_sources/pyCGM2.Signal.rst.txt"
+     rel="nofollow">Source</a>
+</div></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="pycgm2-signal-subpackage">
+<h1>pyCGM2.Signal subpackage<a class="headerlink" href="#pycgm2-signal-subpackage" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-pyCGM2.Signal.signal_processing">
+<span id="pycgm2-signal-signal-processing-module"></span><h2>pyCGM2.Signal.signal_processing (module)<a class="headerlink" href="#module-pyCGM2.Signal.signal_processing" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="pyCGM2.Signal.signal_processing.arrayLowPassFiltering">
+<code class="descclassname">pyCGM2.Signal.signal_processing.</code><code class="descname">arrayLowPassFiltering</code><span class="sig-paren">(</span><em>valuesArray</em>, <em>freq</em>, <em>order=2</em>, <em>fc=6</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Signal/signal_processing.html#arrayLowPassFiltering"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Signal.signal_processing.arrayLowPassFiltering" title="Permalink to this definition">¶</a></dt>
+<dd><p>low-pass filtering of an numpy array</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><blockquote class="first">
+<div><ul class="simple">
+<li><cite>valuesArray</cite> (numpy.array(n,n)) - array</li>
+</ul>
+</div></blockquote>
+<ul class="last simple">
+<li><cite>fc</cite> (double) - cut-off frequency</li>
+<li><cite>order</cite> (double) - order of the low-pass filter</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyCGM2.Signal.signal_processing.enveloppe">
+<code class="descclassname">pyCGM2.Signal.signal_processing.</code><code class="descname">enveloppe</code><span class="sig-paren">(</span><em>array</em>, <em>fc</em>, <em>fa</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Signal/signal_processing.html#enveloppe"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Signal.signal_processing.enveloppe" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get signal enveloppe from a low pass filter</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>array</cite> (numpy.array(n,n)) - array</li>
+<li><cite>fc</cite> (double) - cut-off frequency</li>
+<li><cite>fa</cite> (double) - sample frequency</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyCGM2.Signal.signal_processing.highPass">
+<code class="descclassname">pyCGM2.Signal.signal_processing.</code><code class="descname">highPass</code><span class="sig-paren">(</span><em>array</em>, <em>lowerFreq</em>, <em>upperFreq</em>, <em>fa</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Signal/signal_processing.html#highPass"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Signal.signal_processing.highPass" title="Permalink to this definition">¶</a></dt>
+<dd><p>High pass filtering</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>array</cite> (numpy.array(n,n)) - array</li>
+<li><cite>lowerFreq</cite> (double) - lower frequency</li>
+<li><cite>upperFreq</cite> (double) - upper frequency</li>
+<li><cite>fa</cite> (double) - sample frequency</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyCGM2.Signal.signal_processing.pointsFiltering">
+<code class="descclassname">pyCGM2.Signal.signal_processing.</code><code class="descname">pointsFiltering</code><span class="sig-paren">(</span><em>btkAcq</em>, <em>order=2</em>, <em>fc=6</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Signal/signal_processing.html#pointsFiltering"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Signal.signal_processing.pointsFiltering" title="Permalink to this definition">¶</a></dt>
+<dd><p>Low-pass filtering of all points in an acquisition</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>btkAcq</cite> (btkAcquisition) - btk acquisition instance</li>
+<li><cite>fc</cite> (double) - cut-off frequency</li>
+<li><cite>order</cite> (double) - order of the low-pass filter</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyCGM2.Signal.signal_processing.rectify">
+<code class="descclassname">pyCGM2.Signal.signal_processing.</code><code class="descname">rectify</code><span class="sig-paren">(</span><em>array</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Signal/signal_processing.html#rectify"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Signal.signal_processing.rectify" title="Permalink to this definition">¶</a></dt>
+<dd><p>rectify a signal ( i.e get absolute values)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>array</cite> (numpy.array(n,n)) - array</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyCGM2.Signal.signal_processing.remove50hz">
+<code class="descclassname">pyCGM2.Signal.signal_processing.</code><code class="descname">remove50hz</code><span class="sig-paren">(</span><em>array</em>, <em>fa</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyCGM2/Signal/signal_processing.html#remove50hz"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyCGM2.Signal.signal_processing.remove50hz" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove 50Hz signal</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><cite>array</cite> (numpy.array(n,n)) - array</li>
+<li><cite>fa</cite> (double) - sample frequency</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2017, Fabien Leboeuf.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.1.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>
