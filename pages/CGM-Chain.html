@@ -2,7 +2,7 @@
 <html lang="english"
 >
 <head>
-    <title>CGM1 - Reconstruction Operation - PyCGM2</title>
+    <title>Kinematic Chain - PyCGM2</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -10,20 +10,16 @@
 
 
 
-<link rel="canonical" href="https://pycgm2.github.io/articles/cgm1_reconstruction.html">
+<link rel="canonical" href="https://pycgm2.github.io/pages/CGM-Chain.html">
 
         <meta name="author" content="Fabien Leboeuf" />
-        <meta name="keywords" content="cgm1" />
+        <meta name="description" content="The CGM is comprised of seven segments, a single pelvis and femur, tibia and foot segments for left and right sides. These are linked in an open chain by joints with three rotational degrees of freedom (ball and socket joints). The model is sometimes described as hierarchical in the sense …" />
 
-        <meta property="og:site_name" content="PyCGM2" />
-        <meta property="og:type" content="article"/>
-        <meta property="og:title" content="CGM1 - Reconstruction Operation"/>
-        <meta property="og:url" content="https://pycgm2.github.io/articles/cgm1_reconstruction.html"/>
-        <meta property="og:description" content=""/>
-        <meta property="article:published_time" content="2017-02-03" />
-            <meta property="article:section" content="Nexus2Apps" />
-            <meta property="article:tag" content="cgm1" />
-            <meta property="article:author" content="Fabien Leboeuf" />
+    <meta property="og:site_name" content="PyCGM2" />
+    <meta property="og:type" content="article"/>
+    <meta property="og:title" content="Kinematic Chain"/>
+    <meta property="og:url" content="https://pycgm2.github.io/pages/CGM-Chain.html"/>
+    <meta property="og:description" content="The CGM is comprised of seven segments, a single pelvis and femur, tibia and foot segments for left and right sides. These are linked in an open chain by joints with three rotational degrees of freedom (ball and socket joints). The model is sometimes described as hierarchical in the sense …" />
 
 
     <!-- Bootstrap -->
@@ -57,7 +53,7 @@ PyCGM2            </a>
                     <li><a href="/pages/installation.html">Installation</a></li>
                     <li><a href="https://pycgm2.github.io/pyCGM2-API-DOC/index.html">API Documentation</a></li>
                     <li><a href="/pages/cgm.html">cgm</a></li>
-                        <li class="active">
+                        <li >
                             <a href="https://pycgm2.github.io/category/nexus2apps.html">Nexus2apps</a>
                         </li>
             </ul>
@@ -88,39 +84,22 @@ PyCGM2            </a>
     <div class="row">
         <div class="col-sm-9">
 
-    <section id="content">
-        <article>
-            <header class="page-header">
-                <h1>
-                    <a href="https://pycgm2.github.io/articles/cgm1_reconstruction.html"
-                       rel="bookmark"
-                       title="Permalink to CGM1 - Reconstruction Operation">
-                        CGM1 - Reconstruction Operation
-                    </a>
-                </h1>
-            </header>
-            <div class="entry-content">
-                <div class="panel">
-                    <div class="panel-body">
-<footer class="post-info">
-    <span class="label label-default">Date</span>
-    <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2017-02-03T10:11:44.033582+01:00"> Fri 03 February 2017</time>
-    </span>
+    <section id="content" class="body">
+        <h1 class="entry-title">Kinematic Chain</h1>
+        
+        <div class="entry-content">
+            <p>The CGM is comprised of seven segments, a single pelvis and femur, tibia and foot segments for left and right sides. These are linked in an open chain by joints with three rotational degrees of freedom (ball and socket joints). The model is sometimes described as hierarchical in the sense that the definition of each segment is dependent on the prior definition of the segment proximal to it in the chain (up to the pelvis).</p>
+<figure align="middle" >
+ <img src="..\images\CGM1\Kinematic chain.png" alt="The kinematic chain of the CGM" width="200">
+ <figcaption>The kinematic chain of the CGM</figcaption>  
+</figure>
 
+<p>An important characteristic of the CGM is that it assumes that all joints can be represented as ball and socket joints (three rotation degrees of freedom). In reality the joints, particularly the knee and ankle, are known to show translation as well as rotation. These translations are assumed to be small relative to the effects of soft tissue artefact on skin mounted markers and is generally assumed that applying such constraints improves the modelling.</p>
+<p></p>
 
-
-<span class="label label-default">Tags</span>
-	<a href="https://pycgm2.github.io/tags/cgm1.html">cgm1</a>
-    
-</footer><!-- /.post-info -->                    </div>
-                </div>
-                <p>IN PROGRESS</p>
-            </div>
-            <!-- /.entry-content -->
-        </article>
+<p>Proceed to <a href="/pages/CGM-Segments">anatomical segment definitions</a>.</p>
+        </div>
     </section>
-
         </div>
         <div class="col-sm-3" id="sidebar">
             <aside>

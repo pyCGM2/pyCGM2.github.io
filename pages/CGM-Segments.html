@@ -2,7 +2,7 @@
 <html lang="english"
 >
 <head>
-    <title>CGM1 - Reconstruction Operation - PyCGM2</title>
+    <title>Anatomical Segment Definitions - PyCGM2</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -10,20 +10,16 @@
 
 
 
-<link rel="canonical" href="https://pycgm2.github.io/articles/cgm1_reconstruction.html">
+<link rel="canonical" href="https://pycgm2.github.io/pages/CGM-Segments.html">
 
         <meta name="author" content="Fabien Leboeuf" />
-        <meta name="keywords" content="cgm1" />
+        <meta name="description" content="In biomechanical modelling each segment is defined by an orthogonal (right angle) coordinate system. Whilst the three axes are equivalent mathematically the model is best understood if each segment is considered to have a primary axis (running between the two joints at which it is attached to the neighbouring segments …" />
 
-        <meta property="og:site_name" content="PyCGM2" />
-        <meta property="og:type" content="article"/>
-        <meta property="og:title" content="CGM1 - Reconstruction Operation"/>
-        <meta property="og:url" content="https://pycgm2.github.io/articles/cgm1_reconstruction.html"/>
-        <meta property="og:description" content=""/>
-        <meta property="article:published_time" content="2017-02-03" />
-            <meta property="article:section" content="Nexus2Apps" />
-            <meta property="article:tag" content="cgm1" />
-            <meta property="article:author" content="Fabien Leboeuf" />
+    <meta property="og:site_name" content="PyCGM2" />
+    <meta property="og:type" content="article"/>
+    <meta property="og:title" content="Anatomical Segment Definitions"/>
+    <meta property="og:url" content="https://pycgm2.github.io/pages/CGM-Segments.html"/>
+    <meta property="og:description" content="In biomechanical modelling each segment is defined by an orthogonal (right angle) coordinate system. Whilst the three axes are equivalent mathematically the model is best understood if each segment is considered to have a primary axis (running between the two joints at which it is attached to the neighbouring segments …" />
 
 
     <!-- Bootstrap -->
@@ -57,7 +53,7 @@ PyCGM2            </a>
                     <li><a href="/pages/installation.html">Installation</a></li>
                     <li><a href="https://pycgm2.github.io/pyCGM2-API-DOC/index.html">API Documentation</a></li>
                     <li><a href="/pages/cgm.html">cgm</a></li>
-                        <li class="active">
+                        <li >
                             <a href="https://pycgm2.github.io/category/nexus2apps.html">Nexus2apps</a>
                         </li>
             </ul>
@@ -88,39 +84,69 @@ PyCGM2            </a>
     <div class="row">
         <div class="col-sm-9">
 
-    <section id="content">
-        <article>
-            <header class="page-header">
-                <h1>
-                    <a href="https://pycgm2.github.io/articles/cgm1_reconstruction.html"
-                       rel="bookmark"
-                       title="Permalink to CGM1 - Reconstruction Operation">
-                        CGM1 - Reconstruction Operation
-                    </a>
-                </h1>
-            </header>
-            <div class="entry-content">
-                <div class="panel">
-                    <div class="panel-body">
-<footer class="post-info">
-    <span class="label label-default">Date</span>
-    <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2017-02-03T10:11:44.033582+01:00"> Fri 03 February 2017</time>
-    </span>
+    <section id="content" class="body">
+        <h1 class="entry-title">Anatomical Segment Definitions</h1>
+        
+        <div class="entry-content">
+            <p>In biomechanical modelling each segment is defined by an orthogonal (right angle) coordinate system. Whilst the three axes are equivalent mathematically the model is best understood if each segment is considered to have a primary axis (running between the two joints at which it is attached to the neighbouring segments in the kinematic chain) and a secondary axis orthogonal to this and defined by a specific anatomical landmark that serves as a reference point for defining rotations about the principal axis.</p>
+<p>Each segment is thus defined conceptually by defining its primary axis and secondary reference point. Of course a line and a segment define a triangle so each segment can be visualised by a triangle.</p>
+<table>
+  <tr><td width="260">
+  <figure align="middle">
+    <img src="..\images\CGM1\PelvisSegment.png" alt="Anatomical defintion of pelvic segment" width="250">
+  </td><td>
+    <h2> Pelvis</h2>
+    <p> The <em>primary axis</em> is the mediolateral axis running from one hip joint centre to the other. In most clinical applications it is assumed that the pelvis is symmetrical and that this axis is thus parallel to the line running from one anterior superior iliac spine (ASIS) to the other. </p>
+    <p> The <em>reference point</em> for rotation about this axis is the mid-point of the posterior superior iliac spines (PSIS).</p>
+    <p>The segment triangles is thus that formed by
+      <ul>
+        <li>the line running form one ASIS to the other and</li>
+        <li>the mid-point of the PSISs</li>
+      </ul>
+    </p>
+  </td></tr>
+  <tr><td width="260">
+  <figure align="middle">
+    <img src="..\images\CGM1\FemurSegment.png" alt="Anatomical defintion of femur segment" width="100">
+  </td><td valign="top">
+    <h2> Femur</h2>
+    <p> The <em>primary axis</em> is that running from the hip joint centre to the knee joint centre. </p>
+    <p> The <em>reference point</em> is the lateral epicondyle.</p>
+    <p>For validation purposes:
+      <ul>
+        <li>the hip joint centre will be taken as the geometrical centre of a sphere fitted to the articular surface of the femoral head. </li>
+        <li>the knee joint centre will be taken as the mid-point of the medial and lateral epicondyles.  These are often difficult to palpate, however, and for some purposes the line between these landmarks will be assumed to be parallel to that linking the most posterior aspects of the femoral condyles.</li>
+      </ul>
+    </p>
+  </td></tr>
+  <tr><td width="260">
+  <figure align="middle">
+    <img src="..\images\CGM1\TibiaSegment.png" alt="Anatomical defintion of tibial segment" width="100">
+  </td><td valign="top">
+    <h2> Tibia</h2>
+    <p> The <em>primary axis</em> is that running from the knee joint centre to the ankle joint centre. </p>
+    <p> The <em>reference point</em> is the laterla malleolus.</p>
+    <p>For validation purposes:
+      <ul>
+        <li>the ankle joint centre will be assumed to be the mid-point of the medial and lateral epicondyles.</li>
+      </ul>
+    </p>
+  </td></tr>
+  <tr><td width="260">
+  <figure align="middle">
+    <img src="..\images\CGM1\FootSegment.png" alt="Anatomical defintion of foot segment" width="250">
+  </td><td valign="top">
+    <h2> Foot</h2>
+    <p> The <em>primary axis</em> is that running from the most posterior axis of the calcaneus along the second ray and parallel to the plantar surface of the foot. </p>
+    <p> Rotation about this axis is not defined.</p>
+  </td></tr>
+</table>
 
+<p></p>
 
-
-<span class="label label-default">Tags</span>
-	<a href="https://pycgm2.github.io/tags/cgm1.html">cgm1</a>
-    
-</footer><!-- /.post-info -->                    </div>
-                </div>
-                <p>IN PROGRESS</p>
-            </div>
-            <!-- /.entry-content -->
-        </article>
+<p>Proceed to <a href="/pages/CGM-Markers">marker placement theory</a>.</p>
+        </div>
     </section>
-
         </div>
         <div class="col-sm-3" id="sidebar">
             <aside>

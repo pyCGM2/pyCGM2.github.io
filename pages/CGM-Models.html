@@ -2,7 +2,7 @@
 <html lang="english"
 >
 <head>
-    <title>CGM1 - Reconstruction Operation - PyCGM2</title>
+    <title>Python Models - PyCGM2</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -10,20 +10,16 @@
 
 
 
-<link rel="canonical" href="https://pycgm2.github.io/articles/cgm1_reconstruction.html">
+<link rel="canonical" href="https://pycgm2.github.io/pages/CGM-Models.html">
 
         <meta name="author" content="Fabien Leboeuf" />
-        <meta name="keywords" content="cgm1" />
+        <meta name="description" content="As part of CGM2.i two python models have been created for incoporation as Python operations within Vicon&#39;s Nexus 2 software package. The are two reasons for creating these: to familiarise users with running Python operations within Nexus as a foundation for working with future models. to allow users to …" />
 
-        <meta property="og:site_name" content="PyCGM2" />
-        <meta property="og:type" content="article"/>
-        <meta property="og:title" content="CGM1 - Reconstruction Operation"/>
-        <meta property="og:url" content="https://pycgm2.github.io/articles/cgm1_reconstruction.html"/>
-        <meta property="og:description" content=""/>
-        <meta property="article:published_time" content="2017-02-03" />
-            <meta property="article:section" content="Nexus2Apps" />
-            <meta property="article:tag" content="cgm1" />
-            <meta property="article:author" content="Fabien Leboeuf" />
+    <meta property="og:site_name" content="PyCGM2" />
+    <meta property="og:type" content="article"/>
+    <meta property="og:title" content="Python Models"/>
+    <meta property="og:url" content="https://pycgm2.github.io/pages/CGM-Models.html"/>
+    <meta property="og:description" content="As part of CGM2.i two python models have been created for incoporation as Python operations within Vicon&#39;s Nexus 2 software package. The are two reasons for creating these: to familiarise users with running Python operations within Nexus as a foundation for working with future models. to allow users to …" />
 
 
     <!-- Bootstrap -->
@@ -57,7 +53,7 @@ PyCGM2            </a>
                     <li><a href="/pages/installation.html">Installation</a></li>
                     <li><a href="https://pycgm2.github.io/pyCGM2-API-DOC/index.html">API Documentation</a></li>
                     <li><a href="/pages/cgm.html">cgm</a></li>
-                        <li class="active">
+                        <li >
                             <a href="https://pycgm2.github.io/category/nexus2apps.html">Nexus2apps</a>
                         </li>
             </ul>
@@ -88,39 +84,37 @@ PyCGM2            </a>
     <div class="row">
         <div class="col-sm-9">
 
-    <section id="content">
-        <article>
-            <header class="page-header">
-                <h1>
-                    <a href="https://pycgm2.github.io/articles/cgm1_reconstruction.html"
-                       rel="bookmark"
-                       title="Permalink to CGM1 - Reconstruction Operation">
-                        CGM1 - Reconstruction Operation
-                    </a>
-                </h1>
-            </header>
-            <div class="entry-content">
-                <div class="panel">
-                    <div class="panel-body">
-<footer class="post-info">
-    <span class="label label-default">Date</span>
-    <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2017-02-03T10:11:44.033582+01:00"> Fri 03 February 2017</time>
-    </span>
-
-
-
-<span class="label label-default">Tags</span>
-	<a href="https://pycgm2.github.io/tags/cgm1.html">cgm1</a>
-    
-</footer><!-- /.post-info -->                    </div>
-                </div>
-                <p>IN PROGRESS</p>
-            </div>
-            <!-- /.entry-content -->
-        </article>
+    <section id="content" class="body">
+        <h1 class="entry-title">Python Models</h1>
+        
+        <div class="entry-content">
+            <p>As part of CGM2.i two python models have been created for incoporation as Python operations within Vicon's Nexus 2 software package. The are two reasons for creating these:
+<ul>
+  <li> to familiarise users with running Python operations within Nexus as a foundation for working with future models.
+  <li> to allow users to see for themselves that the models give identical outputs to existing alternatives (most obviously PiG)
+</ul></p>
+<p>Both are clones of PiG. It should be possible to run these to calibrate the model using static trial data and to model  dynamic walking (or other) data in an exactly analogous way to how PiG runs in the pipeline at the moment (i.e. the code will detect which variant of the model should be used depending on the subject measurements that have been entered and the trajectories that are detected in the .c3d files).</p>
+<p>The models will write outputs to the .c3d file using the same variable names as PiG. If variables with those names are already contained in the .c3d file then those they will be renamed with a suffix "old" (e.g. <em>LPelvisAngles</em> becomes <em>LPelvisAnglesOld</em>). When run the models will automatically generate gait graphs of the output (overplotted on existing data if it was present).</p>
+<h2>CGM1.0</h2>
+<p>This is an exact clone of the current version of PiG.
+<ul>
+  <li> links to download (to be created)</li>
+  <li> links to instructions (to be created)</li>
+</ul></p>
+<h2>CGM1.1</h2>
+<p>In preparing CGM1.0 a small number of bugs were found which have been corrected in CGM1.1.
+<ul>
+  <li> Foot rotation offset is calculated relative to the torsioned tibia in static calibration but applied to untorsioned tibia in modelling dynamic data (need to check this again)</li>
+  <li> The correct Cardan sequence for pelvic angles has been applied.</li>
+  <li> Handling of Medial malleolar marker</li>
+</ul>
+Other than this the model is an exact clone of the current version of PiG.
+<ul>
+  <li> links to download (to be created)</li>
+  <li> links to instructions (to be created)</li>
+</ul></p>
+        </div>
     </section>
-
         </div>
         <div class="col-sm-3" id="sidebar">
             <aside>
