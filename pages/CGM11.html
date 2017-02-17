@@ -2,7 +2,7 @@
 <html lang="english"
 >
 <head>
-    <title>The Conventional Gait Model - PyCGM2</title>
+    <title>CGM 1.1 - PyCGM2</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -10,16 +10,16 @@
 
 
 
-<link rel="canonical" href="https://pycgm2.github.io/pages/aboutCGM.html">
+<link rel="canonical" href="https://pycgm2.github.io/pages/CGM11.html">
 
         <meta name="author" content="Fabien Leboeuf" />
-        <meta name="description" content="IN PROGRESS" />
+        <meta name="description" content="Overview Whilst creating CGM 1.0 we found that there were three issue with PiG and CGM 1.1 is thus a version of the CGM in which there three issues have been addressed. The foot rotation offset in PiG was calculated relative to the torsioned tibia in static calibration …" />
 
     <meta property="og:site_name" content="PyCGM2" />
     <meta property="og:type" content="article"/>
-    <meta property="og:title" content="The Conventional Gait Model"/>
-    <meta property="og:url" content="https://pycgm2.github.io/pages/aboutCGM.html"/>
-    <meta property="og:description" content="IN PROGRESS" />
+    <meta property="og:title" content="CGM 1.1"/>
+    <meta property="og:url" content="https://pycgm2.github.io/pages/CGM11.html"/>
+    <meta property="og:description" content="Overview Whilst creating CGM 1.0 we found that there were three issue with PiG and CGM 1.1 is thus a version of the CGM in which there three issues have been addressed. The foot rotation offset in PiG was calculated relative to the torsioned tibia in static calibration …" />
 
 
     <!-- Bootstrap -->
@@ -85,10 +85,20 @@ PyCGM2            </a>
         <div class="col-sm-9">
 
     <section id="content" class="body">
-        <h1 class="entry-title">The Conventional Gait Model</h1>
+        <h1 class="entry-title">CGM 1.1</h1>
         
         <div class="entry-content">
-            <p>IN PROGRESS</p>
+            <h2>Overview</h2>
+<p>Whilst creating CGM 1.0 we found that there were three issue with PiG and CGM 1.1 is thus a version of the CGM in which there three issues have been addressed.</p>
+<ol>
+  <li> The foot rotation offset in PiG was calculated relative to the torsioned tibia in static calibration but applied to untorsioned tibia in modelling dynamic data. This has been recitified </li>
+  <li> The correct Cardan sequence for pelvic angles has been applied.</li>
+  <li> The logic for when the medial malleolar malleolar marker is used in model calibration has been recified</li>
+</ol>
+
+<p>Other than this the model is an exact clone of the current version of PiG.</p>
+<h2>Progress</h2>
+<p>This model has bee tested in house and has now been released for beta testing.</p>
         </div>
     </section>
         </div>
