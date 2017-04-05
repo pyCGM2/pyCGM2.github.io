@@ -2,7 +2,7 @@
 <html lang="english"
 >
 <head>
-    <title>The CGM 2.i Project - PyCGM2</title>
+    <title>CGM 2.2 Inverse kinematics - PyCGM2</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -10,16 +10,16 @@
 
 
 
-<link rel="canonical" href="/pages/mainPage.html">
+<link rel="canonical" href="/pages/CGM22-Overview.html">
 
         <meta name="author" content="Fabien Leboeuf" />
-        <meta name="description" content="Overview The Conventional Gait Model is the most widely used biomechanical model for clinical gait analysis. It was first developed in the 1980s and although, it has many strengths, it has several well-known weaknesses. The overall aim of this project is to develop and validate a new version, CGM 2 …" />
+        <meta name="description" content="Background As has already been commented on, the original descriptions of the CGM referred to it as “a data collection and reduction technique” (Davis, 1981 and an &#34;an algorithm for computing lower extremity joint motion&#34; (Kadaba, 1990). There is a strong argument that, as originally described, the CGM, is not …" />
 
     <meta property="og:site_name" content="PyCGM2" />
     <meta property="og:type" content="article"/>
-    <meta property="og:title" content="The CGM 2.i Project"/>
-    <meta property="og:url" content="/pages/mainPage.html"/>
-    <meta property="og:description" content="Overview The Conventional Gait Model is the most widely used biomechanical model for clinical gait analysis. It was first developed in the 1980s and although, it has many strengths, it has several well-known weaknesses. The overall aim of this project is to develop and validate a new version, CGM 2 …" />
+    <meta property="og:title" content="CGM 2.2 Inverse kinematics"/>
+    <meta property="og:url" content="/pages/CGM22-Overview.html"/>
+    <meta property="og:description" content="Background As has already been commented on, the original descriptions of the CGM referred to it as “a data collection and reduction technique” (Davis, 1981 and an &#34;an algorithm for computing lower extremity joint motion&#34; (Kadaba, 1990). There is a strong argument that, as originally described, the CGM, is not …" />
 
 
     <!-- Bootstrap -->
@@ -117,20 +117,25 @@ PyCGM2            </a>
         <div class="col-sm-9">
 
     <section id="content" class="body">
-        <h1 class="entry-title">The CGM 2.i Project</h1>
+        <h1 class="entry-title">CGM 2.2 Inverse kinematics</h1>
         
         <div class="entry-content">
-            <h1>Overview</h1>
-<p>The Conventional Gait Model is the most widely used biomechanical model for clinical gait analysis. It was first developed in the 1980s and although, it has many strengths, it has several well-known weaknesses.</p>
-<p>The overall aim of this project is to develop and validate a new version, CGM 2, which maintains the current model’s strengths but addresses its weaknesses. The new version will allow robust, efficient and standardised data capture by people whose primary interest is in using the results of the gait analysis.</p>
-<p>Although the project aims to make the new model as compatible as possible with the old it cannot be identical. It is therefore important that future users know exactly how the new version differs from the old. This will be ensured by developing the model in a series of iterations each addressing a specific weakness and each fully validated to understand the behaviour of the new model in comparison to the old one.</p>
-<p>We want the new model to be as open and transparent as possible. All code will be developed in <a href="https://www.python.org/">python</a> and made  available through <a href="https://github.com/">GitHub</a>. The project is part-funded by <a href="https://www.vicon.com/">Vicon</a> and we will focus first on implementations to support use of the new models with Vicon's suite of clinical gait analysis software. We are open to developing similar relationships with other manufacurers.</p>
-<div class="jumbotron">
-   <h2>The current model : CGM1</h2>    
-   <p><a class="btn btn-primary btn-lg" href="/pages/CGM-General.html">Learn more about CGM1</a></p>
-   <h2>Looking to the future : </h2>    
-   <p><a class="btn btn-primary btn-lg" href="/pages/CGM2-General.html">Find out the CGM2</a></p>
-</div>
+            <h2>Background</h2>
+<p>As has already been commented on, the original descriptions of the CGM referred to it as “a data collection and reduction technique” (<a href="http://dx.doi.org/10.1016/0167-9457(91%2990046-Z)">Davis, 1981</a> and an "an algorithm for computing lower extremity joint motion" (<a href="http://dx.doi.org/10.1002/jor.1100080310">Kadaba, 1990</a>). There is a strong argument that, as originally described, the CGM, is not actually a biomechanical model.</p>
+<figure align="middle">
+  <iframe width="400" height="300" src="https://www.youtube.com/embed/-_tVvN0p81I?rel=0&amp;controls=0&amp;loop=1&amp;playlist=-_tVvN0p81I&amp;autoplay=1" frameborder="0" allowfullscreen></iframe>
+  <figcaption>Linked rigid-body biomechanical model tracking measured marker positions (in yellow)</figcaption>
+</figure>
+
+<p></p>
+
+<p>Most contemporary biomechanical modelling uses Inverse kinematics to fit a model to a set of marker trajectories to minimise a weighted mean square difference between the modelled marker trajectories and the measured marker trajectories. The basic principals can be traced back many years (e.g. <a href="http://dx.doi.org/10.1115/1.3138228">Sommer et al. 1980</a>; <a href="http://dx.doi.org/10.1016/S0021-9290&amp;2898%2900158-4">Lu and O'Connor, 1999</a>) but it is only over the last decade that computing power has been sufficient for this to be practical for routine clinical implementation.</p>
+<p>The technique has also been referred to as kinematic fitting and global optimisation (<a href="http://dx.doi.org/10.1016/S0021-9290&amp;2898%2900158-4">Lu and O'Connor, 1999</a>) within the biomechanics community but the term  <em><a href="https://en.wikipedia.org/wiki/Inverse_kinematics">inverse kinematics</a></em> should probably be preferred as it is much more widely applied (particularly in robotics).</p>
+<p>Rigorous biomechanical modelling, based upon inverse kinematics, is essential as a basis for the application of more advanced biomechanical techniques such as muscle length modelling (<a href="http://dx.doi.org/10.1109/10.102791">Delp et al. 1990</a>), muscle force estimation (<a href="https://www.ncbi.nlm.nih.gov/pubmed/2676342">Zajac, 1989</a>) or induced acceleration analysis (<a href="http://dx.doi.org/10.1016/S0966-6362%2802%2900068-1">Zajac et al. 2002</a>). Relatively complex procedures are required to import the outputs of the CGM into musculoskeletal modelling packages such as <a href="http://dx.doi.org/10.1016/0010-4825%2895%2998882-E">SIM</a> or <a href="http://opensim.stanford.edu/">OpenSIM</a> largely because it is not a rigorous biomechanical model.</p>
+<p>Another potential advantage of inverse kinematics is that it provides an approach for modelling soft-tissure artefact. In most previous inverse kinematics the modelled markers are assumed to be in a fixed position within a particular segment but the approach would work equally well if the markers were assumed to move in relation to those segments in some predefined manner. As an alternative inverse kinematics also allows soft-tissue artefact to be accounted for using advanced statistical procedures when performing the fit.</p>
+<h2>Proposal</h2>
+<p>CGM 2.2 will thus calibrate a rigid segment model to the data captured during a static trial and then use inverse kinematics to use this model to track marker trajectoris captured during the walking trial. The cost functional will be the weighted root mean square distance between modelled and measured markers. Weighting of individual markers will be determined to give an optimal match with the outputs of CGM 2.1.</p>
+<p>This approach is likely to be prone to the effects of soft tissue aretefact at key markers (especially the lateral knee marker) which may result in a poor match with outputs from CGM2.1. It is anticipated that modifications of the markerset which will be the subject of CGM 2.3 will address this to give a better match.</p>
         </div>
     </section>
         </div>

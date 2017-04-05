@@ -2,7 +2,7 @@
 <html lang="english"
 >
 <head>
-    <title>The CGM 2.i Project - PyCGM2</title>
+    <title>CGM 1.1 - PyCGM2</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -10,16 +10,16 @@
 
 
 
-<link rel="canonical" href="/pages/mainPage.html">
+<link rel="canonical" href="/pages/CGM11.html">
 
         <meta name="author" content="Fabien Leboeuf" />
-        <meta name="description" content="Overview The Conventional Gait Model is the most widely used biomechanical model for clinical gait analysis. It was first developed in the 1980s and although, it has many strengths, it has several well-known weaknesses. The overall aim of this project is to develop and validate a new version, CGM 2 …" />
+        <meta name="description" content="Overview Whilst creating CGM 1.0 we identified four aspects of PiG that we felt could be addressed immediately. CGM 1.1 is thus a version of the CGM in which there three issues have been addressed. There is an inconsistency between the way that the foot rotation offset is …" />
 
     <meta property="og:site_name" content="PyCGM2" />
     <meta property="og:type" content="article"/>
-    <meta property="og:title" content="The CGM 2.i Project"/>
-    <meta property="og:url" content="/pages/mainPage.html"/>
-    <meta property="og:description" content="Overview The Conventional Gait Model is the most widely used biomechanical model for clinical gait analysis. It was first developed in the 1980s and although, it has many strengths, it has several well-known weaknesses. The overall aim of this project is to develop and validate a new version, CGM 2 …" />
+    <meta property="og:title" content="CGM 1.1"/>
+    <meta property="og:url" content="/pages/CGM11.html"/>
+    <meta property="og:description" content="Overview Whilst creating CGM 1.0 we identified four aspects of PiG that we felt could be addressed immediately. CGM 1.1 is thus a version of the CGM in which there three issues have been addressed. There is an inconsistency between the way that the foot rotation offset is …" />
 
 
     <!-- Bootstrap -->
@@ -117,20 +117,30 @@ PyCGM2            </a>
         <div class="col-sm-9">
 
     <section id="content" class="body">
-        <h1 class="entry-title">The CGM 2.i Project</h1>
+        <h1 class="entry-title">CGM 1.1</h1>
         
         <div class="entry-content">
-            <h1>Overview</h1>
-<p>The Conventional Gait Model is the most widely used biomechanical model for clinical gait analysis. It was first developed in the 1980s and although, it has many strengths, it has several well-known weaknesses.</p>
-<p>The overall aim of this project is to develop and validate a new version, CGM 2, which maintains the current model’s strengths but addresses its weaknesses. The new version will allow robust, efficient and standardised data capture by people whose primary interest is in using the results of the gait analysis.</p>
-<p>Although the project aims to make the new model as compatible as possible with the old it cannot be identical. It is therefore important that future users know exactly how the new version differs from the old. This will be ensured by developing the model in a series of iterations each addressing a specific weakness and each fully validated to understand the behaviour of the new model in comparison to the old one.</p>
-<p>We want the new model to be as open and transparent as possible. All code will be developed in <a href="https://www.python.org/">python</a> and made  available through <a href="https://github.com/">GitHub</a>. The project is part-funded by <a href="https://www.vicon.com/">Vicon</a> and we will focus first on implementations to support use of the new models with Vicon's suite of clinical gait analysis software. We are open to developing similar relationships with other manufacurers.</p>
-<div class="jumbotron">
-   <h2>The current model : CGM1</h2>    
-   <p><a class="btn btn-primary btn-lg" href="/pages/CGM-General.html">Learn more about CGM1</a></p>
-   <h2>Looking to the future : </h2>    
-   <p><a class="btn btn-primary btn-lg" href="/pages/CGM2-General.html">Find out the CGM2</a></p>
-</div>
+            <h2>Overview</h2>
+<p>Whilst creating CGM 1.0 we identified four aspects of PiG that we felt could be addressed immediately. CGM 1.1 is thus a version of the CGM in which there three issues have been addressed.</p>
+<ol>
+  <li> There is an inconsistency between the way that the foot rotation offset is applied during static calibration and then applied later when fitting to dynamic data whcih ahs been corrected. </li>
+  <li> The correct Cardan sequence for pelvic angles has been applied.</li>
+  <li> Under a specific combinations of conditions the  medial malleolar malleolar marker was not being used appropriately during static calibration and teh logic for when it is used has been corrected</li>
+  <li>Given that using a medial malleolar marker (if placed) has been used routinely for static calibration of the tibia for over a decade it is not at all clear why a simialr option to use a medial epicondyle marker for calibration of the femur has not been introduced. This is now possible, if the medial epicondyle marker (LMEPI, RMEPI) is found then this will be used to define the coronal plane of the knee in the same way as the KAD is used if it is present.
+</ol>
+
+<p>Other than this the model is an exact clone of the current version of PiG.</p>
+<h2>Nexus App</h2>
+<p><strong>CGM1_1-pyCGM2.inputs</strong></p>
+<ul>
+<li>marker diameter : 14mm</li>
+<li>moment project into the  <em>Proximal</em> referential</li>
+<li>flat foot <strong>enable</strong> by default</li>
+</ul>
+<p><strong>pyCGM2-CGM1_1-Calibration.Pipeline</strong></p>
+<p>See  <a href="https://pycgm2.github.io/pyCGM2-API-DOC/apps/CGM1_1.html#calibration-nexusoperation-pycgm2-cgm1-1-calibration-py">details</a> in API documentation</p>
+<p><strong>pyCGM2-CGM1_1-Fitting.Pipeline</strong></p>
+<p>See  <a href="https://pycgm2.github.io/pyCGM2-API-DOC/apps/CGM1_1.html#fiiting-nexusoperation-pycgm2-cgm1-1-fitting-py">details</a> in API documentation</p>
         </div>
     </section>
         </div>

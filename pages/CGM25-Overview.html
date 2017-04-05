@@ -2,7 +2,7 @@
 <html lang="english"
 >
 <head>
-    <title>The CGM 2.i Project - PyCGM2</title>
+    <title>CGM 2.5 Upper body model - PyCGM2</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -10,16 +10,16 @@
 
 
 
-<link rel="canonical" href="/pages/mainPage.html">
+<link rel="canonical" href="/pages/CGM25-Overview.html">
 
         <meta name="author" content="Fabien Leboeuf" />
-        <meta name="description" content="Overview The Conventional Gait Model is the most widely used biomechanical model for clinical gait analysis. It was first developed in the 1980s and although, it has many strengths, it has several well-known weaknesses. The overall aim of this project is to develop and validate a new version, CGM 2 …" />
+        <meta name="description" content="Overview Although many gait analysis services include some sort of analysis of upper body movement as part of their standard analysis there has been much less consistency in which model is used than for the lower limb. No upper body model for clinical gait analysis has been rigorously validated. Applying …" />
 
     <meta property="og:site_name" content="PyCGM2" />
     <meta property="og:type" content="article"/>
-    <meta property="og:title" content="The CGM 2.i Project"/>
-    <meta property="og:url" content="/pages/mainPage.html"/>
-    <meta property="og:description" content="Overview The Conventional Gait Model is the most widely used biomechanical model for clinical gait analysis. It was first developed in the 1980s and although, it has many strengths, it has several well-known weaknesses. The overall aim of this project is to develop and validate a new version, CGM 2 …" />
+    <meta property="og:title" content="CGM 2.5 Upper body model"/>
+    <meta property="og:url" content="/pages/CGM25-Overview.html"/>
+    <meta property="og:description" content="Overview Although many gait analysis services include some sort of analysis of upper body movement as part of their standard analysis there has been much less consistency in which model is used than for the lower limb. No upper body model for clinical gait analysis has been rigorously validated. Applying …" />
 
 
     <!-- Bootstrap -->
@@ -117,20 +117,23 @@ PyCGM2            </a>
         <div class="col-sm-9">
 
     <section id="content" class="body">
-        <h1 class="entry-title">The CGM 2.i Project</h1>
+        <h1 class="entry-title">CGM 2.5 Upper body model</h1>
         
         <div class="entry-content">
             <h1>Overview</h1>
-<p>The Conventional Gait Model is the most widely used biomechanical model for clinical gait analysis. It was first developed in the 1980s and although, it has many strengths, it has several well-known weaknesses.</p>
-<p>The overall aim of this project is to develop and validate a new version, CGM 2, which maintains the current model’s strengths but addresses its weaknesses. The new version will allow robust, efficient and standardised data capture by people whose primary interest is in using the results of the gait analysis.</p>
-<p>Although the project aims to make the new model as compatible as possible with the old it cannot be identical. It is therefore important that future users know exactly how the new version differs from the old. This will be ensured by developing the model in a series of iterations each addressing a specific weakness and each fully validated to understand the behaviour of the new model in comparison to the old one.</p>
-<p>We want the new model to be as open and transparent as possible. All code will be developed in <a href="https://www.python.org/">python</a> and made  available through <a href="https://github.com/">GitHub</a>. The project is part-funded by <a href="https://www.vicon.com/">Vicon</a> and we will focus first on implementations to support use of the new models with Vicon's suite of clinical gait analysis software. We are open to developing similar relationships with other manufacurers.</p>
-<div class="jumbotron">
-   <h2>The current model : CGM1</h2>    
-   <p><a class="btn btn-primary btn-lg" href="/pages/CGM-General.html">Learn more about CGM1</a></p>
-   <h2>Looking to the future : </h2>    
-   <p><a class="btn btn-primary btn-lg" href="/pages/CGM2-General.html">Find out the CGM2</a></p>
-</div>
+<p>Although many gait analysis services include some sort of analysis of upper body movement as part of their standard analysis there has been much less consistency in which model is used than for the lower limb. No upper body model for clinical gait analysis has been rigorously validated. Applying extra markers accurately to the trunk, head and arms can add extra time to an analysis and is often not justified by the clinical use that is made of the data.</p>
+<figure align="middle" >
+  <img src="..\images\CGM2\CGM25Thorax.png" alt="CGM2 Thorax Model" width="400">
+  <figcaption>Single segment thorax model for CGM2 </figcaption>
+</figure>
+
+<p></p>
+
+<p>As <a href="https://books.google.co.uk/books?id=DICTQAAACAAJ&amp;source=gbs_book_other_versions">Perry</a> noted the Head, Arms and Trunk (HAT) can be thought of as a <em>passenger segment</em> and understanding how this is carried by the les or <em>locomotor unit</em> is essential to understand the mechanics of gait. It is not all clear how much detail is required. Given that most of the mass of the upper body is within the trunk it can be assumed that an accurate understanding of this location is essential. The orientation of the head and arms is less important and a general overview of these may be all that is required.</p>
+<p>Whilst the original paper of <a href="http://dx.doi.org/10.1016/0167-9457%2891%2990046-Z">Davis et al. 1991</a> suggested placing markers laterally over the acromium processes, more recent papers (<a href="http://dx.doi.org/10.1016/j.gaitpost.2013.06.016">e.g. Armand et al. 2014</a>) suggest that marker placed directly on the mid-line of the trunk may give a better indication of how the trunk itself is moving. <a href="http://dx.doi.org/10.1016/S0167-9457%2899%2900022-6">Eames et al. 1999</a> proposed a minimal markerset for head and arms and validated the calculation of full body centre of mass obtained against force plate data.</p>
+<h2>Proposal</h2>
+<p>CGM 2.5 will use three markers proposed by Armand et al. <a href="http://dx.doi.org/10.1016/j.gaitpost.2013.06.016">2014</a> (Sternum, T2, T10) to track the thorax which will be linked to the pelvis by a ball joint at the lumbar sacral joint. Testing will be perfromed to quantify the effect this has on how the lower limbs and trunk are tracked.</p>
+<p>The approach of Eames et al. <a href="http://dx.doi.org/10.1016/S0167-9457%2899%2900022-6">1999</a> will be used to track the head and arms to give a broad impression of their orientation. Markers will be given a low weighting in the tracking cost function to ensure that tracking these segments has a minimal effect on the tracking of other more important segments.</p>
         </div>
     </section>
         </div>

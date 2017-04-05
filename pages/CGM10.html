@@ -2,7 +2,7 @@
 <html lang="english"
 >
 <head>
-    <title>The CGM 2.i Project - PyCGM2</title>
+    <title>CGM 1.0 - PyCGM2</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -10,16 +10,16 @@
 
 
 
-<link rel="canonical" href="/pages/mainPage.html">
+<link rel="canonical" href="/pages/CGM10.html">
 
         <meta name="author" content="Fabien Leboeuf" />
-        <meta name="description" content="Overview The Conventional Gait Model is the most widely used biomechanical model for clinical gait analysis. It was first developed in the 1980s and although, it has many strengths, it has several well-known weaknesses. The overall aim of this project is to develop and validate a new version, CGM 2 …" />
+        <meta name="description" content="Overview The starting point for this project has been to create a clone of the current CGM in Python. Given the sponsorship by Vicon the clone is of the current version of PiG and the first implementaiton is for this to run within the Vicon suite of software (Nexus and …" />
 
     <meta property="og:site_name" content="PyCGM2" />
     <meta property="og:type" content="article"/>
-    <meta property="og:title" content="The CGM 2.i Project"/>
-    <meta property="og:url" content="/pages/mainPage.html"/>
-    <meta property="og:description" content="Overview The Conventional Gait Model is the most widely used biomechanical model for clinical gait analysis. It was first developed in the 1980s and although, it has many strengths, it has several well-known weaknesses. The overall aim of this project is to develop and validate a new version, CGM 2 …" />
+    <meta property="og:title" content="CGM 1.0"/>
+    <meta property="og:url" content="/pages/CGM10.html"/>
+    <meta property="og:description" content="Overview The starting point for this project has been to create a clone of the current CGM in Python. Given the sponsorship by Vicon the clone is of the current version of PiG and the first implementaiton is for this to run within the Vicon suite of software (Nexus and …" />
 
 
     <!-- Bootstrap -->
@@ -117,20 +117,34 @@ PyCGM2            </a>
         <div class="col-sm-9">
 
     <section id="content" class="body">
-        <h1 class="entry-title">The CGM 2.i Project</h1>
+        <h1 class="entry-title">CGM 1.0</h1>
         
         <div class="entry-content">
-            <h1>Overview</h1>
-<p>The Conventional Gait Model is the most widely used biomechanical model for clinical gait analysis. It was first developed in the 1980s and although, it has many strengths, it has several well-known weaknesses.</p>
-<p>The overall aim of this project is to develop and validate a new version, CGM 2, which maintains the current model’s strengths but addresses its weaknesses. The new version will allow robust, efficient and standardised data capture by people whose primary interest is in using the results of the gait analysis.</p>
-<p>Although the project aims to make the new model as compatible as possible with the old it cannot be identical. It is therefore important that future users know exactly how the new version differs from the old. This will be ensured by developing the model in a series of iterations each addressing a specific weakness and each fully validated to understand the behaviour of the new model in comparison to the old one.</p>
-<p>We want the new model to be as open and transparent as possible. All code will be developed in <a href="https://www.python.org/">python</a> and made  available through <a href="https://github.com/">GitHub</a>. The project is part-funded by <a href="https://www.vicon.com/">Vicon</a> and we will focus first on implementations to support use of the new models with Vicon's suite of clinical gait analysis software. We are open to developing similar relationships with other manufacurers.</p>
-<div class="jumbotron">
-   <h2>The current model : CGM1</h2>    
-   <p><a class="btn btn-primary btn-lg" href="/pages/CGM-General.html">Learn more about CGM1</a></p>
-   <h2>Looking to the future : </h2>    
-   <p><a class="btn btn-primary btn-lg" href="/pages/CGM2-General.html">Find out the CGM2</a></p>
+            <h2>Overview</h2>
+<p>The starting point for this project has been to create a clone of the current CGM in Python. Given the sponsorship by Vicon the clone is of the current version of PiG and the first implementaiton is for this to run within the Vicon suite of  software (<a href="https://www.vicon.com/products/software/nexus">Nexus</a> and <a href="https://www.vicon.com/products/software/polygon">Polygon</a>)</p>
+<p>The are three principal reasons for developing and releasing this model
+<ul>
+  <li> as a learning exercise </li>
+  <li> to familiarise users with running Python operations within Nexus as a foundation for working with future models.
+  <li> to allow users to see for themselves that the models give identical outputs to existing alternatives (most obviously PiG)
+</ul></p>
+<p>It should be possible to calibrate the model using static trial data and to track dynamic walking (or other) data in an exactly analogous way to how PiG runs in the Nexus pipeline at the moment (i.e. the code will detect which variant of the model should be used depending on the subject measurements that have been entered and the trajectories that are detected in the .c3d files).</p>
+<p>The models will write outputs to the .c3d file using the same variable names as PiG. If variables with those names are already contained in the .c3d file then those they will be renamed with a suffix "old" (e.g. <em>LPelvisAngles</em> becomes <em>LPelvisAnglesOld</em>). When run the models will automatically generate gait graphs of the output (overplotted on existing data if it was present).</p>
+<h2>Nexus App</h2>
+<p><strong>CGM1-pyCGM2.inputs</strong></p>
+<ul>
+<li>marker diameter : 14mm</li>
+<li>moment project into the  <em>Distal</em> referential</li>
+<li>flat foot <strong>enable</strong> by default</li>
+</ul>
+<p><strong>pyCGM2-CGM1-Calibration.Pipeline</strong></p>
+<p>See  <a href="https://pycgm2.github.io/pyCGM2-API-DOC/apps/CGM1.html#calibration-nexusoperation-pycgm2-cgm1-calibration-py">details</a> in API documentation</p>
+<div class="alert alert-dismissible alert-warning">
+Notice like the vicon operation "Process Static Plugin Gait model", joint angles ignores segment offsets. Anatomical Coordinate system are built from instataneous joint centres reconstruction  
 </div>
+
+<p><strong>pyCGM2-CGM1-Fitting.Pipeline</strong></p>
+<p>See  <a href="https://pycgm2.github.io/pyCGM2-API-DOC/apps/CGM1.html#fitting-nexusoperation-pycgm2-cgm1-fitting-py">details</a> in API documentation</p>
         </div>
     </section>
         </div>

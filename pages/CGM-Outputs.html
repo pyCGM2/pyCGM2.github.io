@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="english"
+>
+<head>
+    <title>Outputs - PyCGM2</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<link rel="canonical" href="/pages/CGM-Outputs.html">
+
+        <meta name="author" content="Fabien Leboeuf" />
+        <meta name="description" content="Kinematic outputs The primary kinematic outputs are the three dimensional joint angles representing the orientation of the distal segment with respect to the proximal segment. The CGM also outputs the three dimensional segment angles (in relation to the global axis system) for the pelvis and the transverse plane component for …" />
+
+    <meta property="og:site_name" content="PyCGM2" />
+    <meta property="og:type" content="article"/>
+    <meta property="og:title" content="Outputs"/>
+    <meta property="og:url" content="/pages/CGM-Outputs.html"/>
+    <meta property="og:description" content="Kinematic outputs The primary kinematic outputs are the three dimensional joint angles representing the orientation of the distal segment with respect to the proximal segment. The CGM also outputs the three dimensional segment angles (in relation to the global axis system) for the pelvis and the transverse plane component for …" />
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="/theme/css/bootstrap.cosmo.min.css" type="text/css"/>
+    <link href="/theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="/theme/css/pygments/native.css" rel="stylesheet">
+    <link rel="stylesheet" href="/theme/css/style.css" type="text/css"/>
+
+
+</head>
+<body>
+
+<!-- navbar -->
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="/" class="navbar-brand">
+PyCGM2            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                <!-- navbar from MENUITEMS -->
+
+                <!-- navbar from MENU ( my MODIFICATION) -->
+                        <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">The Project <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="/pages/team.html">People</a></li>
+                            <li><a href="/pages/publication.html">Publications</a></li>
+                        </ul>
+                        </li>
+                        <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Code <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="/pages/installation.html">Installation</a></li>
+                            <li><a href="https://pycgm2.github.io/pyCGM2-API-DOC/index.html">API </a></li>
+                            <li><a href="/pages/nexusApps.html">Nexus Apps</a></li>
+                        </ul>
+                        </li>
+                        <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">CGM1 <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="/pages/CGM-General.html">General</a></li>
+                            <li><a href="/pages/CGM10.html">CGM1.0</a></li>
+                            <li><a href="/pages/CGM11.html">CGM1.1</a></li>
+                        </ul>
+                        </li>
+                        <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">CGM2 <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="/pages/CGM2-General.html">General</a></li>
+                            <li><a href="/pages/CGM21-Overview.html">CGM2.1</a></li>
+                        </ul>
+                        </li>
+                        <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Ressources <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="/pages/Open-access-Gait-Data.html">OpenAccess data</a></li>
+                        </ul>
+                        </li>
+
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+<!-- Banner -->
+<style>
+	#banner{
+	    background-image:url("/images/bannerGait.png");
+         background-size: 2000px 300px;
+	}
+</style>
+
+<div id="banner">
+	<div class="container">
+		<div class="copy">
+			<h1>PyCGM2</h1>
+				<p class="intro">open source python package of the Conventional Gait Model </p>
+		</div>
+	</div>
+</div><!-- End Banner -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+
+    <section id="content" class="body">
+        <h1 class="entry-title">Outputs</h1>
+        
+        <div class="entry-content">
+            <h2>Kinematic outputs</h2>
+<p>The primary kinematic outputs are the three dimensional joint angles representing the orientation of the distal segment with respect to the proximal segment. The CGM also outputs the three dimensional segment angles (in relation to the global axis system) for the pelvis and the transverse plane component for the foot (foot progression). All three dimensional angles are represented using Cardan angles which can generally be more easily visualised as globographic angles (Baker,<a href="http://dx.doi.org/10.1016/j.jbiomech.2011.04.031">2011</a>).</p>
+<p>As originally described the pelvic segment angles were described using the same Cardan sequence as the joint angles. Baker (<a href="http://dx.doi.org/10.1016/S0966-6362(00%2900083-7)">2001</a>, however,  has pointed out that this results pelvic angles that differ from the conventional clinical understanding of the angles and that reversing the Cardan sequence would rectify this (confirmed by <a href="C:\Users\hls302\Dropbox\Active files\GitHub\pyCGM2io\content\reference files\Foti 2001 G&amp;P (Pelvic angles%29.pdf)">Foti et al., 2001</a>. This is the approach described in the sequence below but it should be noted that most implementations of the CGM still adopt the original approach.</p>
+<table>
+  <tr><td width="260">
+  <figure align="middle">
+    <img src="..\images\CGM1\PelvisJoint.png" alt="Definition of pelvic angles" width="250">
+  </td><td>
+    <h2> Pelvis</h2>
+    (with respect to global coordinate system represented by in the figure by the horizontal disk centred on the mid-point of the hip joints).
+    <p></p>
+    <ul>
+      <li> Internal/external rotation is the angle by which the mediolateral axis of the pelvis is rotated within the horizontal plane (<font color="red">red angle</font>) </li>
+      <li> Obliquity is the angle by which the mediolateral axis of the pelvis is raised out of the horizontal plane (<font color="green">green angle</font>)</li>
+      <li> Anterior/posterior pelvic tilt is the rotation about the mediolateral axis of the pelvis (<font color="blue">blue angle</font>). </li>    
+    </ul>
+  <tr><td width="260">
+  <figure align="middle">
+    <img src="..\images\CGM1\HipJoint.png" alt="Definition of hip joint angles" width="250">
+  </td><td>
+    <h2> Hip</h2>
+    (with respect to pelvis coordinate system as represented in the figure by the disk in the sagittal plane of the pelvis and centred on the hip joint centre)
+    <p></p>
+    <ul>
+      <li> Flexion/extension is the angle by which the long axis of the femur is rotated within the sagittal plane (<font color="red">red angle</font>) </li>
+      <li> Ab/adduction is the angle by which the long axis of the femur is rotated out of the sagittal plane (<font color="green">green angle</font>)</li>
+      <li> Internal/external rotation is that about the long axis of the femur (<font color="blue">blue angle</font>). </li>    
+    </ul>
+  </td></tr>
+  <tr><td width="260">
+  <figure align="middle">
+    <img src="..\images\CGM1\KneeJoint.png" alt="Defintion of knee joint angles" width="250">
+  </td><td>
+    <h2> Knee</h2>
+    (with respect to femur coordinate system as represented in the figure by the disk in the sagittal plane of the femur and centred on the knee joint centre)
+    <p></p>
+    <ul>
+      <li> Flexion/extension is the angle by which the long axis of the Tibia is rotated within the sagittal plane (<font color="red">red angle</font>) </li>
+      <li> Ab/adduction is the angle by which the long axis of the tibia is rotated out of the sagittal plane (<font color="green">green angle</font>)</li>
+      <li> Internal/external rotation is that about the long axis of the tibia (<font color="blue">blue angle</font>). </li>    
+    </ul>
+    Valgus and external rotation have been greatly exaggerated to clarify the figure.
+  </td></tr>
+  <tr><td width="260">
+  <figure align="middle">
+    <img src="..\images\CGM1\AnkleJoint.png" alt="Definition of ankle joint angles" width="250">
+  </td><td>
+    <h2> Ankle</h2>
+    (with respect to tibia coordinate system as represented in the figure by the disk in the sagittal plane of the tibia and centred on the ankle joint centre)
+    <p></p>
+    <ul>
+      <li> Flexion/extension is the angle by which the long axis of the foot is rotated within the sagittal plane (<font color="red">red angle</font>) </li>
+      <li> Internal/external rotation is the angle by which the long axis of the foot is rotated out of the sagittal plane (<font color="green">green angle</font>)</li>
+      <li> Rotation about the long axis of the foot was not defined in the original CGM </li>    
+    </ul>
+    Foot progression is defined similarly to ankle rotation except that the angle is calculated relative to the global coordinate system rather than the tibia.
+  </td></tr>
+</table>
+
+<h2>Kinetic outputs</h2>
+<p>If force plate data is avaiable then inverse dynamics can be used to calculate the moments at each joint (the net joint forces can also be calcualated but have not clear clinical interpretation).</p>
+<p>One of the differences between the Newington and Helen Hayes variants was that Newington took body segment inertial parameters from the work of Dempster et al (1955, <a href="http://www.dtic.mil/dtic/tr/fulltext/u2/087892.pdf">full report</a>), whereas Helen Hayes used data from Hinrichs et al. (<a href="http://dx.doi.org/10.1016/0021-9290(85&amp;2990016-8)">1985</a> which was based on the measurments of Clauser et al. (11969, <a href="http://www.dtic.mil/dtic/tr/fulltext/u2/710622.pdf">full report</a>). Joint moments are generally insnesitive to the choice of such parameters (<a href="http://dx.doi.org/10.1016/j.jbiomech.2005.04.014">Rao et al. 2006</a>, [Pearsall et al. 1999](http://dx.doi.org/10.1016/S0966-6362(99%2900011-9) and only minor diferences would thus be anticipated in the outputs. VCM use data from Dempster et al.</p>
+<p>Joint moments are presented as the compononents along orthogonal coordiante systems. Precisely which coordiante system was not specified in the original papers but the VCM defaulted to that of the distal segment (whilst giving the user an option to specifiy the proximal segment or the global coordiante system as alternatives).</p>
+<p>Joint power is also calculated as the  dot product of the joint moment and joint angular velocity vectors (not that this is the true angular velocity vector and not the time derivative of the Cardan angles). Power is a scalar quantity and there is thus not biomechanical justification for presenting "components" of power.</p>
+<p></p>
+
+<p>Proceed to  <a href="/pages/CGM-Variants.html">description of variants</a>.</p>
+        </div>
+    </section>
+        </div>
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+
+<section class="well well-sm">
+    <ul class="list-group list-group-flush">
+
+
+
+            <li class="list-group-item"><a href="/tags.html"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+                <ul class="list-group " id="tags">
+                </ul>
+            </li>
+    <li class="list-group-item"><h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Links</span></h4>
+      <ul class="list-group" id="links">
+        <li class="list-group-item">
+            <a href="http://www.salford.ac.uk/health-sciences/facilities/gait-analysis-clinic" target="_blank">
+                Salford Gait Analysis
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="https://www.vicon.com/" target="_blank">
+                Vicon
+            </a>
+        </li>
+      </ul>
+    </li>
+    </ul>
+</section>
+            </aside>
+        </div>
+    </div>
+</div>
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">&copy;  Fabien Leboeuf
+            &middot; Powered by <a href="https://github.com/DandyDev/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>              <p><small>   <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by/4.0/80x15.png" /></a>
+    Content
+  licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>, except where indicated otherwise.
+</small></p>
+         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="/theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="/theme/js/respond.min.js"></script>
+
+    <!--<script src="/theme/js/bodypadding.js"></script>-->
+
+</body>
+</html>

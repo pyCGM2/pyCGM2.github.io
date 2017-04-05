@@ -2,7 +2,7 @@
 <html lang="english"
 >
 <head>
-    <title>The CGM 2.i Project - PyCGM2</title>
+    <title>Kinematic Chain - PyCGM2</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -10,16 +10,16 @@
 
 
 
-<link rel="canonical" href="/pages/mainPage.html">
+<link rel="canonical" href="/pages/CGM-Chain.html">
 
         <meta name="author" content="Fabien Leboeuf" />
-        <meta name="description" content="Overview The Conventional Gait Model is the most widely used biomechanical model for clinical gait analysis. It was first developed in the 1980s and although, it has many strengths, it has several well-known weaknesses. The overall aim of this project is to develop and validate a new version, CGM 2 …" />
+        <meta name="description" content="The CGM is comprised of seven segments, a single pelvis and femur, tibia and foot segments for left and right sides. These are linked in an open chain by joints with three rotational degrees of freedom (ball and socket joints). The model is sometimes described as hierarchical in the sense …" />
 
     <meta property="og:site_name" content="PyCGM2" />
     <meta property="og:type" content="article"/>
-    <meta property="og:title" content="The CGM 2.i Project"/>
-    <meta property="og:url" content="/pages/mainPage.html"/>
-    <meta property="og:description" content="Overview The Conventional Gait Model is the most widely used biomechanical model for clinical gait analysis. It was first developed in the 1980s and although, it has many strengths, it has several well-known weaknesses. The overall aim of this project is to develop and validate a new version, CGM 2 …" />
+    <meta property="og:title" content="Kinematic Chain"/>
+    <meta property="og:url" content="/pages/CGM-Chain.html"/>
+    <meta property="og:description" content="The CGM is comprised of seven segments, a single pelvis and femur, tibia and foot segments for left and right sides. These are linked in an open chain by joints with three rotational degrees of freedom (ball and socket joints). The model is sometimes described as hierarchical in the sense …" />
 
 
     <!-- Bootstrap -->
@@ -117,20 +117,19 @@ PyCGM2            </a>
         <div class="col-sm-9">
 
     <section id="content" class="body">
-        <h1 class="entry-title">The CGM 2.i Project</h1>
+        <h1 class="entry-title">Kinematic Chain</h1>
         
         <div class="entry-content">
-            <h1>Overview</h1>
-<p>The Conventional Gait Model is the most widely used biomechanical model for clinical gait analysis. It was first developed in the 1980s and although, it has many strengths, it has several well-known weaknesses.</p>
-<p>The overall aim of this project is to develop and validate a new version, CGM 2, which maintains the current model’s strengths but addresses its weaknesses. The new version will allow robust, efficient and standardised data capture by people whose primary interest is in using the results of the gait analysis.</p>
-<p>Although the project aims to make the new model as compatible as possible with the old it cannot be identical. It is therefore important that future users know exactly how the new version differs from the old. This will be ensured by developing the model in a series of iterations each addressing a specific weakness and each fully validated to understand the behaviour of the new model in comparison to the old one.</p>
-<p>We want the new model to be as open and transparent as possible. All code will be developed in <a href="https://www.python.org/">python</a> and made  available through <a href="https://github.com/">GitHub</a>. The project is part-funded by <a href="https://www.vicon.com/">Vicon</a> and we will focus first on implementations to support use of the new models with Vicon's suite of clinical gait analysis software. We are open to developing similar relationships with other manufacurers.</p>
-<div class="jumbotron">
-   <h2>The current model : CGM1</h2>    
-   <p><a class="btn btn-primary btn-lg" href="/pages/CGM-General.html">Learn more about CGM1</a></p>
-   <h2>Looking to the future : </h2>    
-   <p><a class="btn btn-primary btn-lg" href="/pages/CGM2-General.html">Find out the CGM2</a></p>
-</div>
+            <p>The CGM is comprised of seven segments, a single pelvis and femur, tibia and foot segments for left and right sides. These are linked in an open chain by joints with three rotational degrees of freedom (ball and socket joints). The model is sometimes described as hierarchical in the sense that the definition of each segment is dependent on the prior definition of the segment proximal to it in the chain (up to the pelvis).</p>
+<figure align="middle" >
+ <img src="..\images\CGM1\Kinematic chain.png" alt="The kinematic chain of the CGM" width="200">
+ <figcaption>The kinematic chain of the CGM</figcaption>  
+</figure>
+
+<p>An important characteristic of the CGM is that it assumes that all joints can be represented as ball and socket joints (three rotation degrees of freedom). In reality the joints, particularly the knee and ankle, are known to show translation as well as rotation. These translations are assumed to be small relative to the effects of soft tissue artefact on skin mounted markers and is generally assumed that applying such constraints improves the modelling.</p>
+<p></p>
+
+<p>Proceed to <a href="/pages/CGM-Segments">anatomical segment definitions</a>.</p>
         </div>
     </section>
         </div>

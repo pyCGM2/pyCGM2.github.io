@@ -2,7 +2,7 @@
 <html lang="english"
 >
 <head>
-    <title>The CGM 2.i Project - PyCGM2</title>
+    <title>CGM 2.3 Removal of thigh wands - PyCGM2</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -10,16 +10,16 @@
 
 
 
-<link rel="canonical" href="/pages/mainPage.html">
+<link rel="canonical" href="/pages/CGM23-Overview.html">
 
         <meta name="author" content="Fabien Leboeuf" />
-        <meta name="description" content="Overview The Conventional Gait Model is the most widely used biomechanical model for clinical gait analysis. It was first developed in the 1980s and although, it has many strengths, it has several well-known weaknesses. The overall aim of this project is to develop and validate a new version, CGM 2 …" />
+        <meta name="description" content="Background Wand markers were originally used on the CGM because systems at the time it was developed used as few as three cameras. Putting the markers on wands ensured that they could still be seen even if segment rotation would have masked a skin mounted marker from one of the …" />
 
     <meta property="og:site_name" content="PyCGM2" />
     <meta property="og:type" content="article"/>
-    <meta property="og:title" content="The CGM 2.i Project"/>
-    <meta property="og:url" content="/pages/mainPage.html"/>
-    <meta property="og:description" content="Overview The Conventional Gait Model is the most widely used biomechanical model for clinical gait analysis. It was first developed in the 1980s and although, it has many strengths, it has several well-known weaknesses. The overall aim of this project is to develop and validate a new version, CGM 2 …" />
+    <meta property="og:title" content="CGM 2.3 Removal of thigh wands"/>
+    <meta property="og:url" content="/pages/CGM23-Overview.html"/>
+    <meta property="og:description" content="Background Wand markers were originally used on the CGM because systems at the time it was developed used as few as three cameras. Putting the markers on wands ensured that they could still be seen even if segment rotation would have masked a skin mounted marker from one of the …" />
 
 
     <!-- Bootstrap -->
@@ -117,20 +117,53 @@ PyCGM2            </a>
         <div class="col-sm-9">
 
     <section id="content" class="body">
-        <h1 class="entry-title">The CGM 2.i Project</h1>
+        <h1 class="entry-title">CGM 2.3 Removal of thigh wands</h1>
         
         <div class="entry-content">
-            <h1>Overview</h1>
-<p>The Conventional Gait Model is the most widely used biomechanical model for clinical gait analysis. It was first developed in the 1980s and although, it has many strengths, it has several well-known weaknesses.</p>
-<p>The overall aim of this project is to develop and validate a new version, CGM 2, which maintains the current model’s strengths but addresses its weaknesses. The new version will allow robust, efficient and standardised data capture by people whose primary interest is in using the results of the gait analysis.</p>
-<p>Although the project aims to make the new model as compatible as possible with the old it cannot be identical. It is therefore important that future users know exactly how the new version differs from the old. This will be ensured by developing the model in a series of iterations each addressing a specific weakness and each fully validated to understand the behaviour of the new model in comparison to the old one.</p>
-<p>We want the new model to be as open and transparent as possible. All code will be developed in <a href="https://www.python.org/">python</a> and made  available through <a href="https://github.com/">GitHub</a>. The project is part-funded by <a href="https://www.vicon.com/">Vicon</a> and we will focus first on implementations to support use of the new models with Vicon's suite of clinical gait analysis software. We are open to developing similar relationships with other manufacurers.</p>
-<div class="jumbotron">
-   <h2>The current model : CGM1</h2>    
-   <p><a class="btn btn-primary btn-lg" href="/pages/CGM-General.html">Learn more about CGM1</a></p>
-   <h2>Looking to the future : </h2>    
-   <p><a class="btn btn-primary btn-lg" href="/pages/CGM2-General.html">Find out the CGM2</a></p>
-</div>
+            <h2>Background</h2>
+<p>Wand markers were originally used on the CGM because systems at the time it was developed used as few as three cameras. Putting the markers on wands ensured that they could still be seen even if segment rotation would have masked a skin mounted marker from one of the cameras. With modern systems comprising multiple high resolution cameras this is no longer a limitation and skin mounted markers can generally detected as easily as those on wands. Wands can lead to wobble on the markers if they are not securely taped in place and doing this carefully adds time to an already time consuming process.</p>
+<p>The original CGM proposed using a wand marker for the sacrum but it is now virtually universal practice to place a skin mounted marker directly over each PSIS landmark. Thigh and shank wands, however, serve two futher purposes:</p>
+<ul>
+<li>by moving the marker laterally they make the model outptus much less sensitive to artefacts from misplacement or soft tissue artefact of both the thigh/shank and lateral knee and ankle markers. This is particular issue if the markers are placed quite distally (see Figure below).</li>
+</ul>
+<figure align="middle" >
+  <img src="..\images\CGM2\Cockroft2016.png" alt="Effect of thigh marker position on sensitivity of femur segment orientation" width="400">
+  <figcaption>Effect of thigh marker position on sensitivity of femur segment orientation (<a href="http://dx.doi.org/10.1080/10255842.2016.1157865">Cockroft et al. 2016</a>) </figcaption>
+</figure>
+
+<p></p>
+
+<ul>
+<li>The wands help visualise exactly where a marker is being placed and, if wands with ball joint bases are used, allow subtle adjustments of where the centre of the marker lies with respect to the coronal plane of the femur. This is particularly important if the position of these markers is used to directly determine the coronal plane alignemnt of the femure and shank (i.e. if a knee alignment device of some form of functional calibration is not used).</li>
+</ul>
+<p>Whilst it would be extremely useful, therefore, to use skin mounted markers only, it does not make sense to simply replace each wand with a single skin mounted marker in approximately the same position. Peters et al. (<a href="http://dx.doi.org/10.1016/j.gaitpost.2008.06.007">2009</a>) have suggested markers palced on the medial and lateral malleoli and on the anterior crest of the tibia that appear to show very little soft tissue artefact and are suitable placements for tibial markers. Cockroft et al. (<a href="http://dx.doi.org/10.1080/10255842.2016.1157865">2016</a>) suggest that use of a more proximal thigh marker makes model outputs less prone to soft tissue artefact and reasoning similar to that presented in the paper suggests that a marker placed in on the mid-line of the anterior aspect of the thigh is likely to be a good placement as well.</p>
+<h2>Proposal</h2>
+<p>CGM 2.3 will remove the wand markers and replace these with a small number of tracking markers placed over the thigh and shank segments. These will be:</p>
+<ul>
+  <li>Femur</li>
+  <ul>
+    <li><strong>Proximal anterior thigh</strong>, about 1/3 of the distance from hip to knee on anterior aspect of thigh.</li>
+    <li><strong>Distal anterior thigh</strong>, (about 2/3 of the distance from hip to knee on anterior aspect of thigh)</li>
+    <li><strong>Lateral thigh</strong>, about mid-way form hip to knee on lateralor aspect of thigh</li>
+  </ul>
+  <p></p>
+  It should be noted that the skin around the knee is particularly susceptible to soft tissue artefact and that whilst <strong>medial</strong> and <strong>lateral epicondyle</strong> markers will be used for calibration purposes they will not be used for fitting the model to dynamic trials in this and subsequent models.
+  <p></p>
+  <li>Shank</li>
+  <ul>
+    <li><strong>Proximal anterior crest of tibia</strong>, just below the tibial tuberosity (where there may be some soft-tissue artefact).</li>
+    <li><strong>Middle anterior crest of tibia</strong>, about mid way from knee to ankle on anterior crest.</li>
+    <li><strong>Lateral epicondyle</strong>, as placed for conventional model.</li>
+    <li><strong>Medial malleolus</strong>, as placed if used to indicate ankle joint axis during static calibration.</li>
+  </ul>
+
+<p><figure align="middle" >
+    <img src="..\images\CGM2\CGM23markers.png" alt="Marker placement for CGM2.3" width="400">
+    <figcaption>Marker placement for CGM2.3 (illustred for one limb only for clarity, adapted from <a href="http://dx.doi.org/10.1016/j.gaitpost.2008.06.007"> Peters et al. 2009 </a>)
+    </figcaption>
+  </figure>
+  <p></p>
+  A number if tests will be run to evaluate how results of this model differ both from CGM 2.1 and CGM 2.2. It is anticipated that becasue CGM 2.3 is less dependent on the knee marker that outputs will be more comparable with CGM 2.2 than 2.3.</p>
         </div>
     </section>
         </div>

@@ -2,7 +2,7 @@
 <html lang="english"
 >
 <head>
-    <title>The CGM 2.i Project - PyCGM2</title>
+    <title>Overview of issues to be addressed - PyCGM2</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -10,16 +10,16 @@
 
 
 
-<link rel="canonical" href="/pages/mainPage.html">
+<link rel="canonical" href="/pages/CGM2-Issues.html">
 
         <meta name="author" content="Fabien Leboeuf" />
-        <meta name="description" content="Overview The Conventional Gait Model is the most widely used biomechanical model for clinical gait analysis. It was first developed in the 1980s and although, it has many strengths, it has several well-known weaknesses. The overall aim of this project is to develop and validate a new version, CGM 2 …" />
+        <meta name="description" content="Backard compatibility and future proofing Although backwards compatibility is listed above as the eighth criteria, ensuring that the new CGM is accepted by existing users will be largely dependent on it appearing as a development of the previous model rather than the creation of a new one. On the other …" />
 
     <meta property="og:site_name" content="PyCGM2" />
     <meta property="og:type" content="article"/>
-    <meta property="og:title" content="The CGM 2.i Project"/>
-    <meta property="og:url" content="/pages/mainPage.html"/>
-    <meta property="og:description" content="Overview The Conventional Gait Model is the most widely used biomechanical model for clinical gait analysis. It was first developed in the 1980s and although, it has many strengths, it has several well-known weaknesses. The overall aim of this project is to develop and validate a new version, CGM 2 …" />
+    <meta property="og:title" content="Overview of issues to be addressed"/>
+    <meta property="og:url" content="/pages/CGM2-Issues.html"/>
+    <meta property="og:description" content="Backard compatibility and future proofing Although backwards compatibility is listed above as the eighth criteria, ensuring that the new CGM is accepted by existing users will be largely dependent on it appearing as a development of the previous model rather than the creation of a new one. On the other …" />
 
 
     <!-- Bootstrap -->
@@ -117,20 +117,23 @@ PyCGM2            </a>
         <div class="col-sm-9">
 
     <section id="content" class="body">
-        <h1 class="entry-title">The CGM 2.i Project</h1>
+        <h1 class="entry-title">Overview of issues to be addressed</h1>
         
         <div class="entry-content">
-            <h1>Overview</h1>
-<p>The Conventional Gait Model is the most widely used biomechanical model for clinical gait analysis. It was first developed in the 1980s and although, it has many strengths, it has several well-known weaknesses.</p>
-<p>The overall aim of this project is to develop and validate a new version, CGM 2, which maintains the current model’s strengths but addresses its weaknesses. The new version will allow robust, efficient and standardised data capture by people whose primary interest is in using the results of the gait analysis.</p>
-<p>Although the project aims to make the new model as compatible as possible with the old it cannot be identical. It is therefore important that future users know exactly how the new version differs from the old. This will be ensured by developing the model in a series of iterations each addressing a specific weakness and each fully validated to understand the behaviour of the new model in comparison to the old one.</p>
-<p>We want the new model to be as open and transparent as possible. All code will be developed in <a href="https://www.python.org/">python</a> and made  available through <a href="https://github.com/">GitHub</a>. The project is part-funded by <a href="https://www.vicon.com/">Vicon</a> and we will focus first on implementations to support use of the new models with Vicon's suite of clinical gait analysis software. We are open to developing similar relationships with other manufacurers.</p>
-<div class="jumbotron">
-   <h2>The current model : CGM1</h2>    
-   <p><a class="btn btn-primary btn-lg" href="/pages/CGM-General.html">Learn more about CGM1</a></p>
-   <h2>Looking to the future : </h2>    
-   <p><a class="btn btn-primary btn-lg" href="/pages/CGM2-General.html">Find out the CGM2</a></p>
-</div>
+            <h2>Backard compatibility and future proofing</h2>
+<p>Although backwards compatibility is listed above as the eighth criteria, ensuring that the new CGM is accepted by existing users will be largely dependent on it appearing as a development of the previous model rather than the creation of a new one. On the other hand some differences will be required to exploit technological and clinical progress in the thirty years since the model was originally developed. Maintaining an appropriate balance between these two apparently opposing and contradictory requirements is a key component of this project. The sections below are intended to give an overview of how this, and other challenges will be addressed.</p>
+<p>The primary case for this being a development of the CGM (rather than a development of a new model) will be that the anatomical definition of lower limb segment co-ordinate systems (<a href="../pages/CGM-Definitions">see current defintions</a>) and the model degrees of freedom (three rotation per joint) will be preserved. A two segment foot will be introduced in such a way that the hind-foot is similar to the existing foot and a new forefoot segment will be introduced that is similar to that of the <a href="http://dx.doi.org/10.1016/S0021-9290%2801%2900101-4">Oxford Foot Model</a>.</p>
+<p>Despite preserving the overall structure of the model some discrepancies with older versions will be inevitable because the new version will calibrate and track these segments better. One example is the incorporation of the Harrington equations [9] to determine the hip joint centres as published research clearly now indicates these are superior to the Davis model. In such cases there will be a rigorous analysis of how such developments affect results.</p>
+<p>Another difference will arise as a result of improved understanding of soft tissue artefact (STA) since the original development of the CGM . We now understand that the conventional lateral knee marker is particularly prone to STA (<a href="http://dx.doi.org/10.4015/S1016237209001283">Tasi et al. 2009</a>,  <a href="http://dx.doi.org/10.1016/j.jbiomech.2010.01.002">Akbarshahi et al. 2010</a>)  and other tracking markers for the femur and tibia segments are preferable. Tools will be developed to ensure that data captured with the old markerset can be reprocessed to be as compatible as possible with the new model (e.g. a version of the CGM based on the old marker set but with the new hip joint centre regression equations will be provided).</p>
+<p>Continuity with the old model will also be reinforced by introducing modifications sequentially rather than as a single step. Whenever modifications are introduced data will be collected to compare old and new models and any discrepancies will be rigorously documented.</p>
+<p>Future proofing will be ensured by moving to a kinematic fitting (inverse kinematic) approach. The most important developments that the model is likely to need to incorporate will be an improved understanding of how soft-tissue artefact affects outputs and kinematic fitting will allow such understanding to be incorporated into the model. Inverse kinematic modelling is also more compatible with muscle length and function calculations than the current vector algebra approach.</p>
+<h2>Transparency and standardisation</h2>
+<p>Despite there being good proprietary documentation of the CGM and reasonably comprehensive descriptions in the academic literature, many implementations of the CGM have developed a negative reputation for being black box applications. The new model will be developed by the team at the University of Salford and the Royal Children’s Hospital, Melbourne in [Python](https://www.python.org(/) and the code will be both be made available through <a href="https://github.com/">GitHub</a> and lodged as an electronic appendix to the academic articles describing the model. Given Vicon's sponsorship we will focus first on implemenations specifically desinged to be used within the exisitng suite of Vicon products (Nexus and Polygon in particular)</p>
+<p>The model itself is envisaged as a standard package with minimal options which will be used unmodified by the users for whom it is intended. Other groups, with the skills to work with the publically available code, will clearly be able to adapt it however they see fit.</p>
+<h2>Ease of use and quality assurance</h2>
+<p>Quality assurance will be enhanced by separating between calibration and tracking markers (current versions of the CGM use many markers with both calibration and tracking function). Doing this makes repeatability studies within and between gait analysts and between services much easier as these can be confined to the placement of calibration markers for the static trial rather than for all makers for static and walking trials. Ease of use will be ensured by minimising the number of markers that are required, particularly calibration markers that are required to be placed accurately. A minimum of anthropometric parameters will be required.</p>
+<p>The new model will also incorporate measures of quality of model fit to assist with quality assurance.</p>
+<p>Whilst the project focuses on model development, manufacturers will be encouraged and supported to develop new and robust workflows to facilitate easy and robust collection of high quality data.</p>
         </div>
     </section>
         </div>

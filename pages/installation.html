@@ -2,7 +2,7 @@
 <html lang="english"
 >
 <head>
-    <title>The CGM 2.i Project - PyCGM2</title>
+    <title>Installation - PyCGM2</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -10,16 +10,16 @@
 
 
 
-<link rel="canonical" href="/pages/mainPage.html">
+<link rel="canonical" href="/pages/installation.html">
 
         <meta name="author" content="Fabien Leboeuf" />
-        <meta name="description" content="Overview The Conventional Gait Model is the most widely used biomechanical model for clinical gait analysis. It was first developed in the 1980s and although, it has many strengths, it has several well-known weaknesses. The overall aim of this project is to develop and validate a new version, CGM 2 …" />
+        <meta name="description" content="Download Release : CGM1-1 python source Code Installation for Non Expert Here are installation instructions for non-experts. Experts can consult the API documentation for details about used python packages. Following guidelines reproduce settings of the pyCGM2 programmer. pyCGM2 is developped under Windows 7 on a 64 bits PC with Vicon Nexus …" />
 
     <meta property="og:site_name" content="PyCGM2" />
     <meta property="og:type" content="article"/>
-    <meta property="og:title" content="The CGM 2.i Project"/>
-    <meta property="og:url" content="/pages/mainPage.html"/>
-    <meta property="og:description" content="Overview The Conventional Gait Model is the most widely used biomechanical model for clinical gait analysis. It was first developed in the 1980s and although, it has many strengths, it has several well-known weaknesses. The overall aim of this project is to develop and validate a new version, CGM 2 …" />
+    <meta property="og:title" content="Installation"/>
+    <meta property="og:url" content="/pages/installation.html"/>
+    <meta property="og:description" content="Download Release : CGM1-1 python source Code Installation for Non Expert Here are installation instructions for non-experts. Experts can consult the API documentation for details about used python packages. Following guidelines reproduce settings of the pyCGM2 programmer. pyCGM2 is developped under Windows 7 on a 64 bits PC with Vicon Nexus …" />
 
 
     <!-- Bootstrap -->
@@ -117,20 +117,55 @@ PyCGM2            </a>
         <div class="col-sm-9">
 
     <section id="content" class="body">
-        <h1 class="entry-title">The CGM 2.i Project</h1>
+        <h1 class="entry-title">Installation</h1>
         
         <div class="entry-content">
-            <h1>Overview</h1>
-<p>The Conventional Gait Model is the most widely used biomechanical model for clinical gait analysis. It was first developed in the 1980s and although, it has many strengths, it has several well-known weaknesses.</p>
-<p>The overall aim of this project is to develop and validate a new version, CGM 2, which maintains the current model’s strengths but addresses its weaknesses. The new version will allow robust, efficient and standardised data capture by people whose primary interest is in using the results of the gait analysis.</p>
-<p>Although the project aims to make the new model as compatible as possible with the old it cannot be identical. It is therefore important that future users know exactly how the new version differs from the old. This will be ensured by developing the model in a series of iterations each addressing a specific weakness and each fully validated to understand the behaviour of the new model in comparison to the old one.</p>
-<p>We want the new model to be as open and transparent as possible. All code will be developed in <a href="https://www.python.org/">python</a> and made  available through <a href="https://github.com/">GitHub</a>. The project is part-funded by <a href="https://www.vicon.com/">Vicon</a> and we will focus first on implementations to support use of the new models with Vicon's suite of clinical gait analysis software. We are open to developing similar relationships with other manufacurers.</p>
-<div class="jumbotron">
-   <h2>The current model : CGM1</h2>    
-   <p><a class="btn btn-primary btn-lg" href="/pages/CGM-General.html">Learn more about CGM1</a></p>
-   <h2>Looking to the future : </h2>    
-   <p><a class="btn btn-primary btn-lg" href="/pages/CGM2-General.html">Find out the CGM2</a></p>
+            <div class="section" id="download">
+<h2>Download</h2>
+<embed>
+   <div class="jumbotron">
+   <h3>Release : CGM1-1</h3>
+   <p><a class="btn btn-primary btn-lg" href="https://github.com/pyCGM2/pyCGM2/releases/tag/cgm1-1-beta">python source Code</a></p>
+
 </div>
+</embed></div>
+<div class="section" id="installation-for-non-expert">
+<h2>Installation for Non Expert</h2>
+<p>Here are installation instructions for <strong>non-experts</strong>. Experts can consult the <a class="reference external" href="https://pycgm2.github.io/pyCGM2-API-DOC/index.html">API documentation</a> for details about used python packages.</p>
+<p>Following guidelines reproduce settings of the pyCGM2 programmer.</p>
+<div class="alert alert-info">
+pyCGM2 is developped under Windows 7 on a 64 bits PC with Vicon Nexus 2.5 installed</div>
+<ol class="arabic simple">
+<li>Download and install  <a class="reference external" href="https://www.vicon.com/downloads/core-software/nexus/nexus-250">Vicon Nexus</a></li>
+<li>Download and install <a class="reference external" href="https://www.continuum.io/downloads#windows">Anaconda 32 bits - python 2.7</a> . Anaconda set the python 2.7 core and install scientifical packages required for pyGM2</li>
+<li>Download and unzip <a class="reference external" href="https://github.com/pyCGM2/pyCGM2/releases/tag/">a release</a>  of  pyCGM2</li>
+<li><strong>[Optional]</strong>. Check Nexus paths</li>
+</ol>
+<p>Edit file : <em>pyCGM2CONFIG.py</em> and check  absolute paths of Vicon Nexus  :</p>
+<blockquote>
+<div class="highlight"><pre><span></span><span class="n">NEXUS_SDK_WIN32</span> <span class="o">=</span> <span class="s1">&#39;C:/Program Files (x86)/Vicon/Nexus2.5/SDK/Win32&#39;</span>
+<span class="n">NEXUS_SDK_PYTHON</span> <span class="o">=</span> <span class="s1">&#39;C:/Program Files (x86)/Vicon/Nexus2.5/SDK/Python&#39;</span>
+<span class="n">PYTHON_NEXUS</span> <span class="o">=</span> <span class="s1">&#39;C:</span><span class="se">\\</span><span class="s1">Program Files (x86)</span><span class="se">\\</span><span class="s1">Vicon</span><span class="se">\\</span><span class="s1">Nexus2.5</span><span class="se">\\</span><span class="s1">Python&#39;</span>
+</pre></div>
+</blockquote>
+<ol class="arabic simple" start="5">
+<li>Open a MS-DOS console and go to pyCGM2 folder containing <em>setup.py</em></li>
+<li>Type <em>pip install -e .</em> ( don't forget the sign .)</li>
+</ol>
+<p>This command put a link in your python path ( generally <em>pathToAnacondaFolder\Lib\site-packages</em>) pointing your pyCGM2 folder.</p>
+</div>
+<div class="section" id="check-you-installation">
+<h2>Check you installation</h2>
+<ul class="simple">
+<li>Open a python console and type</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyCGM2</span>
+<span class="n">pyCGM2</span><span class="o">.</span><span class="n">pyCGM2_CONFIG</span><span class="o">.</span><span class="n">checkConfig</span><span class="p">()</span>
+</pre></div>
+<p>pyCGM2 is ready to use if you obviously get no error messages.&lt;br&gt;</p>
+<img alt="" src="..\images\installation\pycgm2-checkConfig-success.png" />
+</div>
+
         </div>
     </section>
         </div>

@@ -2,7 +2,7 @@
 <html lang="english"
 >
 <head>
-    <title>The CGM 2.i Project - PyCGM2</title>
+    <title>Nexus Applications - PyCGM2</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -10,16 +10,16 @@
 
 
 
-<link rel="canonical" href="/pages/mainPage.html">
+<link rel="canonical" href="/pages/nexusApps.html">
 
         <meta name="author" content="Fabien Leboeuf" />
-        <meta name="description" content="Overview The Conventional Gait Model is the most widely used biomechanical model for clinical gait analysis. It was first developed in the 1980s and although, it has many strengths, it has several well-known weaknesses. The overall aim of this project is to develop and validate a new version, CGM 2 …" />
+        <meta name="description" content="Automatically, PyCGM2 generates global settings and ready-to-use Vicon pipelines. All Files are located in folder C:\\ProgramData\\pyCGM2. Global settings Role of the global setting file * .inputs* is to set common inputs of pipelines User is free to alter global settings if they doesn t match his current practice. he …" />
 
     <meta property="og:site_name" content="PyCGM2" />
     <meta property="og:type" content="article"/>
-    <meta property="og:title" content="The CGM 2.i Project"/>
-    <meta property="og:url" content="/pages/mainPage.html"/>
-    <meta property="og:description" content="Overview The Conventional Gait Model is the most widely used biomechanical model for clinical gait analysis. It was first developed in the 1980s and although, it has many strengths, it has several well-known weaknesses. The overall aim of this project is to develop and validate a new version, CGM 2 …" />
+    <meta property="og:title" content="Nexus Applications"/>
+    <meta property="og:url" content="/pages/nexusApps.html"/>
+    <meta property="og:description" content="Automatically, PyCGM2 generates global settings and ready-to-use Vicon pipelines. All Files are located in folder C:\\ProgramData\\pyCGM2. Global settings Role of the global setting file * .inputs* is to set common inputs of pipelines User is free to alter global settings if they doesn t match his current practice. he …" />
 
 
     <!-- Bootstrap -->
@@ -117,20 +117,40 @@ PyCGM2            </a>
         <div class="col-sm-9">
 
     <section id="content" class="body">
-        <h1 class="entry-title">The CGM 2.i Project</h1>
+        <h1 class="entry-title">Nexus Applications</h1>
         
         <div class="entry-content">
-            <h1>Overview</h1>
-<p>The Conventional Gait Model is the most widely used biomechanical model for clinical gait analysis. It was first developed in the 1980s and although, it has many strengths, it has several well-known weaknesses.</p>
-<p>The overall aim of this project is to develop and validate a new version, CGM 2, which maintains the current model’s strengths but addresses its weaknesses. The new version will allow robust, efficient and standardised data capture by people whose primary interest is in using the results of the gait analysis.</p>
-<p>Although the project aims to make the new model as compatible as possible with the old it cannot be identical. It is therefore important that future users know exactly how the new version differs from the old. This will be ensured by developing the model in a series of iterations each addressing a specific weakness and each fully validated to understand the behaviour of the new model in comparison to the old one.</p>
-<p>We want the new model to be as open and transparent as possible. All code will be developed in <a href="https://www.python.org/">python</a> and made  available through <a href="https://github.com/">GitHub</a>. The project is part-funded by <a href="https://www.vicon.com/">Vicon</a> and we will focus first on implementations to support use of the new models with Vicon's suite of clinical gait analysis software. We are open to developing similar relationships with other manufacurers.</p>
-<div class="jumbotron">
-   <h2>The current model : CGM1</h2>    
-   <p><a class="btn btn-primary btn-lg" href="/pages/CGM-General.html">Learn more about CGM1</a></p>
-   <h2>Looking to the future : </h2>    
-   <p><a class="btn btn-primary btn-lg" href="/pages/CGM2-General.html">Find out the CGM2</a></p>
+            <p>Automatically, PyCGM2 generates global settings and ready-to-use Vicon pipelines.</p>
+<p class="text-primary">All Files are located in folder C:\\ProgramData\\pyCGM2.</p>
+
+<h2>Global settings</h2>
+<p>Role of the global setting file * .inputs* is to set common inputs of pipelines     </p>
+<div class="alert alert-dismissible alert-warning">
+User is free to alter global settings if they doesn t match his current practice. he could also force then thought script input arguments (see API documentation)  
 </div>
+
+<h2>Vicon Pipelines</h2>
+<p>Like Vicon PiG , pyCGM2 does modelling through two pipelines.</p>
+<ul>
+<li><strong>Calibration</strong> : calibrates the model and compute kinematics    </li>
+<li><strong>Fitting</strong> : recontructs segmental motion and compute both kinematics and kinetics</li>
+</ul>
+<h2>PyCGM2 pipeline operations</h2>
+<p>Here are a brief summary of pipeline operations</p>
+<p><strong>Calibration Pipeline operations</strong></p>
+<ul>
+<li>Builds and calibrates the model from global settings and vsk</li>
+<li>saves both c3d and vsk</li>
+<li>adds metadata to the c3d</li>
+<li>plots kinematics</li>
+</ul>
+<p><strong>Fitting Pipeline operations</strong></p>
+<ul>
+<li>computes kinematics and kinetics</li>
+<li>saves both c3d and vsk</li>
+<li>adds metadata to the c3d</li>
+<li>plots time normalized gait outcomes</li>
+</ul>
         </div>
     </section>
         </div>
