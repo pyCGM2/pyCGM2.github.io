@@ -29,6 +29,8 @@
     <link href="/theme/css/pygments/native.css" rel="stylesheet">
     <link rel="stylesheet" href="/theme/css/style.css" type="text/css"/>
 
+        <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="PyCGM2 ATOM Feed"/>
 
 </head>
 <body>
@@ -62,8 +64,8 @@ PyCGM2            </a>
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Code <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="/pages/installation.html">Installation</a></li>
-                            <li><a href="https://pycgm2.github.io/pyCGM2-API-DOC/index.html">API </a></li>
                             <li><a href="/pages/nexusApps.html">Nexus Apps</a></li>
+                            <li><a href="https://pycgm2.github.io/pyCGM2-API-DOC/index.html">API </a></li>
                         </ul>
                         </li>
                         <li class="dropdown">
@@ -129,18 +131,19 @@ PyCGM2            </a>
   <li> to allow users to see for themselves that the models give identical outputs to existing alternatives (most obviously PiG)
 </ul></p>
 <p>It should be possible to calibrate the model using static trial data and to track dynamic walking (or other) data in an exactly analogous way to how PiG runs in the Nexus pipeline at the moment (i.e. the code will detect which variant of the model should be used depending on the subject measurements that have been entered and the trajectories that are detected in the .c3d files).</p>
-<p>The models will write outputs to the .c3d file using the same variable names as PiG. If variables with those names are already contained in the .c3d file then those they will be renamed with a suffix "old" (e.g. <em>LPelvisAngles</em> becomes <em>LPelvisAnglesOld</em>). When run the models will automatically generate gait graphs of the output (overplotted on existing data if it was present).</p>
+<p>The models will write outputs to the .c3d file using the same variable names as PiG. When run the models will automatically generate gait graphs of the output (overplotted on existing data if it was present).</p>
 <h2>Nexus App</h2>
-<p><strong>CGM1-pyCGM2.inputs</strong></p>
+<h3>Global settings (CGM1-pyCGM2.inputs)</h3>
 <ul>
 <li>marker diameter : 14mm</li>
 <li>moment project into the  <em>Distal</em> referential</li>
 <li>flat foot <strong>enable</strong> by default</li>
 </ul>
+<h3>Pipelines</h3>
 <p><strong>pyCGM2-CGM1-Calibration.Pipeline</strong></p>
 <p>See  <a href="https://pycgm2.github.io/pyCGM2-API-DOC/apps/CGM1.html#calibration-nexusoperation-pycgm2-cgm1-calibration-py">details</a> in API documentation</p>
 <div class="alert alert-dismissible alert-warning">
-Notice like the vicon operation "Process Static Plugin Gait model", joint angles ignores segment offsets. Anatomical Coordinate system are built from instataneous joint centres reconstruction  
+Notice like the vicon PiG operation "Process Static Plugin Gait model", joint angles <strong> ignore segment offsets </strong>. This process explain the possible deviation, you could get between native Vicon  operations "Process Static Plugin Gait model" and "Dynamic Plugin Gait model"      
 </div>
 
 <p><strong>pyCGM2-CGM1-Fitting.Pipeline</strong></p>

@@ -3924,7 +3924,8 @@ a.thumbnail:hover,a.thumbnail:focus,a.thumbnail.active {
 	color:#333333
 }
 .alert {
-	/*! padding:15px; */margin-bottom:21px;
+	padding:15px; 
+    margin-bottom:21px;
 	border:1px solid transparent;
 	border-radius:0;
 }
@@ -3945,7 +3946,8 @@ a.thumbnail:hover,a.thumbnail:focus,a.thumbnail.active {
 	padding-right:35px
 }
 .alert-dismissable .close,.alert-dismissible .close {
-	position:relative;
+	padding:15px;
+    position:relative;
 	top:-2px;
 	right:-21px;
 	color:inherit

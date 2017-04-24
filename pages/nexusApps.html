@@ -13,13 +13,13 @@
 <link rel="canonical" href="/pages/nexusApps.html">
 
         <meta name="author" content="Fabien Leboeuf" />
-        <meta name="description" content="Automatically, PyCGM2 generates global settings and ready-to-use Vicon pipelines. All Files are located in folder C:\\ProgramData\\pyCGM2. Global settings Role of the global setting file * .inputs* is to set common inputs of pipelines User is free to alter global settings if they doesn t match his current practice. he …" />
+        <meta name="description" content="Automatically, PyCGM2 generates global settings and ready-to-use Vicon pipelines. All Files are located in folder C:\\ProgramData\\pyCGM2. Global settings Role of the global setting file * .inputs* is to set commonly used inputs of pipelines User is free to alter default global settings if they don&#39;t match his common practice …" />
 
     <meta property="og:site_name" content="PyCGM2" />
     <meta property="og:type" content="article"/>
     <meta property="og:title" content="Nexus Applications"/>
     <meta property="og:url" content="/pages/nexusApps.html"/>
-    <meta property="og:description" content="Automatically, PyCGM2 generates global settings and ready-to-use Vicon pipelines. All Files are located in folder C:\\ProgramData\\pyCGM2. Global settings Role of the global setting file * .inputs* is to set common inputs of pipelines User is free to alter global settings if they doesn t match his current practice. he …" />
+    <meta property="og:description" content="Automatically, PyCGM2 generates global settings and ready-to-use Vicon pipelines. All Files are located in folder C:\\ProgramData\\pyCGM2. Global settings Role of the global setting file * .inputs* is to set commonly used inputs of pipelines User is free to alter default global settings if they don&#39;t match his common practice …" />
 
 
     <!-- Bootstrap -->
@@ -29,6 +29,8 @@
     <link href="/theme/css/pygments/native.css" rel="stylesheet">
     <link rel="stylesheet" href="/theme/css/style.css" type="text/css"/>
 
+        <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="PyCGM2 ATOM Feed"/>
 
 </head>
 <body>
@@ -62,8 +64,8 @@ PyCGM2            </a>
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Code <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="/pages/installation.html">Installation</a></li>
-                            <li><a href="https://pycgm2.github.io/pyCGM2-API-DOC/index.html">API </a></li>
                             <li><a href="/pages/nexusApps.html">Nexus Apps</a></li>
+                            <li><a href="https://pycgm2.github.io/pyCGM2-API-DOC/index.html">API </a></li>
                         </ul>
                         </li>
                         <li class="dropdown">
@@ -124,33 +126,51 @@ PyCGM2            </a>
 <p class="text-primary">All Files are located in folder C:\\ProgramData\\pyCGM2.</p>
 
 <h2>Global settings</h2>
-<p>Role of the global setting file * .inputs* is to set common inputs of pipelines     </p>
+<p>Role of the global setting file * .inputs* is to set commonly used inputs of pipelines     </p>
 <div class="alert alert-dismissible alert-warning">
-User is free to alter global settings if they doesn t match his current practice. he could also force then thought script input arguments (see API documentation)  
+<ul>
+ <li> User is free to alter default global settings if they don't match his common practice.</li>
+ <li> User can also force global settings ponctually throught the Nexus python operation property : script arguments ( see  the <a href="https://pycgm2.github.io/pyCGM2-API-DOC/nexusApps.html"> API Documentation </a> to find out possible script arguments)  
+ </li>
+</ul>
 </div>
 
-<h2>Vicon Pipelines</h2>
-<p>Like Vicon PiG , pyCGM2 does modelling through two pipelines.</p>
+<h2>PyCGM2 Pipelines</h2>
+<p>Like Vicon PiG, Modelling with pyCGM2 involves two pipelines.</p>
 <ul>
-<li><strong>Calibration</strong> : calibrates the model and compute kinematics    </li>
-<li><strong>Fitting</strong> : recontructs segmental motion and compute both kinematics and kinetics</li>
+<li><strong>Calibration</strong> (equivalent to <em>static PIG</em>) : calibrate the model (i.e. : define anatomical centres and axes) and compute static angles    </li>
+<li><strong>Fitting</strong> (equivalent to <em>dynamic PIG</em>): recontruct segmental motion and compute both kinematics and kinetics</li>
 </ul>
-<h2>PyCGM2 pipeline operations</h2>
-<p>Here are a brief summary of pipeline operations</p>
+<p>Main operations performed by these pipeline are the following</p>
 <p><strong>Calibration Pipeline operations</strong></p>
 <ul>
-<li>Builds and calibrates the model from global settings and vsk</li>
-<li>saves both c3d and vsk</li>
-<li>adds metadata to the c3d</li>
-<li>plots kinematics</li>
+<li>Build and calibrate the model from global settings and vsk</li>
+<li>save both c3d and vsk</li>
+<li>add metadata to the c3d</li>
+<li>plot kinematics</li>
 </ul>
 <p><strong>Fitting Pipeline operations</strong></p>
 <ul>
-<li>computes kinematics and kinetics</li>
-<li>saves both c3d and vsk</li>
-<li>adds metadata to the c3d</li>
-<li>plots time normalized gait outcomes</li>
+<li>compute kinematics and kinetics</li>
+<li>save both c3d and vsk</li>
+<li>add metadata to the c3d</li>
+<li>plot time normalized gait outputs</li>
 </ul>
+<h2>Import a pyCGM2 pipeline from Nexus</h2>
+<div class="alert alert-info">
+you need to import both <strong>Calibration</strong>  and <strong>Fitting</strong> pipelines sucessively
+</div>
+
+<p>In Nexus :</p>
+<ul>
+<li>open the <em>pipeline</em> icon in the <em>Tools</em> panel</li>
+<li>click on <em>configuration menu</em> icon (downward arrow)</li>
+<li>click on <em>import</em></li>
+<li>load a pyCGM2 pipeline file in <em>ProgramData\pyCGM2</em>.</li>
+<li>select pipeline accessibilty (public or shared)</li>
+</ul>
+<iframe src="http://www.youtube.com/embed/yAM131XPIYU"
+   width="560" height="315" frameborder="0" allowfullscreen></iframe>
         </div>
     </section>
         </div>
