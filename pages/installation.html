@@ -29,8 +29,6 @@
     <link href="/theme/css/pygments/native.css" rel="stylesheet">
     <link rel="stylesheet" href="/theme/css/style.css" type="text/css"/>
 
-        <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
-              title="PyCGM2 ATOM Feed"/>
 
 </head>
 <body>
@@ -140,7 +138,7 @@ pyCGM2 is developped under Windows 7 on a 64 bits PC with Vicon Nexus 2.5 instal
 <ol class="arabic simple">
 <li>Download and install  <a class="reference external" href="https://www.vicon.com/downloads/core-software/nexus/nexus-250">Vicon Nexus</a></li>
 <li>Download and install <a class="reference external" href="https://www.continuum.io/downloads#windows">Anaconda 32 bits - python 2.7</a> . Anaconda set the python 2.7 core and install scientifical packages required for pyGM2</li>
-<li>Download and unzip <a class="reference external" href="https://github.com/pyCGM2/pyCGM2/releases/tag/">a release</a>  of  pyCGM2</li>
+<li>Download and unzip <a class="reference external" href="https://github.com/pyCGM2/pyCGM2/releases">the last release</a>  of  pyCGM2</li>
 <li><strong>[Optional]</strong>. Check Nexus paths</li>
 </ol>
 <p>Edit file : <em>pyCGM2CONFIG.py</em> and check  absolute paths of Vicon Nexus  :</p>
@@ -152,6 +150,11 @@ pyCGM2 is developped under Windows 7 on a 64 bits PC with Vicon Nexus 2.5 instal
 </blockquote>
 <ol class="arabic simple" start="5">
 <li>Open a MS-DOS console and go to pyCGM2 folder containing <em>setup.py</em></li>
+</ol>
+<div class="alert alert-info">
+A convenient method is to double click on your pyCGM2 folder while maintaining Shift.
+<em>open Command windows here</em> will come up in the context menu</div>
+<ol class="arabic simple" start="6">
 <li>Type <em>pip install -e .</em> ( don't forget the sign .)</li>
 </ol>
 <p>This command put a link in your python path ( generally <em>pathToAnacondaFolder\Lib\site-packages</em>) pointing your pyCGM2 folder.</p>
