@@ -55,7 +55,7 @@ PyCGM2            </a>
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">The Project <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="/pages/team.html">People</a></li>
-                            <li><a href="/pages/publication.html">Publications</a></li>
+                            <li><a href="/pages/publications.html">Publications</a></li>
                         </ul>
                         </li>
                         <li class="dropdown">
@@ -136,8 +136,148 @@ Both papers presented data suggesting that functional calibration was a better m
 <h2>Proposal</h2>
 <p>CGM 2.1 will thus be a version of the CGM which uses the regression equations of Hara et al. (<a href="http://dx.doi.org/10.1038/srep37707">2016</a>) to estimate the position of the hip joint centre based on a measurement of leg length taken from the measured position of markers during the static calibration trial.</p>
 <p>A validation study will quantify the differences that this makes to kinematic and kinetic outputs in comparison to both the CGM 1 and the position of the hip joint centre as determined by ultrasound by reanalysis of the data originally used in the studies of Sangeux et al. (<a href="http://dx.doi.org/10.1016/j.gaitpost.2011.05.019">2011</a>) and Peters et al. (<a href="http://dx.doi.org/10.1016/j.gaitpost.2012.03.011">2012</a>).</p>
-<h2>Nexus Apps</h2>
-<p>In progress</p>
+<h2>Nexus App</h2>
+<p>You will find below Global setting of the <b>pyCGM2-CGM2.1</b> model.
+If your gait session doesn t match these settings, user can modify them through script arguments</p>
+<ul class="nav nav-tabs">
+  <li class="active"><a href="#GlobalSettings" data-toggle="tab">Global Settings</a></li>
+  <li><a href="#Calibration" data-toggle="tab">Calibration Pipeline</a></li>
+  <li><a href="#Fitting" data-toggle="tab">Fitting Pipeline</a></li>
+</ul>
+
+<div id="myTabContent" class="tab-content">
+
+  <div class="tab-pane fade active in" id="GlobalSettings">
+
+    <table class="table table-striped table-hover ">
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th>Default value</th>
+          <th>Choice</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Marker Diameter (mm)</td>
+          <td>14</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Moment projection</td>
+          <td>JCS</td>
+          <td>Proximal <br> Distal <br> JCS</td>
+        </tr>
+        <tr>
+          <td>Flat foot options</td>
+          <td>enabled by default</td>
+          <td></td>
+        </tr>
+        <tr class="warning">
+          <td>HJC regression</td>
+          <td>Hara (Hara et al,2016 )</td>
+          <td></td>
+        </tr>
+
+
+      </tbody>
+    </table>
+
+
+
+  </div>
+
+<div class="tab-pane" id="Calibration">
+
+<p>script arguments of the operation : <b> pyCGM2-CGM2_1-Calibration </b></p></p>
+<p><table class="table table-striped table-hover ">
+     <thead>
+      <tr>
+        <th>Arguments</th>
+        <th>Details</th>
+        <th>Choice</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>‘-l’ or’--leftFlatFoot’</td>
+        <td>force left flat Foot option</td>
+        <td>1 or 0</td>
+      </tr>
+      <tr>
+        <td>‘-r’ or’--rightFlatFoot’</td>
+        <td>force right flat Foot option</td>
+        <td>1 or 0</td>
+      </tr>
+      <tr>
+        <td>‘-md’ or ‘- -markerDiameter’</td>
+        <td>marker diameter in mm</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>‘--check’</td>
+        <td>add <code>cgm2_1</code> as suffix of any model outputs</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table></p>
+<p>example :
+  <blockquote>
+  Script arguments indicate :
+  <li> flat foot option is enable only on the left side </li>
+  <li> use of 25 mm diameter marker </li>
+  <li> use of cgm2_1 suffix for all model outputs </li>
+  </blockquote></p>
+<p><p><img src="..\images\CGM1\nexusApp\focus-calibration-arguments.PNG" alt="" width="400"></p></p>
+</div>
+
+<div class="tab-pane fade" id="Fitting">
+
+<p><p>script arguments of the operation : <b> pyCGM2-CGM2_1-Fitting </b></p></p>
+<p><table class="table table-striped table-hover ">
+        <thead>
+           <tr>
+           <th>Arguments</th>
+           <th>Details</th>
+           <th>Choice</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>‘-md’ or ‘--markerDiameter’</td>
+          <td>marker diameter in mm</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>‘--proj‘ </td>
+          <td>moment projection</td>
+          <td>Proximal <br> Distal <br> JCS</td>
+        </tr>
+        <tr>
+          <td>‘-mfpa‘ </td>
+          <td>manual force plate assignment<br>
+           Number of letter matches the number of force plate</td>
+          <td>L or R or X stand for Left Foot, Right Foot or none respectively </td>
+        </tr>
+        <tr>
+          <td>‘--check’</td>
+          <td>add <code>cgm2_1</code> as suffix of any model outputs</td>
+          <td></td>
+        </tr>
+      </tbody>
+      </table></p>
+<p>example :
+   <blockquote>
+   Script arguments indicate :
+   <li> moment project into the proximal Segment </li>
+   <li> use of 25 mm diameter marker </li>
+   <li> use of cgm2_1 suffix for all model outputs </li>
+   <li> manual force plate assignment. FP#1: Left Foot - No Foot assigment on both FP#2 and #3 - FP#4: Right foot </li>
+   </blockquote>
+   <p><img src="..\images\CGM1\nexusApp\focus-fitting-arguments.PNG" alt=""></p>
+  </div></p>
+</div>
         </div>
     </section>
         </div>
@@ -163,6 +303,11 @@ Both papers presented data suggesting that functional calibration was a better m
         <li class="list-group-item">
             <a href="https://www.vicon.com/" target="_blank">
                 Vicon
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="https://www.researchgate.net/project/Conventional-Gait-Model-2" target="_blank">
+                ResearchGate Project page
             </a>
         </li>
       </ul>
