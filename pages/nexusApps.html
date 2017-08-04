@@ -2,7 +2,7 @@
 <html lang="english"
 >
 <head>
-    <title>Nexus Applications - PyCGM2</title>
+    <title>Nexus Application Environment - PyCGM2</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -13,13 +13,13 @@
 <link rel="canonical" href="/pages/nexusApps.html">
 
         <meta name="author" content="Fabien Leboeuf" />
-        <meta name="description" content="Automatically, PyCGM2 generates global settings and ready-to-use Vicon pipelines. All Files are located in folder C:\\ProgramData\\pyCGM2. Global settings (file .settings) Role of the global setting file is to set commonly used settings of vicon pipelines User is free to alter default global settings if they don&#39;t match his …" />
+        <meta name="description" content="Figure below despict the pyGM2 nexus application environment Users must mainly take note of the articulation between Vicon Nexus and the folder programData/pyCGM2. Folder programData/pyCGM2 This folder1 is installed after first importation of pyCGM2. For each Conventional Gait Model, this folder collects : ready-to-import Nexus pipeline (file .pipeline …" />
 
     <meta property="og:site_name" content="PyCGM2" />
     <meta property="og:type" content="article"/>
-    <meta property="og:title" content="Nexus Applications"/>
+    <meta property="og:title" content="Nexus Application Environment"/>
     <meta property="og:url" content="/pages/nexusApps.html"/>
-    <meta property="og:description" content="Automatically, PyCGM2 generates global settings and ready-to-use Vicon pipelines. All Files are located in folder C:\\ProgramData\\pyCGM2. Global settings (file .settings) Role of the global setting file is to set commonly used settings of vicon pipelines User is free to alter default global settings if they don&#39;t match his …" />
+    <meta property="og:description" content="Figure below despict the pyGM2 nexus application environment Users must mainly take note of the articulation between Vicon Nexus and the folder programData/pyCGM2. Folder programData/pyCGM2 This folder1 is installed after first importation of pyCGM2. For each Conventional Gait Model, this folder collects : ready-to-import Nexus pipeline (file .pipeline …" />
 
 
     <!-- Bootstrap -->
@@ -117,40 +117,51 @@ PyCGM2            </a>
         <div class="col-sm-9">
 
     <section id="content" class="body">
-        <h1 class="entry-title">Nexus Applications</h1>
+        <h1 class="entry-title">Nexus Application Environment</h1>
         
         <div class="entry-content">
-            <p>Automatically, PyCGM2 generates global settings and ready-to-use Vicon pipelines.</p>
-<p class="text-primary">All Files are located in folder C:\\ProgramData\\pyCGM2.</p>
-
-<p><img alt="programData" src="..\images\nexusApps\programData.PNG"></p>
-<h2>Global settings (file <em>.settings</em>)</h2>
-<p>Role of the global setting file  is to set commonly used settings of vicon pipelines</p>
-<div class="alert alert-dismissible alert-warning">
+            <p>Figure below despict the pyGM2 nexus application environment</p>
+<p><img alt="nexusAppsFlow" src="..\images\nexusApps\nexusAppsFlow.png"></p>
+<p>Users must mainly take note of the articulation between <strong>Vicon Nexus</strong> and the folder <strong>programData/pyCGM2</strong>.</p>
+<h2>Folder programData/pyCGM2</h2>
+<p>This folder<sup id="fnref-hidden"><a class="footnote-ref" href="#fn-hidden">1</a></sup> is installed after first importation of pyCGM2. For each Conventional Gait Model, this folder collects :</p>
 <ul>
- <li> User is free to alter default global settings if they don't match his practice.</li>
- </li>
+<li>ready-to-import Nexus pipeline (file <em>.pipeline</em>)</li>
+<li>global settings (file <em>.settings</em>)</li>
 </ul>
+<p>The role of  <strong>Global settings</strong> si to set commonly-use settings. As an example, for the CGM1.0 ( i.e PiG clone), global settings declares by default :</p>
+<ul>
+<li>marker diameter to 14mm</li>
+<li>enable both flat foot options !!</li>
+<li>project moment into the distal segment</li>
+</ul>
+<div class="alert alert-dismissible alert-warning">User is free to alter default values of global settings if they don't match his routine.
 </div>
 
-<h2>PyCGM2 Vicon Pipelines (file <em>.pipeline</em>)</h2>
-<p>Pipeline file can be imported in Vicon Nexus ( <a href="http://www.youtube.com/embed/yAM131XPIYU">video</a> ) for performing a set of operations.</p>
-<p>Like Vicon Plugin Gait, modelling with pyCGM2 involves two pipelines.</p>
+<h2>Nexus application</h2>
+<p>From the ressource/pipeline panel of Vicon Nexus, you can import ready-to-use pipeline file (see <a href="http://www.youtube.com/embed/yAM131XPIYU">video</a>).</p>
+<p>In the above figure the <em>Calibration pipeline</em> of the CGM1 was imported/ Vicon Nexus displays the serie of operations, including pyCGM2 operations and native Nexus operations.</p>
+<p>By selecting a python operation, the panel <em>properties</em>  displays</p>
 <ul>
-<li><strong>Calibration</strong> (equivalent to <em>static PIG pipeline</em>) : calibrates the model (i.e. : define anatomical centres and axes) and compute static angles</li>
-<li><strong>Fitting</strong> (equivalent to <em>dynamic PIG pipeline</em>): recontructs segmental motion and compute both kinematics and kinetics</li>
+<li>the location  the  python script file</li>
+<li>script arguments. Role of these arguments is to overload global settings and provide options.
+ <p class="text-danger">User must refer to each CGM section or the API Documentation to know possible script arguments of pyCGM2 operations.</p></li>
+<li>a check box <em>Use nexus python</em>.  <p class="text-danger">Must be unchecked.</p></li>
 </ul>
-<p><div class="alert alert-dismissible alert-warning">
- <ul>
-  <li> User can also force global settings ponctually by altering script argument of a Nexus python operation  ( see  the <a href="https://pycgm2.github.io/pyCGM2-API-DOC/nexusApps.html"> API Documentation </a> to find out the list of script arguments)
-  </li>
- </ul>
- </div></p>
 <!----
 Don t work !!
 <iframe src="http://www.youtube.com/embed/yAM131XPIYU"
    width="560" height="315" frameborder="0" allowfullscreen></iframe>
 --->
+
+<div class="footnote">
+<hr>
+<ol>
+<li id="fn-hidden">
+<p><em>programData</em> folder might be set to hide in your microsoft window environment. Change this option in your file explorer to display this folder&#160;<a class="footnote-backref" href="#fnref-hidden" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
         </div>
     </section>
         </div>

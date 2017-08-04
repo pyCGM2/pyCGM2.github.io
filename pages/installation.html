@@ -147,7 +147,9 @@ pyCGM2 is developped under Windows 7 on a 64 bits PC with Vicon Nexus 2.5 instal
 <div class="section" id="set-up-your-python-environment">
 <h3>1. Set-up your Python environment</h3>
 <p>Download and install <a class="reference external" href="https://www.continuum.io/downloads#windows">Anaconda 32 bits - python 2.7</a> .</p>
-<p>Anaconda set the python 2.7 core and install scientifical packages required for pyGGM2</p>
+<p>Anaconda set the python 2.7 core and install scientifical packages required for pyGGM2.</p>
+<p>During installation, we recommand to enable both advanced options.</p>
+<img alt="" src="..\images\installation\anacondaSetup.png" />
 </div>
 <div class="section" id="set-up-pycgm2">
 <h3>2. Set-up pyCGM2</h3>
@@ -156,13 +158,13 @@ pyCGM2 is developped under Windows 7 on a 64 bits PC with Vicon Nexus 2.5 instal
 <li>Open a window command and go to the downloaded pyCGM2 folder containing &quot;<em>setup.py</em>&quot;&quot;</li>
 <li>Type in the command windows <em>python setup.py install</em></li>
 </ul>
-<p>This command adds pyCGM2 into your python Library ( generally located at <em>pathToAnacondaFolder\Lib\site-packages</em>)</p>
+<p>This command adds pyCGM2 into your python Library ( generally located at <tt class="docutils literal"><span class="pre">\pathToAnacondaFolder\Lib\site-packages</span></tt>)</p>
 </div>
 <div class="section" id="optional-for-vicon-users-set-up-the-python-api-of-vicon-nexus">
 <h3>3. <strong>[Optional-For Vicon users]</strong> Set-up the python API of Vicon Nexus</h3>
 <ul class="simple">
 <li>Download and install  <a class="reference external" href="https://www.vicon.com/downloads/core-software/nexus/nexus-250">Vicon Nexus</a></li>
-<li>Edit the file : <em>pathToAnacondaFolder\Lib\site-packages\PyCGM2\CONFIG.py</em></li>
+<li>Edit the file : <tt class="docutils literal"><span class="pre">pathToAnacondaFolder\Lib\site-packages\PyCGM2\CONFIG.py</span></tt></li>
 <li>check absolute paths of Vicon Nexus</li>
 </ul>
 <p>Default paths are:</p>
@@ -175,7 +177,7 @@ pyCGM2 is developped under Windows 7 on a 64 bits PC with Vicon Nexus 2.5 instal
 <h3>4. Set-up OpenSim TK</h3>
 <ul class="simple">
 <li>Download and install  the last 32-bits release of <a class="reference external" href="https://simtk.org/projects/opensim">openSim TK</a></li>
-<li>Open a command windows and go to the folder &quot;<em>C:\OpenSim ?\sdk\python</em>&quot;</li>
+<li>Open a command windows and go to the folder <tt class="docutils literal"><span class="pre">C:\OpenSim</span> <span class="pre">?\sdk\python</span></tt></li>
 <li>run the command &quot;<em>python setup.py install</em>&quot;</li>
 </ul>
 </div>
@@ -188,14 +190,14 @@ pyCGM2 is developped under Windows 7 on a 64 bits PC with Vicon Nexus 2.5 instal
 <p>pyCGM2 is ready to use if you obviously get no error messages.&lt;br&gt;</p>
 <img alt="" src="..\images\installation\pycgm2-checkConfig-success.png" />
 <div class="alert alert-info">
-The python command <em>import pyCGM2</em> generates <strong>Global Settings</strong>, automatically placed into <em>C:\ProgramData\pyCGM2</em>.</div>
+The python command <em>import pyCGM2</em> generates <strong>Global Settings</strong>, automatically placed into <tt class="docutils literal"><span class="pre">C:\ProgramData\pyCGM2</span></tt>.</div>
 </div>
 </div>
 <div class="section" id="uninstall-pycgm2">
 <h2>Uninstall pyCGM2</h2>
 <ol class="arabic simple">
-<li>Go to your python Library (<em>pathToAnacondaFolder\Lib\site-packages</em>) and remove pyCGM2 folder manually</li>
-<li>Go to the global setting folder (<em>C:\ProgramData\pyCGM2</em>) and remove all.</li>
+<li>Go to your python Library (<tt class="docutils literal"><span class="pre">pathToAnacondaFolder\Lib\site-packages</span></tt>) and remove pyCGM2 folder manually</li>
+<li>Go to the global setting folder ( <tt class="docutils literal"><span class="pre">C:\ProgramData\pyCGM2</span></tt> ) and remove all.</li>
 </ol>
 </div>
 <div class="section" id="update-pycgm2">
