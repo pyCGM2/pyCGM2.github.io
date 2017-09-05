@@ -2,7 +2,7 @@
 <html lang="english"
 >
 <head>
-    <title>The CGM 2.i Project - PyCGM2</title>
+    <title>The CGM 2.i Project - CGM2.i</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -13,13 +13,13 @@
 <link rel="canonical" href="/pages/mainPage.html">
 
         <meta name="author" content="Fabien Leboeuf" />
-        <meta name="description" content="Overview The Conventional Gait Model is the most widely used biomechanical model for clinical gait analysis. It was first developed in the 1980s and although, it has many strengths, it has several well-known weaknesses. The overall aim of this project is to develop and validate a new version, CGM 2 …" />
+        <meta name="description" content="The Conventional Gait Model (CGM) is the most widely used biomechanical model for clinical gait analysis. It was first developed in the 1980s and although, it has many strengths, it has several well-known weaknesses. This project will develop and validate a new version of the CGM which maintains those strengths …" />
 
-    <meta property="og:site_name" content="PyCGM2" />
+    <meta property="og:site_name" content="CGM2.i" />
     <meta property="og:type" content="article"/>
     <meta property="og:title" content="The CGM 2.i Project"/>
     <meta property="og:url" content="/pages/mainPage.html"/>
-    <meta property="og:description" content="Overview The Conventional Gait Model is the most widely used biomechanical model for clinical gait analysis. It was first developed in the 1980s and although, it has many strengths, it has several well-known weaknesses. The overall aim of this project is to develop and validate a new version, CGM 2 …" />
+    <meta property="og:description" content="The Conventional Gait Model (CGM) is the most widely used biomechanical model for clinical gait analysis. It was first developed in the 1980s and although, it has many strengths, it has several well-known weaknesses. This project will develop and validate a new version of the CGM which maintains those strengths …" />
 
 
     <!-- Bootstrap -->
@@ -44,7 +44,7 @@
                 <span class="icon-bar"></span>
             </button>
             <a href="/" class="navbar-brand">
-PyCGM2            </a>
+CGM2.i            </a>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
@@ -52,37 +52,32 @@ PyCGM2            </a>
 
                 <!-- navbar from MENU ( my MODIFICATION) -->
                         <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">The Project <span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Background <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
+                            <li><a href="/pages/CGM-General.html">What is the CGM</a></li>
+                            <li><a href="/pages/CGM2-General.html">Updating the CGM</a></li>
                             <li><a href="/pages/team.html">People</a></li>
                             <li><a href="/pages/publications.html">Publications</a></li>
+                            <li><a href="/pages/Contact.html">Contact us</a></li>
                         </ul>
                         </li>
                         <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Code <span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Models <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="/pages/installation.html">Installation</a></li>
-                            <li><a href="/pages/nexusApps.html">Nexus Apps</a></li>
-                            <li><a href="https://pycgm2.github.io/pyCGM2-API-DOC/index.html">API </a></li>
-                        </ul>
-                        </li>
-                        <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">CGM1 <span class="caret"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="/pages/CGM-General.html">General</a></li>
                             <li><a href="/pages/CGM10.html">CGM1.0</a></li>
                             <li><a href="/pages/CGM11.html">CGM1.1</a></li>
-                        </ul>
-                        </li>
-                        <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">CGM2 <span class="caret"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="/pages/CGM2-General.html">General</a></li>
                             <li><a href="/pages/CGM21-Overview.html">CGM2.1</a></li>
                         </ul>
                         </li>
                         <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Ressources <span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">How to <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="/pages/installation.html">Set-up your system</a></li>
+                            <li><a href="/pages/nexusApps.html">Capture and process data</a></li>
+                        </ul>
+                        </li>
+                        <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Repositery <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="/pages/Open-access-Gait-Data.html">OpenAccess data</a></li>
                         </ul>
@@ -107,8 +102,8 @@ PyCGM2            </a>
 <div id="banner">
 	<div class="container">
 		<div class="copy">
-			<h1>PyCGM2</h1>
-				<p class="intro">open source python package of the Conventional Gait Model </p>
+			<h1>CGM2.i</h1>
+				<p class="intro">Updating the Conventional Gait Model for the modern world</p>
 		</div>
 	</div>
 </div><!-- End Banner -->
@@ -120,27 +115,86 @@ PyCGM2            </a>
         <h1 class="entry-title">The CGM 2.i Project</h1>
         
         <div class="entry-content">
-            <h1>Overview</h1>
-<p>The Conventional Gait Model is the most widely used biomechanical model for clinical gait analysis. It was first developed in the 1980s and although, it has many strengths, it has several well-known weaknesses.</p>
-<p>The overall aim of this project is to develop and validate a new version, CGM 2, which maintains the current model’s strengths but addresses its weaknesses. The new version will allow robust, efficient and standardised data capture by people whose primary interest is in using the results of the gait analysis.</p>
-<p>Although the project aims to make the new model as compatible as possible with the old it cannot be identical. It is therefore important that future users know exactly how the new version differs from the old. This will be ensured by developing the model in a series of iterations each addressing a specific weakness and each fully validated to understand the behaviour of the new model in comparison to the old one.</p>
-<p>We want the new model to be as open and transparent as possible. All code will be developed in <a href="https://www.python.org/">python</a> and made  available through <a href="https://github.com/">GitHub</a>. The project is part-funded by <a href="https://www.vicon.com/">Vicon</a> and we will focus first on implementations to support use of the new models with Vicon's suite of clinical gait analysis software. We are open to developing similar relationships with other manufacurers.</p>
-<div class="row">
-    <div class="col-md-6">
-      <h2 class="text-sm-center text-primary">The CGM 1</h2>
-      <p class="text-justify my-1">The curent Model and its use as it should be
-    </p><a href="/pages/CGM-General.html" class="btn btn-primary btn-block">Learn more</a> </div>
-    <div class="col-md-6">
-      <h2 class="text-sm-center text-primary">The CGM 2</h2>
-      <p class="text-justify my-1">Looking to the future</p>
-  </p><a href="/pages/CGM-General.html" class="btn btn-primary btn-block">Find out</a> </div>
-  </div>
-
-<h1>How to start</h1>
-<p>Have a good start with pyCGM2 by</p>
+            <p>The Conventional Gait Model (CGM) is the most widely used biomechanical model for clinical gait analysis. It was first developed in the 1980s and although, it has many strengths, it has several well-known weaknesses. This project will develop and validate a new version of the CGM which maintains those strengths but corrects the weaknesses.</p>
+<p>The new model will be as compatible as possible with the old but cannot be identical. It is therefore important that future users know exactly how the new version differs from the old. This will be ensured by developing the model in a series of iterations each addressing a specific weakness and each fully validated to understand the behaviour of the new model in comparison to the old one.</p>
+<p>The new model to be as open and transparent as possible. All code will be developed in <a href="https://www.python.org/">python</a> and made available through <a href="https://github.com/">GitHub</a>. The project is part-funded by <a href="https://www.vicon.com/">Vicon</a> and we will focus first on implementations to support use of the new models with Vicon's suite of clinical gait analysis software. We are open to developing similar relationships with other manufacturers.</p>
+<h2>What's on the website</h2>
+<p>The web-site contains a full description of each of the models and instructions for both how to set up your system and to capture and process data. There is also a growing repository of .c3d files that can be used for reference purposes.</p>
+<h3>Background</h3>
+<p>This is the background to the project.</p>
 <ul>
-<li><a href="pages/installation.html">Installing</a> the python package</li>
-<li>Having a look at the Vicon <a href="pages/nexusApps.html">Nexus Apps environment</a>.</li>
+<li><a href="/pages/CGM-General.html"><strong>What is the CGM?</strong></a>  The history of the CGM, how it is defined and an analysis of its strengths and weaknesses.</li>
+<li><a href="/pages/CGM2-General.html"><strong>Updating the CGM for the modern world.</strong></a> An analysis of futre requirements leading to formal desing criteria and a overview of the main issues to be addressed.</li>
+<li><a href="/pages/team.html"><strong>The team.</strong></a> See who's involved in the project.</li>
+<li><a href="/pages/publications.html"><strong>Publications.</strong></a> Our plan is to publish all the validations we have performed but inevitable this will take some time.</li>
+</ul>
+<h3>Description of models</h3>
+<h4>CGM1: The original Model</h4>
+<p><strong>CGM1</strong> is our version of the original model.</p>
+<ul>
+<li>
+<p><a href="/pages/CGM10.html"><strong>CGM1.0 - a clone of PiG</strong></a>. This is an exact clone of Vicon's PiG model. It is provided primarily to allow users to get used to implementing the new software with a model that gives exactly the same results as data processed with the original PiG model.</p>
+</li>
+<li>
+<p><a href="/pages/CGM11.html"><strong>CGM1.1 - PiG as it should be?</strong></a> This is a modification correcting two small bugs we found with PiG and implementing two features that we feel should have been implemented a long time ago which do not affect the underlying model.</p>
+</li>
+</ul>
+<h4>CGM2: Modifying the model step by step</h4>
+<p><strong>CGM2.i</strong> is a series of models each adding one specific modification. This is done so that users can explore for themslelves what differences each specific modification make.</p>
+<ul>
+<li>
+<p><a href="/pages/CGM21-Overview.html"><strong>CGM2.1</strong></a> - moving the hip joint centres. one of the main criticisms of the CGM over the years has been that it puts the hip joint centres in the wrong place. This version corrects that based on the latest published research.</p>
+</li>
+<li>
+<p><strong>CGM2.2</strong> - inverse kinematics. It can be argued that the CGM was an algorithm rather than a true model. This version is a true model fitted to the measured marker positions using inverse kinematics.</p>
+</li>
+<li>
+<p><strong>CGM2.3</strong> - removing the wands markers. People have used skin markers in palce of original wands for some time but this makes the CGM particularly sensitive to both marker misplacment and soft tissue artefact. This version replaces the wands with skin mounted markers in a more robust manner.</p>
+</li>
+<li>
+<p><strong>CGM2.4</strong> - extending the foot model. The CGM had a single foot segment (and didn't model this fully). This version allows a modification to marker placment so that the original foot represents the hind foot. Extra markers can then be used to include a fore-foot segment.</p>
+</li>
+<li>
+<p><strong>CGM2.5</strong> - adding the upper body. Although the CGM was originally a lower body model PiG included upper body model as well which has been modified to use inverse kinematics and included in this version.</p>
+</li>
+<li>
+<p><strong>CGM2.6</strong> - calibrating the knee joint. There has been considerable research recently into the use of funcitonal calibration to improve biomechanical modelling. The broad conclusion is that hip calibration is less effective than knee calibration which is built into this version.</p>
+</li>
+<li>
+<p><strong>CGM2.7</strong> - a model for larger people. Placing markers over excessive soft tissue in a manner that is consistent with the CGM has always been a challenge. This version exploits new research to improve this aspect of the modelling.</p>
+</li>
+<li>
+<p><strong>CGM2.8</strong> - more clinically relevant moments. The CGM reported joint moments in an orthogonal coordinate system. This version outputs joint moment in the joint coordinate system which is more relevant for clinical interpretation.</p>
+</li>
+</ul>
+<h4>CGM3: The final product</h4>
+<p>This is identical to CGM2.8 and is the model we recommend for future clincial use. It will be provided with full documentation for those who just want to get on and use it (but this isn't quite finished yet).</p>
+<h3>How to use the system</h3>
+<p>The models have been written to run as Python scripts within Nexus. This requires you to take a little bit of time to install the latest version of Python and the CGM code and to set up various pipelines within Nexus. You will only have to do this once and when you have, capturing and processing data is very similar to using the current PiG Plugin. All the models run in essentially the same way, you just have to select the one you want.</p>
+<p>These notes are written in a way which we hope will enable anyone who understands basic data capture in Nexus to set themsleves up to and start running the models.</p>
+<ul>
+<li>
+<p><a href="/pages/installation.html"><strong>Installation overview</strong></a> An brief introdcution to how the processes work.</p>
+</li>
+<li>
+<p><strong>Setting up Python.</strong> How to install Python and our new code.</p>
+</li>
+<li>
+<p><strong>Setting up the Nexus.</strong> How to set up Nexus in preparation for data processing.</p>
+</li>
+<li>
+<p><a href="/pages/nexusApps.html"><strong>Capturing and proceesing data.</strong></a> How to use the Nexus Python pipelines to run the different models.</p>
+</li>
+</ul>
+<h3>Join us</h3>
+<p>We hope this is a model that other people will want to use and would like to invite you to work with us.</p>
+<ul>
+<li>
+<p><strong>Help with validation</strong> There are very few repeatability studies validating models in centres other than those in which the model was developed. We'd love to work with you if you are interested in setting one up. We'd be particularly keen to set up multi-centre studies.</p>
+</li>
+<li>
+<p><strong>Share data</strong> If people are using the same models then the data should be comparable and we want to build a repository of representative data of people with different conditions which can be used for a variety of purposes. At present it includes anonymised data from children with cerebral palsy demonstrating a range of different gait patterns. It is formatted within an Vicon Eclipse database hierarchy to faciliatate easy access through Nexus or Polygon software.</p>
+</li>
 </ul>
         </div>
     </section>
