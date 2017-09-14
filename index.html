@@ -155,20 +155,17 @@ CGM2.i            </a>
 <p><strong>CGM2.4</strong> - extending the foot model. The CGM had a single foot segment (and didn't model this fully). This version allows a modification to marker placment so that the original foot represents the hind foot. Extra markers can then be used to include a fore-foot segment.</p>
 </li>
 <li>
-<p><strong>CGM2.5</strong> - adding the upper body. Although the CGM was originally a lower body model PiG included upper body model as well which has been modified to use inverse kinematics and included in this version.</p>
+<p><strong>CGM2.5</strong> - calibrating the knee joint. There has been considerable research recently into the use of funcitonal calibration to improve biomechanical modelling. The broad conclusion is that hip calibration is less effective than knee calibration which is built into this version.</p>
 </li>
 <li>
-<p><strong>CGM2.6</strong> - calibrating the knee joint. There has been considerable research recently into the use of funcitonal calibration to improve biomechanical modelling. The broad conclusion is that hip calibration is less effective than knee calibration which is built into this version.</p>
+<p><strong>CGM2.6</strong> - a model for larger people. Placing markers over excessive soft tissue in a manner that is consistent with the CGM has always been a challenge. This version exploits new research to improve this aspect of the modelling.</p>
 </li>
 <li>
-<p><strong>CGM2.7</strong> - a model for larger people. Placing markers over excessive soft tissue in a manner that is consistent with the CGM has always been a challenge. This version exploits new research to improve this aspect of the modelling.</p>
-</li>
-<li>
-<p><strong>CGM2.8</strong> - more clinically relevant moments. The CGM reported joint moments in an orthogonal coordinate system. This version outputs joint moment in the joint coordinate system which is more relevant for clinical interpretation.</p>
+<p><strong>CGM2.7</strong> - adding the upper body. Although the CGM was originally a lower body model PiG included upper body model as well which has been modified to use inverse kinematics and included in this version.</p>
 </li>
 </ul>
 <h4>CGM3: The final product</h4>
-<p>This is identical to CGM2.8 and is the model we recommend for future clincial use. It will be provided with full documentation for those who just want to get on and use it (but this isn't quite finished yet).</p>
+<p>This is identical to CGM2.7 and is the model we recommend for future clincial use. It will be provided with full documentation for those who just want to get on and use it (but this isn't quite finished yet).</p>
 <h3>How to use the system</h3>
 <p>The models have been written to run as Python scripts within Nexus. This requires you to take a little bit of time to install the latest version of Python and the CGM code and to set up various pipelines within Nexus. You will only have to do this once and when you have, capturing and processing data is very similar to using the current PiG Plugin. All the models run in essentially the same way, you just have to select the one you want.</p>
 <p>These notes are written in a way which we hope will enable anyone who understands basic data capture in Nexus to set themsleves up to and start running the models.</p>
