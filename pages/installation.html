@@ -13,13 +13,13 @@
 <link rel="canonical" href="/pages/installation.html">
 
         <meta name="author" content="Fabien Leboeuf" />
-        <meta name="description" content="Download Release : CGM1-1 python source Code Trick open a command windows directly from a folder Double click on your folder while maintaining &#34;Shift&#34;. A context menu comes up with open Command windows here Installation for Non Expert Here are installation instructions for non-experts. Experts can consult the API documentation for …" />
+        <meta name="description" content="pyCGM2 is compatible with Microsoft Windows Last release pyCGM2- version 1.1.0 Installation for non expert Beforehand, download then unzip the last pyCGM2 release. install a python environment Implentation was done with *the Anaconda python enviromenent. Thus we invite user to copy our environment. Download and install Anaconda 32 …" />
 
     <meta property="og:site_name" content="CGM2.i" />
     <meta property="og:type" content="article"/>
     <meta property="og:title" content="Installation"/>
     <meta property="og:url" content="/pages/installation.html"/>
-    <meta property="og:description" content="Download Release : CGM1-1 python source Code Trick open a command windows directly from a folder Double click on your folder while maintaining &#34;Shift&#34;. A context menu comes up with open Command windows here Installation for Non Expert Here are installation instructions for non-experts. Experts can consult the API documentation for …" />
+    <meta property="og:description" content="pyCGM2 is compatible with Microsoft Windows Last release pyCGM2- version 1.1.0 Installation for non expert Beforehand, download then unzip the last pyCGM2 release. install a python environment Implentation was done with *the Anaconda python enviromenent. Thus we invite user to copy our environment. Download and install Anaconda 32 …" />
 
 
     <!-- Bootstrap -->
@@ -115,91 +115,61 @@ CGM2.i            </a>
         <h1 class="entry-title">Installation</h1>
         
         <div class="entry-content">
-            <div class="section" id="download">
-<h2>Download</h2>
-<embed>
-   <div class="jumbotron">
-   <h3>Release : CGM1-1</h3>
-   <p><a class="btn btn-primary btn-lg" href="https://github.com/pyCGM2/pyCGM2/releases">python source Code</a></p>
+            <div class="alert alert-dismissible alert-danger">
+  <strong>pyCGM2 is compatible with  Microsoft Windows</strong>
+</div>
 
+<h2>Last release</h2>
+<div class="jumbotron">
+   <p><a class="btn btn-primary btn-lg" href="https://github.com/pyCGM2/pyCGM2/releases/tag/v1.1.0">pyCGM2- version 1.1.0</a></p>
+  <p></p>
 </div>
-</embed></div>
-<div class="section" id="trick">
-<h2>Trick</h2>
+
+<h2>Installation for non expert</h2>
+<p>Beforehand, download then unzip the last pyCGM2 release.</p>
+<h3>install a python environment</h3>
+<p>Implentation was done with *<em>the Anaconda python enviromenent</em>. Thus we invite user to copy our environment.</p>
+<p>Download and install <a href="https://www.anaconda.com/download/">Anaconda 32 bits - python 2.7</a></p>
+<p class="text-warning">Mind you have to install a 32 bits version of anaconda, select the correct donwnload link as flag up in the following picture  </p>
+
+<p><img alt="anacondaSnap" src="\images\installation\anacondaDownloadSnapShot.png"></p>
+<p>During anaconda installation, the window ( see picture below) will come up.
+<p class="text-warning"> User must enable both advanced options </p></p>
+<p><img alt="anacondaSetup" src="\images\installation\anacondaSetup.png"></p>
+<h3>For Vicon Nexus user: Configure Nexus 2</h3>
+<div class="alert alert-dismissible alert-success">
+  The last PyCGM2 release is configured for working with Vicon Nexus 2.6, if Nexus is installed in its default folder, ( i.e C:\\Program Files (x86)\\Vicon)
+</div>
+
+<p>if you work with either an other version of Vicon nexus or install nexus in another folder, thus you have to configure pyCGM2.</p>
 <ul>
-<li><p class="first">open a command windows directly from a folder</p>
-<div class="alert alert-info">
-<p>Double click on your folder while maintaining &quot;Shift&quot;. A context menu comes up with  <em>open Command windows here</em></p>
-</div>
-</li>
+<li>within your unzipped pyCGM2 folder</li>
+<li>open pyCGM2\CONFIG.py with an text editor</li>
+<li>edit absolute paths of Vicon Nexus</li>
 </ul>
-</div>
-<div class="section" id="installation-for-non-expert">
-<h2>Installation for Non Expert</h2>
-<p>Here are installation instructions for <strong>non-experts</strong>. Experts can consult the <a class="reference external" href="https://pycgm2.github.io/pyCGM2-API-DOC/index.html">API documentation</a> for details about used python packages.</p>
-<div class="alert alert-info">
-pyCGM2 is developped under Windows 7 on a 64 bits PC with Vicon Nexus 2.5 installed</div>
-<div class="section" id="set-up-your-python-environment">
-<h3>1. Set-up your Python environment</h3>
-<p>Download and install <a class="reference external" href="https://www.continuum.io/downloads#windows">Anaconda 32 bits - python 2.7</a> .</p>
-<p>Anaconda set the python 2.7 core and install scientifical packages required for pyGGM2.</p>
-<p>During installation, we recommand to enable both advanced options.</p>
-<img alt="" src="..\images\installation\anacondaSetup.png" />
-</div>
-<div class="section" id="set-up-pycgm2">
-<h3>2. Set-up pyCGM2</h3>
-<ul class="simple">
-<li>Download and unzip <a class="reference external" href="https://github.com/pyCGM2/pyCGM2/releases">the last release</a>  of  pyCGM2</li>
-<li>Open a window command and go to the downloaded pyCGM2 folder containing &quot;<em>setup.py</em>&quot;&quot;</li>
-<li>Type in the command windows <em>python setup.py install</em></li>
-</ul>
-<p>This command adds pyCGM2 into your python Library ( generally located at <tt class="docutils literal"><span class="pre">\pathToAnacondaFolder\Lib\site-packages</span></tt>)</p>
-</div>
-<div class="section" id="optional-for-vicon-users-set-up-the-python-api-of-vicon-nexus">
-<h3>3. <strong>[Optional-For Vicon users]</strong> Set-up the python API of Vicon Nexus</h3>
-<ul class="simple">
-<li>Download and install  <a class="reference external" href="https://www.vicon.com/downloads/core-software/nexus/nexus-250">Vicon Nexus</a></li>
-<li>Edit the file : <tt class="docutils literal"><span class="pre">pathToAnacondaFolder\Lib\site-packages\PyCGM2\CONFIG.py</span></tt></li>
-<li>check absolute paths of Vicon Nexus</li>
-</ul>
-<p>Default paths are:</p>
 <div class="highlight"><pre><span></span><span class="n">NEXUS_SDK_WIN32</span> <span class="o">=</span> <span class="s1">&#39;C:/Program Files (x86)/Vicon/Nexus2.5/SDK/Win32&#39;</span>
 <span class="n">NEXUS_SDK_PYTHON</span> <span class="o">=</span> <span class="s1">&#39;C:/Program Files (x86)/Vicon/Nexus2.5/SDK/Python&#39;</span>
 <span class="n">PYTHON_NEXUS</span> <span class="o">=</span> <span class="s1">&#39;C:</span><span class="se">\\</span><span class="s1">Program Files (x86)</span><span class="se">\\</span><span class="s1">Vicon</span><span class="se">\\</span><span class="s1">Nexus2.5</span><span class="se">\\</span><span class="s1">Python&#39;</span>
 </pre></div>
-</div>
-<div class="section" id="set-up-opensim-tk">
-<h3>4. Set-up OpenSim TK</h3>
-<ul class="simple">
-<li>Download and install  the last 32-bits release of <a class="reference external" href="https://simtk.org/projects/opensim">openSim TK</a></li>
-<li>Open a command windows and go to the folder <tt class="docutils literal"><span class="pre">C:\OpenSim</span> <span class="pre">?\sdk\python</span></tt></li>
-<li>run the command &quot;<em>python setup.py install</em>&quot;</li>
-</ul>
-</div>
-<div class="section" id="check-you-installation">
-<h3>5. Check you installation</h3>
-<p>Open a python console and type</p>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyCGM2</span>
-<span class="n">pyCGM2</span><span class="o">.</span><span class="n">pyCGM2</span><span class="o">.</span><span class="n">CONFIG</span><span class="o">.</span><span class="n">checkConfig</span><span class="p">()</span>
-</pre></div>
-<p>pyCGM2 is ready to use if you obviously get no error messages.&lt;br&gt;</p>
-<img alt="" src="..\images\installation\pycgm2-checkConfig-success.png" />
-<div class="alert alert-info">
-The python command <em>import pyCGM2</em> generates <strong>Global Settings</strong>, automatically placed into <tt class="docutils literal"><span class="pre">C:\ProgramData\pyCGM2</span></tt>.</div>
-</div>
-</div>
-<div class="section" id="uninstall-pycgm2">
-<h2>Uninstall pyCGM2</h2>
-<ol class="arabic simple">
-<li>Go to your python Library (<tt class="docutils literal"><span class="pre">pathToAnacondaFolder\Lib\site-packages</span></tt>) and remove pyCGM2 folder manually</li>
-<li>Go to the global setting folder ( <tt class="docutils literal"><span class="pre">C:\ProgramData\pyCGM2</span></tt> ) and remove all.</li>
-</ol>
-</div>
-<div class="section" id="update-pycgm2">
-<h2>Update pyCGM2</h2>
-<p>If you want to work with a new release. Uninstall former pyCGM 2 is recommanded. Then, you can install new release according above guidelines.</p>
-</div>
 
+
+<h3>Optional: set-up <a href="https://simtk.org/projects/opensim">OpenSim</a></h3>
+<p>Opensim is a open Musculoskeletal analysis software. PyCGM2 exploit some feautures of its python API if you plan to work with a CGM version superior to 2.2</p>
+<h3>Install pyCGM2.</h3>
+<p>pyCGM2 propose a convenient batch installation.</p>
+<ul>
+<li>go to  your unzipped pyCGM2 folder</li>
+<li>double click on <strong>installer.bat</strong></li>
+</ul>
+<p>This command will successively :</p>
+<ul>
+<li>uninstall previous installation</li>
+<li>set-up pyCGM2</li>
+<li>initialize the pyCGM2 setting folder (C:\ProgramData\pyCGM2) (see <a href="nexusApps.html">also</a>)</li>
+<li>check your installation</li>
+</ul>
+<p>Installation should end up with this window:</p>
+<p><img alt="installSucceed" src="\images\installation\installationSuccess.png"></p>
         </div>
     </section>
         </div>

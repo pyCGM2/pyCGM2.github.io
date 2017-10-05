@@ -156,7 +156,7 @@ If your gait session doesn t match these settings, user can modify them through 
         <tr>
           <td>Moment projection</td>
           <td>Distal segment</td>
-          <td>Proximal <br> Distal</td>
+          <td>Proximal <br> Distal <br> Global</td>
         </tr>
         <tr class="warning">
           <td>Flat foot options</td>
@@ -188,13 +188,13 @@ If your gait session doesn t match these settings, user can modify them through 
         <td>‘-l’ or’--leftFlatFoot’</td>
         <td>force left flat Foot option</td>
         <td>1 or 0</td>
-        <td>-l=1 or --leftFlatFoot’=0</td>
+        <td>-l=1 or --leftFlatFoot=0</td>
       </tr>
       <tr>
         <td>‘-r’ or’--rightFlatFoot’</td>
         <td>force right flat Foot option</td>
         <td>1 or 0</td>
-        <td>-r=1 or --rightFlatFoot’=0</td>
+        <td>-r=1 or --rightFlatFoot=0</td>
       </tr>
       <tr>
         <td>‘-md’ or ‘- -markerDiameter’</td>
@@ -210,7 +210,7 @@ If your gait session doesn t match these settings, user can modify them through 
       </tr>
       <tr class="warning">
       <td>‘-ps’ or ‘--pointSuffix’ </td>
-        <td>add a suffix to each  model output</td>
+        <td>add your custom suffix to each  model output</td>
         <td></td>
         <td>-ps=New or --pointSuffix=New</td>
       </tr>
@@ -249,7 +249,7 @@ If your gait session doesn t match these settings, user can modify them through 
         <tr>
           <td>‘--proj‘ </td>
           <td>moment projection</td>
-          <td>Proximal <br> Distal</td>
+          <td>Proximal <br> Distal <br> Global </td>
           <td>--proj=Proximal</td>
         </tr>
         <tr>
@@ -257,7 +257,7 @@ If your gait session doesn t match these settings, user can modify them through 
           <td>manual force plate assignment<br>
            Number of letter matches the number of force plate</td>
           <td></td>
-          <td> -mpfa="LRXL" stands for : <br>
+          <td> -mpfa=LRXL stands for : <br>
           4 forces plates with left foot asignment for force plates #1 and #4, right foot assignment for force plate #2 and no assigment for force plate #3</td>
         </tr>
         <tr class="warning">
@@ -268,7 +268,7 @@ If your gait session doesn t match these settings, user can modify them through 
         </tr>
         <tr class="warning">
         <td>‘-ps’ or ‘--pointSuffix’ </td>
-          <td>add a suffix to each  model output</td>
+          <td>add your custom suffix to each model output</td>
           <td></td>
           <td>-ps=New or --pointSuffix=New</td>
         </tr>
@@ -277,23 +277,6 @@ If your gait session doesn t match these settings, user can modify them through 
   </div>
 
 </div>
-
-<!---
-### Pipelines
-
-**pyCGM2-CGM1-Calibration.Pipeline**
-
-See  [details](https://pycgm2.github.io/pyCGM2-API-DOC/apps/CGM1.html#calibration-nexusoperation-pycgm2-cgm1-calibration-py) in API documentation
-
-<div class="alert alert-dismissible alert-warning">
-Notice like the vicon PiG operation "Process Static Plugin Gait model", joint angles <strong> ignore segment offsets </strong>. This process explain the possible deviation, you could get between native Vicon  operations "Process Static Plugin Gait model" and "Dynamic Plugin Gait model"
-</div>
-
-
-**pyCGM2-CGM1-Fitting.Pipeline**
-
-See  [details](https://pycgm2.github.io/pyCGM2-API-DOC/apps/CGM1.html#fitting-nexusoperation-pycgm2-cgm1-fitting-py) in API documentation
--->
         </div>
     </section>
         </div>
