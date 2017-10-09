@@ -2,7 +2,7 @@
 <html lang="english"
 >
 <head>
-    <title>Tags - CGM2.i</title>
+    <title>Known Installation issues - CGM2.i</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -10,15 +10,16 @@
 
 
 
+<link rel="canonical" href="/pages/installationKnownIssues.html">
 
         <meta name="author" content="Fabien Leboeuf" />
+        <meta name="description" content="Table of Contents Calling an pyCGM2 operation from nexus do nothing my Installation with Anaconda2 ends with a registry key Error Calling an pyCGM2 operation from nexus do nothing solution : check *.py file is associated with proper program (i.e. python.exe) right click on a py file select open …" />
 
-    <!-- Open Graph tags -->
-        <meta property="og:site_name" content="CGM2.i" />
-        <meta property="og:type" content="website"/>
-        <meta property="og:title" content="CGM2.i"/>
-        <meta property="og:url" content=""/>
-        <meta property="og:description" content="CGM2.i"/>
+    <meta property="og:site_name" content="CGM2.i" />
+    <meta property="og:type" content="article"/>
+    <meta property="og:title" content="Known Installation issues"/>
+    <meta property="og:url" content="/pages/installationKnownIssues.html"/>
+    <meta property="og:description" content="Table of Contents Calling an pyCGM2 operation from nexus do nothing my Installation with Anaconda2 ends with a registry key Error Calling an pyCGM2 operation from nexus do nothing solution : check *.py file is associated with proper program (i.e. python.exe) right click on a py file select open …" />
 
 
     <!-- Bootstrap -->
@@ -111,10 +112,46 @@ CGM2.i            </a>
     <div class="row">
         <div class="col-sm-9">
 
-    <section id="tags">
-        <h1>Tags for CGM2.i</h1>
-        <div class="panel-group" id="accordion">        </div>
+    <section id="content" class="body">
+        <h1 class="entry-title">Known Installation issues</h1>
+        
+        <div class="entry-content">
+            <hr>
+<h2>Table of Contents</h2>
+<ul>
+<li><a href="#pyFormat">Calling an pyCGM2 operation from nexus do nothing</a></li>
+<li><a href="#anakey">my Installation with Anaconda2 ends with a registry key Error</a></li>
+</ul>
+<hr>
+<h2 id="pyFormat">Calling an pyCGM2 operation from nexus do nothing</h2>
 
+<p><strong>solution</strong> : check *.py file is associated with proper program (i.e. python.exe)</p>
+<ul>
+<li>right click on a py file</li>
+<li>select <em>open with</em></li>
+<li>select <em>choose default program</em></li>
+<li>select <em>python.exe</em>. If this command doesn t appear :<ul>
+<li>select <em>browse</em></li>
+<li>go to your python environment folder ( example C:/Anaconda2) and select <em>python.exe</em></li>
+</ul>
+</li>
+</ul>
+<h2 id="anakey">my Installation with Anaconda2 ends with a registry key Error</h2>
+
+<p><strong>This is attributed to Anaconda installation, not pyCGM2 !</strong></p>
+<p>Therefore, contact anaconda support to mention this issue.</p>
+<blockquote>
+<p>Nevertheless, With no certitude, this error might be due to a previous anaconda installation in 64 bits version. Forums report the following process might fix this issue</p>
+</blockquote>
+<ul>
+<li>if you had installed Anaconda 2 (32 bits)</li>
+<li>uninstall  Anaconda 2 (32 bits)</li>
+<li>install then uninstall Anaconda 2 (64 bits !!!)</li>
+<li>re-install  Anaconda 2 (32 bits)</li>
+<li>reboot your PC</li>
+</ul>
+<p>Eventually, the registry key of python should be updated</p>
+        </div>
     </section>
         </div>
         <div class="col-sm-3" id="sidebar">

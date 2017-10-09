@@ -73,6 +73,7 @@ CGM2.i            </a>
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="/pages/installation.html">Set-up your system</a></li>
                             <li><a href="/pages/nexusApps.html">Capture and process data</a></li>
+                            <li><a href="/pages/installationKnownIssues.html">Known installation issues</a></li>
                         </ul>
                         </li>
                         <li class="dropdown">
@@ -184,6 +185,14 @@ If your gait session doesn t match these settings, user can modify them through 
 
   <p>script arguments of the operation : <b> pyCGM2-CGM2_1-Calibration </b></p>
 
+  <b>Usage examples</b></br>
+  Edit the script argument cell of Vicon Nexus with:
+  <ul>
+    <li>  <code>  -l=1 -r=0 </code></li>
+    <li>  <code>  -l=1 -r=0 --resetMP</code></li>
+    <li> <code>  -l=1 -r=0 --markerDiameter=14 -ps=new </code></li>
+  </ul>
+
   <table class="table table-striped table-hover ">
      <thead>
       <tr>
@@ -239,6 +248,14 @@ If your gait session doesn t match these settings, user can modify them through 
   <div class="tab-pane fade" id="Fitting">
 
   <p>script arguments of the operation : <b> pyCGM2-CGM2_1-Fitting </b></p>
+
+  <b>Usage examples</b></br>
+  Edit the script argument cell of Vicon Nexus with:
+  <ul>
+    <li>  <code> -mpfa=LRXL --proj=JCS </code></li>
+    <li>  <code> --proj=Proximal --</code></li>
+    <li> <code> --check </code></li>
+  </ul>
 
   <table class="table table-striped table-hover ">
         <thead>
