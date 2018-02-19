@@ -25,6 +25,7 @@
     <!-- Bootstrap -->
         <link rel="stylesheet" href="/theme/css/bootstrap.cosmo.min.css" type="text/css"/>
     <link href="/theme/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
 
     <link href="/theme/css/pygments/native.css" rel="stylesheet">
     <link rel="stylesheet" href="/theme/css/style.css" type="text/css"/>
@@ -52,37 +53,56 @@ CGM2.i            </a>
 
                 <!-- navbar from MENU ( my MODIFICATION) -->
                         <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Background <span class="caret"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="/pages/CGM-General.html">What is the CGM</a></li>
-                            <li><a href="/pages/CGM2-General.html">Updating the CGM</a></li>
-                            <li><a href="/pages/team.html">People</a></li>
-                            <li><a href="/pages/publications.html">Publications</a></li>
-                        </ul>
-                        </li>
-                        <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Models <span class="caret"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="/pages/CGM10.html">CGM1.0</a></li>
-                            <li><a href="/pages/CGM11.html">CGM1.1</a></li>
-                            <li><a href="/pages/CGM21-Overview.html">CGM2.1</a></li>
-                        </ul>
-                        </li>
-                        <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">How to <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="/pages/installation.html">Set-up your system</a></li>
-                            <li><a href="/pages/nexusApps.html">Capture and process data</a></li>
+                            <li><a href="/pages/pythonInstallation.html">Set-up your python system</a></li>
+                            <li><a href="/pages/pyCGM2Installation.html">Install pyCGM2</a></li>
                             <li><a href="/pages/installationKnownIssues.html">Known installation issues</a></li>
                         </ul>
                         </li>
                         <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Repositery <span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Background <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
+                            <li><a href="/pages/CGM-History.html">CGM History</a></li>
+                            <li><a href="/pages/CGM-Definitions.html">Definitions</a></li>
+                            <li><a href="/pages/CGM-Strengths.html">Strengths</a></li>
+                            <li><a href="/pages/CGM-Weaknesses.html">Weaknesses</a></li>
+                            <li><a href="/pages/CGM2-General.html">Updating the CGM</a></li>
+                        </ul>
+                        </li>
+                        <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">CGM1 <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="/pages/CGM10.html">CGM1.0</a></li>
+                            <li><a href="/pages/CGM11.html">CGM1.1</a></li>
+                        </ul>
+                        </li>
+                        <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">CGM2 <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="/pages/CGM21-Overview.html">CGM2.1-HJC</a></li>
+                            <li><a href="/pages/CGM22-Overview.html">CGM2.2-IK</a></li>
+                            <li><a href="/pages/CGM23-Overview.html">CGM2.3-NoWands</a></li>
+                            <li><a href="/pages/CGM24-Overview.html">CGM2.4-ForeFoot</a></li>
+                        </ul>
+                        </li>
+                        <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Apps <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="/pages/nexusCGMApps.html">Nexus</a></li>
+                        </ul>
+                        </li>
+                        <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Ressource <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="/pages/Palpation.html">Palpation</a></li>
+                            <li><a href="/pages/CGM-References.html">CGM References</a></li>
                             <li><a href="/pages/Open-access-Gait-Data.html">OpenAccess data</a></li>
                         </ul>
                         </li>
-                        <li><a href="/pages/Contact.html">Contact us</a></li>
+                        <li><a href="/pages/team.html">Team</a></li>
+                        <li><a href="/pages/JoinUs.html">Join us</a></li>
+                        <li><a href="/pages/articleRecentList.html">Blog</a></li>
 
             </ul>
             <ul class="nav navbar-nav navbar-right">
@@ -108,204 +128,55 @@ CGM2.i            </a>
 		</div>
 	</div>
 </div><!-- End Banner -->
-<div class="container">
-    <div class="row">
-        <div class="col-sm-9">
-
+<div class="container-fluid text-center">
+  <div class="row content">
+      <div class="col-sm-2" id="sidebar">
+<section class="well well-sm">
+    <aside>
+            <nav class="toc">
+            <div id="toc"><ul><li><a class="toc-href" href="#" title="CGM 1.1">CGM 1.1</a><ul><li><a class="toc-href" href="#overview" title="Overview">Overview</a></li><li><a class="toc-href" href="#marker-set" title="Marker set">Marker set</a></li></ul></li></ul></div>
+            </nav>
+    </aside>
+</section>      </div>
+    <div class="col-sm-8 text-left">
     <section id="content" class="body">
+
         <h1 class="entry-title">CGM 1.1</h1>
         
         <div class="entry-content">
-            <h2>Overview</h2>
-<p>Whilst creating CGM 1.0 we identified four aspects of PiG that we felt could be addressed immediately. CGM 1.1 is thus a version of the CGM in which there three issues have been addressed.</p>
+            <h2 id="overview">Overview</h2>
+<p>Whilst creating CGM 1.0 we identified four aspects of PiG that we felt could be addressed immediately. <strong>CGM 1.1 is thus a version of the CGM in which there three issues have been addressed</strong>.</p>
 <ol>
-  <li> There is an inconsistency between the way that the foot rotation offset is applied during static calibration and then applied later when fitting to dynamic data whcih ahs been corrected. </li>
-  <li> The correct Cardan sequence for pelvic angles has been applied.</li>
-  <li> Under a specific combinations of conditions the  medial malleolar malleolar marker was not being used appropriately during static calibration and teh logic for when it is used has been corrected</li>
-  <li>Given that using a medial malleolar marker (if placed) has been used routinely for static calibration of the tibia for over a decade it is not at all clear why a simialr option to use a medial epicondyle marker for calibration of the femur has not been introduced. This is now possible, if the medial epicondyle marker (LMEPI, RMEPI) is found then this will be used to define the coronal plane of the knee in the same way as the KAD is used if it is present.
-</ol>
-
+<li> There is an inconsistency between the way that the foot rotation offset is applied during static calibration and then applied later when fitting to dynamic data which has been corrected. </li>
+<li> The correct Cardan sequence for pelvic angles has been applied.</li>
+<li> Under a specific combinations of conditions the  medial malleolar malleolar marker was not being used appropriately during static calibration and teh logic for when it is used has been corrected</li>
+<li>Given that using a medial malleolar marker (if placed) has been used routinely for static calibration of the tibia for over a decade it is not at all clear why a simialr option to use a medial epicondyle marker for calibration of the femur has not been introduced. This is now possible, if the medial epicondyle marker (LKNM, RKNM) is found then this will be used to define the coronal plane of the knee in the same way as the KAD is used if it is present.
+</li></ol>
 <p>Other than this the model is an exact clone of the current version of PiG.</p>
-<h2>Nexus App</h2>
-<p>You will find below Global setting of the <b>pyCGM2-CGM1.1</b> model.
-If your gait session doesn t match these settings, user can modify them through script arguments</p>
-<ul class="nav nav-tabs">
-  <li class="active"><a href="#GlobalSettings" data-toggle="tab">Global Settings</a></li>
-  <li><a href="#Calibration" data-toggle="tab">Calibration Pipeline</a></li>
-  <li><a href="#Fitting" data-toggle="tab">Fitting Pipeline</a></li>
-</ul>
-
-<div id="myTabContent" class="tab-content">
-
-  <div class="tab-pane fade active in" id="GlobalSettings">
-
-    <table class="table table-striped table-hover ">
-      <thead>
-        <tr>
-          <th>Item</th>
-          <th>Default value</th>
-          <th>Choice</th>
-
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Marker Diameter (mm)</td>
-          <td>14</td>
-          <td></td>
-        </tr>
-        <tr class="warning">
-          <td>Moment projection</td>
-          <td>JCS (Joint Coordinate System)</td>
-          <td>Proximal <br> Distal <br> Global <br> JCS</td>
-        </tr>
-        <tr class="warning">
-          <td>Flat foot options</td>
-          <td>enabled by default</td>
-          <td></td>
-
-        </tr>
-      </tbody>
-    </table>
-
-  </div>
-
-
-  <div class="tab-pane" id="Calibration">
-
-  <p>script arguments of the operation : <b> pyCGM2-CGM1_1-Calibration </b></p>
-
-  <b>Usage examples</b></br>
-  Edit the script argument cell of Vicon Nexus with:
-  <ul>
-    <li>  <code>  -l=1 -r=0 </code></li>
-    <li>  <code>  -l=1 -r=0 --resetMP</code></li>
-    <li> <code>  -l=1 -r=0 --markerDiameter=14 -ps=new </code></li>
-  </ul>
-
-
-
-  <table class="table table-striped table-hover ">
-     <thead>
-      <tr>
-        <th>Script Arguments</th>
-        <th>Details</th>
-        <th>Choice</th>
-        <th>Command examples</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>‘-l’ or’--leftFlatFoot’</td>
-        <td>force left flat Foot option</td>
-        <td>1 or 0</td>
-        <td>-l=1 or --leftFlatFoot=0</td>
-      </tr>
-      <tr>
-        <td>‘-r’ or’--rightFlatFoot’</td>
-        <td>force right flat Foot option</td>
-        <td>1 or 0</td>
-        <td>-r=1 or --rightFlatFoot=0</td>
-      </tr>
-      <tr>
-        <td>‘-md’ or ‘- -markerDiameter’</td>
-        <td>marker diameter in mm</td>
-        <td></td>
-        <td>-md=14 or --markerDiameter=14</td>
-      </tr>
-      <tr class="warning">
-        <td>‘--check’</td>
-        <td>add `cgm1_1` as suffix of any model outputs</td>
-        <td></td>
-        <td>--check</td>
-      </tr>
-      <tr class="warning">
-      <td>‘-ps’ or ‘--pointSuffix’ </td>
-        <td>add your custom suffix to each  model output</td>
-        <td></td>
-        <td>-ps=New or --pointSuffix=New</td>
-      </tr>
-      <tr class="warning">
-      <td>‘--resetMP’ </td>
-        <td>reset computation of optional mp data</td>
-        <td></td>
-        <td>--resetMP</td>
-      </tr>
-    </tbody>
-  </table>
-  </div>
-
-
-
-  <div class="tab-pane fade" id="Fitting">
-
-  <p>script arguments of the operation : <b> pyCGM2-CGM1_1-Fitting </b></p>
-
-  <b>Usage examples</b></br>
-  Edit the script argument cell of Vicon Nexus with:
-  <ul>
-    <li>  <code> -mpfa=LRXL --proj=JCS </code></li>
-    <li>  <code> --proj=Proximal --</code></li>
-    <li> <code> --check </code></li>
-  </ul>
-
-
-  <table class="table table-striped table-hover ">
-        <thead>
-           <tr>
-           <th>Script Arguments</th>
-           <th>Details</th>
-           <th>Choice</th>
-           <th>Command examples</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>‘-md’ or ‘--markerDiameter’</td>
-          <td>marker diameter in mm</td>
-          <td></td>
-          <td>-md=14 or --markerDiameter=14</td>
-        </tr>
-        <tr>
-          <td>‘--proj‘ </td>
-          <td>moment projection</td>
-          <td>Proximal <br> Distal <br> Global <br> JCS</td>
-          <td>--proj=Proximal</td>
-        </tr>
-        <tr>
-          <td>‘-mfpa‘ </td>
-          <td>manual force plate assignment<br>
-           Number of letter matches the number of force plate</td>
-          <td></td>
-          <td> -mpfa=LRXL stands for : <br>
-          4 forces plates with left foot asignment for force plates #1 and #4, right foot assignment for force plate #2 and no assigment for force plate #3</td>
-        </tr>
-        <tr class="warning">
-          <td>‘--check’</td>
-          <td>add `cgm1_1` as suffix of any model outputs</td>
-          <td></td>
-          <td>--check</td>
-        </tr>
-        <tr class="warning">
-        <td>‘-ps’ or ‘--pointSuffix’ </td>
-          <td>add your custom suffix to each  model output</td>
-          <td></td>
-          <td>-ps=New or --pointSuffix=New</td>
-        </tr>
-      </tbody>
-      </table>
-  </div>
-
-</div>
+<h2 id="marker-set">Marker set</h2>
+<p><img alt="cgm11ms" src="/images/CGM1/CGM11_markerset.png" width="50%"/></p>
+<p>Check out our <a href="Palpation.html">palpation guidelines</a> for get assistance on marker placement</p>
+<p>Calibrations with either native processing (ie the wand defines  the coronal plane) or KAD can be also enable</p>
         </div>
     </section>
-        </div>
-        <div class="col-sm-3" id="sidebar">
-            <aside>
+    </div>
+    <div class="col-sm-2 sidenav">
+        <aside>
 
 <section class="well well-sm">
+        <li class="list-group-item"><h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Sponsors</span></h4>
+    <li class="list-group-item">
+        <ul class="list-group" id="links">
+            <img width="100%" class="img-thumbnail" src="/images/logo/vicon.jpg"/>
+            <img width="100%" class="img-thumbnail" src="/images/logo/salford.png"/>
+        </ul>
+    </li>
     <ul class="list-group list-group-flush">
 
+            <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Recent Posts</span></h4>
+                <ul class="list-group" id="recentposts">
+                </ul>
+            </li>
 
 
             <li class="list-group-item"><a href="/tags.html"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
@@ -329,14 +200,19 @@ If your gait session doesn t match these settings, user can modify them through 
                 ResearchGate Project page
             </a>
         </li>
+        <li class="list-group-item">
+            <a href="https://wwrichard.net/" target="_blank">
+                Walking with Richard
+            </a>
+        </li>
       </ul>
     </li>
     </ul>
-</section>
-            </aside>
-        </div>
+</section>        </aside>
     </div>
+  </div>
 </div>
+
 <footer>
    <div class="container">
       <hr>

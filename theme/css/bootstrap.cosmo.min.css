@@ -44,7 +44,9 @@ dfn {
 }
 h1 {
 	font-size:2em;
-	margin:0.67em 0
+	margin:0.67em 0;
+	color:#0033cc
+
 }
 mark {
 	background:#ff0;
@@ -1608,7 +1610,7 @@ pre code {
 		width:33.33333333%
 	}
 	.col-md-3 {
-		width:25%
+		width:22.5%
 	}
 	.col-md-2 {
 		width:16.66666667%
@@ -1901,7 +1903,8 @@ th {
 .table {
 	width:100%;
 	max-width:100%;
-	margin-bottom:21px
+	margin-bottom:21px;
+	border-top:2px solid #dddddd
 }
 .table>thead>tr>th,.table>tbody>tr>th,.table>tfoot>tr>th,.table>thead>tr>td,.table>tbody>tr>td,.table>tfoot>tr>td {
 	padding:8px;
@@ -2384,7 +2387,6 @@ textarea.input-lg,select[multiple].input-lg {
 	cursor:pointer;
 	background-image:none;
 	border:1px solid transparent;
-	white-space:nowrap;
 	padding:10px 18px;
 	font-size:15px;
 	line-height:1.42857143;
@@ -4541,6 +4543,21 @@ a.list-group-item-danger.active,a.list-group-item-danger.active:hover,a.list-gro
 	padding:9px;
 	border-radius:0
 }
+.toc {
+	text-align:left
+}
+
+.toc li{
+        padding: 0px 0px 0px 3px;;
+        margin:0;
+        color:black;
+    }
+.toc ul{
+        padding: 0px 0px 0px 3px;;
+        margin:0;
+        color:black;
+    }
+
 .close {
 	float:right;
 	font-size:22.5px;

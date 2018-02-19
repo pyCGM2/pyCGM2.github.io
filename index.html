@@ -25,6 +25,7 @@
     <!-- Bootstrap -->
         <link rel="stylesheet" href="/theme/css/bootstrap.cosmo.min.css" type="text/css"/>
     <link href="/theme/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
 
     <link href="/theme/css/pygments/native.css" rel="stylesheet">
     <link rel="stylesheet" href="/theme/css/style.css" type="text/css"/>
@@ -52,37 +53,56 @@ CGM2.i            </a>
 
                 <!-- navbar from MENU ( my MODIFICATION) -->
                         <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Background <span class="caret"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="/pages/CGM-General.html">What is the CGM</a></li>
-                            <li><a href="/pages/CGM2-General.html">Updating the CGM</a></li>
-                            <li><a href="/pages/team.html">People</a></li>
-                            <li><a href="/pages/publications.html">Publications</a></li>
-                        </ul>
-                        </li>
-                        <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Models <span class="caret"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="/pages/CGM10.html">CGM1.0</a></li>
-                            <li><a href="/pages/CGM11.html">CGM1.1</a></li>
-                            <li><a href="/pages/CGM21-Overview.html">CGM2.1</a></li>
-                        </ul>
-                        </li>
-                        <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">How to <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="/pages/installation.html">Set-up your system</a></li>
-                            <li><a href="/pages/nexusApps.html">Capture and process data</a></li>
+                            <li><a href="/pages/pythonInstallation.html">Set-up your python system</a></li>
+                            <li><a href="/pages/pyCGM2Installation.html">Install pyCGM2</a></li>
                             <li><a href="/pages/installationKnownIssues.html">Known installation issues</a></li>
                         </ul>
                         </li>
                         <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Repositery <span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Background <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
+                            <li><a href="/pages/CGM-History.html">CGM History</a></li>
+                            <li><a href="/pages/CGM-Definitions.html">Definitions</a></li>
+                            <li><a href="/pages/CGM-Strengths.html">Strengths</a></li>
+                            <li><a href="/pages/CGM-Weaknesses.html">Weaknesses</a></li>
+                            <li><a href="/pages/CGM2-General.html">Updating the CGM</a></li>
+                        </ul>
+                        </li>
+                        <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">CGM1 <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="/pages/CGM10.html">CGM1.0</a></li>
+                            <li><a href="/pages/CGM11.html">CGM1.1</a></li>
+                        </ul>
+                        </li>
+                        <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">CGM2 <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="/pages/CGM21-Overview.html">CGM2.1-HJC</a></li>
+                            <li><a href="/pages/CGM22-Overview.html">CGM2.2-IK</a></li>
+                            <li><a href="/pages/CGM23-Overview.html">CGM2.3-NoWands</a></li>
+                            <li><a href="/pages/CGM24-Overview.html">CGM2.4-ForeFoot</a></li>
+                        </ul>
+                        </li>
+                        <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Apps <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="/pages/nexusCGMApps.html">Nexus</a></li>
+                        </ul>
+                        </li>
+                        <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Ressource <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="/pages/Palpation.html">Palpation</a></li>
+                            <li><a href="/pages/CGM-References.html">CGM References</a></li>
                             <li><a href="/pages/Open-access-Gait-Data.html">OpenAccess data</a></li>
                         </ul>
                         </li>
-                        <li><a href="/pages/Contact.html">Contact us</a></li>
+                        <li><a href="/pages/team.html">Team</a></li>
+                        <li><a href="/pages/JoinUs.html">Join us</a></li>
+                        <li><a href="/pages/articleRecentList.html">Blog</a></li>
 
             </ul>
             <ul class="nav navbar-nav navbar-right">
@@ -108,101 +128,47 @@ CGM2.i            </a>
 		</div>
 	</div>
 </div><!-- End Banner -->
-<div class="container">
-    <div class="row">
-        <div class="col-sm-9">
-
+<div class="container-fluid text-center">
+  <div class="row content">
+      <div class="col-sm-2" id="sidebar">
+<section class="well well-sm">
+    <aside>
+            <nav class="toc">
+            <div id="toc"><ul><li><a class="toc-href" href="#" title="The CGM 2.i Project">The CGM 2.i Project</a><ul><li><a class="toc-href" href="#whats-on-the-website" on="" s="" the="" title="What" website'="">What's on the website</a></li></ul></li></ul></div>
+            </nav>
+    </aside>
+</section>      </div>
+    <div class="col-sm-8 text-left">
     <section id="content" class="body">
+
         <h1 class="entry-title">The CGM 2.i Project</h1>
         
         <div class="entry-content">
             <p>The Conventional Gait Model (CGM) is the most widely used biomechanical model for clinical gait analysis. It was first developed in the 1980s and although, it has many strengths, it has several well-known weaknesses. This project will develop and validate a new version of the CGM which maintains those strengths but corrects the weaknesses.</p>
 <p>The new model will be as compatible as possible with the old but cannot be identical. It is therefore important that future users know exactly how the new version differs from the old. This will be ensured by developing the model in a series of iterations each addressing a specific weakness and each fully validated to understand the behaviour of the new model in comparison to the old one.</p>
 <p>The new model to be as open and transparent as possible. All code will be developed in <a href="https://www.python.org/">python</a> and made available through <a href="https://github.com/">GitHub</a>. The project is part-funded by <a href="https://www.vicon.com/">Vicon</a> and we will focus first on implementations to support use of the new models with Vicon's suite of clinical gait analysis software. We are open to developing similar relationships with other manufacturers.</p>
-<h2>What's on the website</h2>
-<p>The web-site contains a full description of each of the models and instructions for both how to set up your system and to capture and process data. There is also a growing repository of .c3d files that can be used for reference purposes.</p>
-<h3>Background</h3>
-<p>This is the background to the project.</p>
-<ul>
-<li><a href="/pages/CGM-General.html"><strong>What is the CGM?</strong></a>  The history of the CGM, how it is defined and an analysis of its strengths and weaknesses.</li>
-<li><a href="/pages/CGM2-General.html"><strong>Updating the CGM for the modern world.</strong></a> An analysis of futre requirements leading to formal desing criteria and a overview of the main issues to be addressed.</li>
-<li><a href="/pages/team.html"><strong>The team.</strong></a> See who's involved in the project.</li>
-<li><a href="/pages/publications.html"><strong>Publications.</strong></a> Our plan is to publish all the validations we have performed but inevitable this will take some time.</li>
-</ul>
-<h3>Description of models</h3>
-<h4>CGM1: The original Model</h4>
-<p><strong>CGM1</strong> is our version of the original model.</p>
-<ul>
-<li>
-<p><a href="/pages/CGM10.html"><strong>CGM1.0 - a clone of PiG</strong></a>. This is an exact clone of Vicon's PiG model. It is provided primarily to allow users to get used to implementing the new software with a model that gives exactly the same results as data processed with the original PiG model.</p>
-</li>
-<li>
-<p><a href="/pages/CGM11.html"><strong>CGM1.1 - PiG as it should be?</strong></a> This is a modification correcting two small bugs we found with PiG and implementing two features that we feel should have been implemented a long time ago which do not affect the underlying model.</p>
-</li>
-</ul>
-<h4>CGM2: Modifying the model step by step</h4>
-<p><strong>CGM2.i</strong> is a series of models each adding one specific modification. This is done so that users can explore for themslelves what differences each specific modification make.</p>
-<ul>
-<li>
-<p><a href="/pages/CGM21-Overview.html"><strong>CGM2.1</strong></a> - moving the hip joint centres. one of the main criticisms of the CGM over the years has been that it puts the hip joint centres in the wrong place. This version corrects that based on the latest published research.</p>
-</li>
-<li>
-<p><strong>CGM2.2</strong> - inverse kinematics. It can be argued that the CGM was an algorithm rather than a true model. This version is a true model fitted to the measured marker positions using inverse kinematics.</p>
-</li>
-<li>
-<p><strong>CGM2.3</strong> - removing the wands markers. People have used skin markers in palce of original wands for some time but this makes the CGM particularly sensitive to both marker misplacment and soft tissue artefact. This version replaces the wands with skin mounted markers in a more robust manner.</p>
-</li>
-<li>
-<p><strong>CGM2.4</strong> - extending the foot model. The CGM had a single foot segment (and didn't model this fully). This version allows a modification to marker placment so that the original foot represents the hind foot. Extra markers can then be used to include a fore-foot segment.</p>
-</li>
-<li>
-<p><strong>CGM2.5</strong> - calibrating the knee joint. There has been considerable research recently into the use of funcitonal calibration to improve biomechanical modelling. The broad conclusion is that hip calibration is less effective than knee calibration which is built into this version.</p>
-</li>
-<li>
-<p><strong>CGM2.6</strong> - a model for larger people. Placing markers over excessive soft tissue in a manner that is consistent with the CGM has always been a challenge. This version exploits new research to improve this aspect of the modelling.</p>
-</li>
-<li>
-<p><strong>CGM2.7</strong> - adding the upper body. Although the CGM was originally a lower body model PiG included upper body model as well which has been modified to use inverse kinematics and included in this version.</p>
-</li>
-</ul>
-<h4>CGM3: The final product</h4>
-<p>This is identical to CGM2.7 and is the model we recommend for future clincial use. It will be provided with full documentation for those who just want to get on and use it (but this isn't quite finished yet).</p>
-<h3>How to use the system</h3>
-<p>The models have been written to run as Python scripts within Nexus. This requires you to take a little bit of time to install the latest version of Python and the CGM code and to set up various pipelines within Nexus. You will only have to do this once and when you have, capturing and processing data is very similar to using the current PiG Plugin. All the models run in essentially the same way, you just have to select the one you want.</p>
-<p>These notes are written in a way which we hope will enable anyone who understands basic data capture in Nexus to set themsleves up to and start running the models.</p>
-<ul>
-<li>
-<p><a href="/pages/installation.html"><strong>Installation overview</strong></a> An brief introdcution to how the processes work.</p>
-</li>
-<li>
-<p><strong>Setting up Python.</strong> How to install Python and our new code.</p>
-</li>
-<li>
-<p><strong>Setting up the Nexus.</strong> How to set up Nexus in preparation for data processing.</p>
-</li>
-<li>
-<p><a href="/pages/nexusApps.html"><strong>Capturing and proceesing data.</strong></a> How to use the Nexus Python pipelines to run the different models.</p>
-</li>
-</ul>
-<h3>Join us</h3>
-<p>We hope this is a model that other people will want to use and would like to invite you to work with us.</p>
-<ul>
-<li>
-<p><strong>Help with validation</strong> There are very few repeatability studies validating models in centres other than those in which the model was developed. We'd love to work with you if you are interested in setting one up. We'd be particularly keen to set up multi-centre studies.</p>
-</li>
-<li>
-<p><strong>Share data</strong> If people are using the same models then the data should be comparable and we want to build a repository of representative data of people with different conditions which can be used for a variety of purposes. At present it includes anonymised data from children with cerebral palsy demonstrating a range of different gait patterns. It is formatted within an Vicon Eclipse database hierarchy to faciliatate easy access through Nexus or Polygon software.</p>
-</li>
-</ul>
+<h2 id="whats-on-the-website">What's on the website</h2>
+<p>The web-site contains a full description of each of the models and instructions for both <strong>how to set up your system</strong> and to capture and process data. There is also a growing repository of <a href="/pages/Open-access-Gait-Data.html">c3d files</a> that can be used for reference purposes.</p>
         </div>
     </section>
-        </div>
-        <div class="col-sm-3" id="sidebar">
-            <aside>
+    </div>
+    <div class="col-sm-2 sidenav">
+        <aside>
 
 <section class="well well-sm">
+        <li class="list-group-item"><h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Sponsors</span></h4>
+    <li class="list-group-item">
+        <ul class="list-group" id="links">
+            <img width="100%" class="img-thumbnail" src="/images/logo/vicon.jpg"/>
+            <img width="100%" class="img-thumbnail" src="/images/logo/salford.png"/>
+        </ul>
+    </li>
     <ul class="list-group list-group-flush">
 
+            <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Recent Posts</span></h4>
+                <ul class="list-group" id="recentposts">
+                </ul>
+            </li>
 
 
             <li class="list-group-item"><a href="/tags.html"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
@@ -226,14 +192,19 @@ CGM2.i            </a>
                 ResearchGate Project page
             </a>
         </li>
+        <li class="list-group-item">
+            <a href="https://wwrichard.net/" target="_blank">
+                Walking with Richard
+            </a>
+        </li>
       </ul>
     </li>
     </ul>
-</section>
-            </aside>
-        </div>
+</section>        </aside>
     </div>
+  </div>
 </div>
+
 <footer>
    <div class="container">
       <hr>
