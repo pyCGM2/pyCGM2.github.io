@@ -13,13 +13,13 @@
 <link rel="canonical" href="/pages/nexusCGMApps.html">
 
         <meta name="author" content="Fabien Leboeuf" />
-        <meta name="description" content="Generalities pyCGM2 operations were designed on the basis of the C3d format file. Operations read the c3d and store data into it with the same nomenclature of the Vicon Pig ( ie LHipAngles, LFootProgressAngles...). Model processing with pyCGM2 doesn&#39;t differ from the use of Vicon PiG in Nexus. The model need …" />
+        <meta name="description" content="Best practices Warning Check your travelling axis. It must be either X or Y. Configuration with Z as either longitudinal of tranversal global axis has not been implemented yet. we recommand to run any pyCGM2 operation with cropped trial (zero-values frame might stop the process or heavily increase computation time …" />
 
     <meta property="og:site_name" content="CGM2.i" />
     <meta property="og:type" content="article"/>
     <meta property="og:title" content="Nexus Applications"/>
     <meta property="og:url" content="/pages/nexusCGMApps.html"/>
-    <meta property="og:description" content="Generalities pyCGM2 operations were designed on the basis of the C3d format file. Operations read the c3d and store data into it with the same nomenclature of the Vicon Pig ( ie LHipAngles, LFootProgressAngles...). Model processing with pyCGM2 doesn&#39;t differ from the use of Vicon PiG in Nexus. The model need …" />
+    <meta property="og:description" content="Best practices Warning Check your travelling axis. It must be either X or Y. Configuration with Z as either longitudinal of tranversal global axis has not been implemented yet. we recommand to run any pyCGM2 operation with cropped trial (zero-values frame might stop the process or heavily increase computation time …" />
 
 
     <!-- Bootstrap -->
@@ -82,7 +82,7 @@ CGM2.i            </a>
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="/pages/CGM21-Overview.html">CGM2.1-HJC</a></li>
                             <li><a href="/pages/CGM22-Overview.html">CGM2.2-IK</a></li>
-                            <li><a href="/pages/CGM23-Overview.html">CGM2.3-NoWands</a></li>
+                            <li><a href="/pages/CGM23-Overview.html">CGM2.3-skinClusters</a></li>
                             <li><a href="/pages/CGM24-Overview.html">CGM2.4-ForeFoot</a></li>
                         </ul>
                         </li>
@@ -93,7 +93,7 @@ CGM2.i            </a>
                         </ul>
                         </li>
                         <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Ressource <span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Resources <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="/pages/Palpation.html">Palpation</a></li>
                             <li><a href="/pages/CGM-References.html">CGM References</a></li>
@@ -134,7 +134,7 @@ CGM2.i            </a>
 <section class="well well-sm">
     <aside>
             <nav class="toc">
-            <div id="toc"><ul><li><a class="toc-href" href="#" title="Nexus Applications">Nexus Applications</a><ul><li><a class="toc-href" href="#generalities" title="Generalities">Generalities</a></li><li><a class="toc-href" href="#best-practices" title="Best practices">Best practices</a></li><li><a class="toc-href" href="#list-of-available-applications" title="List of available applications">List of available applications</a><ul><li><a class="toc-href" href="#cgm10" title="CGM1.0">CGM1.0</a></li><li><a class="toc-href" href="#cgm11" title="CGM1.1">CGM1.1</a></li><li><a class="toc-href" href="#cgm21" title="CGM2.1">CGM2.1</a></li><li><a class="toc-href" href="#cgm22" title="CGM2.2">CGM2.2</a></li><li><a class="toc-href" href="#cgm23" title="CGM2.3">CGM2.3</a></li><li><a class="toc-href" href="#cgm24" title="CGM2.4">CGM2.4</a></li></ul></li></ul></li></ul></div>
+            <div id="toc"><ul><li><a class="toc-href" href="#" title="Nexus Applications">Nexus Applications</a><ul><li><a class="toc-href" href="#best-practices" title="Best practices">Best practices</a></li><li><a class="toc-href" href="#generalities" title="Generalities">Generalities</a></li><li><a class="toc-href" href="#list-of-available-applications" title="List of available applications">List of available applications</a><ul><li><a class="toc-href" href="#cgm10" title="CGM1.0">CGM1.0</a></li><li><a class="toc-href" href="#cgm11" title="CGM1.1">CGM1.1</a></li><li><a class="toc-href" href="#cgm21" title="CGM2.1">CGM2.1</a></li><li><a class="toc-href" href="#cgm22" title="CGM2.2">CGM2.2</a></li><li><a class="toc-href" href="#cgm23" title="CGM2.3">CGM2.3</a></li><li><a class="toc-href" href="#cgm24" title="CGM2.4">CGM2.4</a></li></ul></li></ul></li></ul></div>
             </nav>
     </aside>
 </section>      </div>
@@ -144,7 +144,17 @@ CGM2.i            </a>
         <h1 class="entry-title">Nexus Applications</h1>
         
         <div class="entry-content">
-            <h2 id="generalities">Generalities</h2>
+            <h2 id="best-practices">Best practices</h2>
+<div class="alert alert-dismissible alert-warning">
+<h4 class="alert-heading">Warning</h4>
+<p class="mb-0">Check your travelling axis. It must  be either X or Y. Configuration with Z as either longitudinal of tranversal global axis has not been implemented yet. </p>
+</div>
+<p>we recommand to run any pyCGM2 operation with</p>
+<ul>
+<li><strong>cropped trial</strong> (zero-values frame might stop the process or heavily increase computation time)</li>
+<li>gap-free trial</li>
+</ul>
+<h2 id="generalities">Generalities</h2>
 <p>pyCGM2 operations were designed on <strong>the basis of the C3d format file</strong>. Operations read the c3d and store data into it with the same nomenclature of the Vicon Pig ( ie LHipAngles, LFootProgressAngles...).</p>
 <p>Model processing with pyCGM2 doesn't differ from the use of Vicon PiG in Nexus. The model need to be first calibrate though the pipeline:
 <strong>Calibration</strong> (ie PiG Static) after static reconstruction. Then, kinematics and kinetics of motion trials are worked out through the pipeline: <strong>fitting</strong> (ie PiG Dynamic)</p>
@@ -155,13 +165,6 @@ CGM2.i            </a>
 <p class="mb-0">pyCGM2 operation works if the checkbox Use Nexus Python is unticked    </p>
 </div>
 <p>Check out all CGM nexus Apps to know <strong>global settings</strong> and list of pyCGM2 <strong>script input arguments</strong>.</p>
-<h2 id="best-practices">Best practices</h2>
-<p>If you intend to run a pyCGM2 operation on your ongoing trial, <strong>save your data as c3d before running any pyCGM2 operations</strong>.</p>
-<p>Overall, we recommand to run any pyCGM2 operation with :</p>
-<ul>
-<li>cropped trial (unlabelled frame might stop the process or heavily increase computation time)</li>
-<li>gap-free trial</li>
-</ul>
 <h2 id="list-of-available-applications">List of available applications</h2>
 <div class="">
 <div class="container">
@@ -217,6 +220,11 @@ CGM2.i            </a>
 
             <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Recent Posts</span></h4>
                 <ul class="list-group" id="recentposts">
+                    <li class="list-group-item">
+                        <a href="/articles/matlab.html">
+                            Matlab Users
+                        </a>
+                    </li>
                 </ul>
             </li>
 
@@ -259,7 +267,7 @@ CGM2.i            </a>
    <div class="container">
       <hr>
       <div class="row">
-         <div class="col-xs-10">&copy;  Fabien Leboeuf
+         <div class="col-xs-10">&copy; 2018 Fabien Leboeuf
             &middot; Powered by <a href="https://github.com/DandyDev/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
             <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
             <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>              <p><small>   <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by/4.0/80x15.png" /></a>
