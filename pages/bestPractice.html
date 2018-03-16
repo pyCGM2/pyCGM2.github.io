@@ -2,7 +2,7 @@
 <html lang="english"
 >
 <head>
-    <title>Nexus Application Environment - CGM2.i</title>
+    <title>Best Practice - Recommandations - CGM2.i</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -10,16 +10,16 @@
 
 
 
-<link rel="canonical" href="/pages/nexusApps.html">
+<link rel="canonical" href="/pages/bestPractice.html">
 
         <meta name="author" content="Fabien Leboeuf" />
-        <meta name="description" content="Figure below despict the pyGM2 nexus application environment Users must mainly take note of the articulation between Vicon Nexus and the folder programData/pyCGM2. Folder programData/pyCGM2 This folder[^hidden] is installed after first importation of pyCGM2. For each Conventional Gait Model, this folder collects : ready-to-import Nexus pipeline (file .pipeline …" />
+        <meta name="description" content="IMPORTANT Check your travelling axis. It must be either X or Y, not Z !! Recommandations As far as it goes, we recommand this pratice for performing any pyCGM2 applicatons : work with gap-free trial. Zero-values might corrupt the Inverse kinematics processing especially crop your trial to a zone of interest. do …" />
 
     <meta property="og:site_name" content="CGM2.i" />
     <meta property="og:type" content="article"/>
-    <meta property="og:title" content="Nexus Application Environment"/>
-    <meta property="og:url" content="/pages/nexusApps.html"/>
-    <meta property="og:description" content="Figure below despict the pyGM2 nexus application environment Users must mainly take note of the articulation between Vicon Nexus and the folder programData/pyCGM2. Folder programData/pyCGM2 This folder[^hidden] is installed after first importation of pyCGM2. For each Conventional Gait Model, this folder collects : ready-to-import Nexus pipeline (file .pipeline …" />
+    <meta property="og:title" content="Best Practice - Recommandations"/>
+    <meta property="og:url" content="/pages/bestPractice.html"/>
+    <meta property="og:description" content="IMPORTANT Check your travelling axis. It must be either X or Y, not Z !! Recommandations As far as it goes, we recommand this pratice for performing any pyCGM2 applicatons : work with gap-free trial. Zero-values might corrupt the Inverse kinematics processing especially crop your trial to a zone of interest. do …" />
 
 
     <!-- Bootstrap -->
@@ -89,6 +89,7 @@ CGM2.i            </a>
                         <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Apps <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
+                            <li><a href="/pages/bestPractice.html">Best Practice</a></li>
                             <li><a href="/pages/nexusCGMApps.html">Nexus</a></li>
                         </ul>
                         </li>
@@ -134,48 +135,25 @@ CGM2.i            </a>
 <section class="well well-sm">
     <aside>
             <nav class="toc">
-            <div id="toc"><ul><li><a class="toc-href" href="#" title="Nexus Application Environment">Nexus Application Environment</a><ul><li><a class="toc-href" href="#folder-programdatapycgm2" title="Folder programData/pyCGM2">Folder programData/pyCGM2</a></li><li><a class="toc-href" href="#nexus-application" title="Nexus application">Nexus application</a></li></ul></li></ul></div>
+            <div id="toc"><ul><li><a class="toc-href" href="#" title="Best Practice - Recommandations">Best Practice - Recommandations</a><ul><li><a class="toc-href" href="#important" title="IMPORTANT">IMPORTANT</a></li><li><a class="toc-href" href="#recommandations" title="Recommandations">Recommandations</a></li></ul></li></ul></div>
             </nav>
     </aside>
 </section>      </div>
     <div class="col-sm-8 text-left">
     <section id="content" class="body">
 
-        <h1 class="entry-title">Nexus Application Environment</h1>
+        <h1 class="entry-title">Best Practice - Recommandations</h1>
         
         <div class="entry-content">
-            <p>Figure below despict the pyGM2 nexus application environment</p>
-<p><img alt="nexusAppsFlow" src="..\images\nexusApps\nexusAppsFlow.png"/></p>
-<p>Users must mainly take note of the articulation between <strong>Vicon Nexus</strong> and the folder <strong>programData/pyCGM2</strong>.</p>
-<h2 id="folder-programdatapycgm2">Folder programData/pyCGM2</h2>
-<p>This folder[^hidden] is installed after first importation of pyCGM2. For each Conventional Gait Model, this folder collects :</p>
+            <h2 id="important">IMPORTANT</h2>
+<p>Check your travelling axis. It must  be either X or Y, not Z !!</p>
+<h2 id="recommandations">Recommandations</h2>
+<p>As far as it goes, we recommand this pratice for performing any pyCGM2 applicatons :</p>
 <ul>
-<li>ready-to-import Nexus pipeline (file <em>.pipeline</em>)</li>
-<li>global settings (file <em>.settings</em>)</li>
+<li>work with <strong>gap-free trial</strong>. Zero-values might corrupt the Inverse kinematics processing especially</li>
+<li><strong>crop your trial</strong> to a zone of interest.  do not work with an entire c3d.</li>
+<li>if you manually edit gait events, <strong>start with a Foot strike</strong></li>
 </ul>
-<p>The role of  <strong>Global settings</strong> si to set commonly-use settings. As an example, for the CGM1.0 ( i.e PiG clone), global settings declares by default :</p>
-<ul>
-<li>marker diameter to 14mm</li>
-<li>enable both flat foot options !!</li>
-<li>project moment into the distal segment</li>
-</ul>
-<div class="alert alert-dismissible alert-warning">User is free to alter default values of global settings if they don't match his routine.
-</div>
-<h2 id="nexus-application">Nexus application</h2>
-<p>From the ressource/pipeline panel of Vicon Nexus, you can import ready-to-use pipeline file (see <a href="http://www.youtube.com/embed/yAM131XPIYU">video</a>).</p>
-<p>In the above figure the <em>Calibration pipeline</em> of the CGM1 was imported/ Vicon Nexus displays the serie of operations, including pyCGM2 operations and native Nexus operations.</p>
-<p>By selecting a python operation, the panel <em>properties</em>  displays</p>
-<ul>
-<li>the location  the  python script file</li>
-<li>script arguments. Role of these arguments is to overload global settings and provide options.
- <p class="text-danger">User must refer to each CGM section or the API Documentation to know possible script arguments of pyCGM2 operations.</p></li>
-<li>a check box <em>Use nexus python</em>.  <p class="text-danger">Must be unchecked.</p></li>
-</ul>
-<!----
-Don t work !!
-<iframe src="http://www.youtube.com/embed/yAM131XPIYU"
-   width="560" height="315" frameborder="0" allowfullscreen></iframe>
---->
         </div>
     </section>
     </div>
