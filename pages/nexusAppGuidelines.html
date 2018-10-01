@@ -2,7 +2,7 @@
 <html lang="english"
 >
 <head>
-    <title>Nexus Applications - CGM2.i</title>
+    <title>Nexus Application Guidelines - CGM2.i</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -10,16 +10,16 @@
 
 
 
-<link rel="canonical" href="/pages/nexusCGMApps.html">
+<link rel="canonical" href="/pages/nexusAppGuidelines.html">
 
         <meta name="author" content="Fabien Leboeuf" />
-        <meta name="description" content="List of available CGM applications CGM1.0 A plugin Gait Clone CGM1.1 The Plugin Gait as it should work CGM2.1 Hip Joint Centre Modification CGM2.2 Inverse Kinenatic as Tracing default method CGM2.3 Skin clusters CGM2.4 Foot model extended Other applications Gait event detector Kalman Low …" />
+        <meta name="description" content="Functionality pyCGM2 operations were designed on the basis of the C3d format file. Operations read the c3d and store data into it with the same nomenclature of the Vicon Pig ( ie LHipAngles, LFootProgressAngles...). Model processing with pyCGM2 doesn&#39;t differ from the use of Vicon PiG in Nexus. The model need …" />
 
     <meta property="og:site_name" content="CGM2.i" />
     <meta property="og:type" content="article"/>
-    <meta property="og:title" content="Nexus Applications"/>
-    <meta property="og:url" content="/pages/nexusCGMApps.html"/>
-    <meta property="og:description" content="List of available CGM applications CGM1.0 A plugin Gait Clone CGM1.1 The Plugin Gait as it should work CGM2.1 Hip Joint Centre Modification CGM2.2 Inverse Kinenatic as Tracing default method CGM2.3 Skin clusters CGM2.4 Foot model extended Other applications Gait event detector Kalman Low …" />
+    <meta property="og:title" content="Nexus Application Guidelines"/>
+    <meta property="og:url" content="/pages/nexusAppGuidelines.html"/>
+    <meta property="og:description" content="Functionality pyCGM2 operations were designed on the basis of the C3d format file. Operations read the c3d and store data into it with the same nomenclature of the Vicon Pig ( ie LHipAngles, LFootProgressAngles...). Model processing with pyCGM2 doesn&#39;t differ from the use of Vicon PiG in Nexus. The model need …" />
 
 
     <!-- Bootstrap -->
@@ -143,57 +143,40 @@ CGM2.i            </a>
 <section class="well well-sm">
     <aside>
             <nav class="toc">
-            <div id="toc"><ul><li><a class="toc-href" href="#" title="Nexus Applications">Nexus Applications</a><ul><li><a class="toc-href" href="#list-of-available-cgm-applications" title="List of available CGM applications">List of available CGM applications</a><ul><li><a class="toc-href" href="#cgm10" title="CGM1.0">CGM1.0</a></li><li><a class="toc-href" href="#cgm11" title="CGM1.1">CGM1.1</a></li><li><a class="toc-href" href="#cgm21" title="CGM2.1">CGM2.1</a></li><li><a class="toc-href" href="#cgm22" title="CGM2.2">CGM2.2</a></li><li><a class="toc-href" href="#cgm23" title="CGM2.3">CGM2.3</a></li><li><a class="toc-href" href="#cgm24" title="CGM2.4">CGM2.4</a></li></ul></li><li><a class="toc-href" href="#other-applications_1" title="Other applications">Other applications</a></li></ul></li></ul></div>
+            <div id="toc"><ul><li><a class="toc-href" href="#" title="Nexus Application Guidelines">Nexus Application Guidelines</a><ul><li><a class="toc-href" href="#functionality" title="Functionality">Functionality</a></li><li><a class="toc-href" href="#recommandations" title="Recommandations">Recommandations</a></li></ul></li></ul></div>
             </nav>
     </aside>
 </section>      </div>
     <div class="col-sm-8 text-left">
     <section id="content" class="body">
 
-        <h1 class="entry-title">Nexus Applications</h1>
+        <h1 class="entry-title">Nexus Application Guidelines</h1>
         
         <div class="entry-content">
-            <h2 id="list-of-available-cgm-applications">List of available CGM applications</h2>
-<div class="">
-<div class="container">
-<div class="row">
-<div class="col-md-3 align-self-center text-center p-4"> <i class="d-block fa fa-5x fa-font-awesome"></i>
-<h3 id="cgm10">CGM1.0</h3>
-<a class="btn btn-info" href="/pages/CGM10_NexusAppDetails.html" role="button">A plugin Gait Clone</a>
+            <h2 id="functionality">Functionality</h2>
+<p>pyCGM2 operations were designed on <strong>the basis of the C3d format file</strong>. Operations read the c3d and store data into it with the same nomenclature of the Vicon Pig ( ie LHipAngles, LFootProgressAngles...).</p>
+<p>Model processing with pyCGM2 doesn't differ from the use of Vicon PiG in Nexus. The model need to be first calibrate though the pipeline:
+<strong>Calibration</strong> (ie PiG Static) after static reconstruction. Then, kinematics and kinetics of motion trials are worked out through the pipeline: <strong>fitting</strong> (ie PiG Dynamic)</p>
+<div class="alert alert-dismissible alert-warning">
+<p class="mb-0">All nexus Apps developped with PyCGM2 come along with ready-to-use pipelines located in the
+  folder (C:/Users/Public/Documents/Vicon/Nexus2.x/Configurations/Pipelines). You can conveniently imported them from Nexus </p>
 </div>
-<div class="col-md-3 align-self-center text-center p-4"> <i class="d-block fa fa-5x fa-font-awesome"></i>
-<h3 id="cgm11">CGM1.1</h3>
-<a class="btn btn-info" href="/pages/CGM11_NexusAppDetails.html" role="button">The Plugin Gait as it should work</a>
+<p>Each pyCGM2 operations rely on pre-definied <strong>Global settings</strong>, located at c:/programData/pyCGM2. If your acquisition doesn t match these global settings, you need altering them from  <strong>script arguments</strong></p>
+<p><img alt="pipeline" src="/images/nexusApps/nexusAppsPipelineDetails.png" width="100%"/></p>
+<p>As an example, Check out our <a href="/pages/CGM10_NexusAppDetails.html">CGM1.0 Nexus App</a>, you will see that <a href="/pages/CGM10_NexusAppDetails.html#global-settings">global settings</a> enable the flat foot option and set marker diameter to 14 mm by default.
+You can alter these pre-defined specifications through <a href="/pages/CGM10_NexusAppDetails.html#script-arguments">script arguments</a></p>
+<div class="alert alert-dismissible alert-info">
+  Obviously, if our global settings doesn't match your routine at all. You can permanantly modify our global settings, by editing setting files located in the folder c:/programData/pyCGM2.
 </div>
+<h2 id="recommandations">Recommandations</h2>
+<div class="alert alert-dismissible alert-danger">
+<p class="mb-0">Check your travelling axis. It must  be either X or Y, not Z !! </p>
 </div>
-</div>
-</div>
-<p><div class="">
-<div class="container">
-<div class="row">
-<div class="col-md-3 align-self-center text-center p-4"> <i class="d-block fa fa-5x fa-font-awesome"></i>
-<h3 id="cgm21">CGM2.1</h3>
-<a class="btn btn-info" href="/pages/CGM21_NexusAppDetails.html" role="button">Hip Joint Centre Modification</a>
-</div>
-<div class="col-md-3 align-self-center text-center p-4"> <i class="d-block fa fa-5x fa-font-awesome"></i>
-<h3 id="cgm22">CGM2.2</h3>
-<a class="btn btn-info" href="/pages/CGM22_NexusAppDetails.html" role="button" style="width:100%">Inverse Kinenatic as Tracing default method</a>
-</div>
-<div class="col-md-3 align-self-center text-center p-4"> <i class="d-block fa fa-5x fa-font-awesome"></i>
-<h3 id="cgm23">CGM2.3</h3>
-<a class="btn btn-info" href="/pages/CGM23_NexusAppDetails.html" role="button">Skin clusters</a>
-</div>
-<div class="col-md-3 align-self-center text-center p-4"> <i class="d-block fa fa-5x fa-font-awesome"></i>
-<h3 id="cgm24">CGM2.4</h3>
-<a class="btn btn-info" href="/pages/CGM24_NexusAppDetails.html" role="button">Foot model extended</a>
-</div>
-</div>
-</div>
-</div></p>
-<h2 id="other-applications_1">Other applications</h2>
+<p>As far as it goes, we recommand this pratice for performing any pyCGM2 applicatons :</p>
 <ul>
-<li><a href="/pages/GaitEventDetector.html">Gait event detector</a></li>
-<li><a href="/pages/MoGapFill.html">Kalman Low dimension Gap Filling</a></li>
+<li>work with <strong>gap-free trial</strong>. Zero-values might corrupt the Inverse kinematics processing especially</li>
+<li><strong>crop your trial</strong> to a zone of interest.  Do not work with an entire c3d.</li>
+<li>if you manually edit gait events, <strong>start with a Foot strike</strong></li>
 </ul>
         </div>
     </section>

@@ -2,7 +2,7 @@
 <html lang="english"
 >
 <head>
-    <title>Known Installation issues - CGM2.i</title>
+    <title>NexusAPI - CGM2.i</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -10,16 +10,16 @@
 
 
 
-<link rel="canonical" href="/pages/installationKnownIssues.html">
 
-        <meta name="author" content="Fabien Leboeuf" />
-        <meta name="description" content="This page presents common issues might arise from pyCGM2 installation. For any techical questions, post it through the pyCGM2 google group Calling an pyCGM2 operation from nexus do nothing solution : check *.py file is associated with proper program (i.e. python.exe) right click on a py file select open …" />
+    <meta name="author" content="Fabien Leboeuf" />
+    <meta name="keywords" content="NexusAPI" />
 
-    <meta property="og:site_name" content="CGM2.i" />
-    <meta property="og:type" content="article"/>
-    <meta property="og:title" content="Known Installation issues"/>
-    <meta property="og:url" content="/pages/installationKnownIssues.html"/>
-    <meta property="og:description" content="This page presents common issues might arise from pyCGM2 installation. For any techical questions, post it through the pyCGM2 google group Calling an pyCGM2 operation from nexus do nothing solution : check *.py file is associated with proper program (i.e. python.exe) right click on a py file select open …" />
+    <!-- Open Graph tags -->
+        <meta property="og:site_name" content="CGM2.i" />
+        <meta property="og:type" content="website"/>
+        <meta property="og:title" content="CGM2.i"/>
+        <meta property="og:url" content=""/>
+        <meta property="og:description" content="CGM2.i"/>
 
 
     <!-- Bootstrap -->
@@ -57,7 +57,6 @@ CGM2.i            </a>
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="/pages/pythonInstallation.html">Set-up your python system</a></li>
                             <li><a href="/pages/pyCGM2Installation.html">Install pyCGM2</a></li>
-                            <li><a href="/pages/installationKnownIssues.html">Known installation issues</a></li>
                         </ul>
                         </li>
                         <li class="dropdown">
@@ -87,22 +86,31 @@ CGM2.i            </a>
                         </ul>
                         </li>
                         <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Apps <span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Nexus Apps <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="/pages/bestPractice.html">Best Practice</a></li>
-                            <li><a href="/pages/nexusCGMApps.html">Nexus</a></li>
+                            <li><a href="/pages/nexusAppGuidelines.html">Guidelines</a></li>
+                            <li><a href="/pages/nexusCGMApps.html">Available Apps </a></li>
+                            <li><a href="/pages/nexustips.html">Nexus tips</a></li>
                         </ul>
                         </li>
                         <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Resources <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
+                            <li><a href="/pages/NexusRessources.html">Vicon Nexus Ressources</a></li>
                             <li><a href="/pages/Palpation.html">Palpation</a></li>
                             <li><a href="/pages/CGM-References.html">CGM References</a></li>
                             <li><a href="/pages/Open-access-Gait-Data.html">OpenAccess data</a></li>
                         </ul>
                         </li>
+                        <li><a href="/pages/support.html">Support</a></li>
+                        <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Join us <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="/pages/contribute.html">Contribute</a></li>
+                            <li><a href="/pages/contactus.html">Contact</a></li>
+                        </ul>
+                        </li>
                         <li><a href="/pages/team.html">Team</a></li>
-                        <li><a href="/pages/JoinUs.html">Join us</a></li>
                         <li><a href="/pages/articleRecentList.html">Blog</a></li>
 
             </ul>
@@ -132,52 +140,16 @@ CGM2.i            </a>
 <div class="container-fluid text-center">
   <div class="row content">
       <div class="col-sm-2" id="sidebar">
-<section class="well well-sm">
-    <aside>
-            <nav class="toc">
-            <div id="toc"><ul><li><a class="toc-href" href="#" title="Known Installation issues">Known Installation issues</a><ul><li><a class="toc-href" href="#calling-an-pycgm2-operation-from-nexus-do-nothing" title="Calling an pyCGM2 operation from nexus do nothing">Calling an pyCGM2 operation from nexus do nothing</a></li><li><a class="toc-href" href="#my-installation-with-anaconda2-ends-with-a-registry-key-error" title="my Installation with Anaconda2 ends with a registry key Error">my Installation with Anaconda2 ends with a registry key Error</a></li><li><a class="toc-href" href="#i-have-already-installed-nexus-and-import-viconnexus-fails" title="I have already installed nexus and  import ViconNexus fails">I have already installed nexus and  import ViconNexus fails</a></li></ul></li></ul></div>
-            </nav>
-    </aside>
-</section>      </div>
+      </div>
     <div class="col-sm-8 text-left">
-    <section id="content" class="body">
+            <article>
+                <h2><a href="/articles/kalmanGapFilling.html">Estimating missing marker positions using low dimensional Kalman smoothing</a></h2>
+                <div class="summary"><p>Gap filling method based on Kalman filter</p>
+                    <a class="btn btn-default btn-xs" href="/articles/kalmanGapFilling.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
 
-        <h1 class="entry-title">Known Installation issues</h1>
-        
-        <div class="entry-content">
-            <p>This page presents common issues might arise from pyCGM2 installation.</p>
-<p>For any techical questions, post it through the <a href="https://groups.google.com/forum/#!forum/pycgm2">pyCGM2 google group</a></p>
-<h2 id="calling-an-pycgm2-operation-from-nexus-do-nothing">Calling an pyCGM2 operation from nexus do nothing</h2>
-<p><strong>solution</strong> : check *.py file is associated with proper program (i.e. python.exe)</p>
-<ul>
-<li>right click on a py file</li>
-<li>select <em>open with</em></li>
-<li>select <em>choose default program</em></li>
-<li>select <em>python.exe</em>. If this command doesn t appear :<ul>
-<li>select <em>browse</em></li>
-<li>go to your python environment folder ( example C:/Anaconda2) and select <em>python.exe</em></li>
-</ul>
-</li>
-</ul>
-<h2 id="my-installation-with-anaconda2-ends-with-a-registry-key-error">my Installation with Anaconda2 ends with a registry key Error</h2>
-<p><strong>This is attributed to Anaconda installation, not pyCGM2 !</strong></p>
-<p>Therefore, contact anaconda support to mention this issue.</p>
-<blockquote>
-<p>Nevertheless, With no certitude, this error might be due to a previous anaconda installation in 64 bits version. Forums report the following process might fix this issue</p>
-</blockquote>
-<ul>
-<li>if you had installed Anaconda 2 (32 bits)</li>
-<li>uninstall  Anaconda 2 (32 bits)</li>
-<li>install then uninstall Anaconda 2 (64 bits !!!)</li>
-<li>re-install  Anaconda 2 (32 bits)</li>
-<li>reboot your PC</li>
-</ul>
-<p>Eventually, the registry key of python should be updated</p>
-<h2 id="i-have-already-installed-nexus-and-import-viconnexus-fails">I have already installed nexus and  import ViconNexus fails</h2>
-<p><strong>solution</strong> : check the file <em>nexusPaths</em> in the folder <em>programData/pyCGM2</em>. Edit path to your Vicon Nexus version.</p>
-<p>By default, pyCGM2 was configured with <strong>Vicon Nexus 2.6</strong> located in <em>C:/Program Files (x86)/Vicon/Nexus2.6</em></p>
-        </div>
-    </section>
     </div>
     <div class="col-sm-2 sidenav">
         <aside>
@@ -195,13 +167,8 @@ CGM2.i            </a>
             <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Recent Posts</span></h4>
                 <ul class="list-group" id="recentposts">
                     <li class="list-group-item">
-                        <a href="/articles/btk.html">
-                            Btk
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="/articles/matlab.html">
-                            Matlab Users
+                        <a href="/articles/kalmanGapFilling.html">
+                            Estimating missing marker positions using low dimensional Kalman smoothing
                         </a>
                     </li>
                 </ul>

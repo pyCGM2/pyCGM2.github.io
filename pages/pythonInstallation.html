@@ -13,13 +13,13 @@
 <link rel="canonical" href="/pages/pythonInstallation.html">
 
         <meta name="author" content="Fabien Leboeuf" />
-        <meta name="description" content="pyCGM2 was developed on windows OS. No other OS were tested. Implementation was done with *the Anaconda python environmnent. Thus we invite users to copy our environment. Download and install Anaconda 32 bits - python 2.7 Mind you have to install a 32 bits version of anaconda, select the correct …" />
+        <meta name="description" content="pyCGM2 was developed on windows OS. No other OS were tested. You can install your preferred python suite. Nevertheless, Be sure you install Python 2.7 in a 32 bits version For novices If you have no experience with Python, we invite you to install the Anaconda python suite. Download …" />
 
     <meta property="og:site_name" content="CGM2.i" />
     <meta property="og:type" content="article"/>
     <meta property="og:title" content="Python Installation"/>
     <meta property="og:url" content="/pages/pythonInstallation.html"/>
-    <meta property="og:description" content="pyCGM2 was developed on windows OS. No other OS were tested. Implementation was done with *the Anaconda python environmnent. Thus we invite users to copy our environment. Download and install Anaconda 32 bits - python 2.7 Mind you have to install a 32 bits version of anaconda, select the correct …" />
+    <meta property="og:description" content="pyCGM2 was developed on windows OS. No other OS were tested. You can install your preferred python suite. Nevertheless, Be sure you install Python 2.7 in a 32 bits version For novices If you have no experience with Python, we invite you to install the Anaconda python suite. Download …" />
 
 
     <!-- Bootstrap -->
@@ -57,7 +57,6 @@ CGM2.i            </a>
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="/pages/pythonInstallation.html">Set-up your python system</a></li>
                             <li><a href="/pages/pyCGM2Installation.html">Install pyCGM2</a></li>
-                            <li><a href="/pages/installationKnownIssues.html">Known installation issues</a></li>
                         </ul>
                         </li>
                         <li class="dropdown">
@@ -87,22 +86,31 @@ CGM2.i            </a>
                         </ul>
                         </li>
                         <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Apps <span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Nexus Apps <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="/pages/bestPractice.html">Best Practice</a></li>
-                            <li><a href="/pages/nexusCGMApps.html">Nexus</a></li>
+                            <li><a href="/pages/nexusAppGuidelines.html">Guidelines</a></li>
+                            <li><a href="/pages/nexusCGMApps.html">Available Apps </a></li>
+                            <li><a href="/pages/nexustips.html">Nexus tips</a></li>
                         </ul>
                         </li>
                         <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Resources <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
+                            <li><a href="/pages/NexusRessources.html">Vicon Nexus Ressources</a></li>
                             <li><a href="/pages/Palpation.html">Palpation</a></li>
                             <li><a href="/pages/CGM-References.html">CGM References</a></li>
                             <li><a href="/pages/Open-access-Gait-Data.html">OpenAccess data</a></li>
                         </ul>
                         </li>
+                        <li><a href="/pages/support.html">Support</a></li>
+                        <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Join us <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="/pages/contribute.html">Contribute</a></li>
+                            <li><a href="/pages/contactus.html">Contact</a></li>
+                        </ul>
+                        </li>
                         <li><a href="/pages/team.html">Team</a></li>
-                        <li><a href="/pages/JoinUs.html">Join us</a></li>
                         <li><a href="/pages/articleRecentList.html">Blog</a></li>
 
             </ul>
@@ -134,6 +142,9 @@ CGM2.i            </a>
       <div class="col-sm-2" id="sidebar">
 <section class="well well-sm">
     <aside>
+            <nav class="toc">
+            <div id="toc"><ul><li><a class="toc-href" href="#" title="Python Installation">Python Installation</a><ul><li><a class="toc-href" href="#for-novices" title="For novices">For novices</a></li></ul></li></ul></div>
+            </nav>
     </aside>
 </section>      </div>
     <div class="col-sm-8 text-left">
@@ -146,13 +157,17 @@ CGM2.i            </a>
 <span aria-hidden="true" class="glyphicon glyphicon-exclamation-sign"></span>
 <strong>pyCGM2 was developed on windows OS. No other OS were tested.</strong>
 </div>
-<p>Implementation was done with *<em>the Anaconda python environmnent</em>.
-Thus we invite users to copy our environment.</p>
-<p>Download and install <a href="https://www.anaconda.com/download/">Anaconda 32 bits - python 2.7</a></p>
+<p>You can install your preferred python suite.
+<p class="text-warning">Nevertheless, Be sure you install <b>Python 2.7 in a 32 bits version</b></p></p>
+<h2 id="for-novices">For novices</h2>
+<p><strong>If you have no experience with Python</strong>, we invite you to install the <a href="https://www.anaconda.com/download/">Anaconda</a> python suite.</p>
+<ul>
+<li>Download and install <a href="https://www.anaconda.com/download/">Anaconda 32 bits - python 2.7</a></li>
+</ul>
 <p class="text-warning">Mind you have to install a 32 bits version of anaconda, select the correct donwnload link as flag up in the following picture  </p>
 <p><img alt="anacondaSnap" src="\images\installation\anacondaDownloadSnapShot.png"/></p>
 <p>During anaconda installation, the window ( see picture below) will come up.
-<p class="text-warning"> User must enable both advanced options </p></p>
+<p class="text-warning"> we recommand to enable both advanced options </p></p>
 <p><img alt="anacondaSetup" src="\images\installation\anacondaSetup.png"/></p>
         </div>
     </section>
@@ -172,6 +187,11 @@ Thus we invite users to copy our environment.</p>
 
             <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Recent Posts</span></h4>
                 <ul class="list-group" id="recentposts">
+                    <li class="list-group-item">
+                        <a href="/articles/kalmanGapFilling.html">
+                            Estimating missing marker positions using low dimensional Kalman smoothing
+                        </a>
+                    </li>
                     <li class="list-group-item">
                         <a href="/articles/btk.html">
                             Btk

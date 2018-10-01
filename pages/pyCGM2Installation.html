@@ -13,13 +13,13 @@
 <link rel="canonical" href="/pages/pyCGM2Installation.html">
 
         <meta name="author" content="Fabien Leboeuf" />
-        <meta name="description" content="Once your python environment set up, you can proceed with installation of the pyCGM2 package. Last release pyCGM2- version 2.2.0 Installation pyCGM2 propose a convenient batch installation. go to your unzipped pyCGM2 folder double click on installer.bat This command will successively : uninstall previous installation set-up pyCGM2 initialize …" />
+        <meta name="description" content="Once your python environment set up, you can proceed with installation of the pyCGM2 package. Follow these steps to proceed with the installation of pyCGM2 Step 1 : Install Vicon Nexus Go to Vicon website and install the last version of Nexus. Notice pyCGM2 is compatible with Nexus 2.7 and …" />
 
     <meta property="og:site_name" content="CGM2.i" />
     <meta property="og:type" content="article"/>
     <meta property="og:title" content="PyCGM2 Installation"/>
     <meta property="og:url" content="/pages/pyCGM2Installation.html"/>
-    <meta property="og:description" content="Once your python environment set up, you can proceed with installation of the pyCGM2 package. Last release pyCGM2- version 2.2.0 Installation pyCGM2 propose a convenient batch installation. go to your unzipped pyCGM2 folder double click on installer.bat This command will successively : uninstall previous installation set-up pyCGM2 initialize …" />
+    <meta property="og:description" content="Once your python environment set up, you can proceed with installation of the pyCGM2 package. Follow these steps to proceed with the installation of pyCGM2 Step 1 : Install Vicon Nexus Go to Vicon website and install the last version of Nexus. Notice pyCGM2 is compatible with Nexus 2.7 and …" />
 
 
     <!-- Bootstrap -->
@@ -57,7 +57,6 @@ CGM2.i            </a>
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="/pages/pythonInstallation.html">Set-up your python system</a></li>
                             <li><a href="/pages/pyCGM2Installation.html">Install pyCGM2</a></li>
-                            <li><a href="/pages/installationKnownIssues.html">Known installation issues</a></li>
                         </ul>
                         </li>
                         <li class="dropdown">
@@ -87,22 +86,31 @@ CGM2.i            </a>
                         </ul>
                         </li>
                         <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Apps <span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Nexus Apps <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="/pages/bestPractice.html">Best Practice</a></li>
-                            <li><a href="/pages/nexusCGMApps.html">Nexus</a></li>
+                            <li><a href="/pages/nexusAppGuidelines.html">Guidelines</a></li>
+                            <li><a href="/pages/nexusCGMApps.html">Available Apps </a></li>
+                            <li><a href="/pages/nexustips.html">Nexus tips</a></li>
                         </ul>
                         </li>
                         <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Resources <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
+                            <li><a href="/pages/NexusRessources.html">Vicon Nexus Ressources</a></li>
                             <li><a href="/pages/Palpation.html">Palpation</a></li>
                             <li><a href="/pages/CGM-References.html">CGM References</a></li>
                             <li><a href="/pages/Open-access-Gait-Data.html">OpenAccess data</a></li>
                         </ul>
                         </li>
+                        <li><a href="/pages/support.html">Support</a></li>
+                        <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Join us <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="/pages/contribute.html">Contribute</a></li>
+                            <li><a href="/pages/contactus.html">Contact</a></li>
+                        </ul>
+                        </li>
                         <li><a href="/pages/team.html">Team</a></li>
-                        <li><a href="/pages/JoinUs.html">Join us</a></li>
                         <li><a href="/pages/articleRecentList.html">Blog</a></li>
 
             </ul>
@@ -135,7 +143,7 @@ CGM2.i            </a>
 <section class="well well-sm">
     <aside>
             <nav class="toc">
-            <div id="toc"><ul><li><a class="toc-href" href="#" title="PyCGM2 Installation">PyCGM2 Installation</a><ul><li><a class="toc-href" href="#last-release" title="Last release">Last release</a></li><li><a class="toc-href" href="#installation" title="Installation">Installation</a></li><li><a class="toc-href" href="#third-party-libraries" title="Third-party libraries">Third-party libraries</a></li><li><a class="toc-href" href="#programdata-content" title="ProgramData content">ProgramData content</a></li></ul></li></ul></div>
+            <div id="toc"><ul><li><a class="toc-href" href="#" title="PyCGM2 Installation">PyCGM2 Installation</a><ul><li><a class="toc-href" href="#step-1-install-vicon-nexus" title="Step 1 : Install Vicon Nexus">Step 1 : Install Vicon Nexus</a></li><li><a class="toc-href" href="#step-2-install-pycgm2" title="Step 2 : Install pyCGM2">Step 2 : Install pyCGM2</a></li><li><a class="toc-href" href="#step-3-there-is-no-reason-to-carry-out-this-step" title="Step 3 : There is no reason to carry out this step !!">Step 3 : There is no reason to carry out this step !!</a></li></ul></li></ul></div>
             </nav>
     </aside>
 </section>      </div>
@@ -146,53 +154,33 @@ CGM2.i            </a>
         
         <div class="entry-content">
             <p>Once your python environment set up, you can proceed with installation of the pyCGM2 package.</p>
-<h2 id="last-release">Last release</h2>
-<div class="jumbotron">
-<p><a class="btn btn-primary btn-lg" href="https://github.com/pyCGM2/pyCGM2/releases/tag/pyCGM2.2.0">pyCGM2- version 2.2.0</a></p>
-<p></p>
+<p>Follow these steps to proceed with the installation of pyCGM2</p>
+<h2 id="step-1-install-vicon-nexus">Step 1 : Install Vicon Nexus</h2>
+<ul>
+<li>Go to Vicon website and install the last <a href="https://www.vicon.com/downloads/software/nexus">version of Nexus</a>.</li>
+</ul>
+<div class="alert alert-dismissible alert-danger">
+    Notice pyCGM2 is compatible with <b>Nexus 2.7 and later only</b>.
 </div>
-<h2 id="installation">Installation</h2>
-<p>pyCGM2 propose a convenient batch installation.</p>
 <ul>
-<li>go to  your unzipped pyCGM2 folder</li>
-<li>double click on <strong>installer.bat</strong></li>
+<li>run Nexus.</li>
 </ul>
-<p>This command will successively :</p>
+<h2 id="step-2-install-pycgm2">Step 2 : Install pyCGM2</h2>
 <ul>
-<li>uninstall previous installation</li>
-<li>set-up pyCGM2</li>
-<li>initialize the pyCGM2 setting folder (C:\ProgramData\pyCGM2))</li>
-<li>check your installation</li>
+<li>
+<p>Download the last release of pyCGM2
+   <p><a class="btn btn-primary btn-lg" href="https://github.com/pyCGM2/pyCGM2/releases/tag/pyCGM3.0.0">pyCGM2- version 3.0.0</a></p></p>
+</li>
+<li>
+<p>With the Window file explorer, go to your downloaded file and unzip it</p>
+</li>
+<li>Double click on <strong>installer.bat</strong></li>
 </ul>
-<p>Eventually, the pyCGM2 package would be placed into the dedicated folder of any python library (<em>...\Lib\site-packages</em>)</p>
-<p>During set-up, three questions relative to thirdParty package will be asked you :</p>
-<ul>
-<li><code> Do you want to use your own opensim package (y/N) </code></li>
-<li><code> Do you want to use your own openma package (y/N) </code></li>
-<li><code> Do you want to use your own btk package (y/N)  </code></li>
-</ul>
-<p>pyCGM2 proposes version-embbeded of these packages. Write "Y" if you want to use package you already installed</p>
-<p>Installation should end up with this window:</p>
-<p><img alt="installSucceed" src="\images\installation\installationSuccess.png"/></p>
-<p>Your environment is set-up and you can now use <a href="/pages/nexusCGMApps.html">pyCGM2 Nexus Applications</a></p>
-<p>If you face with any issue, check out the page  <a href="/pages/installationKnownIssues.html">known issues</a></p>
-<h2 id="third-party-libraries">Third-party libraries</h2>
-<p>In addition to anaconda package, pyCGM2 calls motion capture dedicated packages. The first three following are embbeded in pyCGM2. The last package is provided by Vicon when you installed Vicon Nexus.</p>
-<ul>
-<li><a href="http://biomechanical-toolkit.github.io/">Btk</a> - the biomechanical ToolKit Library - convenient library for dealing with common motion capture file format</li>
-<li><a href="http://openma.github.io/">openma</a> - Open Motion Analysis - Evolution of Btk</li>
-<li><a href="http://opensim.stanford.edu/">opensim</a> - A open source Musculoskeletal software.</li>
-<li><a href="https://docs.vicon.com/display/Nexus26/Modeling+with+Python">Vicon Nexus SDK</a> - python SDK of Vicon Nexus. By default, Vicon Nexus 2.6 is configured</li>
-</ul>
-<h2 id="programdata-content">ProgramData content</h2>
-<p>This folder is installed after first importation of pyCGM2. It collects :</p>
-<ul>
-<li>global settings (file <em>.settings</em>). This setting file initiates pyCGM2 Applications</li>
-<li>ready-to-import Nexus pipeline (file <em>.pipeline</em> in the folder viconPipelines )</li>
-<li><em>nexusPaths</em> indicates different paths for enabling the Vicon nexus python API</li>
-<li><em>thirdPartyLibraries</em> indicates which embebbed third party package you enablesd during installation</li>
-<li>Folders <em>tranlators</em> and <em>ikWeightSets</em> gather files you can put into your data session folder so to make compatible your marker label and altered inverse kinematics weight set respectively.</li>
-</ul>
+<p>Eventually, the pyCGM2 package will be placed into the dedicated folder of any python library (<em>...\Lib\site-packages</em>).
+The installer will also create a new pyCGM2 folder in <strong>c:/programData</strong> and will copy convenient nexus files (i.e. vst or pipeline) into the folder
+<strong>C:/Users/Public/Documents/Vicon/Nexus2.x</strong></p>
+<h2 id="step-3-there-is-no-reason-to-carry-out-this-step">Step 3 : There is no reason to carry out this step !!</h2>
+<p>In case you face with any issues during installation, we invite you to post details of your issues throught the <a href="">Github</a></p>
         </div>
     </section>
     </div>
@@ -211,6 +199,11 @@ CGM2.i            </a>
 
             <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Recent Posts</span></h4>
                 <ul class="list-group" id="recentposts">
+                    <li class="list-group-item">
+                        <a href="/articles/kalmanGapFilling.html">
+                            Estimating missing marker positions using low dimensional Kalman smoothing
+                        </a>
+                    </li>
                     <li class="list-group-item">
                         <a href="/articles/btk.html">
                             Btk

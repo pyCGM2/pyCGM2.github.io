@@ -13,13 +13,13 @@
 <link rel="canonical" href="/pages/CGM11_NexusAppDetails.html">
 
         <meta name="author" content="Fabien Leboeuf" />
-        <meta name="description" content="Return to all available Nexus apps This CGM version is a Vicon PiG as it should work today Find out more Nexus Pipelines Located in programData/pyCGM2/ViconPipelines, you can import ready-to-use pipelines into Nexus : pyCGM2-CGM1_1-Calibration.Pipeline pyCGM2-CGM1_1-Fitting.Pipeline Operation details Calibration Fitting 2 The last operation, unticked in the …" />
+        <meta name="description" content="Return to all available Nexus apps This CGM version is a Vicon PiG as it should work today Vicon skeleton template since this CGM allow to calibrate with medial markers on both knee and ankle, you can the vst : pyCGM2-LowerLimb_CGM1_medial.vst Nexus Pipelines Located in C:/Users/Public/Documents/Vicon …" />
 
     <meta property="og:site_name" content="CGM2.i" />
     <meta property="og:type" content="article"/>
     <meta property="og:title" content="CGM 1.1 - Nexus App Details"/>
     <meta property="og:url" content="/pages/CGM11_NexusAppDetails.html"/>
-    <meta property="og:description" content="Return to all available Nexus apps This CGM version is a Vicon PiG as it should work today Find out more Nexus Pipelines Located in programData/pyCGM2/ViconPipelines, you can import ready-to-use pipelines into Nexus : pyCGM2-CGM1_1-Calibration.Pipeline pyCGM2-CGM1_1-Fitting.Pipeline Operation details Calibration Fitting 2 The last operation, unticked in the …" />
+    <meta property="og:description" content="Return to all available Nexus apps This CGM version is a Vicon PiG as it should work today Vicon skeleton template since this CGM allow to calibrate with medial markers on both knee and ankle, you can the vst : pyCGM2-LowerLimb_CGM1_medial.vst Nexus Pipelines Located in C:/Users/Public/Documents/Vicon …" />
 
 
     <!-- Bootstrap -->
@@ -57,7 +57,6 @@ CGM2.i            </a>
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="/pages/pythonInstallation.html">Set-up your python system</a></li>
                             <li><a href="/pages/pyCGM2Installation.html">Install pyCGM2</a></li>
-                            <li><a href="/pages/installationKnownIssues.html">Known installation issues</a></li>
                         </ul>
                         </li>
                         <li class="dropdown">
@@ -87,22 +86,31 @@ CGM2.i            </a>
                         </ul>
                         </li>
                         <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Apps <span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Nexus Apps <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="/pages/bestPractice.html">Best Practice</a></li>
-                            <li><a href="/pages/nexusCGMApps.html">Nexus</a></li>
+                            <li><a href="/pages/nexusAppGuidelines.html">Guidelines</a></li>
+                            <li><a href="/pages/nexusCGMApps.html">Available Apps </a></li>
+                            <li><a href="/pages/nexustips.html">Nexus tips</a></li>
                         </ul>
                         </li>
                         <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Resources <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
+                            <li><a href="/pages/NexusRessources.html">Vicon Nexus Ressources</a></li>
                             <li><a href="/pages/Palpation.html">Palpation</a></li>
                             <li><a href="/pages/CGM-References.html">CGM References</a></li>
                             <li><a href="/pages/Open-access-Gait-Data.html">OpenAccess data</a></li>
                         </ul>
                         </li>
+                        <li><a href="/pages/support.html">Support</a></li>
+                        <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Join us <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="/pages/contribute.html">Contribute</a></li>
+                            <li><a href="/pages/contactus.html">Contact</a></li>
+                        </ul>
+                        </li>
                         <li><a href="/pages/team.html">Team</a></li>
-                        <li><a href="/pages/JoinUs.html">Join us</a></li>
                         <li><a href="/pages/articleRecentList.html">Blog</a></li>
 
             </ul>
@@ -135,7 +143,7 @@ CGM2.i            </a>
 <section class="well well-sm">
     <aside>
             <nav class="toc">
-            <div id="toc"><ul><li><a class="toc-href" href="#" title="CGM 1.1 - Nexus App Details">CGM 1.1 - Nexus App Details</a><ul><li><a class="toc-href" href="#nexus-pipelines" title="Nexus Pipelines">Nexus Pipelines</a></li><li><a class="toc-href" href="#operation-details" title="Operation details">Operation details</a></li><li><a class="toc-href" href="#global-settings" title="Global Settings">Global Settings</a></li><li><a class="toc-href" href="#script-arguments" title="Script Arguments">Script Arguments</a><ul><li><a class="toc-href" href="#calibration" title="Calibration">Calibration</a></li><li><a class="toc-href" href="#fitting" title="Fitting">Fitting</a></li></ul></li></ul></li></ul></div>
+            <div id="toc"><ul><li><a class="toc-href" href="#" title="CGM 1.1 - Nexus App Details">CGM 1.1 - Nexus App Details</a><ul><li><a class="toc-href" href="#vicon-skeleton-template" title="Vicon skeleton template">Vicon skeleton template</a></li><li><a class="toc-href" href="#nexus-pipelines" title="Nexus Pipelines">Nexus Pipelines</a></li><li><a class="toc-href" href="#operation-details" title="Operation details">Operation details</a></li><li><a class="toc-href" href="#global-settings" title="Global Settings">Global Settings</a></li><li><a class="toc-href" href="#script-arguments" title="Script Arguments">Script Arguments</a><ul><li><a class="toc-href" href="#calibration" title="Calibration">Calibration</a></li><li><a class="toc-href" href="#fitting" title="Fitting">Fitting</a></li></ul></li></ul></li></ul></div>
             </nav>
     </aside>
 </section>      </div>
@@ -148,10 +156,11 @@ CGM2.i            </a>
             <hr/>
 <p>Return to all <a href="/pages/nexusCGMApps.html#list-of-available-applications">available Nexus apps</a></p>
 <hr/>
-<p>This CGM version is a <em>Vicon PiG as it should work today</em></p>
-<p>Find out <a href="/pages/CGM11.html">more</a></p>
+<p>This CGM version is a <a href="/pages/CGM11.html"><em>Vicon PiG as it should work today</em></a></p>
+<h2 id="vicon-skeleton-template">Vicon skeleton template</h2>
+<p>since this CGM allow to calibrate with medial markers on both knee and ankle, you can the vst : <strong>pyCGM2-LowerLimb_CGM1_medial.vst</strong></p>
 <h2 id="nexus-pipelines">Nexus Pipelines</h2>
-<p>Located in programData/pyCGM2/ViconPipelines, you can import ready-to-use pipelines into Nexus :</p>
+<p>Located in C:/Users/Public/Documents/Vicon/Nexus2.x/Configurations/Pipelines, you can import ready-to-use pipelines into Nexus :</p>
 <ul>
 <li>pyCGM2-CGM1_1-Calibration.Pipeline</li>
 <li>pyCGM2-CGM1_1-Fitting.Pipeline</li>
@@ -167,7 +176,7 @@ CGM2.i            </a>
 <tbody>
 <tr>
 <td align="left"><img alt="cgm1calib" src="/images/nexusApps/nexusPipeline_CGM11-calib.png" width="75%"/></td>
-<td align="left"><img alt="cgm1fitting" src="/images/nexusApps/nexusPipeline_CGM11-fitting.png" width="75%"/> 2</td>
+<td align="left"><img alt="cgm1fitting" src="/images/nexusApps/nexusPipeline_CGM11-fitting.png" width="75%"/></td>
 </tr>
 </tbody>
 </table>
@@ -326,6 +335,11 @@ Edit the script argument cell of Vicon Nexus with:
 
             <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Recent Posts</span></h4>
                 <ul class="list-group" id="recentposts">
+                    <li class="list-group-item">
+                        <a href="/articles/kalmanGapFilling.html">
+                            Estimating missing marker positions using low dimensional Kalman smoothing
+                        </a>
+                    </li>
                     <li class="list-group-item">
                         <a href="/articles/btk.html">
                             Btk

@@ -13,13 +13,13 @@
 <link rel="canonical" href="/pages/mainPage.html">
 
         <meta name="author" content="Fabien Leboeuf" />
-        <meta name="description" content="The Conventional Gait Model (CGM) is the most widely used biomechanical model for clinical gait analysis. It was first developed in the 1980s and although, it has many strengths, it has several well-known weaknesses. This project will develop and validate a new version of the CGM which maintains those strengths …" />
+        <meta name="description" content="The Conventional Gait Model (CGM) is a widely used biomechanical model for clinical gait analysis. It was first developed in the 1980s and although, it has many strengths, it has several well-known weaknesses. This project will develop and validate a new version of the CGM which maintains those strengths but …" />
 
     <meta property="og:site_name" content="CGM2.i" />
     <meta property="og:type" content="article"/>
     <meta property="og:title" content="The CGM 2.i Project"/>
     <meta property="og:url" content="/pages/mainPage.html"/>
-    <meta property="og:description" content="The Conventional Gait Model (CGM) is the most widely used biomechanical model for clinical gait analysis. It was first developed in the 1980s and although, it has many strengths, it has several well-known weaknesses. This project will develop and validate a new version of the CGM which maintains those strengths …" />
+    <meta property="og:description" content="The Conventional Gait Model (CGM) is a widely used biomechanical model for clinical gait analysis. It was first developed in the 1980s and although, it has many strengths, it has several well-known weaknesses. This project will develop and validate a new version of the CGM which maintains those strengths but …" />
 
 
     <!-- Bootstrap -->
@@ -57,7 +57,6 @@ CGM2.i            </a>
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="/pages/pythonInstallation.html">Set-up your python system</a></li>
                             <li><a href="/pages/pyCGM2Installation.html">Install pyCGM2</a></li>
-                            <li><a href="/pages/installationKnownIssues.html">Known installation issues</a></li>
                         </ul>
                         </li>
                         <li class="dropdown">
@@ -87,22 +86,31 @@ CGM2.i            </a>
                         </ul>
                         </li>
                         <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Apps <span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Nexus Apps <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="/pages/bestPractice.html">Best Practice</a></li>
-                            <li><a href="/pages/nexusCGMApps.html">Nexus</a></li>
+                            <li><a href="/pages/nexusAppGuidelines.html">Guidelines</a></li>
+                            <li><a href="/pages/nexusCGMApps.html">Available Apps </a></li>
+                            <li><a href="/pages/nexustips.html">Nexus tips</a></li>
                         </ul>
                         </li>
                         <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Resources <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
+                            <li><a href="/pages/NexusRessources.html">Vicon Nexus Ressources</a></li>
                             <li><a href="/pages/Palpation.html">Palpation</a></li>
                             <li><a href="/pages/CGM-References.html">CGM References</a></li>
                             <li><a href="/pages/Open-access-Gait-Data.html">OpenAccess data</a></li>
                         </ul>
                         </li>
+                        <li><a href="/pages/support.html">Support</a></li>
+                        <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Join us <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="/pages/contribute.html">Contribute</a></li>
+                            <li><a href="/pages/contactus.html">Contact</a></li>
+                        </ul>
+                        </li>
                         <li><a href="/pages/team.html">Team</a></li>
-                        <li><a href="/pages/JoinUs.html">Join us</a></li>
                         <li><a href="/pages/articleRecentList.html">Blog</a></li>
 
             </ul>
@@ -135,7 +143,7 @@ CGM2.i            </a>
 <section class="well well-sm">
     <aside>
             <nav class="toc">
-            <div id="toc"><ul><li><a class="toc-href" href="#" title="The CGM 2.i Project">The CGM 2.i Project</a><ul><li><a class="toc-href" href="#whats-on-the-website" on="" s="" the="" title="What" website'="">What's on the website</a></li></ul></li></ul></div>
+            <div id="toc"><ul><li><a class="toc-href" href="#" title="The CGM 2.i Project">The CGM 2.i Project</a><ul><li><a class="toc-href" href="#whats-on-the-website" on="" s="" the="" title="What" website'="">What's on the website</a></li><li><a class="toc-href" href="#how-to-start" title="How to start">How to start</a></li><li><a class="toc-href" href="#contribute" title="Contribute">Contribute</a></li></ul></li></ul></div>
             </nav>
     </aside>
 </section>      </div>
@@ -145,11 +153,44 @@ CGM2.i            </a>
         <h1 class="entry-title">The CGM 2.i Project</h1>
         
         <div class="entry-content">
-            <p>The Conventional Gait Model (CGM) is the most widely used biomechanical model for clinical gait analysis. It was first developed in the 1980s and although, it has many strengths, it has several well-known weaknesses. This project will develop and validate a new version of the CGM which maintains those strengths but corrects the weaknesses.</p>
-<p>The new model will be as compatible as possible with the old but cannot be identical. It is therefore important that future users know exactly how the new version differs from the old. This will be ensured by developing the model in a series of iterations each addressing a specific weakness and each fully validated to understand the behaviour of the new model in comparison to the old one.</p>
-<p>The new model to be as open and transparent as possible. All code will be developed in <a href="https://www.python.org/">python</a> and made available through <a href="https://github.com/">GitHub</a>. The project is part-funded by <a href="https://www.vicon.com/">Vicon</a> and we will focus first on implementations to support use of the new models with Vicon's suite of clinical gait analysis software. We are open to developing similar relationships with other manufacturers.</p>
+            <p>The Conventional Gait Model (CGM) is a widely used biomechanical model for clinical gait analysis.
+It was first developed in the 1980s and although, it has many strengths, it has several well-known weaknesses.
+This project will develop and validate a new version of the CGM which maintains those strengths but corrects the weaknesses.</p>
+<p>The new model will be as compatible as possible with the old but cannot be identical.
+It is therefore important that future users know exactly how the new version differs from the old.
+This will be ensured by developing the model in a series of iterations each addressing a specific weakness and
+each fully validated to understand the behaviour of the new model in comparison to the old one.</p>
+<p>The new model need to be <strong>as open and transparent as possible</strong>.</p>
+<p>All code will be developed in <a href="https://www.python.org/">python</a> and made available through
+the platform <a href="https://github.com/">GitHub</a>.</p>
+<div class="alert alert-dismissible alert-danger">
+    The project is part-funded by  <a href="https://www.vicon.com/">Vicon</a>
+    and we will focus first on implementations to support use of the new models
+    with <b>Vicon's suite</b> of clinical gait analysis software.
+    <br/>
+<b>We are opened to developing similar relationships with other manufacturers<b>
+</b></b></div>
 <h2 id="whats-on-the-website">What's on the website</h2>
-<p>The web-site contains a full description of each of the models and instructions for both <strong>how to set up your system</strong> and to capture and process data. There is also a growing repository of <a href="/pages/Open-access-Gait-Data.html">c3d files</a> that can be used for reference purposes.</p>
+<p>The web-site contains a full description of each of the models and instructions to capture and process data.</p>
+<p>There is also a growing repository of <a href="/pages/Open-access-Gait-Data.html">c3d files</a> that can be used for reference purposes.</p>
+<h2 id="how-to-start">How to start</h2>
+<ol>
+<li><a href="/pages/pythonInstallation">Set up your python environment</a></li>
+<li><a href="/pages/pyCGM2Installation">Install the pyCGM2 package</a></li>
+<li>Take time to read <a href="Pages/nexusAppGuidelines.html">basic explanations</a> of <strong>how the code works</strong> and how you can <strong>interact</strong> with it</li>
+<li>Be aware of our recommandations for processing your data</li>
+<li>Try one of our pyCGM2 Nexus Applications</li>
+</ol>
+<h2 id="contribute">Contribute</h2>
+<p>As an open-source package, pyCGM2 will also live from your <a href="/pages/contribute.html">contributions</a>.</p>
+<p>if you want :</p>
+<ul>
+<li>Help with validation</li>
+<li>Share data</li>
+<li>Share code</li>
+<li>Propose a case study</li>
+</ul>
+<p>feel free to <a href="/pages/contactus.html">contact</a> us</p>
         </div>
     </section>
     </div>
@@ -168,6 +209,11 @@ CGM2.i            </a>
 
             <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Recent Posts</span></h4>
                 <ul class="list-group" id="recentposts">
+                    <li class="list-group-item">
+                        <a href="/articles/kalmanGapFilling.html">
+                            Estimating missing marker positions using low dimensional Kalman smoothing
+                        </a>
+                    </li>
                     <li class="list-group-item">
                         <a href="/articles/btk.html">
                             Btk

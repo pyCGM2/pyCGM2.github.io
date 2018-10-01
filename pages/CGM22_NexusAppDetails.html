@@ -57,7 +57,6 @@ CGM2.i            </a>
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="/pages/pythonInstallation.html">Set-up your python system</a></li>
                             <li><a href="/pages/pyCGM2Installation.html">Install pyCGM2</a></li>
-                            <li><a href="/pages/installationKnownIssues.html">Known installation issues</a></li>
                         </ul>
                         </li>
                         <li class="dropdown">
@@ -87,22 +86,31 @@ CGM2.i            </a>
                         </ul>
                         </li>
                         <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Apps <span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Nexus Apps <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="/pages/bestPractice.html">Best Practice</a></li>
-                            <li><a href="/pages/nexusCGMApps.html">Nexus</a></li>
+                            <li><a href="/pages/nexusAppGuidelines.html">Guidelines</a></li>
+                            <li><a href="/pages/nexusCGMApps.html">Available Apps </a></li>
+                            <li><a href="/pages/nexustips.html">Nexus tips</a></li>
                         </ul>
                         </li>
                         <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Resources <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
+                            <li><a href="/pages/NexusRessources.html">Vicon Nexus Ressources</a></li>
                             <li><a href="/pages/Palpation.html">Palpation</a></li>
                             <li><a href="/pages/CGM-References.html">CGM References</a></li>
                             <li><a href="/pages/Open-access-Gait-Data.html">OpenAccess data</a></li>
                         </ul>
                         </li>
+                        <li><a href="/pages/support.html">Support</a></li>
+                        <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Join us <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="/pages/contribute.html">Contribute</a></li>
+                            <li><a href="/pages/contactus.html">Contact</a></li>
+                        </ul>
+                        </li>
                         <li><a href="/pages/team.html">Team</a></li>
-                        <li><a href="/pages/JoinUs.html">Join us</a></li>
                         <li><a href="/pages/articleRecentList.html">Blog</a></li>
 
             </ul>
@@ -135,7 +143,7 @@ CGM2.i            </a>
 <section class="well well-sm">
     <aside>
             <nav class="toc">
-            <div id="toc"><ul><li><a class="toc-href" href="#" title="CGM 2.2 - Nexus App Details">CGM 2.2 - Nexus App Details</a><ul><li><a class="toc-href" href="#nexus-pipelines" title="Nexus Pipelines">Nexus Pipelines</a></li><li><a class="toc-href" href="#operation-details" title="Operation details">Operation details</a></li><li><a class="toc-href" href="#global-settings" title="Global Settings">Global Settings</a></li><li><a class="toc-href" href="#script-arguments" title="Script Arguments">Script Arguments</a><ul><li><a class="toc-href" href="#calibration" title="Calibration">Calibration</a></li><li><a class="toc-href" href="#fitting" title="Fitting">Fitting</a></li></ul></li><li><a class="toc-href" href="#tricks_1" title="Tricks">Tricks</a></li></ul></li></ul></div>
+            <div id="toc"><ul><li><a class="toc-href" href="#" title="CGM 2.2 - Nexus App Details">CGM 2.2 - Nexus App Details</a><ul><li><a class="toc-href" href="#vicon-skeleton-template" title="Vicon skeleton template">Vicon skeleton template</a></li><li><a class="toc-href" href="#nexus-pipelines" title="Nexus Pipelines">Nexus Pipelines</a></li><li><a class="toc-href" href="#operation-details" title="Operation details">Operation details</a></li><li><a class="toc-href" href="#global-settings" title="Global Settings">Global Settings</a></li><li><a class="toc-href" href="#script-arguments" title="Script Arguments">Script Arguments</a><ul><li><a class="toc-href" href="#calibration" title="Calibration">Calibration</a></li><li><a class="toc-href" href="#fitting" title="Fitting">Fitting</a></li></ul></li><li><a class="toc-href" href="#tricks_1" title="Tricks">Tricks</a></li></ul></li></ul></div>
             </nav>
     </aside>
 </section>      </div>
@@ -148,16 +156,17 @@ CGM2.i            </a>
             <hr/>
 <p>Return to all <a href="/pages/nexusCGMApps.html#list-of-available-applications">available Nexus apps</a></p>
 <hr/>
-<p>This CGM2 version altered the Hip Joint centre in accordance with <strong>Hara's regressions</strong> and use <strong>an inverse kinematic</strong> processing</p>
+<p>This <a href="/pages/CGM22-Overview.html">CGM2 version</a> altered the Hip Joint centre in accordance with <strong>Hara's regressions</strong> and use <strong>an inverse kinematic</strong> processing</p>
 <blockquote>
 <p>R. Hara, J. McGinley, C. Briggs, R. Baker, and M. Sangeux, &ldquo;Predicting the location of the hip joint centres, impact of age group and sex,&rdquo; Sci. Rep., vol. 6, p. 37707, 2016.</p>
 </blockquote>
 <div class="alert alert-dismissible alert-warning">
 <p class="mb-0">Inverse Kinematic might be time consuming. Crop your c3d to speed up computation </p>
 </div>
-<p>Find out <a href="/pages/CGM22-Overview.html">more</a></p>
+<h2 id="vicon-skeleton-template">Vicon skeleton template</h2>
+<p>For this version, you can load : <strong>pyCGM2-LowerLimb_CGM22.vst</strong></p>
 <h2 id="nexus-pipelines">Nexus Pipelines</h2>
-<p>Located in programData/pyCGM2/ViconPipelines, you can import ready-to-use pipelines into Nexus :</p>
+<p>Located in C:/Users/Public/Documents/Vicon/Nexus2.x/Configurations/Pipelines, you can import ready-to-use pipelines into Nexus :</p>
 <ul>
 <li>pyCGM2-CGM2_1-Calibration.Pipeline</li>
 <li>pyCGM2-CGM2_1-Fitting.Pipeline</li>
@@ -372,6 +381,11 @@ You can unable this processing and save computing time if your participant respe
 
             <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Recent Posts</span></h4>
                 <ul class="list-group" id="recentposts">
+                    <li class="list-group-item">
+                        <a href="/articles/kalmanGapFilling.html">
+                            Estimating missing marker positions using low dimensional Kalman smoothing
+                        </a>
+                    </li>
                     <li class="list-group-item">
                         <a href="/articles/btk.html">
                             Btk

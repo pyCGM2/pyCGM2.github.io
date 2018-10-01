@@ -2,7 +2,7 @@
 <html lang="english"
 >
 <head>
-    <title>Best Practice - Recommandations - CGM2.i</title>
+    <title>Gap filling - CGM2.i</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -10,16 +10,16 @@
 
 
 
-<link rel="canonical" href="/pages/bestPractice.html">
 
-        <meta name="author" content="Fabien Leboeuf" />
-        <meta name="description" content="IMPORTANT Check your travelling axis. It must be either X or Y, not Z !! Recommandations As far as it goes, we recommand this pratice for performing any pyCGM2 applicatons : work with gap-free trial. Zero-values might corrupt the Inverse kinematics processing especially crop your trial to a zone of interest. do …" />
+    <meta name="author" content="Fabien Leboeuf" />
+    <meta name="keywords" content="Gap filling" />
 
-    <meta property="og:site_name" content="CGM2.i" />
-    <meta property="og:type" content="article"/>
-    <meta property="og:title" content="Best Practice - Recommandations"/>
-    <meta property="og:url" content="/pages/bestPractice.html"/>
-    <meta property="og:description" content="IMPORTANT Check your travelling axis. It must be either X or Y, not Z !! Recommandations As far as it goes, we recommand this pratice for performing any pyCGM2 applicatons : work with gap-free trial. Zero-values might corrupt the Inverse kinematics processing especially crop your trial to a zone of interest. do …" />
+    <!-- Open Graph tags -->
+        <meta property="og:site_name" content="CGM2.i" />
+        <meta property="og:type" content="website"/>
+        <meta property="og:title" content="CGM2.i"/>
+        <meta property="og:url" content=""/>
+        <meta property="og:description" content="CGM2.i"/>
 
 
     <!-- Bootstrap -->
@@ -57,7 +57,6 @@ CGM2.i            </a>
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="/pages/pythonInstallation.html">Set-up your python system</a></li>
                             <li><a href="/pages/pyCGM2Installation.html">Install pyCGM2</a></li>
-                            <li><a href="/pages/installationKnownIssues.html">Known installation issues</a></li>
                         </ul>
                         </li>
                         <li class="dropdown">
@@ -87,22 +86,31 @@ CGM2.i            </a>
                         </ul>
                         </li>
                         <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Apps <span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Nexus Apps <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="/pages/bestPractice.html">Best Practice</a></li>
-                            <li><a href="/pages/nexusCGMApps.html">Nexus</a></li>
+                            <li><a href="/pages/nexusAppGuidelines.html">Guidelines</a></li>
+                            <li><a href="/pages/nexusCGMApps.html">Available Apps </a></li>
+                            <li><a href="/pages/nexustips.html">Nexus tips</a></li>
                         </ul>
                         </li>
                         <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Resources <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
+                            <li><a href="/pages/NexusRessources.html">Vicon Nexus Ressources</a></li>
                             <li><a href="/pages/Palpation.html">Palpation</a></li>
                             <li><a href="/pages/CGM-References.html">CGM References</a></li>
                             <li><a href="/pages/Open-access-Gait-Data.html">OpenAccess data</a></li>
                         </ul>
                         </li>
+                        <li><a href="/pages/support.html">Support</a></li>
+                        <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Join us <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="/pages/contribute.html">Contribute</a></li>
+                            <li><a href="/pages/contactus.html">Contact</a></li>
+                        </ul>
+                        </li>
                         <li><a href="/pages/team.html">Team</a></li>
-                        <li><a href="/pages/JoinUs.html">Join us</a></li>
                         <li><a href="/pages/articleRecentList.html">Blog</a></li>
 
             </ul>
@@ -132,30 +140,16 @@ CGM2.i            </a>
 <div class="container-fluid text-center">
   <div class="row content">
       <div class="col-sm-2" id="sidebar">
-<section class="well well-sm">
-    <aside>
-            <nav class="toc">
-            <div id="toc"><ul><li><a class="toc-href" href="#" title="Best Practice - Recommandations">Best Practice - Recommandations</a><ul><li><a class="toc-href" href="#important" title="IMPORTANT">IMPORTANT</a></li><li><a class="toc-href" href="#recommandations" title="Recommandations">Recommandations</a></li></ul></li></ul></div>
-            </nav>
-    </aside>
-</section>      </div>
+      </div>
     <div class="col-sm-8 text-left">
-    <section id="content" class="body">
+            <article>
+                <h2><a href="/articles/kalmanGapFilling.html">Estimating missing marker positions using low dimensional Kalman smoothing</a></h2>
+                <div class="summary"><p>Gap filling method based on Kalman filter</p>
+                    <a class="btn btn-default btn-xs" href="/articles/kalmanGapFilling.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
 
-        <h1 class="entry-title">Best Practice - Recommandations</h1>
-        
-        <div class="entry-content">
-            <h2 id="important">IMPORTANT</h2>
-<p>Check your travelling axis. It must  be either X or Y, not Z !!</p>
-<h2 id="recommandations">Recommandations</h2>
-<p>As far as it goes, we recommand this pratice for performing any pyCGM2 applicatons :</p>
-<ul>
-<li>work with <strong>gap-free trial</strong>. Zero-values might corrupt the Inverse kinematics processing especially</li>
-<li><strong>crop your trial</strong> to a zone of interest.  do not work with an entire c3d.</li>
-<li>if you manually edit gait events, <strong>start with a Foot strike</strong></li>
-</ul>
-        </div>
-    </section>
     </div>
     <div class="col-sm-2 sidenav">
         <aside>
@@ -173,13 +167,8 @@ CGM2.i            </a>
             <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Recent Posts</span></h4>
                 <ul class="list-group" id="recentposts">
                     <li class="list-group-item">
-                        <a href="/articles/btk.html">
-                            Btk
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="/articles/matlab.html">
-                            Matlab Users
+                        <a href="/articles/kalmanGapFilling.html">
+                            Estimating missing marker positions using low dimensional Kalman smoothing
                         </a>
                     </li>
                 </ul>
