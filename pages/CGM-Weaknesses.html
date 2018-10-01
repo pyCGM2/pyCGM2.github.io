@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="english"
+>
+<head>
+    <title>Weaknesses - CGM2.i</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<link rel="canonical" href="/pages/CGM-Weaknesses.html">
+
+        <meta name="author" content="Fabien Leboeuf" />
+        <meta name="description" content="Validation of accuracy The focus of almost all previous validation work on the CGM has been on how repeatable the model is with very little consideration of how accurate. Where such studies have been conducted they have focussed on very specific properties such as the location of the hip joint …" />
+
+    <meta property="og:site_name" content="CGM2.i" />
+    <meta property="og:type" content="article"/>
+    <meta property="og:title" content="Weaknesses"/>
+    <meta property="og:url" content="/pages/CGM-Weaknesses.html"/>
+    <meta property="og:description" content="Validation of accuracy The focus of almost all previous validation work on the CGM has been on how repeatable the model is with very little consideration of how accurate. Where such studies have been conducted they have focussed on very specific properties such as the location of the hip joint …" />
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="/theme/css/bootstrap.cosmo.min.css" type="text/css"/>
+    <link href="/theme/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+
+    <link href="/theme/css/pygments/native.css" rel="stylesheet">
+    <link rel="stylesheet" href="/theme/css/style.css" type="text/css"/>
+
+
+</head>
+<body>
+
+<!-- navbar -->
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="/" class="navbar-brand">
+CGM2.i            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                <!-- navbar from MENUITEMS -->
+
+                <!-- navbar from MENU ( my MODIFICATION) -->
+                        <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">How to <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="/pages/pythonInstallation.html">Set-up your python system</a></li>
+                            <li><a href="/pages/pyCGM2Installation.html">Install pyCGM2</a></li>
+                        </ul>
+                        </li>
+                        <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Background <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="/pages/CGM-History.html">CGM History</a></li>
+                            <li><a href="/pages/CGM-Definitions.html">Definitions</a></li>
+                            <li><a href="/pages/CGM-Strengths.html">Strengths</a></li>
+                            <li><a href="/pages/CGM-Weaknesses.html">Weaknesses</a></li>
+                            <li><a href="/pages/CGM2-General.html">Updating the CGM</a></li>
+                        </ul>
+                        </li>
+                        <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">CGM1 <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="/pages/CGM10.html">CGM1.0</a></li>
+                            <li><a href="/pages/CGM11.html">CGM1.1</a></li>
+                        </ul>
+                        </li>
+                        <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">CGM2 <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="/pages/CGM21-Overview.html">CGM2.1-HJC</a></li>
+                            <li><a href="/pages/CGM22-Overview.html">CGM2.2-IK</a></li>
+                            <li><a href="/pages/CGM23-Overview.html">CGM2.3-skinClusters</a></li>
+                            <li><a href="/pages/CGM24-Overview.html">CGM2.4-ForeFoot</a></li>
+                        </ul>
+                        </li>
+                        <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Nexus Apps <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="/pages/nexusAppGuidelines.html">Guidelines</a></li>
+                            <li><a href="/pages/nexusCGMApps.html">Available Apps </a></li>
+                            <li><a href="/pages/nexustips.html">Nexus tips</a></li>
+                        </ul>
+                        </li>
+                        <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Resources <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="/pages/NexusRessources.html">Vicon Nexus Ressources</a></li>
+                            <li><a href="/pages/Palpation.html">Palpation</a></li>
+                            <li><a href="/pages/CGM-References.html">CGM References</a></li>
+                            <li><a href="/pages/Open-access-Gait-Data.html">OpenAccess data</a></li>
+                        </ul>
+                        </li>
+                        <li><a href="/pages/support.html">Support</a></li>
+                        <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Join us <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="/pages/contribute.html">Contribute</a></li>
+                            <li><a href="/pages/contactus.html">Contact</a></li>
+                        </ul>
+                        </li>
+                        <li><a href="/pages/team.html">Team</a></li>
+                        <li><a href="/pages/articleRecentList.html">Blog</a></li>
+
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+<!-- Banner -->
+<style>
+	#banner{
+	    background-image:url("/images/bannerGait.png");
+         background-size: 2000px 300px;
+	}
+</style>
+
+<div id="banner">
+	<div class="container">
+		<div class="copy">
+			<h1>CGM2.i</h1>
+				<p class="intro">Updating the Conventional Gait Model for the modern world</p>
+		</div>
+	</div>
+</div><!-- End Banner -->
+<div class="container-fluid text-center">
+  <div class="row content">
+      <div class="col-sm-2" id="sidebar">
+<section class="well well-sm">
+    <aside>
+            <nav class="toc">
+            <div id="toc"><ul><li><a class="toc-href" href="#" title="Weaknesses">Weaknesses</a><ul><li><a class="toc-href" href="#validation-of-accuracy" title="Validation of accuracy">Validation of accuracy</a></li><li><a class="toc-href" href="#hip-joint-centre-position" title="Hip joint centre position">Hip joint centre position</a></li><li><a class="toc-href" href="#defining-the-coronal-plane-of-the-femur" title="Defining the coronal plane of the femur">Defining the coronal plane of the femur</a></li><li><a class="toc-href" href="#over-simplistic-foot-modelling" title="Over-simplistic foot modelling">Over-simplistic foot modelling</a></li><li><a class="toc-href" href="#unconstrained-segment-dimensions" title="Unconstrained segment dimensions">Unconstrained segment dimensions</a></li><li><a class="toc-href" href="#inadequate-compensation-for-soft-tissues-over-pelvic-landmarks" title="Inadequate compensation for soft tissues over pelvic landmarks">Inadequate compensation for soft tissues over pelvic landmarks</a></li><li><a class="toc-href" href="#upper-body-model" title="Upper body model">Upper body model</a></li></ul></li></ul></div>
+            </nav>
+    </aside>
+</section>      </div>
+    <div class="col-sm-8 text-left">
+    <section id="content" class="body">
+
+        <h1 class="entry-title">Weaknesses</h1>
+        
+        <div class="entry-content">
+            <h2 id="validation-of-accuracy">Validation of accuracy</h2>
+<p>The focus of almost all previous validation work on the CGM has been on how repeatable the model is with very little consideration of how accurate. Where such studies have been conducted they have focussed on very specific properties such as the location of the hip joint centre (<a href="http://dx.doi.org/j.gaitpost.2011.05.019">Sangeux et al. 2011</a> , <a href="(http://dx.doi.org/10.1016/j.gaitpost.2012.03.011), [Sangeux et al. 2014]((http://dx.doi.org/10.1016/j.gaitpost.2014.01.024)">Peters et al. 2012</a> and knee joint axis (<a href="http://dx.doi.org/10.1016/j.jbiomech.2006.10.026">Sauret et al. 2016</a>; <a href="http://dx.doi.org/10.1016/j.gaitpost.2016.02.006">Passmore and Sangeux, 2016</a>). The model is intended to track the movement of the bones and there have been no studies performed to establish how accurately it is able to do this.</p>
+<p>Whilst this is a serious criticism it is a general weakness of all current biomechanical models designed for gait analysis and stems from the lack of a robust and straightforward gold standard with which to compare it.</p>
+<h2 id="hip-joint-centre-position">Hip joint centre position</h2>
+<p>Over the lifetime of the CGM There has been an almost obsessional concern over the accuracy of the hip joint centre within biomechanical models designed for clinical gait analysis and a considerable body of knowledge now suggests that there are better methods available than those implemented within the CGM (<a href="http://dx.doi.org/10.1016/S0021-9290(98%2900148-1); [Harrington et al. 2007](http://dx.doi.org/10.1016/j.jbiomech.2006.02.003);[Sangeux et al. 2011](http://dx.doi.org/j.gaitpost.2011.05.019); [Peters et al. 2012](http://dx.doi.org/10.1016/j.gaitpost.2012.03.011); [Sangeux et al. 2014](http://dx.doi.org/10.1016/j.gaitpost.2014.01.024)">Leardini et al. 1999</a>. Whilst the early studies suggested that functional calibration was inherently superior to the use of predictive equations later work has shown that the problem is with the specific equations used and that better predictive equations can give results that are at least as valid as functional methods for healthy adults ( <a href="(http://dx.doi.org/j.gaitpost.2011.05.019); [Sangeux et al. 2014](http://dx.doi.org/10.1016/j.gaitpost.2014.01.024)">Sangeux et al. 2011</a> and better in children with disabilities (<a href="http://dx.doi.org/10.1016/j.gaitpost.2012.03.011">Peters et al. 2012</a>).</p>
+<h2 id="defining-the-coronal-plane-of-the-femur">Defining the coronal plane of the femur</h2>
+<p>One of the Helen Hayes first papers (<a href="http://dx.doi.org/10.1016/0021-9290(91%2990175-M)">Ramikrishnan et al., 1991</a> was an in depth analysis of the sensitivity of model outputs to misplacement of the thigh wand. The systematic review of McGinley et al. (<a href="http://dx.doi.org/10.1016/j.gaitpost.2008.09.003">2009</a>) demonstrates that measures of hip rotation are still nearly twice as variable as the worst of the other kinematic outputs. Use of the KAD and medial epicondylar markers has led to some improvement (which remain essentially undocumented in the academic literature) and this is still regarded as one of the most significant weakensses of the model.</p>
+<h2 id="over-simplistic-foot-modelling">Over-simplistic foot modelling</h2>
+<p>The extremely simple foot model was proposed simply because of the limitations of measurement systems in the 1980s in resolving more than one marker placed on a foot (particularly a child's). This has not been a practical limitation for many years but there has never been a proposal to develop the CGM foot segment. Instead a range of other more complex foot models have been proposed, many of these clearly exceeding what it is possible to measure with skin mounted markers or clusters. The Oxford Foot Model (<a href="http://dx.doi.org/10.1016/S0021-9290(01%2900101-4)">Carson et al. 2001</a> is probably the most widely used in clinical service provision and research but is quite different to the CGM in its modelling assumptions.</p>
+<h2 id="unconstrained-segment-dimensions">Unconstrained segment dimensions</h2>
+<p>The most obvious difference between the CGM and a rigorous biomechanical model is that the segments are not required to be of fixed length. The distance between the modelled hip joint  and knee joint centres typically varies by about 20mm over a gait cycle in an adult as a result of soft tissue artefact. This will have both kinematic and kinetic consequences which are assumed to be samll, but have never been systematically investigated. More importantly this issue prevents the model being used directly as a basis for nore advanced biomechanical techniques such as muscle length modelling or induced acceleration analysis.</p>
+<p>Modern inverse kinematic techniques (<a href="http://dx.doi.org/10.1016/S0021-9290(98%2900158-4)">Lu and O'Connor 1999</a> allow kinematic modelling subject to constraints such as fixed segment dimensions. They also offer a framework to incorporate methods to compensate for, or model, soft tissue artefact (<a href="http://dx.doi.org/j.gaitpost.2006.12.018">Leardini et al. 2005</a>).</p>
+<h2 id="inadequate-compensation-for-soft-tissues-over-pelvic-landmarks">Inadequate compensation for soft tissues over pelvic landmarks</h2>
+<p>As the population, particularly that segment of it that experiences difficulties walking, becomes increasingly overweight the problem of locating the pelvis within the abdominal soft tissues is an increasingly important issue. Whilst a number of approaches have been suggested none are particularly convincing or have been rigorously validated.</p>
+<h2 id="upper-body-model">Upper body model</h2>
+<p>Whilst Davis et al. (<a href="http://dx.doi.org//0167-9457(91%2990046-Z)">1991</a> did suggest placing two markers on the shoulders to give some indication of trunk alignment this particular aspect of the CGM has never been properly developed or validated. Vicon did develop an upper body model but, despite being quite widely used, there have been few validations of its outputs and no published normative reference data.</p>
+        </div>
+    </section>
+    </div>
+    <div class="col-sm-2 sidenav">
+        <aside>
+
+<section class="well well-sm">
+        <li class="list-group-item"><h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Sponsors</span></h4>
+    <li class="list-group-item">
+        <ul class="list-group" id="links">
+            <img width="100%" class="img-thumbnail" src="/images/logo/vicon.jpg"/>
+            <img width="100%" class="img-thumbnail" src="/images/logo/salford.png"/>
+        </ul>
+    </li>
+    <ul class="list-group list-group-flush">
+
+            <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Recent Posts</span></h4>
+                <ul class="list-group" id="recentposts">
+                    <li class="list-group-item">
+                        <a href="/articles/kalmanGapFilling.html">
+                            Estimating missing marker positions using low dimensional Kalman smoothing
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/articles/btk.html">
+                            Btk
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/articles/matlab.html">
+                            Matlab Users
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+
+            <li class="list-group-item"><a href="/tags.html"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+                <ul class="list-group " id="tags">
+                </ul>
+            </li>
+    <li class="list-group-item"><h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Links</span></h4>
+      <ul class="list-group" id="links">
+        <li class="list-group-item">
+            <a href="http://www.salford.ac.uk/health-sciences/facilities/gait-analysis-clinic" target="_blank">
+                Salford Gait Analysis
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="https://www.vicon.com/" target="_blank">
+                Vicon
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="https://www.researchgate.net/project/Conventional-Gait-Model-2" target="_blank">
+                ResearchGate Project page
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="https://wwrichard.net/" target="_blank">
+                Walking with Richard
+            </a>
+        </li>
+      </ul>
+    </li>
+    </ul>
+</section>        </aside>
+    </div>
+  </div>
+</div>
+
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">&copy; 2018 Fabien Leboeuf
+            &middot; Powered by <a href="https://github.com/DandyDev/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>              <p><small>   <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by/4.0/80x15.png" /></a>
+    Content
+  licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>, except where indicated otherwise.
+</small></p>
+         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="/theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="/theme/js/respond.min.js"></script>
+
+    <!--<script src="/theme/js/bodypadding.js"></script>-->
+
+</body>
+</html>
