@@ -13,13 +13,13 @@
 <link rel="canonical" href="/pages/nexusAppGuidelines.html">
 
         <meta name="author" content="Fabien Leboeuf" />
-        <meta name="description" content="Functionality pyCGM2 operations were designed on the basis of the C3d format file. Operations read the c3d and store data into it with the same nomenclature of the Vicon Pig ( ie LHipAngles, LFootProgressAngles...). Model processing with pyCGM2 doesn&#39;t differ from the use of Vicon PiG in Nexus. The model need …" />
+        <meta name="description" content="Recommandations Check your travelling axis. It must be either X or Y, not Z !! As far as it goes, we recommand this pratice for performing any pyCGM2 applicatons : work with gap-free trial. Zero-values might corrupt the Inverse kinematics processing especially crop your trial to a zone of interest. . if you …" />
 
     <meta property="og:site_name" content="CGM2.i" />
     <meta property="og:type" content="article"/>
     <meta property="og:title" content="Nexus Application Guidelines"/>
     <meta property="og:url" content="/pages/nexusAppGuidelines.html"/>
-    <meta property="og:description" content="Functionality pyCGM2 operations were designed on the basis of the C3d format file. Operations read the c3d and store data into it with the same nomenclature of the Vicon Pig ( ie LHipAngles, LFootProgressAngles...). Model processing with pyCGM2 doesn&#39;t differ from the use of Vicon PiG in Nexus. The model need …" />
+    <meta property="og:description" content="Recommandations Check your travelling axis. It must be either X or Y, not Z !! As far as it goes, we recommand this pratice for performing any pyCGM2 applicatons : work with gap-free trial. Zero-values might corrupt the Inverse kinematics processing especially crop your trial to a zone of interest. . if you …" />
 
 
     <!-- Bootstrap -->
@@ -143,7 +143,7 @@ CGM2.i            </a>
 <section class="well well-sm">
     <aside>
             <nav class="toc">
-            <div id="toc"><ul><li><a class="toc-href" href="#" title="Nexus Application Guidelines">Nexus Application Guidelines</a><ul><li><a class="toc-href" href="#functionality" title="Functionality">Functionality</a></li><li><a class="toc-href" href="#recommandations" title="Recommandations">Recommandations</a></li></ul></li></ul></div>
+            <div id="toc"><ul><li><a class="toc-href" href="#" title="Nexus Application Guidelines">Nexus Application Guidelines</a><ul><li><a class="toc-href" href="#recommandations" title="Recommandations">Recommandations</a></li><li><a class="toc-href" href="#functionality" title="Functionality">Functionality</a></li></ul></li></ul></div>
             </nav>
     </aside>
 </section>      </div>
@@ -153,7 +153,18 @@ CGM2.i            </a>
         <h1 class="entry-title">Nexus Application Guidelines</h1>
         
         <div class="entry-content">
-            <h2 id="functionality">Functionality</h2>
+            <h2 id="recommandations">Recommandations</h2>
+<div class="alert alert-dismissible alert-danger">
+<p class="mb-0">Check your travelling axis. It must  be either X or Y, not Z !! </p>
+</div>
+<p>As far as it goes, we recommand this pratice for performing any pyCGM2 applicatons :</p>
+<ul>
+<li>work with <strong>gap-free trial</strong>. Zero-values might corrupt the Inverse kinematics processing especially</li>
+<li><strong>crop your trial</strong> to a zone of interest.  .</li>
+<li>if you manually edit gait events, <strong>start with a Foot strike</strong></li>
+<li>Convenient gait plot panels are displayed if you have previously detected both <strong>foot strike</strong> and <strong>foot off</strong> </li>
+</ul>
+<h2 id="functionality">Functionality</h2>
 <p>pyCGM2 operations were designed on <strong>the basis of the C3d format file</strong>. Operations read the c3d and store data into it with the same nomenclature of the Vicon Pig ( ie LHipAngles, LFootProgressAngles...).</p>
 <p>Model processing with pyCGM2 doesn't differ from the use of Vicon PiG in Nexus. The model need to be first calibrate though the pipeline:
 <strong>Calibration</strong> (ie PiG Static) after static reconstruction. Then, kinematics and kinetics of motion trials are worked out through the pipeline: <strong>fitting</strong> (ie PiG Dynamic)</p>
@@ -168,16 +179,6 @@ You can alter these pre-defined specifications through <a href="/pages/CGM10_Nex
 <div class="alert alert-dismissible alert-info">
   Obviously, if our global settings doesn't match your routine at all. You can permanantly modify our global settings, by editing setting files located in the folder c:/programData/pyCGM2.
 </div>
-<h2 id="recommandations">Recommandations</h2>
-<div class="alert alert-dismissible alert-danger">
-<p class="mb-0">Check your travelling axis. It must  be either X or Y, not Z !! </p>
-</div>
-<p>As far as it goes, we recommand this pratice for performing any pyCGM2 applicatons :</p>
-<ul>
-<li>work with <strong>gap-free trial</strong>. Zero-values might corrupt the Inverse kinematics processing especially</li>
-<li><strong>crop your trial</strong> to a zone of interest.  Do not work with an entire c3d.</li>
-<li>if you manually edit gait events, <strong>start with a Foot strike</strong></li>
-</ul>
         </div>
     </section>
     </div>
