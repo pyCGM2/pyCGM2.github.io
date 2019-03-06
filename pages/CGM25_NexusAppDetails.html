@@ -2,7 +2,7 @@
 <html lang="english"
 >
 <head>
-    <title>Knee Functional Calibration - Calibration2Dof - CGM2.i</title>
+    <title>CGM 2.5 - Nexus App Details - CGM2.i</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -10,16 +10,16 @@
 
 
 
-<link rel="canonical" href="/pages/kneeCalib2dof.html">
+<link rel="canonical" href="/pages/CGM25_NexusAppDetails.html">
 
         <meta name="author" content="Fabien Leboeuf" />
-        <meta name="description" content="Return to all available Nexus apps Theory The Calibration2Dof (Sangeux et al., 2016) method, inherit from the DynaKAD method (Baker, 1999). The method models the knee as a 2 degrees of freedom joint. It postulates that varus- valgus range of movement is not physiological and derives from cross-talk with flexion-extension …" />
+        <meta name="description" content="Return to all available Nexus apps This CGM2 version introduce a two segment foot model. Reference Settings The CGM2.5 settings are located at C:/programData/pyCGM2 By default, settings: enable the flat foot option project joint moment in the Joint Coordinate System (JCS) set a uniform marker weight set …" />
 
     <meta property="og:site_name" content="CGM2.i" />
     <meta property="og:type" content="article"/>
-    <meta property="og:title" content="Knee Functional Calibration - Calibration2Dof"/>
-    <meta property="og:url" content="/pages/kneeCalib2dof.html"/>
-    <meta property="og:description" content="Return to all available Nexus apps Theory The Calibration2Dof (Sangeux et al., 2016) method, inherit from the DynaKAD method (Baker, 1999). The method models the knee as a 2 degrees of freedom joint. It postulates that varus- valgus range of movement is not physiological and derives from cross-talk with flexion-extension …" />
+    <meta property="og:title" content="CGM 2.5 - Nexus App Details"/>
+    <meta property="og:url" content="/pages/CGM25_NexusAppDetails.html"/>
+    <meta property="og:description" content="Return to all available Nexus apps This CGM2 version introduce a two segment foot model. Reference Settings The CGM2.5 settings are located at C:/programData/pyCGM2 By default, settings: enable the flat foot option project joint moment in the Joint Coordinate System (JCS) set a uniform marker weight set …" />
 
 
     <!-- Bootstrap -->
@@ -84,12 +84,8 @@ CGM2.i            </a>
                             <li><a href="/pages/CGM22-Overview.html">CGM2.2-IK</a></li>
                             <li><a href="/pages/CGM23-Overview.html">CGM2.3-skinClusters</a></li>
                             <li><a href="/pages/CGM24-Overview.html">CGM2.4-ForeFoot</a></li>
-                        </ul>
-                        </li>
-                        <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Doc <span class="caret"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="/documentation/html/index.html">API</a></li>
+                            <li><a href="/pages/CGM25-Overview.html">CGM2.5-UpperLimb</a></li>
+                            <li><a href="/pages/CGM26-Overview.html">CGM2.6-KneeCalibration</a></li>
                         </ul>
                         </li>
                         <li class="dropdown">
@@ -98,6 +94,12 @@ CGM2.i            </a>
                             <li><a href="/pages/nexusAppGuidelines.html">Guidelines</a></li>
                             <li><a href="/pages/nexusApps.html">Available Apps </a></li>
                             <li><a href="/pages/NexusRessources.html">Vicon Nexus Ressources</a></li>
+                        </ul>
+                        </li>
+                        <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Doc <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="/documentation/html/index.html">API</a></li>
                         </ul>
                         </li>
                         <li class="dropdown">
@@ -149,53 +151,54 @@ CGM2.i            </a>
 <section class="well well-sm">
     <aside>
             <nav class="toc">
-            <div id="toc"><ul><li><a class="toc-href" href="#" title="Knee Functional Calibration - Calibration2Dof">Knee Functional Calibration - Calibration2Dof</a><ul><li><a class="toc-href" href="#theory" title="Theory">Theory</a></li><li><a class="toc-href" href="#references" title="References">References</a></li><li><a class="toc-href" href="#functionality" title="functionality">functionality</a></li><li><a class="toc-href" href="#settings" title="Settings">Settings</a></li><li><a class="toc-href" href="#nexus-pipeline" title="Nexus Pipeline">Nexus Pipeline</a></li></ul></li></ul></div>
+            <div id="toc"><ul><li><a class="toc-href" href="#" title="CGM 2.5 - Nexus App Details">CGM 2.5 - Nexus App Details</a><ul><li><a class="toc-href" href="#reference" title="Reference">Reference</a></li><li><a class="toc-href" href="#settings" title="Settings">Settings</a></li><li><a class="toc-href" href="#nexus-pipelines" title="Nexus Pipelines">Nexus Pipelines</a></li></ul></li></ul></div>
             </nav>
     </aside>
 </section>      </div>
     <div class="col-sm-8 text-left">
     <section id="content" class="body">
 
-        <h1 class="entry-title">Knee Functional Calibration - Calibration2Dof</h1>
+        <h1 class="entry-title">CGM 2.5 - Nexus App Details</h1>
         
         <div class="entry-content">
             <hr/>
 <p>Return to all <a href="/pages/nexusApps.html#list-of-available-applications">available Nexus apps</a></p>
 <hr/>
-<h2 id="theory">Theory</h2>
-<p>The Calibration2Dof (Sangeux et al., 2016) method, inherit from the DynaKAD method (Baker, 1999). The method models the knee as a 2 degrees of freedom joint.
-It postulates that varus- valgus range of movement is not physiological and derives from cross-talk with flexion-extension.
-On this basis, the Calibration2Dof method consists in rotatig the femur coordinate system along its longitudinal axis to minimise the standard deviation of the varus-valgus angles
-during functional knee flexion movements .</p>
-<h2 id="references">References</h2>
-<blockquote>
-<p>Sangeux, M., Barr&eacute;, A., Aminian, K., 2016. Evaluation of knee functional calibration with and without the effect of soft tissue artefact. J. Biomech. 0, 655&ndash;667. https://doi.org/10.1016/j.jbiomech.2016.10.049</p>
-<p>Baker, R., 1999. A new approach to determine the hip rotation from clinical gait analysis data 18, 655&ndash;667.</p>
-</blockquote>
-<h2 id="functionality">functionality</h2>
-<ul>
-<li>collect knee active or passive flexion ( one acquisition for each knee)</li>
-<li>fill gaps</li>
-<li>crop your c3d to the area of interest (or select start and end frame from the argument script box)</li>
-<li>run the calibration2Dof python operation</li>
-</ul>
-<p><div class="alert alert-dismissible alert-info">
-The Calibration2Dof method does not alter the knee joint centre. <br/>
-The knee flexion calibrated from condyle markers serves as initial guess of the optimisation process. Ensure you have a correct palpation of the condyle markers.
- </div></p>
-<p><div class="alert alert-dismissible alert-warning">
- The Calibration2Dof is compatible with all CGM versions
- </div></p>
+<p>This <a href="/pages/CGM24-Overview.html">CGM2 version</a>  introduce a two segment foot model.</p>
+<h2 id="reference">Reference</h2>
 <h2 id="settings">Settings</h2>
-<p>None</p>
-<h2 id="nexus-pipeline">Nexus Pipeline</h2>
-<p>Located in C:/Users/Public/Documents/Vicon/Nexus2.x/Configurations/Pipelines, you can import ready-to-use pipeline into Nexus :</p>
+<p>The CGM2.5 settings are located at <em>C:/programData/pyCGM2</em></p>
+<div class="alert alert-dismissible alert-warning">
+<p>By default, settings:</p>
 <ul>
-<li>pyCGM2-Knee2Dof.Pipeline</li>
+<li>enable the flat foot option</li>
+<li>project joint moment in the Joint Coordinate System (JCS)</li>
+<li>set a uniform marker weight set</li>
 </ul>
-<p><img alt="2dof" src="/images/nexusApps/calibration2Dof.png" width="75%"/></p>
+</div>
+<p>Check out <a href="/documentation//html//settings.html#cgm-2-4-settings">the documentation API</a> for a complete description of the settings</p>
+<h2 id="nexus-pipelines">Nexus Pipelines</h2>
+<p>Located in <em>C:/Users/Public/Documents/Vicon/Nexus2.x/Configurations/Pipelines</em>, you can import ready-to-use pipelines into Nexus :</p>
+<ul>
+<li>pyCGM2-CGM2_5-Calibration.Pipeline</li>
+<li>pyCGM2-CGM2_5-Fitting.Pipeline</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="left">Calibration</th>
+<th align="left">Fitting</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><img alt="cgm25calib" src="/images/nexusApps/CGM25calibration.png" width="75%"/></td>
+<td align="left"><img alt="cgm25fitting" src="/images/nexusApps/CGM25fitting.png" width="75%"/></td>
+</tr>
+</tbody>
+</table>
 <div class="alert alert-dismissible alert-info">
-<p> All script arguments are detailed in the  <a href="/documentation//html//nexusOperations.html#knee-calibration">documentation API</a> </p>
+<p> All script arguments are detailed in the  <a href="/documentation//html//nexusOperations.html#cgm-2-5">documentation API</a> </p>
 </div>
         </div>
     </section>

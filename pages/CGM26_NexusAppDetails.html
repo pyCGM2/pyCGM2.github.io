@@ -2,7 +2,7 @@
 <html lang="english"
 >
 <head>
-    <title>Knee Functional Calibration - SARA - CGM2.i</title>
+    <title>CGM 2.6 - Nexus App Details - CGM2.i</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -10,16 +10,16 @@
 
 
 
-<link rel="canonical" href="/pages/kneeCalibSara.html">
+<link rel="canonical" href="/pages/CGM26_NexusAppDetails.html">
 
         <meta name="author" content="Fabien Leboeuf" />
-        <meta name="description" content="Return to all available Nexus apps Theory The SARA method is part of the family of Axis Transformation Technique (ATT) (Ehrig et al., 2007). This method use the femur and tibia coordinate systems and models the knee as a hinge. References Ehrig, R., Taylor, W.R., Duda, G., Heller, M …" />
+        <meta name="description" content="Return to all available Nexus apps This CGM2 version refines the definition of the knee flexion axis through the implementation of functional knee calibration methods. 2 methods are proposed : the Calibration2Dof the SARA method Theory The Calibration2Dof (Sangeux et al., 2016) method, inherit from the DynaKAD method (Baker, 1999). The …" />
 
     <meta property="og:site_name" content="CGM2.i" />
     <meta property="og:type" content="article"/>
-    <meta property="og:title" content="Knee Functional Calibration - SARA"/>
-    <meta property="og:url" content="/pages/kneeCalibSara.html"/>
-    <meta property="og:description" content="Return to all available Nexus apps Theory The SARA method is part of the family of Axis Transformation Technique (ATT) (Ehrig et al., 2007). This method use the femur and tibia coordinate systems and models the knee as a hinge. References Ehrig, R., Taylor, W.R., Duda, G., Heller, M …" />
+    <meta property="og:title" content="CGM 2.6 - Nexus App Details"/>
+    <meta property="og:url" content="/pages/CGM26_NexusAppDetails.html"/>
+    <meta property="og:description" content="Return to all available Nexus apps This CGM2 version refines the definition of the knee flexion axis through the implementation of functional knee calibration methods. 2 methods are proposed : the Calibration2Dof the SARA method Theory The Calibration2Dof (Sangeux et al., 2016) method, inherit from the DynaKAD method (Baker, 1999). The …" />
 
 
     <!-- Bootstrap -->
@@ -84,12 +84,8 @@ CGM2.i            </a>
                             <li><a href="/pages/CGM22-Overview.html">CGM2.2-IK</a></li>
                             <li><a href="/pages/CGM23-Overview.html">CGM2.3-skinClusters</a></li>
                             <li><a href="/pages/CGM24-Overview.html">CGM2.4-ForeFoot</a></li>
-                        </ul>
-                        </li>
-                        <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Doc <span class="caret"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="/documentation/html/index.html">API</a></li>
+                            <li><a href="/pages/CGM25-Overview.html">CGM2.5-UpperLimb</a></li>
+                            <li><a href="/pages/CGM26-Overview.html">CGM2.6-KneeCalibration</a></li>
                         </ul>
                         </li>
                         <li class="dropdown">
@@ -98,6 +94,12 @@ CGM2.i            </a>
                             <li><a href="/pages/nexusAppGuidelines.html">Guidelines</a></li>
                             <li><a href="/pages/nexusApps.html">Available Apps </a></li>
                             <li><a href="/pages/NexusRessources.html">Vicon Nexus Ressources</a></li>
+                        </ul>
+                        </li>
+                        <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Doc <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="/documentation/html/index.html">API</a></li>
                         </ul>
                         </li>
                         <li class="dropdown">
@@ -149,23 +151,39 @@ CGM2.i            </a>
 <section class="well well-sm">
     <aside>
             <nav class="toc">
-            <div id="toc"><ul><li><a class="toc-href" href="#" title="Knee Functional Calibration - SARA">Knee Functional Calibration - SARA</a><ul><li><a class="toc-href" href="#theory" title="Theory">Theory</a></li><li><a class="toc-href" href="#references" title="References">References</a></li><li><a class="toc-href" href="#functionality" title="functionality">functionality</a></li><li><a class="toc-href" href="#settings" title="Settings">Settings</a></li><li><a class="toc-href" href="#nexus-pipeline" title="Nexus Pipeline">Nexus Pipeline</a></li></ul></li></ul></div>
+            <div id="toc"><ul><li><a class="toc-href" href="#" title="CGM 2.6 - Nexus App Details">CGM 2.6 - Nexus App Details</a><ul><li><a class="toc-href" href="#theory" title="Theory">Theory</a></li><li><a class="toc-href" href="#references" title="References">References</a></li><li><a class="toc-href" href="#functionality" title="functionality">functionality</a></li><li><a class="toc-href" href="#nexus-pipeline" title="Nexus Pipeline">Nexus Pipeline</a></li></ul></li></ul></div>
             </nav>
     </aside>
 </section>      </div>
     <div class="col-sm-8 text-left">
     <section id="content" class="body">
 
-        <h1 class="entry-title">Knee Functional Calibration - SARA</h1>
+        <h1 class="entry-title">CGM 2.6 - Nexus App Details</h1>
         
         <div class="entry-content">
             <hr/>
 <p>Return to all <a href="/pages/nexusApps.html#list-of-available-applications">available Nexus apps</a></p>
 <hr/>
+<p>This <a href="/pages/CGM26-Overview.html">CGM2 version</a> refines the definition of the knee flexion axis through the implementation of functional knee calibration methods.</p>
+<p>2 methods are proposed :</p>
+<ul>
+<li>the <a href="/pages/kneeCalib2dof.html">Calibration2Dof</a></li>
+<li>the <a href="/pages/kneeCalibSara.html">SARA method</a></li>
+</ul>
 <h2 id="theory">Theory</h2>
-<p>The SARA method is part of the family of Axis Transformation Technique (ATT) (Ehrig et al., 2007).
+<p>The <strong>Calibration2Dof</strong> (Sangeux et al., 2016) method, inherit from the DynaKAD method (Baker, 1999). The method models the knee as a 2 degrees of freedom joint.
+It postulates that varus- valgus range of movement is not physiological and derives from cross-talk with flexion-extension.
+On this basis, the Calibration2Dof method consists in rotatig the femur coordinate system along its longitudinal axis to minimise the standard deviation of the varus-valgus angles
+during functional knee flexion movements .</p>
+<p>The <strong>SARA method</strong> is part of the family of Axis Transformation Technique (ATT) (Ehrig et al., 2007).
 This method use the femur and tibia coordinate systems and models the knee as a hinge.</p>
 <h2 id="references">References</h2>
+<p><strong>Calibration 2DOF</strong></p>
+<blockquote>
+<p>Sangeux, M., Barr&eacute;, A., Aminian, K., 2016. Evaluation of knee functional calibration with and without the effect of soft tissue artefact. J. Biomech. 0, 655&ndash;667. https://doi.org/10.1016/j.jbiomech.2016.10.049</p>
+<p>Baker, R., 1999. A new approach to determine the hip rotation from clinical gait analysis data 18, 655&ndash;667.</p>
+</blockquote>
+<p><strong>SARA</strong></p>
 <blockquote>
 <p>Ehrig, R., Taylor, W.R., Duda, G., Heller, M., 2007. A survey of formal methods for determining functional joint axes. J. Biomech. 40, 2150&ndash;7. https://doi.org/10.1016/j.jbiomech.2006.10.026</p>
 <p>Sangeux, M., Barr&eacute;, A., Aminian, K., 2016. Evaluation of knee functional calibration with and without the effect of soft tissue artefact. J. Biomech. 0, 655&ndash;667. https://doi.org/10.1016/j.jbiomech.2016.10.049</p>
@@ -175,22 +193,36 @@ This method use the femur and tibia coordinate systems and models the knee as a 
 <li>collect knee active or passive flexion ( one acquisition for each knee)</li>
 <li>fill gaps</li>
 <li>crop your c3d to the area of interest (or select start and end frame from the argument script box)</li>
-<li>run the Sara python operation</li>
+<li>run the python operation</li>
 </ul>
-<p><div class="alert alert-dismissible alert-info">
+<div class="alert alert-dismissible alert-info">
+ The Calibration2Dof method does not alter the knee joint centre. <br/>
+ The knee flexion calibrated from condyle markers serves as initial guess of the optimisation process. Ensure you have a correct palpation of the condyle markers.
+</div>
+<div class="alert alert-dismissible alert-info">
 The SARA method alters the knee joint centre and then recompute the femur coordinate system from the the knee joint centre, considering the optimal knee flexion axis
- </div></p>
-<p><div class="alert alert-dismissible alert-warning">
- The SARA is not compatible with CGM1.i, CGM2.1 and CGM2.2
- </div></p>
-<h2 id="settings">Settings</h2>
-<p>None</p>
+</div>
 <h2 id="nexus-pipeline">Nexus Pipeline</h2>
-<p>Located in C:/Users/Public/Documents/Vicon/Nexus2.x/Configurations/Pipelines, you can import ready-to-use pipeline into Nexus :</p>
+<p>Located in C:/Users/Public/Documents/Vicon/Nexus2.x/Configurations/Pipelines, you can import ready-to-use pipelines into Nexus :</p>
 <ul>
-<li>pyCGM2-Sara.Pipeline</li>
+<li>pyCGM2-CGM2_6-knee2Dof.Pipeline</li>
+<li>pyCGM2-CGM2_6-kneeSARA.Pipeline</li>
 </ul>
-<p><img alt="sara" src="/images/nexusApps/sara.png" width="75%"/></p>
+<p>for both pipelines, only the main python operation is different</p>
+<table>
+<thead>
+<tr>
+<th align="left">Calibration2Dof</th>
+<th align="left">SARA</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><img alt="2dof" src="/images/nexusApps/CGM26Calib2Dof.png" width="75%"/></td>
+<td align="left"><img alt="sara" src="/images/nexusApps/CGM26CalibSara.png" width="75%"/></td>
+</tr>
+</tbody>
+</table>
 <div class="alert alert-dismissible alert-info">
 <p> All script arguments are detailed in the  <a href="/documentation//html//nexusOperations.html#knee-calibration">documentation API</a> </p>
 </div>

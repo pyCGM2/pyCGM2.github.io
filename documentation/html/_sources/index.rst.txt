@@ -11,7 +11,7 @@ Welcome to pyCGM2 documentation!
 
     PyCGM2 documentation is in heavy development.
 
-    The current version focuses on Vicon nexus Applications   
+    The current version focuses on Vicon nexus Applications
 
 
 
@@ -36,6 +36,16 @@ Nexus Operations
   :maxdepth: 2
 
   nexusOperations
+
+
+
+High-level functions
+=====================
+
+.. toctree::
+  :maxdepth: 2
+
+  highLevelFunction
 
 
 Nexus API

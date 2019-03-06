@@ -17,7 +17,7 @@ CGM 1 Settings.
     By default, the flat foot option is enable on both side and joint moments are expressed into the Distal segment
 
 
-.. literalinclude:: C:/Users/HLS501/Documents/Programming/API/pyCGM2/pyCGM2/SessionSettings/CGM1-pyCGM2.settings
+.. literalinclude:: C:/Users/HLS501/Documents/Programming/API/pyCGM2/pyCGM2/pyCGM2/Settings/CGM1-pyCGM2.settings
     :language: yaml
 
 
@@ -28,7 +28,7 @@ CGM 1.1 Settings.
     The main difference with the CGM1 is the projection of joint moment into the Joint Coordinate System
 
 
-.. literalinclude:: C:/Users/HLS501/Documents/Programming/API/pyCGM2/pyCGM2/SessionSettings/CGM1_1-pyCGM2.settings
+.. literalinclude:: C:/Users/HLS501/Documents/Programming/API/pyCGM2/pyCGM2/pyCGM2/Settings/CGM1_1-pyCGM2.settings
     :language: yaml
 
 
@@ -39,7 +39,7 @@ CGM 2.1 Settings.
     The Hip joint centre is located according `Hara's equations <https://www.nature.com/articles/srep37707r>`_
 
 
-.. literalinclude:: C:/Users/HLS501/Documents/Programming/API/pyCGM2/pyCGM2/SessionSettings/CGM2_1-pyCGM2.settings
+.. literalinclude:: C:/Users/HLS501/Documents/Programming/API/pyCGM2/pyCGM2/pyCGM2/Settings/CGM2_1-pyCGM2.settings
     :language: yaml
 
 
@@ -49,7 +49,7 @@ CGM 2.2 Settings.
 These settings define a uniform weight set for the inverse kinematics.
 
 
-.. literalinclude:: C:/Users/HLS501/Documents/Programming/API/pyCGM2/pyCGM2/SessionSettings/CGM2_2-pyCGM2.settings
+.. literalinclude:: C:/Users/HLS501/Documents/Programming/API/pyCGM2/pyCGM2/pyCGM2/Settings/CGM2_2-pyCGM2.settings
     :language: yaml
 
 
@@ -62,7 +62,7 @@ These settings define a uniform weight set for the inverse kinematics.
     By default, the CGM2.3 uses an inverse kinematics solver. The option *EnableIK* allow to disable Inverse Kinematics.
     In this case, the CGM2.3 works as a 6-Dof model
 
-.. literalinclude:: C:/Users/HLS501/Documents/Programming/API/pyCGM2/pyCGM2/SessionSettings/CGM2_3-pyCGM2.settings
+.. literalinclude:: C:/Users/HLS501/Documents/Programming/API/pyCGM2/pyCGM2/pyCGM2/Settings/CGM2_3-pyCGM2.settings
     :language: yaml
 
 
@@ -72,12 +72,23 @@ CGM 2.4 Settings.
 These settings define a uniform weight set for the inverse kinematics.
 
 .. danger::
-    By default, the CGM2.3 uses an inverse kinematics solver. The option *EnableIK* allow to disable Inverse Kinematics.
-    In this case, the CGM2.3 works as a 6-Dof model
+    By default, the CGM2.4 uses an inverse kinematics solver. The option *EnableIK* allow to disable Inverse Kinematics.
+    In this case, the CGM2.4 works as a 6-Dof model
 
-.. literalinclude:: C:/Users/HLS501/Documents/Programming/API/pyCGM2/pyCGM2/SessionSettings/CGM2_4-pyCGM2.settings
+.. literalinclude:: C:/Users/HLS501/Documents/Programming/API/pyCGM2/pyCGM2/pyCGM2/Settings/CGM2_4-pyCGM2.settings
     :language: yaml
 
+CGM 2.5 Settings.
+========================================
+
+These settings define a uniform weight set for the inverse kinematics.
+
+.. danger::
+    By default, the CGM2.5 uses an inverse kinematics solver. The option *EnableIK* allow to disable Inverse Kinematics.
+    In this case, the CGM2.5 works as a 6-Dof model
+
+.. literalinclude:: C:/Users/HLS501/Documents/Programming/API/pyCGM2/pyCGM2/pyCGM2/Settings/CGM2_5-pyCGM2.settings
+    :language: yaml
 
 EMG Settings.
 ========================================
@@ -88,9 +99,9 @@ This setting propose a typical emg configuration in clinical gait analysis.
     Adapt it to your practice
 
 In the proposed configuration, your 3D data collection software will define emg signals as ENG1, EMG2...EMG16.
-The EMG1 is located on the Left Rectus femoris and its normal activities (RECFEM) will be displayed in the background    
+The EMG1 is located on the Left Rectus femoris and its normal activities (RECFEM) will be displayed in the background
 
 
 
-.. literalinclude:: C:/Users/HLS501/Documents/Programming/API/pyCGM2/pyCGM2/SessionSettings/emg.settings
+.. literalinclude:: C:/Users/HLS501/Documents/Programming/API/pyCGM2/pyCGM2/pyCGM2/Settings/emg.settings
     :language: yaml

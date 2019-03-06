@@ -13,13 +13,13 @@
 <link rel="canonical" href="/pages/CGM2-General.html">
 
         <meta name="author" content="Fabien Leboeuf" />
-        <meta name="description" content="Generality Looking to the future Design Criteria Issues to be addressed by CGM 2.i CGM 2.1 New hip joint centre CGM 2.2 Inverse kinematics CGM 2.3 Removal of wand markers CGM 2.4 Extended foot model ### [CGM 2.6 Knee calibration](../pages/CGM26-Overview) ### [CGM 2.7 Pelvis location in larger people](../pages/CGM27-Overview) ### [CGM 2.8 Modified kinetic output](../pages/CGM28-Overview) ---&gt;" />
+        <meta name="description" content="Generality Looking to the future Design Criteria Issues to be addressed by CGM 2.i CGM 2.1 New hip joint centre CGM 2.2 Inverse kinematics CGM 2.3 Removal of wand markers CGM 2.4 Extended foot model CGM 2.5 Upper body model CGM 2.6 Knee …" />
 
     <meta property="og:site_name" content="CGM2.i" />
     <meta property="og:type" content="article"/>
     <meta property="og:title" content="CGM 2: New Model Development"/>
     <meta property="og:url" content="/pages/CGM2-General.html"/>
-    <meta property="og:description" content="Generality Looking to the future Design Criteria Issues to be addressed by CGM 2.i CGM 2.1 New hip joint centre CGM 2.2 Inverse kinematics CGM 2.3 Removal of wand markers CGM 2.4 Extended foot model ### [CGM 2.6 Knee calibration](../pages/CGM26-Overview) ### [CGM 2.7 Pelvis location in larger people](../pages/CGM27-Overview) ### [CGM 2.8 Modified kinetic output](../pages/CGM28-Overview) ---&gt;" />
+    <meta property="og:description" content="Generality Looking to the future Design Criteria Issues to be addressed by CGM 2.i CGM 2.1 New hip joint centre CGM 2.2 Inverse kinematics CGM 2.3 Removal of wand markers CGM 2.4 Extended foot model CGM 2.5 Upper body model CGM 2.6 Knee …" />
 
 
     <!-- Bootstrap -->
@@ -84,12 +84,8 @@ CGM2.i            </a>
                             <li><a href="/pages/CGM22-Overview.html">CGM2.2-IK</a></li>
                             <li><a href="/pages/CGM23-Overview.html">CGM2.3-skinClusters</a></li>
                             <li><a href="/pages/CGM24-Overview.html">CGM2.4-ForeFoot</a></li>
-                        </ul>
-                        </li>
-                        <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Doc <span class="caret"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="/documentation/html/index.html">API</a></li>
+                            <li><a href="/pages/CGM25-Overview.html">CGM2.5-UpperLimb</a></li>
+                            <li><a href="/pages/CGM26-Overview.html">CGM2.6-KneeCalibration</a></li>
                         </ul>
                         </li>
                         <li class="dropdown">
@@ -98,6 +94,12 @@ CGM2.i            </a>
                             <li><a href="/pages/nexusAppGuidelines.html">Guidelines</a></li>
                             <li><a href="/pages/nexusApps.html">Available Apps </a></li>
                             <li><a href="/pages/NexusRessources.html">Vicon Nexus Ressources</a></li>
+                        </ul>
+                        </li>
+                        <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Doc <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="/documentation/html/index.html">API</a></li>
                         </ul>
                         </li>
                         <li class="dropdown">
@@ -149,7 +151,7 @@ CGM2.i            </a>
 <section class="well well-sm">
     <aside>
             <nav class="toc">
-            <div id="toc"><ul><li><a class="toc-href" href="#" title="CGM 2: New Model Development">CGM 2: New Model Development</a><ul><li><a class="toc-href" href="#generality" title="Generality">Generality</a></li><li><a class="toc-href" href="#cgm-21-new-hip-joint-centre" title="CGM 2.1 New hip joint centre ">CGM 2.1 New hip joint centre </a></li><li><a class="toc-href" href="#cgm-22-inverse-kinematics" title="CGM 2.2 Inverse kinematics">CGM 2.2 Inverse kinematics</a></li><li><a class="toc-href" href="#cgm-23-removal-of-wand-markers" title="CGM 2.3 Removal of wand markers">CGM 2.3 Removal of wand markers</a></li><li><a class="toc-href" href="#cgm-24-extended-foot-model" title="CGM 2.4 Extended foot model">CGM 2.4 Extended foot model</a></li></ul></li></ul></div>
+            <div id="toc"><ul><li><a class="toc-href" href="#" title="CGM 2: New Model Development">CGM 2: New Model Development</a><ul><li><a class="toc-href" href="#generality" title="Generality">Generality</a></li><li><a class="toc-href" href="#cgm-21-new-hip-joint-centre" title="CGM 2.1 New hip joint centre">CGM 2.1 New hip joint centre</a></li><li><a class="toc-href" href="#cgm-22-inverse-kinematics" title="CGM 2.2 Inverse kinematics">CGM 2.2 Inverse kinematics</a></li><li><a class="toc-href" href="#cgm-23-removal-of-wand-markers" title="CGM 2.3 Removal of wand markers">CGM 2.3 Removal of wand markers</a></li><li><a class="toc-href" href="#cgm-24-extended-foot-model" title="CGM 2.4 Extended foot model">CGM 2.4 Extended foot model</a></li><li><a class="toc-href" href="#cgm-25-upper-body-model" title="CGM 2.5 Upper body model">CGM 2.5 Upper body model</a></li><li><a class="toc-href" href="#cgm-26-knee-calibration" title="CGM 2.6 Knee calibration">CGM 2.6 Knee calibration</a></li></ul></li></ul></div>
             </nav>
     </aside>
 </section>      </div>
@@ -159,16 +161,18 @@ CGM2.i            </a>
         <h1 class="entry-title">CGM 2: New Model Development</h1>
         
         <div class="entry-content">
-            <h3 id="generality">Generality</h3>
+            <h2 id="generality">Generality</h2>
 <ul>
-<li><a href="../pages/CGM2-Future">Looking to the future</a> </li></ul>
-<li><a href="../pages/CGM2-Design-Criteria">Design Criteria</a> </li>
-<li><a href="../pages/CGM2-Issues">Issues to be addressed by CGM 2.i</a> </li>
-
-<h3 id="cgm-21-new-hip-joint-centre"><a href="../pages/CGM21-Overview">CGM 2.1 New hip joint centre</a> </h3>
-<h3 id="cgm-22-inverse-kinematics"><a href="../pages/CGM22-Overview">CGM 2.2 Inverse kinematics</a></h3>
-<h3 id="cgm-23-removal-of-wand-markers"><a href="../pages/CGM23-Overview">CGM 2.3 Removal of wand markers</a></h3>
-<h3 id="cgm-24-extended-foot-model"><a href="../pages/CGM24-Overview">CGM 2.4 Extended foot model</a></h3>
+<li><a href="../pages/CGM2-Future">Looking to the future</a></li>
+<li><a href="../pages/CGM2-Design-Criteria">Design Criteria</a></li>
+<li><a href="../pages/CGM2-Issues">Issues to be addressed by CGM 2.i</a></li>
+</ul>
+<h2 id="cgm-21-new-hip-joint-centre"><a href="../pages/CGM21-Overview">CGM 2.1 New hip joint centre</a></h2>
+<h2 id="cgm-22-inverse-kinematics"><a href="../pages/CGM22-Overview">CGM 2.2 Inverse kinematics</a></h2>
+<h2 id="cgm-23-removal-of-wand-markers"><a href="../pages/CGM23-Overview">CGM 2.3 Removal of wand markers</a></h2>
+<h2 id="cgm-24-extended-foot-model"><a href="../pages/CGM24-Overview">CGM 2.4 Extended foot model</a></h2>
+<h2 id="cgm-25-upper-body-model"><a href="../pages/CGM25-Overview">CGM 2.5 Upper body model</a></h2>
+<h2 id="cgm-26-knee-calibration"><a href="../pages/CGM26-Overview">CGM 2.6 Knee calibration</a></h2>
 <!---
 ### [CGM 2.5 Upper body model](../pages/CGM25-Overview)</h4>
 ### [CGM 2.6 Knee calibration](../pages/CGM26-Overview)</h4>

@@ -1921,6 +1921,7 @@ th {
 }
 .table>tbody+tbody {
 	border-top:2px solid #dddddd
+	background-color: #d7d7d7;
 }
 .table .table {
 	background-color:#ffffff
@@ -5418,4 +5419,7 @@ table .success a,.table .success a,table .warning a,.table .warning a,table .dan
 }
 .popover {
 	color:#333333
+}
+table tbody tr:nth-child(odd) {
+    background-color: #d7d7d7;
 }

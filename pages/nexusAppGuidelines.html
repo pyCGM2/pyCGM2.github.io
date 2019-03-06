@@ -84,12 +84,8 @@ CGM2.i            </a>
                             <li><a href="/pages/CGM22-Overview.html">CGM2.2-IK</a></li>
                             <li><a href="/pages/CGM23-Overview.html">CGM2.3-skinClusters</a></li>
                             <li><a href="/pages/CGM24-Overview.html">CGM2.4-ForeFoot</a></li>
-                        </ul>
-                        </li>
-                        <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Doc <span class="caret"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="/documentation/html/index.html">API</a></li>
+                            <li><a href="/pages/CGM25-Overview.html">CGM2.5-UpperLimb</a></li>
+                            <li><a href="/pages/CGM26-Overview.html">CGM2.6-KneeCalibration</a></li>
                         </ul>
                         </li>
                         <li class="dropdown">
@@ -98,6 +94,12 @@ CGM2.i            </a>
                             <li><a href="/pages/nexusAppGuidelines.html">Guidelines</a></li>
                             <li><a href="/pages/nexusApps.html">Available Apps </a></li>
                             <li><a href="/pages/NexusRessources.html">Vicon Nexus Ressources</a></li>
+                        </ul>
+                        </li>
+                        <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Doc <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="/documentation/html/index.html">API</a></li>
                         </ul>
                         </li>
                         <li class="dropdown">
@@ -170,6 +172,16 @@ CGM2.i            </a>
 <li>if you manually edit gait events, <strong>start with a Foot strike</strong></li>
 <li>Convenient gait plot panels are displayed if you have previously detected both <strong>foot strike</strong> and <strong>foot off</strong></li>
 </ul>
+<p><div class="alert alert-dismissible alert-danger">
+    The code detects if you are working with :
+    <ul>
+<li>Lower Limbs</li>
+<li>Lower Limbs + trunk</li>
+<li>Full body</li>
+<li>Trunk + Upper Limbs</li>
+</ul>
+<p class="mb-0">For each of these configurations, the code will return an error if one segment is missing. </p></div></p>
+
 <h2 id="functionality">Functionality</h2>
 <p>pyCGM2 operations were designed on <strong>the basis of the C3d format file</strong>. Operations read the c3d and store data into it with the same nomenclature of the Vicon Pig ( ie LHipAngles, LFootProgressAngles...).</p>
 <p>Model processing with pyCGM2 doesn't differ from the use of Vicon PiG in Nexus. The model need to be first calibrate though the pipeline:

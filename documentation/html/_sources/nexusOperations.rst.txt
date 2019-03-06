@@ -45,7 +45,7 @@ Fitting
     :members:
 
 
-CGM 2.1
+CGM 2.1 (new Hip centre)
 ========================================
 
 
@@ -63,7 +63,7 @@ Fitting
 
 
 
-CGM 2.2
+CGM 2.2 (Inverse Kinematics)
 ========================================
 
 
@@ -80,7 +80,7 @@ Fitting
     :members:
 
 
-CGM 2.3
+CGM 2.3 (skin markers)
 ========================================
 
 
@@ -97,7 +97,7 @@ Fitting
     :members:
 
 
-CGM 2.4
+CGM 2.4 (two segment foot)
 ========================================
 
 
@@ -111,6 +111,53 @@ Fitting
 ------------------
 
 .. automodule:: CGM2_4_Fitting
+    :members:
+
+
+CGM 2.5 (Upper limb)
+========================================
+
+
+Calibration
+------------------
+
+.. automodule:: CGM2_5_Calibration
+    :members:
+
+Fitting
+------------------
+
+.. automodule:: CGM2_5_Fitting
+    :members:
+
+
+
+
+CGM2.6 ( knee calibration)
+========================================
+
+
+Calibration2Dof method (dynakad-like)
+----------------------------------------
+
+Details about the Calibration2Dof method can be found in :
+
+ *  `Baker et al (1999), Human Movement Science <http://dx.doi.org/10.1016/S0167-9457(99)00027-5>`_
+ *  `Sangeux et al (2016), Journal of Biomechanics <https://doi.org/10.1016/j.jbiomech.2016.10.049>`_
+
+.. automodule:: 2DofCalibration
+    :members:
+
+
+SARA method
+-----------------------------
+
+Details about the SARA method can be found in `Ehrig et al.(2007), Journal of Biomechanics <http://dx.doi.org/10.1016/j.jbiomech.2006.10.026>`_
+
+.. danger:: the SARA method doesn t work for CGM version 1 to 2.2.
+
+
+.. automodule:: SARA
     :members:
 
 
@@ -168,32 +215,6 @@ Gait-Normalized EMG
 .. automodule:: plotNormalizedEmg
     :members:
 
-Knee Calibration
-========================================
-
-
-Calibration2Dof method (dynakad-like)
-----------------------------------------
-
-Details about the Calibration2Dof method can be found in :
-
- *  `Baker et al (1999), Human Movement Science <http://dx.doi.org/10.1016/S0167-9457(99)00027-5>`_
- *  `Sangeux et al (2016), Journal of Biomechanics <https://doi.org/10.1016/j.jbiomech.2016.10.049>`_
-
-.. automodule:: 2DofCalibration
-    :members:
-
-
-SARA method
------------------------------
-
-Details about the SARA method can be found in `Ehrig et al.(2007), Journal of Biomechanics <http://dx.doi.org/10.1016/j.jbiomech.2006.10.026>`_
-
-.. danger:: the SARA method doesn t work for CGM version 1 to 2.2.
-
-
-.. automodule:: SARA
-    :members:
 
 
 Event Detector
