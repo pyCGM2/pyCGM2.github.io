@@ -1,0 +1,1041 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Settings &mdash; pYCGM2 3.1.2 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'./',
+              VERSION:'3.1.2',
+              LANGUAGE:'None',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Nexus Operations" href="nexusOperations.html" />
+    <link rel="prev" title="Welcome to pyCGM2 documentation!" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html">
+          
+
+          
+            
+            <img src="_static/pyCGM2logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.1.2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+           <a href="https://pycgm2.github.io/">pyCGM2 project website</a>  
+           <hr>
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Settings</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#cgm-1-settings">CGM 1 Settings.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cgm-1-1-settings">CGM 1.1 Settings.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cgm-2-1-settings">CGM 2.1 Settings.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cgm-2-2-settings">CGM 2.2 Settings.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cgm-2-3-settings">CGM 2.3 Settings.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cgm-2-4-settings">CGM 2.4 Settings.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cgm-2-5-settings">CGM 2.5 Settings.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#emg-settings">EMG Settings.</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="nexusOperations.html">Nexus Operations</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="highLevelFunction.html">High-level functions</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="nexusAPI.html">Nexus API</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="thirdParty.html">Third party package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">pYCGM2</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Settings</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/settings.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="settings">
+<h1>Settings<a class="headerlink" href="#settings" title="Permalink to this headline">¶</a></h1>
+<p>Settings are located in the folder ProgramData/pyCGM2. They need to match with your clinical routine</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>Settings follow the yaml syntax.</p>
+<p class="last">if you are facing with a syntax error. You can check <a class="reference external" href="https://codebeautify.org/yaml-validator">online</a> your own settings</p>
+</div>
+<div class="section" id="cgm-1-settings">
+<h2>CGM 1 Settings.<a class="headerlink" href="#cgm-1-settings" title="Permalink to this headline">¶</a></h2>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">By default, the flat foot option is enable on both side and joint moments are expressed into the Distal segment</p>
+</div>
+<div class="highlight-yaml"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">Global</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">Marker diameter</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">14</span> <span class="c1">#[double]</span>
+    <span class="l l-Scalar l-Scalar-Plain">Point suffix</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span> <span class="c1">#[string]</span>
+
+<span class="l l-Scalar l-Scalar-Plain">Translators</span><span class="p p-Indicator">:</span> <span class="c1"># Translators adapt your current marker set</span>
+    <span class="l l-Scalar l-Scalar-Plain">LASI</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span> <span class="c1">#[string]</span>
+    <span class="l l-Scalar l-Scalar-Plain">RASI</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LPSI</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RPSI</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RTHI</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RKNE</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RTIB</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RANK</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RMED</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RHEE</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RTOE</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LTHI</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LKNE</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LTIB</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LANK</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LMED</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LHEE</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LTOE</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">C7</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">T10</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">CLAV</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">STRN</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LFHD</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LBHD</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RFHD</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RBHD</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LSHO</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LELB</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LWRB</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LWRA</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LFIN</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RSHO</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RELB</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RWRB</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RWRA</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RFIN</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+
+<span class="l l-Scalar l-Scalar-Plain">Calibration</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">Left flat foot</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span> <span class="c1">#[integer](choice: 0 or 1)</span>
+    <span class="l l-Scalar l-Scalar-Plain">Right flat foot</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+
+<span class="l l-Scalar l-Scalar-Plain">Fitting</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">Moment Projection</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Distal</span> <span class="c1">#[string](choice: Proximal, Global, Distal)</span>
+
+
+<span class="c1">################</span>
+<span class="c1"># DO NOT TOUCH #</span>
+<span class="c1">################</span>
+
+<span class="l l-Scalar l-Scalar-Plain">ModelVersion</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">CGM1.0</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="cgm-1-1-settings">
+<h2>CGM 1.1 Settings.<a class="headerlink" href="#cgm-1-1-settings" title="Permalink to this headline">¶</a></h2>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">The main difference with the CGM1 is the projection of joint moment into the Joint Coordinate System</p>
+</div>
+<div class="highlight-yaml"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">Global</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">Marker diameter</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">14</span> <span class="c1">#[double]</span>
+    <span class="l l-Scalar l-Scalar-Plain">Point suffix</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span> <span class="c1">#[string]</span>
+
+<span class="l l-Scalar l-Scalar-Plain">Translators</span><span class="p p-Indicator">:</span> <span class="c1">#Translators adapt your current marker set</span>
+    <span class="l l-Scalar l-Scalar-Plain">LASI</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span> <span class="c1">#[string]</span>
+    <span class="l l-Scalar l-Scalar-Plain">RASI</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LPSI</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RPSI</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RTHI</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RKNE</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RKNM</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RTIB</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RANK</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RMED</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RHEE</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RTOE</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LTHI</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LKNE</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LKNM</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LTIB</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LANK</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LMED</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LHEE</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LTOE</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">C7</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">T10</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">CLAV</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">STRN</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LFHD</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LBHD</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RFHD</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RBHD</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LSHO</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LELB</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LWRB</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LWRA</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LFIN</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RSHO</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RELB</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RWRB</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RWRA</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RFIN</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+
+<span class="l l-Scalar l-Scalar-Plain">Calibration</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">Left flat foot</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span> <span class="c1">#[integer](choice: 0 or 1)</span>
+    <span class="l l-Scalar l-Scalar-Plain">Right flat foot</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+
+<span class="l l-Scalar l-Scalar-Plain">Fitting</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">Moment Projection</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">JCS</span> <span class="c1">#[string](choice: Proximal, Global, Distal, JCS)</span>
+
+
+<span class="c1">################</span>
+<span class="c1"># DO NOT TOUCH #</span>
+<span class="c1">################</span>
+
+<span class="l l-Scalar l-Scalar-Plain">ModelVersion</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">CGM1.1</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="cgm-2-1-settings">
+<h2>CGM 2.1 Settings.<a class="headerlink" href="#cgm-2-1-settings" title="Permalink to this headline">¶</a></h2>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">The Hip joint centre is located according <a class="reference external" href="https://www.nature.com/articles/srep37707r">Hara&#8217;s equations</a></p>
+</div>
+<div class="highlight-yaml"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">Global</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">Marker diameter</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">14</span> <span class="c1">#[double]</span>
+    <span class="l l-Scalar l-Scalar-Plain">Point suffix</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span> <span class="c1">#[string]</span>
+
+<span class="l l-Scalar l-Scalar-Plain">Translators</span><span class="p p-Indicator">:</span> <span class="c1"># Translators adapt your current marker set</span>
+    <span class="l l-Scalar l-Scalar-Plain">LASI</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span> <span class="c1">#[string]</span>
+    <span class="l l-Scalar l-Scalar-Plain">RASI</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LPSI</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RPSI</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RTHI</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RKNE</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RKNM</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RTIB</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RANK</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RMED</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RHEE</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RTOE</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LTHI</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LKNE</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LKNM</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LTIB</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LANK</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LMED</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LHEE</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LTOE</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">C7</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">T10</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">CLAV</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">STRN</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LFHD</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LBHD</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RFHD</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RBHD</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LSHO</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LELB</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LWRB</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LWRA</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LFIN</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RSHO</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RELB</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RWRB</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RWRA</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RFIN</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+
+
+<span class="c1">##### Calibration ########</span>
+
+<span class="l l-Scalar l-Scalar-Plain">Calibration</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">HJC</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">Left</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Hara</span> <span class="c1">#[string](choice: Hara)</span>
+        <span class="l l-Scalar l-Scalar-Plain">Right</span><span class="p p-Indicator">:</span>  <span class="l l-Scalar l-Scalar-Plain">Hara</span>
+    <span class="l l-Scalar l-Scalar-Plain">Left flat foot</span><span class="p p-Indicator">:</span>  <span class="l l-Scalar l-Scalar-Plain">1</span> <span class="c1">#[integer](choice: 0 or 1)</span>
+    <span class="l l-Scalar l-Scalar-Plain">Right flat foot</span><span class="p p-Indicator">:</span>  <span class="l l-Scalar l-Scalar-Plain">1</span>
+
+<span class="l l-Scalar l-Scalar-Plain">Fitting</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">Moment Projection</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">JCS</span> <span class="c1">#[string](choice: Proximal, Global, Distal, JCS)</span>
+
+
+
+<span class="c1">################</span>
+<span class="c1"># DO NOT TOUCH #</span>
+<span class="c1">################</span>
+
+<span class="l l-Scalar l-Scalar-Plain">ModelVersion</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">CGM2.1</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="cgm-2-2-settings">
+<h2>CGM 2.2 Settings.<a class="headerlink" href="#cgm-2-2-settings" title="Permalink to this headline">¶</a></h2>
+<p>These settings define a uniform weight set for the inverse kinematics.</p>
+<div class="highlight-yaml"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">Global</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">Marker diameter</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">14</span> <span class="c1">#[double]</span>
+    <span class="l l-Scalar l-Scalar-Plain">Point suffix</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span> <span class="c1">#[string]</span>
+
+<span class="l l-Scalar l-Scalar-Plain">Translators</span><span class="p p-Indicator">:</span> <span class="c1"># Translators adapt your current marker set</span>
+  <span class="l l-Scalar l-Scalar-Plain">LASI</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span> <span class="c1">#[string]</span>
+  <span class="l l-Scalar l-Scalar-Plain">RASI</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+  <span class="l l-Scalar l-Scalar-Plain">LPSI</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+  <span class="l l-Scalar l-Scalar-Plain">RPSI</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+  <span class="l l-Scalar l-Scalar-Plain">RTHI</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+  <span class="l l-Scalar l-Scalar-Plain">RKNE</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+  <span class="l l-Scalar l-Scalar-Plain">RKNM</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+  <span class="l l-Scalar l-Scalar-Plain">RTIB</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+  <span class="l l-Scalar l-Scalar-Plain">RANK</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+  <span class="l l-Scalar l-Scalar-Plain">RMED</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+  <span class="l l-Scalar l-Scalar-Plain">RHEE</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+  <span class="l l-Scalar l-Scalar-Plain">RTOE</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+  <span class="l l-Scalar l-Scalar-Plain">LTHI</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+  <span class="l l-Scalar l-Scalar-Plain">LKNE</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+  <span class="l l-Scalar l-Scalar-Plain">LKNM</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+  <span class="l l-Scalar l-Scalar-Plain">LTIB</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+  <span class="l l-Scalar l-Scalar-Plain">LANK</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+  <span class="l l-Scalar l-Scalar-Plain">LMED</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+  <span class="l l-Scalar l-Scalar-Plain">LHEE</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+  <span class="l l-Scalar l-Scalar-Plain">LTOE</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+  <span class="l l-Scalar l-Scalar-Plain">C7</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+  <span class="l l-Scalar l-Scalar-Plain">T10</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+  <span class="l l-Scalar l-Scalar-Plain">CLAV</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+  <span class="l l-Scalar l-Scalar-Plain">STRN</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+  <span class="l l-Scalar l-Scalar-Plain">LFHD</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+  <span class="l l-Scalar l-Scalar-Plain">LBHD</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+  <span class="l l-Scalar l-Scalar-Plain">RFHD</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+  <span class="l l-Scalar l-Scalar-Plain">RBHD</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+  <span class="l l-Scalar l-Scalar-Plain">LSHO</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+  <span class="l l-Scalar l-Scalar-Plain">LELB</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+  <span class="l l-Scalar l-Scalar-Plain">LWRB</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+  <span class="l l-Scalar l-Scalar-Plain">LWRA</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+  <span class="l l-Scalar l-Scalar-Plain">LFIN</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+  <span class="l l-Scalar l-Scalar-Plain">RSHO</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+  <span class="l l-Scalar l-Scalar-Plain">RELB</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+  <span class="l l-Scalar l-Scalar-Plain">RWRB</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+  <span class="l l-Scalar l-Scalar-Plain">RWRA</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+  <span class="l l-Scalar l-Scalar-Plain">RFIN</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+
+<span class="l l-Scalar l-Scalar-Plain">Calibration</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">HJC</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">Left</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Hara</span> <span class="c1">#[string](choice: Hara only)</span>
+        <span class="l l-Scalar l-Scalar-Plain">Right</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Hara</span>
+    <span class="l l-Scalar l-Scalar-Plain">Left flat foot</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span> <span class="c1">#[integer] (choice: 0 or 1)</span>
+    <span class="l l-Scalar l-Scalar-Plain">Right flat foot</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+
+<span class="l l-Scalar l-Scalar-Plain">Fitting</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">Moment Projection</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">JCS</span> <span class="c1">#[string](choice: Proximal, Global, Distal, JCS)</span>
+    <span class="l l-Scalar l-Scalar-Plain">Weight</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">LASI</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span> <span class="c1">#[double] : marker weight used by the Inverse Kinematics solver</span>
+        <span class="l l-Scalar l-Scalar-Plain">RASI</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+        <span class="l l-Scalar l-Scalar-Plain">LPSI</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+        <span class="l l-Scalar l-Scalar-Plain">RPSI</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+        <span class="l l-Scalar l-Scalar-Plain">LTHI</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+        <span class="l l-Scalar l-Scalar-Plain">LKNE</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+        <span class="l l-Scalar l-Scalar-Plain">LTIB</span><span class="p p-Indicator">:</span>  <span class="l l-Scalar l-Scalar-Plain">100</span>
+        <span class="l l-Scalar l-Scalar-Plain">LANK</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+        <span class="l l-Scalar l-Scalar-Plain">LHEE</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+        <span class="l l-Scalar l-Scalar-Plain">LTOE</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+        <span class="l l-Scalar l-Scalar-Plain">RTHI</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+        <span class="l l-Scalar l-Scalar-Plain">RKNE</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+        <span class="l l-Scalar l-Scalar-Plain">RTIB</span><span class="p p-Indicator">:</span>  <span class="l l-Scalar l-Scalar-Plain">100</span>
+        <span class="l l-Scalar l-Scalar-Plain">RANK</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+        <span class="l l-Scalar l-Scalar-Plain">RHEE</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+        <span class="l l-Scalar l-Scalar-Plain">RTOE</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+
+
+
+<span class="c1">################</span>
+<span class="c1"># DO NOT TOUCH #</span>
+<span class="c1">################</span>
+
+<span class="l l-Scalar l-Scalar-Plain">ModelVersion</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">CGM2.2</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="cgm-2-3-settings">
+<h2>CGM 2.3 Settings.<a class="headerlink" href="#cgm-2-3-settings" title="Permalink to this headline">¶</a></h2>
+<p>These settings define a uniform weight set for the inverse kinematics.</p>
+<div class="admonition danger">
+<p class="first admonition-title">Danger</p>
+<p class="last">By default, the CGM2.3 uses an inverse kinematics solver. The option <em>EnableIK</em> allow to disable Inverse Kinematics.
+In this case, the CGM2.3 works as a 6-Dof model</p>
+</div>
+<div class="highlight-yaml"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">Global</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">Marker diameter</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">14</span> <span class="c1">#[double]</span>
+    <span class="l l-Scalar l-Scalar-Plain">Point suffix</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span> <span class="c1">#[string]</span>
+    <span class="l l-Scalar l-Scalar-Plain">EnableIK</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span> <span class="c1">#[integer](choice: 0 or 1): enable  the Inverse Kinematics solver</span>
+
+<span class="l l-Scalar l-Scalar-Plain">Translators</span><span class="p p-Indicator">:</span> <span class="c1"># Translators adapt your current marker set</span>
+    <span class="l l-Scalar l-Scalar-Plain">LASI</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>  <span class="c1">#[string]</span>
+    <span class="l l-Scalar l-Scalar-Plain">RASI</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LPSI</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RPSI</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RTHI</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RKNE</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RKNM</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RTHAP</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RTHAD</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RTIB</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RANK</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RMED</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RTIAP</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RTIAD</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RHEE</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RTOE</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LTHI</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LKNE</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LKNM</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LTHAP</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LTHAD</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LTIB</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LANK</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LMED</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LTIAP</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LTIAD</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LHEE</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LTOE</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">C7</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">T10</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">CLAV</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">STRN</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LFHD</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LBHD</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RFHD</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RBHD</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LSHO</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LELB</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LWRB</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LWRA</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LFIN</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RSHO</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RELB</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RWRB</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RWRA</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RFIN</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+
+<span class="l l-Scalar l-Scalar-Plain">Calibration</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">HJC</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">Left</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Hara</span> <span class="c1">#[string](choice: Hara only)</span>
+        <span class="l l-Scalar l-Scalar-Plain">Right</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Hara</span>
+    <span class="l l-Scalar l-Scalar-Plain">Left flat foot</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span> <span class="c1">#[integer](choice: 0 or 1)</span>
+    <span class="l l-Scalar l-Scalar-Plain">Right flat foot</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+
+<span class="l l-Scalar l-Scalar-Plain">Fitting</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">Moment Projection</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">JCS</span> <span class="c1">#[string](choice: Proximal, Global, Distal, JCS)</span>
+    <span class="l l-Scalar l-Scalar-Plain">Weight</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">LASI</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span> <span class="c1">#[double]: marker weight used by the Inverse Kinematics solver</span>
+        <span class="l l-Scalar l-Scalar-Plain">RASI</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+        <span class="l l-Scalar l-Scalar-Plain">LPSI</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+        <span class="l l-Scalar l-Scalar-Plain">RPSI</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+        <span class="l l-Scalar l-Scalar-Plain">RTHI</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+        <span class="l l-Scalar l-Scalar-Plain">RKNE</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+        <span class="l l-Scalar l-Scalar-Plain">RTHAP</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+        <span class="l l-Scalar l-Scalar-Plain">RTHAD</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+        <span class="l l-Scalar l-Scalar-Plain">RTIB</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+        <span class="l l-Scalar l-Scalar-Plain">RANK</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+        <span class="l l-Scalar l-Scalar-Plain">RTIAP</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+        <span class="l l-Scalar l-Scalar-Plain">RTIAD</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+        <span class="l l-Scalar l-Scalar-Plain">RHEE</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+        <span class="l l-Scalar l-Scalar-Plain">RTOE</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+        <span class="l l-Scalar l-Scalar-Plain">LTHI</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+        <span class="l l-Scalar l-Scalar-Plain">LKNE</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+        <span class="l l-Scalar l-Scalar-Plain">LTHAP</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+        <span class="l l-Scalar l-Scalar-Plain">LTHAD</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+        <span class="l l-Scalar l-Scalar-Plain">LTIB</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+        <span class="l l-Scalar l-Scalar-Plain">LANK</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+        <span class="l l-Scalar l-Scalar-Plain">LTIAP</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+        <span class="l l-Scalar l-Scalar-Plain">LTIAD</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+        <span class="l l-Scalar l-Scalar-Plain">LHEE</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+        <span class="l l-Scalar l-Scalar-Plain">LTOE</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+        <span class="l l-Scalar l-Scalar-Plain">RTHLD</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">0</span>
+        <span class="l l-Scalar l-Scalar-Plain">RPAT</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">0</span>
+        <span class="l l-Scalar l-Scalar-Plain">LTHLD</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">0</span>
+        <span class="l l-Scalar l-Scalar-Plain">LPAT</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">0</span>
+
+
+<span class="c1">################</span>
+<span class="c1"># DO NOT TOUCH #</span>
+<span class="c1">################</span>
+
+<span class="l l-Scalar l-Scalar-Plain">ModelVersion</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">CGM2.3</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="cgm-2-4-settings">
+<h2>CGM 2.4 Settings.<a class="headerlink" href="#cgm-2-4-settings" title="Permalink to this headline">¶</a></h2>
+<p>These settings define a uniform weight set for the inverse kinematics.</p>
+<div class="admonition danger">
+<p class="first admonition-title">Danger</p>
+<p class="last">By default, the CGM2.4 uses an inverse kinematics solver. The option <em>EnableIK</em> allow to disable Inverse Kinematics.
+In this case, the CGM2.4 works as a 6-Dof model</p>
+</div>
+<div class="highlight-yaml"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">Global</span><span class="p p-Indicator">:</span>
+  <span class="l l-Scalar l-Scalar-Plain">Marker diameter</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">14</span> <span class="c1">#[double]</span>
+  <span class="l l-Scalar l-Scalar-Plain">Point suffix</span><span class="p p-Indicator">:</span>  <span class="l l-Scalar l-Scalar-Plain">None</span> <span class="c1">#[string]</span>
+  <span class="l l-Scalar l-Scalar-Plain">EnableIK</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span> <span class="c1">#[integer](choice: 0 or 1):  enable  the Inverse Kinematics solver</span>
+
+<span class="l l-Scalar l-Scalar-Plain">Translators</span><span class="p p-Indicator">:</span> <span class="c1"># Translators adapt your current marker set</span>
+    <span class="l l-Scalar l-Scalar-Plain">LASI</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span> <span class="c1">#[string]</span>
+    <span class="l l-Scalar l-Scalar-Plain">RASI</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LPSI</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RPSI</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RTHI</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RKNE</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RTIAP</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RTIAD</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RTIB</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RANK</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RTIAP</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RTIAD</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RHEE</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RSMH</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RTOE</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RFMH</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RVMH</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LTHI</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LKNE</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LTHAP</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LTHAD</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LTIB</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LANK</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LTIAP</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LTIAD</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LHEE</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LSMH</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LTOE</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LFMH</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LVMH</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RKNM</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LKNM</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RMED</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LMED</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">C7</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">T10</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">CLAV</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">STRN</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LFHD</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LBHD</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RFHD</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RBHD</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LSHO</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LELB</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LWRB</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LWRA</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LFIN</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RSHO</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RELB</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RWRB</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RWRA</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RFIN</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+
+<span class="l l-Scalar l-Scalar-Plain">Calibration</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">HJC</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">Left</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Hara</span> <span class="c1">#[string](choice: Hara only)</span>
+        <span class="l l-Scalar l-Scalar-Plain">Right</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Hara</span>
+    <span class="l l-Scalar l-Scalar-Plain">Left flat foot</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">1 [integer]</span>
+    <span class="l l-Scalar l-Scalar-Plain">Right flat foot</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+
+<span class="l l-Scalar l-Scalar-Plain">Fitting</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">Moment Projection</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">JCS</span> <span class="c1">#[string](choice: Proximal, Global, Distal, JCS)</span>
+    <span class="l l-Scalar l-Scalar-Plain">Weight</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">LASI</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span> <span class="c1">#[double]: marker weight used by the Inverse Kinematics solver</span>
+        <span class="l l-Scalar l-Scalar-Plain">RASI</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+        <span class="l l-Scalar l-Scalar-Plain">LPSI</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+        <span class="l l-Scalar l-Scalar-Plain">RPSI</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+        <span class="l l-Scalar l-Scalar-Plain">RTHI</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+        <span class="l l-Scalar l-Scalar-Plain">RKNE</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+        <span class="l l-Scalar l-Scalar-Plain">RTHAP</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+        <span class="l l-Scalar l-Scalar-Plain">RTHAD</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+        <span class="l l-Scalar l-Scalar-Plain">RTIB</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+        <span class="l l-Scalar l-Scalar-Plain">RANK</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+        <span class="l l-Scalar l-Scalar-Plain">RTIAP</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+        <span class="l l-Scalar l-Scalar-Plain">RTIAD</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+        <span class="l l-Scalar l-Scalar-Plain">RHEE</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+        <span class="l l-Scalar l-Scalar-Plain">RSMH</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">0</span>
+        <span class="l l-Scalar l-Scalar-Plain">RTOE</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+        <span class="l l-Scalar l-Scalar-Plain">RFMH</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+        <span class="l l-Scalar l-Scalar-Plain">RVMH</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+        <span class="l l-Scalar l-Scalar-Plain">LTHI</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+        <span class="l l-Scalar l-Scalar-Plain">LKNE</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+        <span class="l l-Scalar l-Scalar-Plain">LTHAP</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+        <span class="l l-Scalar l-Scalar-Plain">LTHAD</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+        <span class="l l-Scalar l-Scalar-Plain">LTIB</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+        <span class="l l-Scalar l-Scalar-Plain">LANK</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+        <span class="l l-Scalar l-Scalar-Plain">LTIAP</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+        <span class="l l-Scalar l-Scalar-Plain">LTIAD</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+        <span class="l l-Scalar l-Scalar-Plain">LHEE</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+        <span class="l l-Scalar l-Scalar-Plain">LSMH</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">0</span>
+        <span class="l l-Scalar l-Scalar-Plain">LTOE</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+        <span class="l l-Scalar l-Scalar-Plain">LFMH</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+        <span class="l l-Scalar l-Scalar-Plain">LVMH</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+        <span class="l l-Scalar l-Scalar-Plain">RTHLD</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">0</span>
+        <span class="l l-Scalar l-Scalar-Plain">RPAT</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">0</span>
+        <span class="l l-Scalar l-Scalar-Plain">LTHLD</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">0</span>
+        <span class="l l-Scalar l-Scalar-Plain">LPAT</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">0</span>
+
+
+
+<span class="c1">################</span>
+<span class="c1"># DO NOT TOUCH #</span>
+<span class="c1">################</span>
+
+<span class="l l-Scalar l-Scalar-Plain">ModelVersion</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">CGM2.4</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="cgm-2-5-settings">
+<h2>CGM 2.5 Settings.<a class="headerlink" href="#cgm-2-5-settings" title="Permalink to this headline">¶</a></h2>
+<p>These settings define a uniform weight set for the inverse kinematics.</p>
+<div class="admonition danger">
+<p class="first admonition-title">Danger</p>
+<p class="last">By default, the CGM2.5 uses an inverse kinematics solver. The option <em>EnableIK</em> allow to disable Inverse Kinematics.
+In this case, the CGM2.5 works as a 6-Dof model</p>
+</div>
+<div class="highlight-yaml"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">Global</span><span class="p p-Indicator">:</span>
+  <span class="l l-Scalar l-Scalar-Plain">Marker diameter</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">14</span> <span class="c1">#[double]</span>
+  <span class="l l-Scalar l-Scalar-Plain">Point suffix</span><span class="p p-Indicator">:</span>  <span class="l l-Scalar l-Scalar-Plain">None</span> <span class="c1">#[string]</span>
+  <span class="l l-Scalar l-Scalar-Plain">EnableIK</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span> <span class="c1">#[integer](choice: 0 or 1):  enable  the Inverse Kinematics solver</span>
+
+<span class="l l-Scalar l-Scalar-Plain">Translators</span><span class="p p-Indicator">:</span> <span class="c1"># Translators adapt your current marker set</span>
+    <span class="l l-Scalar l-Scalar-Plain">LASI</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span> <span class="c1">#[string]</span>
+    <span class="l l-Scalar l-Scalar-Plain">RASI</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LPSI</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RPSI</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RTHI</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RKNE</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RTIAP</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RTIAD</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RTIB</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RANK</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RTIAP</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RTIAD</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RHEE</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RSMH</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RTOE</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RFMH</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RVMH</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LTHI</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LKNE</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LTHAP</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LTHAD</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LTIB</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LANK</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LTIAP</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LTIAD</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LHEE</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LSMH</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LTOE</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LFMH</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LVMH</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RKNM</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LKNM</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RMED</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LMED</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">C7</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">T2</span> <span class="c1"># cf Armand et al.2013 https://doi.org/10.1016/j.gaitpost.2013.06.016</span>
+    <span class="l l-Scalar l-Scalar-Plain">T10</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">CLAV</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">STRN</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">CLAV</span>
+    <span class="l l-Scalar l-Scalar-Plain">LFHD</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">GLAB</span> <span class="c1">#Eames et al.1999 10.1016/S0167-9457(99)00022-6</span>
+    <span class="l l-Scalar l-Scalar-Plain">LBHD</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">LMAS</span>
+    <span class="l l-Scalar l-Scalar-Plain">RFHD</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">GLAB</span>
+    <span class="l l-Scalar l-Scalar-Plain">RBHD</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">RMAS</span>
+    <span class="l l-Scalar l-Scalar-Plain">LSHO</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LELB</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LWRB</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LWRA</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">LFIN</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RSHO</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RELB</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RWRB</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RWRA</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+    <span class="l l-Scalar l-Scalar-Plain">RFIN</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+
+<span class="l l-Scalar l-Scalar-Plain">Calibration</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">HJC</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">Left</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Hara</span> <span class="c1">#[string](choice: Hara only)</span>
+        <span class="l l-Scalar l-Scalar-Plain">Right</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Hara</span>
+    <span class="l l-Scalar l-Scalar-Plain">Left flat foot</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">1 [integer]</span>
+    <span class="l l-Scalar l-Scalar-Plain">Right flat foot</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+
+<span class="l l-Scalar l-Scalar-Plain">Fitting</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">Moment Projection</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">JCS</span> <span class="c1">#[string](choice: Proximal, Global, Distal, JCS)</span>
+    <span class="l l-Scalar l-Scalar-Plain">Weight</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">LASI</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span> <span class="c1">#[double]: marker weight used by the Inverse Kinematics solver</span>
+        <span class="l l-Scalar l-Scalar-Plain">RASI</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+        <span class="l l-Scalar l-Scalar-Plain">LPSI</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+        <span class="l l-Scalar l-Scalar-Plain">RPSI</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+        <span class="l l-Scalar l-Scalar-Plain">RTHI</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+        <span class="l l-Scalar l-Scalar-Plain">RKNE</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+        <span class="l l-Scalar l-Scalar-Plain">RTHAP</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+        <span class="l l-Scalar l-Scalar-Plain">RTHAD</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+        <span class="l l-Scalar l-Scalar-Plain">RTIB</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+        <span class="l l-Scalar l-Scalar-Plain">RANK</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+        <span class="l l-Scalar l-Scalar-Plain">RTIAP</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+        <span class="l l-Scalar l-Scalar-Plain">RTIAD</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+        <span class="l l-Scalar l-Scalar-Plain">RHEE</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+        <span class="l l-Scalar l-Scalar-Plain">RSMH</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">0</span>
+        <span class="l l-Scalar l-Scalar-Plain">RTOE</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+        <span class="l l-Scalar l-Scalar-Plain">RFMH</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+        <span class="l l-Scalar l-Scalar-Plain">RVMH</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+        <span class="l l-Scalar l-Scalar-Plain">LTHI</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+        <span class="l l-Scalar l-Scalar-Plain">LKNE</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+        <span class="l l-Scalar l-Scalar-Plain">LTHAP</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+        <span class="l l-Scalar l-Scalar-Plain">LTHAD</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+        <span class="l l-Scalar l-Scalar-Plain">LTIB</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+        <span class="l l-Scalar l-Scalar-Plain">LANK</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+        <span class="l l-Scalar l-Scalar-Plain">LTIAP</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+        <span class="l l-Scalar l-Scalar-Plain">LTIAD</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+        <span class="l l-Scalar l-Scalar-Plain">LHEE</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+        <span class="l l-Scalar l-Scalar-Plain">LSMH</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">0</span>
+        <span class="l l-Scalar l-Scalar-Plain">LTOE</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+        <span class="l l-Scalar l-Scalar-Plain">LFMH</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+        <span class="l l-Scalar l-Scalar-Plain">LVMH</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+        <span class="l l-Scalar l-Scalar-Plain">RTHLD</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">0</span>
+        <span class="l l-Scalar l-Scalar-Plain">RPAT</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">0</span>
+        <span class="l l-Scalar l-Scalar-Plain">LTHLD</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">0</span>
+        <span class="l l-Scalar l-Scalar-Plain">LPAT</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">0</span>
+
+
+
+<span class="c1">################</span>
+<span class="c1"># DO NOT TOUCH #</span>
+<span class="c1">################</span>
+
+<span class="l l-Scalar l-Scalar-Plain">ModelVersion</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">CGM2.5</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="emg-settings">
+<h2>EMG Settings.<a class="headerlink" href="#emg-settings" title="Permalink to this headline">¶</a></h2>
+<p>This setting propose a typical emg configuration in clinical gait analysis.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Adapt it to your practice</p>
+</div>
+<p>In the proposed configuration, your 3D data collection software will define emg signals as ENG1, EMG2...EMG16.
+The EMG1 is located on the Left Rectus femoris and its normal activities (RECFEM) will be displayed in the background</p>
+<div class="highlight-yaml"><div class="highlight"><pre><span></span><span class="c1">########## EMG configuration ##########</span>
+<span class="c1"># The configuration below considers the emg signals are named EMG1,EMG2... EMG16 in your c3d.</span>
+<span class="c1"># items:</span>
+<span class="c1">#  - &quot;Muscle&quot; is the name of the muscle where is placed the emg device</span>
+<span class="c1">#  - &quot;Context&quot; indicates if you want to plot on a left or right gait cycle.</span>
+<span class="c1">#  - &quot;NormalActivity&quot; defines the muscle whose normal activity will be plotted in background.</span>
+<span class="c1">#     Values are the normal adult activities defined in Vicon Clinical Manager.</span>
+<span class="c1">#     you can select :</span>
+<span class="c1">#         -ADDBRE</span>
+<span class="c1">#         -ADDLON</span>
+<span class="c1">#         -ADDMAG</span>
+<span class="c1">#         -BICFEM</span>
+<span class="c1">#         -CALF</span>
+<span class="c1">#         -EXTDIGLON</span>
+<span class="c1">#         -EXTHALLON</span>
+<span class="c1">#         -FLEDIGLON</span>
+<span class="c1">#         -FLEHALLON</span>
+<span class="c1">#         -GASTRO</span>
+<span class="c1">#         -GLUMAX</span>
+<span class="c1">#         -GLUMED</span>
+<span class="c1">#         -GLUMIN</span>
+<span class="c1">#         -GRACIL</span>
+<span class="c1">#         -HAMSTR</span>
+<span class="c1">#         -HIPABD</span>
+<span class="c1">#         -HIPADD</span>
+<span class="c1">#         -HIPEXT</span>
+<span class="c1">#         -HIPFLE</span>
+<span class="c1">#         -ILIACU</span>
+<span class="c1">#         -ILIOPS</span>
+<span class="c1">#         -LATHAM</span>
+<span class="c1">#         -LATQUA</span>
+<span class="c1">#         -MEDHAM</span>
+<span class="c1">#         -MEDQUA</span>
+<span class="c1">#         -PERBRE</span>
+<span class="c1">#         -PERLON</span>
+<span class="c1">#         -POPLIT</span>
+<span class="c1">#         -RECFEM</span>
+<span class="c1">#         -SARTOR</span>
+<span class="c1">#         -SEMIME</span>
+<span class="c1">#         -SEMITE</span>
+<span class="c1">#         -SOLEUS</span>
+<span class="c1">#         -TENFACLAT</span>
+<span class="c1">#         -TIBANT</span>
+<span class="c1">#         -TIBPOS</span>
+<span class="c1">#         -VASINT</span>
+<span class="c1">#         -VASLAT</span>
+<span class="c1">#         -VASMEDLON</span>
+<span class="c1">#         -VASMEDOBL</span>
+<span class="c1">########## EMG configuration ##########</span>
+
+
+
+<span class="l l-Scalar l-Scalar-Plain">CHANNELS</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">EMG1</span> <span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">Muscle</span> <span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">RECFEM</span> <span class="c1">#[string]</span>
+        <span class="l l-Scalar l-Scalar-Plain">Context</span> <span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Left</span> <span class="c1">#[string](choice: Left or Right)</span>
+        <span class="l l-Scalar l-Scalar-Plain">NormalActivity</span> <span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">RECFEM</span> <span class="c1">#[string](choice: see above)</span>
+
+    <span class="l l-Scalar l-Scalar-Plain">EMG2</span> <span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">Muscle</span> <span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">RECFEM</span>
+        <span class="l l-Scalar l-Scalar-Plain">Context</span> <span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Right</span>
+        <span class="l l-Scalar l-Scalar-Plain">NormalActivity</span> <span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">RECFEM</span>
+
+    <span class="l l-Scalar l-Scalar-Plain">EMG3</span> <span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">Muscle</span> <span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">VASLAT</span>
+        <span class="l l-Scalar l-Scalar-Plain">Context</span> <span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Left</span>
+        <span class="l l-Scalar l-Scalar-Plain">NormalActivity</span> <span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">VASLAT</span>
+
+    <span class="l l-Scalar l-Scalar-Plain">EMG4</span> <span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">Muscle</span> <span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">VASLAT</span>
+        <span class="l l-Scalar l-Scalar-Plain">Context</span> <span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Right</span>
+        <span class="l l-Scalar l-Scalar-Plain">NormalActivity</span> <span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">VASLAT</span>
+
+    <span class="l l-Scalar l-Scalar-Plain">EMG5</span> <span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">Muscle</span> <span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">SEMITE</span>
+        <span class="l l-Scalar l-Scalar-Plain">Context</span> <span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Left</span>
+        <span class="l l-Scalar l-Scalar-Plain">NormalActivity</span> <span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">SEMITE</span>
+
+    <span class="l l-Scalar l-Scalar-Plain">EMG6</span> <span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">Muscle</span> <span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">SEMITE</span>
+        <span class="l l-Scalar l-Scalar-Plain">Context</span> <span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Right</span>
+        <span class="l l-Scalar l-Scalar-Plain">NormalActivity</span> <span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">SEMITE</span>
+
+    <span class="l l-Scalar l-Scalar-Plain">EMG7</span> <span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">Muscle</span> <span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">TIBANT</span>
+        <span class="l l-Scalar l-Scalar-Plain">Context</span> <span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Left</span>
+        <span class="l l-Scalar l-Scalar-Plain">NormalActivity</span> <span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">TIBANT</span>
+
+    <span class="l l-Scalar l-Scalar-Plain">EMG8</span> <span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">Muscle</span> <span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">TIBANT</span>
+        <span class="l l-Scalar l-Scalar-Plain">Context</span> <span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Right</span>
+        <span class="l l-Scalar l-Scalar-Plain">NormalActivity</span> <span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">TIBANT</span>
+
+    <span class="l l-Scalar l-Scalar-Plain">EMG9</span> <span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">Muscle</span> <span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">SOLEUS</span>
+        <span class="l l-Scalar l-Scalar-Plain">Context</span> <span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Left</span>
+        <span class="l l-Scalar l-Scalar-Plain">NormalActivity</span> <span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">SOLEUS</span>
+
+    <span class="l l-Scalar l-Scalar-Plain">EMG10</span> <span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">Muscle</span> <span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">SOLEUS</span>
+        <span class="l l-Scalar l-Scalar-Plain">Context</span> <span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Right</span>
+        <span class="l l-Scalar l-Scalar-Plain">NormalActivity</span> <span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">SOLEUS</span>
+
+    <span class="l l-Scalar l-Scalar-Plain">EMG11</span> <span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">Muscle</span> <span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+        <span class="l l-Scalar l-Scalar-Plain">Context</span> <span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+        <span class="l l-Scalar l-Scalar-Plain">NormalActivity</span> <span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+
+    <span class="l l-Scalar l-Scalar-Plain">EMG12</span> <span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">Muscle</span> <span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+        <span class="l l-Scalar l-Scalar-Plain">Context</span> <span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+        <span class="l l-Scalar l-Scalar-Plain">NormalActivity</span> <span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+
+    <span class="l l-Scalar l-Scalar-Plain">EMG13</span> <span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">Muscle</span> <span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+        <span class="l l-Scalar l-Scalar-Plain">Context</span> <span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+        <span class="l l-Scalar l-Scalar-Plain">NormalActivity</span> <span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+
+    <span class="l l-Scalar l-Scalar-Plain">EMG14</span> <span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">Muscle</span> <span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+        <span class="l l-Scalar l-Scalar-Plain">Context</span> <span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+        <span class="l l-Scalar l-Scalar-Plain">NormalActivity</span> <span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+
+    <span class="l l-Scalar l-Scalar-Plain">EMG15</span> <span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">Muscle</span> <span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+        <span class="l l-Scalar l-Scalar-Plain">Context</span> <span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+        <span class="l l-Scalar l-Scalar-Plain">NormalActivity</span> <span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+
+    <span class="l l-Scalar l-Scalar-Plain">EMG16</span> <span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">Muscle</span> <span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+        <span class="l l-Scalar l-Scalar-Plain">Context</span> <span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+        <span class="l l-Scalar l-Scalar-Plain">NormalActivity</span> <span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+
+
+<span class="c1">################</span>
+<span class="c1"># ADVANCED     #</span>
+<span class="c1">################</span>
+
+<span class="l l-Scalar l-Scalar-Plain">Processing</span><span class="p p-Indicator">:</span>
+  <span class="l l-Scalar l-Scalar-Plain">BandpassFrequencies</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">[</span><span class="nv">20</span><span class="p p-Indicator">,</span><span class="nv">200</span><span class="p p-Indicator">]</span> <span class="c1">#[array of two double]: frequencies of the bandpass filter</span>
+  <span class="l l-Scalar l-Scalar-Plain">EnvelopLowpassFrequency</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">6</span> <span class="c1">#[double]: emg envelop frequency</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="nexusOperations.html" class="btn btn-neutral float-right" title="Nexus Operations" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to pyCGM2 documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Fabien Leboeuf
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
