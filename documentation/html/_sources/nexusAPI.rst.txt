@@ -3,5 +3,6 @@ Nexus API
 ========================================================
 
 
+
 .. autoclass:: ViconNexus.ViconNexus
     :members:
