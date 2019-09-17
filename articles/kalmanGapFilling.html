@@ -103,6 +103,12 @@ CGM2.i            </a>
                         </ul>
                         </li>
                         <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Qtm Apps <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="/pages/qtmApps.html">Available Apps </a></li>
+                        </ul>
+                        </li>
+                        <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Doc <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="/documentation/html/index.html">API</a></li>
@@ -199,11 +205,11 @@ CGM2.i            </a>
 </li>
 </ul>
 <p>Learning-based approaches attempt to identify appropriate gap filling algorithms by learning about the motion of markers from large quantities of example data. With the rise of machine learning, it is likely that more and more learning-based approaches to motion capture gap filling will be proposed. Users of these approaches should always try to make themselves aware of the range of data and behaviours used to train these models, as they are unlikely to be effective if used on motions that differ significantly from those used for training.</p>
-<h2 id="how-mogapfill-works">How Mogapfill works</h2>
+<h2 id="how mogapfill works">How Mogapfill works</h2>
 <p>MoGapFill is a learning-based approach, which uses good frames (those motion capture frames where all markers are visible) in a capture sequence to identify how markers tend to move together. This knowledge is captured by trying to find a low dimensional space that is able to describe the motion of groups of markers more efficiently. Markers are then tracked in this space, and knowledge of how related markers move is used to make assumptions about the trajectories missing markers may have followed.</p>
 <p>Embed video: https://youtu.be/YZBeNKQumxI</p>
 <p>For example, consider four markers placed on a leg. It is likely that these markers would tend to move together in a standard gait sequence, since they are linked by a relatively rigid limb. Learning how these markers move together allows us to predict where a missing fourth marker may have moved, using the three remaining markers on the limb.</p>
-<h2 id="when-to-use-it">When to use it?</h2>
+<h2 id="when to use it?">When to use it?</h2>
 <p>In general, there is no perfect gap filling method suited for every experiment of capture process, but the following guidelines can help.</p>
 <p>Simple interpolation schemes are best for very small or short gaps (&lt; 1 s). More complex schemes like MoGapFill are best for longer gaps.</p>
 <p><img alt="kalmanGapFillingMarkers" src="/images/articles/kalmanFilter/markersFilling.png" width="25%"/></p>
@@ -223,13 +229,6 @@ CGM2.i            </a>
         <aside>
 
 <section class="well well-sm">
-        <li class="list-group-item"><h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Sponsors</span></h4>
-    <li class="list-group-item">
-        <ul class="list-group" id="links">
-            <img width="100%" class="img-thumbnail" src="/images/logo/vicon.jpg"/>
-            <img width="100%" class="img-thumbnail" src="/images/logo/salford.png"/>
-        </ul>
-    </li>
     <ul class="list-group list-group-flush">
 
             <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Recent Posts</span></h4>
@@ -257,6 +256,26 @@ CGM2.i            </a>
                 <ul class="list-group " id="tags">
                 </ul>
             </li>
+        <li class="list-group-item"><h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Main Sponsors</span></h4>
+    <li class="list-group-item">
+        <ul class="list-group" id="links">
+            <img width="100%" class="img-thumbnail" src="/images/logo/vicon.jpg"/>
+            <img width="100%" class="img-thumbnail" src="/images/logo/salford.png"/>
+        </ul>
+    </li>
+        <li class="list-group-item"><h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Secondary Partners</span></h4>
+    <li class="list-group-item">
+        <ul class="list-group" id="links">
+            <img width="100%" class="img-thumbnail" src="/images/logo/qualisys.png"/>
+            <img width="100%" class="img-thumbnail" src="/images/logo/trinoma.png"/>
+        </ul>
+    </li>
+        <li class="list-group-item"><h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Academic Partners</span></h4>
+    <li class="list-group-item">
+        <ul class="list-group" id="links">
+            <img width="100%" class="img-thumbnail" src="/images/logo/unige.png"/>
+        </ul>
+    </li>
     <li class="list-group-item"><h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Links</span></h4>
       <ul class="list-group" id="links">
         <li class="list-group-item">

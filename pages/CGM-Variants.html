@@ -97,6 +97,12 @@ CGM2.i            </a>
                         </ul>
                         </li>
                         <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Qtm Apps <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="/pages/qtmApps.html">Available Apps </a></li>
+                        </ul>
+                        </li>
+                        <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Doc <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="/documentation/html/index.html">API</a></li>
@@ -151,7 +157,7 @@ CGM2.i            </a>
 <section class="well well-sm">
     <aside>
             <nav class="toc">
-            <div id="toc"><ul><li><a class="toc-href" href="#" title="Variants">Variants</a><ul><li><a class="toc-href" href="#knee-alignment-device" title="Knee Alignment Device.">Knee Alignment Device.</a></li><li><a class="toc-href" href="#medial-epicondyle-and-malleolar-markers" title="Medial epicondyle and malleolar markers">Medial epicondyle and malleolar markers</a></li><li><a class="toc-href" href="#dynamic-knee-calibration" title="Dynamic knee calibration">Dynamic knee calibration</a></li><li><a class="toc-href" href="#pelvic-width-from-asis-markers" title="Pelvic width from ASIS markers">Pelvic width from ASIS markers</a></li><li><a class="toc-href" href="#three-dimensional-foot-segment" title="Three dimensional foot segment">Three dimensional foot segment</a></li><li><a class="toc-href" href="#footflat-and-footwear-pitch" title="Footflat and footwear pitch">Footflat and footwear pitch</a></li><li><a class="toc-href" href="#upper-body-model" title="Upper body model">Upper body model</a></li></ul></li></ul></div>
+            <div id="toc"><ul><li><a class="toc-href" href="#" title="Variants">Variants</a><ul><li><a class="toc-href" href="#knee alignment device." title="Knee Alignment Device.">Knee Alignment Device.</a></li><li><a class="toc-href" href="#medial epicondyle and malleolar markers" title="Medial epicondyle and malleolar markers">Medial epicondyle and malleolar markers</a></li><li><a class="toc-href" href="#dynamic knee calibration" title="Dynamic knee calibration">Dynamic knee calibration</a></li><li><a class="toc-href" href="#pelvic width from asis markers" title="Pelvic width from ASIS markers">Pelvic width from ASIS markers</a></li><li><a class="toc-href" href="#three dimensional foot segment" title="Three dimensional foot segment">Three dimensional foot segment</a></li><li><a class="toc-href" href="#footflat and footwear pitch" title="Footflat and footwear pitch">Footflat and footwear pitch</a></li><li><a class="toc-href" href="#upper body model" title="Upper body model">Upper body model</a></li></ul></li></ul></div>
             </nav>
     </aside>
 </section>      </div>
@@ -162,7 +168,7 @@ CGM2.i            </a>
         
         <div class="entry-content">
             <p>A number of different groups have suggested a range of variants to the CGM although few of them have been formally described or validated in the academic literature.</p>
-<h3 id="knee-alignment-device">Knee Alignment Device.</h3>
+<h3 id="knee alignment device.">Knee Alignment Device.</h3>
 <p>Implementation of the original model assumed that the thigh and tibial wands could be placed accurately which proved extremely difficult in practice. To overcame this an alignment jig was developed that could be applied to the patient's knees in standing in such a way that a wand protruding laterally (the yellow arrow superimposed on the figure below) runs parallel to the knee joint axis.</p>
 <figure align="middle">
 <a href="http://www.clinicalgaitanalysis.com/faq/reliability/">
@@ -176,86 +182,45 @@ CGM2.i            </a>
 <li> The <em>femur rotation offset</em> specifies by what angle the femur wand marker likes out of the coronal plane of the femur.</li>
 <li> The <em>shank rotation offset</em> specifies by what angle the tibia wand marker lies out of the coronal plane of the tibia. In order to work this out, however, the system needs to know how much <em>tibial torsion</em> is present (the angle between knee joint axis and ankle joint axis projected onto the transverse plane of the tibia). This is measured as part of a brief physical examination conducted before the session.
 </li></ul>
-<h3 id="medial-epicondyle-and-malleolar-markers">Medial epicondyle and malleolar markers</h3>
+<h3 id="medial epicondyle and malleolar markers">Medial epicondyle and malleolar markers</h3>
 <p>The KAD was developed when the small number of cameras that could be used to make measurements made it impossible to detect the position of medial knee and ankle markers. Once these became available placing medial and lateral epicondyle and malleolar markers became a sensible alternative for indicating the position of the knee and ankle joint axes during static calibration as a basis for calculating the same offsets as had previously been derived from the KAD.</p>
 <p>Some centres already using the KAD used it to define the knee joint axis and a medial malleolar marker to define the ankle axis. In this way tibial torsion could be calculated from marker positions as either an alternative to a physical examination measure or as a confirmation of it.</p>
-<h3 id="dynamic-knee-calibration">Dynamic knee calibration</h3>
+<h3 id="dynamic knee calibration">Dynamic knee calibration</h3>
 <p>An alternative to the KAD is presented by analysing how the knee moves in a dynamic calibration trial to determine the location of the physiological knee joint axis. Baker et al. (<a href="http://dx.doi.org/10.1016/S0167-9457(99%2900027-5)">1999</a> proposed finding the axis thigh rotation offset that minimises the variance of the knee ab/adduction curve using a technique he called DynaKAD. A range of other, more sophisiticated techniques have since been suggested (e.g. <a href="http://dx.doi.org/10.1016/10.1016/j.jbiomech.2004.03.009">Schwartz and Rozumalski, 2005</a>; <a href="http://dx.doi.org/10.1016/j.jbiomech.2006.10.026">Ehrig et al.</a>). Recent validation studies suggest that DynaKAD gives the closest agreement to both ultrasound (<a href="http://dx.doi.org/10.1016/j.gaitpost.2016.02.006">Passmore and Sangeux, 2016</a>) and low does biplanar radiographic measures of anatomical knee joint axis (<a href="http://dx.doi.org/10.1016/j.jbiomech.2006.10.026">Sauret et al. 2016</a>).</p>
-<h3 id="pelvic-width-from-asis-markers">Pelvic width from ASIS markers</h3>
+<h3 id="pelvic width from asis markers">Pelvic width from ASIS markers</h3>
 <p>As originally described pelvic width (the distance from one ASIS landmark to the other) was measured on physical examination. An alternative is to measure the distance beween the corresponding markers. The accuracy of this process clearly depends on the accuracy of marker placement.</p>
-<h3 id="three-dimensional-foot-segment">Three dimensional foot segment</h3>
+<h3 id="three dimensional foot segment">Three dimensional foot segment</h3>
 <p>The heel marker was originally only intended to allow the calculation of foot offsets during a static calibration trial. Leaving the marker on during walking, however, provides a reference point allowing in/eversion of the foot to be calculated (rotation about the long axis of the foot).</p>
-<h3 id="footflat-and-footwear-pitch">Footflat and footwear pitch</h3>
+<h3 id="footflat and footwear pitch">Footflat and footwear pitch</h3>
 <p>Placing the heel marker at the correct height to calculate the plantarflexion offset during the static trial is not required if the patient can stand with their foot flat on the floor. If this is the case then calculating the offset with the true horizontal plane is more accurate and often used. A variant to this for people wearing shoes is to measure or estimate the pitch of the shoe (the angle that the plantar surface on the foot inside the shoe makes with the sole of the shoe outside it) and entering this as an offset to be taken into account when calculating the plantarflexion from the horizontal plane.</p>
-<h3 id="upper-body-model">Upper body model</h3>
+<h3 id="upper body model">Upper body model</h3>
 <p>As noted previously Vicon released an upper body model as part of PiG. This has never been properly validated and is beyond the scope of this documentation.</p>
         </div>
     </section>
     </div>
     <div class="col-sm-2 sidenav">
         <aside>
-
-<section class="well well-sm">
-        <li class="list-group-item"><h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Sponsors</span></h4>
+        <li class="list-group-item"><h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Main Sponsors</span></h4>
     <li class="list-group-item">
         <ul class="list-group" id="links">
             <img width="100%" class="img-thumbnail" src="/images/logo/vicon.jpg"/>
             <img width="100%" class="img-thumbnail" src="/images/logo/salford.png"/>
         </ul>
     </li>
-    <ul class="list-group list-group-flush">
-
-            <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Recent Posts</span></h4>
-                <ul class="list-group" id="recentposts">
-                    <li class="list-group-item">
-                        <a href="/articles/kalmanGapFilling.html">
-                            Estimating missing marker positions using low dimensional Kalman smoothing
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="/articles/btk.html">
-                            Btk
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="/articles/matlab.html">
-                            Matlab Users
-                        </a>
-                    </li>
-                </ul>
-            </li>
-
-
-            <li class="list-group-item"><a href="/tags.html"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
-                <ul class="list-group " id="tags">
-                </ul>
-            </li>
-    <li class="list-group-item"><h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Links</span></h4>
-      <ul class="list-group" id="links">
-        <li class="list-group-item">
-            <a href="http://www.salford.ac.uk/health-sciences/facilities/gait-analysis-clinic" target="_blank">
-                Salford Gait Analysis
-            </a>
-        </li>
-        <li class="list-group-item">
-            <a href="https://www.vicon.com/" target="_blank">
-                Vicon
-            </a>
-        </li>
-        <li class="list-group-item">
-            <a href="https://www.researchgate.net/project/Conventional-Gait-Model-2" target="_blank">
-                ResearchGate Project page
-            </a>
-        </li>
-        <li class="list-group-item">
-            <a href="https://wwrichard.net/" target="_blank">
-                Walking with Richard
-            </a>
-        </li>
-      </ul>
+        <li class="list-group-item"><h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Secondary Partners</span></h4>
+    <li class="list-group-item">
+        <ul class="list-group" id="links">
+            <img width="100%" class="img-thumbnail" src="/images/logo/qualisys.png"/>
+            <img width="100%" class="img-thumbnail" src="/images/logo/trinoma.png"/>
+        </ul>
     </li>
-    </ul>
-</section>        </aside>
+        <li class="list-group-item"><h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Academic Partners</span></h4>
+    <li class="list-group-item">
+        <ul class="list-group" id="links">
+            <img width="100%" class="img-thumbnail" src="/images/logo/unige.png"/>
+        </ul>
+    </li>
+        </aside>
     </div>
   </div>
 </div>

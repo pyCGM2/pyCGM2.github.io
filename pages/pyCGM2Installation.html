@@ -13,13 +13,13 @@
 <link rel="canonical" href="/pages/pyCGM2Installation.html">
 
         <meta name="author" content="Fabien Leboeuf" />
-        <meta name="description" content="Once your python environment set up, you can proceed with installation of the pyCGM2 package. Follow these steps to proceed with the installation of pyCGM2 Step 1 : Install Vicon Nexus Go to Vicon website and install the last version of Nexus. Notice pyCGM2 is compatible with Nexus 2.7 and …" />
+        <meta name="description" content="Vicon Nexus 2.9 now embeds pyCGM2(version 3.2.9) and all its dependancies. You don t need to install python too. In case, you want to work with your own python environment and use the current version of pyCGM2, follow the next guidelines Once your python environment set …" />
 
     <meta property="og:site_name" content="CGM2.i" />
     <meta property="og:type" content="article"/>
     <meta property="og:title" content="PyCGM2 Installation"/>
     <meta property="og:url" content="/pages/pyCGM2Installation.html"/>
-    <meta property="og:description" content="Once your python environment set up, you can proceed with installation of the pyCGM2 package. Follow these steps to proceed with the installation of pyCGM2 Step 1 : Install Vicon Nexus Go to Vicon website and install the last version of Nexus. Notice pyCGM2 is compatible with Nexus 2.7 and …" />
+    <meta property="og:description" content="Vicon Nexus 2.9 now embeds pyCGM2(version 3.2.9) and all its dependancies. You don t need to install python too. In case, you want to work with your own python environment and use the current version of pyCGM2, follow the next guidelines Once your python environment set …" />
 
 
     <!-- Bootstrap -->
@@ -97,6 +97,12 @@ CGM2.i            </a>
                         </ul>
                         </li>
                         <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Qtm Apps <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="/pages/qtmApps.html">Available Apps </a></li>
+                        </ul>
+                        </li>
+                        <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Doc <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="/documentation/html/index.html">API</a></li>
@@ -151,7 +157,7 @@ CGM2.i            </a>
 <section class="well well-sm">
     <aside>
             <nav class="toc">
-            <div id="toc"><ul><li><a class="toc-href" href="#" title="PyCGM2 Installation">PyCGM2 Installation</a><ul><li><a class="toc-href" href="#step-1-install-vicon-nexus" title="Step 1 : Install Vicon Nexus">Step 1 : Install Vicon Nexus</a></li><li><a class="toc-href" href="#step-2-install-pycgm2" title="Step 2 : Install pyCGM2">Step 2 : Install pyCGM2</a></li><li><a class="toc-href" href="#step-3-there-is-no-reason-to-carry-out-this-step" title="Step 3 : There is no reason to carry out this step !!">Step 3 : There is no reason to carry out this step !!</a></li></ul></li></ul></div>
+            <div id="toc"><ul><li><a class="toc-href" href="#" title="PyCGM2 Installation">PyCGM2 Installation</a><ul><li><a class="toc-href" href="#step 1 : install vicon nexus" title="Step 1 : Install Vicon Nexus">Step 1 : Install Vicon Nexus</a></li><li><a class="toc-href" href="#step 2 : install pycgm2" title="Step 2 : Install pyCGM2">Step 2 : Install pyCGM2</a></li><li><a class="toc-href" href="#step 3 : there is no reason to carry out this step !!" title="Step 3 : There is no reason to carry out this step !!">Step 3 : There is no reason to carry out this step !!</a></li></ul></li></ul></div>
             </nav>
     </aside>
 </section>      </div>
@@ -161,9 +167,14 @@ CGM2.i            </a>
         <h1 class="entry-title">PyCGM2 Installation</h1>
         
         <div class="entry-content">
-            <p>Once your python environment set up, you can proceed with installation of the pyCGM2 package.</p>
+            <div class="alert alert-dismissible alert-secondary">
+<b> Vicon Nexus 2.9 now embeds pyCGM2(version 3.2.9) and all its dependancies. You don t need to install python too.</b>
+
+    In case, you want to work with your own python environment and use the current version of pyCGM2, follow the next guidelines
+</div>
+<p>Once your python environment set up, you can proceed with installation of the pyCGM2 package.</p>
 <p>Follow these steps to proceed with the installation of pyCGM2</p>
-<h2 id="step-1-install-vicon-nexus">Step 1 : Install Vicon Nexus</h2>
+<h2 id="step 1 : install vicon nexus">Step 1 : Install Vicon Nexus</h2>
 <ul>
 <li>Go to Vicon website and install the last <a href="https://www.vicon.com/downloads/software/nexus">version of Nexus</a>.</li>
 </ul>
@@ -173,11 +184,11 @@ CGM2.i            </a>
 <ul>
 <li>run Nexus.</li>
 </ul>
-<h2 id="step-2-install-pycgm2">Step 2 : Install pyCGM2</h2>
+<h2 id="step 2 : install pycgm2">Step 2 : Install pyCGM2</h2>
 <ul>
 <li>
 <p>Download the last release of pyCGM2
-   <p><a class="btn btn-primary btn-lg" href="https://github.com/pyCGM2/pyCGM2/releases/tag/version3.1.7">pyCGM2- version 3.1.7</a></p></p>
+   <p><a class="btn btn-primary btn-lg" href="https://github.com/pyCGM2/pyCGM2/releases/tag/version(3.2.9)">pyCGM2-version 3.2.9</a></p></p>
 </li>
 <li>
 <p>With the Window file explorer, go to your downloaded file and unzip it</p>
@@ -187,75 +198,34 @@ CGM2.i            </a>
 <p>Eventually, the pyCGM2 package will be placed into the dedicated folder of any python library (<em>...\Lib\site-packages</em>).
 The installer will also create a new pyCGM2 folder in <strong>c:/programData</strong> and will copy convenient nexus files (i.e. vst or pipeline) into the folder
 <strong>C:/Users/Public/Documents/Vicon/Nexus2.x</strong></p>
-<h2 id="step-3-there-is-no-reason-to-carry-out-this-step">Step 3 : There is no reason to carry out this step !!</h2>
+<h2 id="step 3 : there is no reason to carry out this step !!">Step 3 : There is no reason to carry out this step !!</h2>
 <p>In case you face with any issues during installation, we invite you to post details of your issues throught the <a href="">Github</a></p>
         </div>
     </section>
     </div>
     <div class="col-sm-2 sidenav">
         <aside>
-
-<section class="well well-sm">
-        <li class="list-group-item"><h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Sponsors</span></h4>
+        <li class="list-group-item"><h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Main Sponsors</span></h4>
     <li class="list-group-item">
         <ul class="list-group" id="links">
             <img width="100%" class="img-thumbnail" src="/images/logo/vicon.jpg"/>
             <img width="100%" class="img-thumbnail" src="/images/logo/salford.png"/>
         </ul>
     </li>
-    <ul class="list-group list-group-flush">
-
-            <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Recent Posts</span></h4>
-                <ul class="list-group" id="recentposts">
-                    <li class="list-group-item">
-                        <a href="/articles/kalmanGapFilling.html">
-                            Estimating missing marker positions using low dimensional Kalman smoothing
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="/articles/btk.html">
-                            Btk
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="/articles/matlab.html">
-                            Matlab Users
-                        </a>
-                    </li>
-                </ul>
-            </li>
-
-
-            <li class="list-group-item"><a href="/tags.html"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
-                <ul class="list-group " id="tags">
-                </ul>
-            </li>
-    <li class="list-group-item"><h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Links</span></h4>
-      <ul class="list-group" id="links">
-        <li class="list-group-item">
-            <a href="http://www.salford.ac.uk/health-sciences/facilities/gait-analysis-clinic" target="_blank">
-                Salford Gait Analysis
-            </a>
-        </li>
-        <li class="list-group-item">
-            <a href="https://www.vicon.com/" target="_blank">
-                Vicon
-            </a>
-        </li>
-        <li class="list-group-item">
-            <a href="https://www.researchgate.net/project/Conventional-Gait-Model-2" target="_blank">
-                ResearchGate Project page
-            </a>
-        </li>
-        <li class="list-group-item">
-            <a href="https://wwrichard.net/" target="_blank">
-                Walking with Richard
-            </a>
-        </li>
-      </ul>
+        <li class="list-group-item"><h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Secondary Partners</span></h4>
+    <li class="list-group-item">
+        <ul class="list-group" id="links">
+            <img width="100%" class="img-thumbnail" src="/images/logo/qualisys.png"/>
+            <img width="100%" class="img-thumbnail" src="/images/logo/trinoma.png"/>
+        </ul>
     </li>
-    </ul>
-</section>        </aside>
+        <li class="list-group-item"><h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Academic Partners</span></h4>
+    <li class="list-group-item">
+        <ul class="list-group" id="links">
+            <img width="100%" class="img-thumbnail" src="/images/logo/unige.png"/>
+        </ul>
+    </li>
+        </aside>
     </div>
   </div>
 </div>

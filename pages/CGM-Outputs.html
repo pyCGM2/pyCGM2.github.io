@@ -97,6 +97,12 @@ CGM2.i            </a>
                         </ul>
                         </li>
                         <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Qtm Apps <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="/pages/qtmApps.html">Available Apps </a></li>
+                        </ul>
+                        </li>
+                        <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Doc <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="/documentation/html/index.html">API</a></li>
@@ -151,7 +157,7 @@ CGM2.i            </a>
 <section class="well well-sm">
     <aside>
             <nav class="toc">
-            <div id="toc"><ul><li><a class="toc-href" href="#" title="Outputs">Outputs</a><ul><li><a class="toc-href" href="#kinematic-outputs" title="Kinematic outputs">Kinematic outputs</a></li><li><a class="toc-href" href="#pelvis" title=" Pelvis"> Pelvis</a></li><li><a class="toc-href" href="#hip" title=" Hip"> Hip</a></li><li><a class="toc-href" href="#knee" title=" Knee"> Knee</a></li><li><a class="toc-href" href="#ankle" title=" Ankle"> Ankle</a></li><li><a class="toc-href" href="#kinetic-outputs" title="Kinetic outputs">Kinetic outputs</a></li></ul></li></ul></div>
+            <div id="toc"><ul><li><a class="toc-href" href="#" title="Outputs">Outputs</a><ul><li><a class="toc-href" href="#kinematic outputs" title="Kinematic outputs">Kinematic outputs</a></li><li><a class="toc-href" href="#pelvis" title=" Pelvis"> Pelvis</a></li><li><a class="toc-href" href="#hip" title=" Hip"> Hip</a></li><li><a class="toc-href" href="#knee" title=" Knee"> Knee</a></li><li><a class="toc-href" href="#ankle" title=" Ankle"> Ankle</a></li><li><a class="toc-href" href="#kinetic outputs" title="Kinetic outputs">Kinetic outputs</a></li></ul></li></ul></div>
             </nav>
     </aside>
 </section>      </div>
@@ -161,7 +167,7 @@ CGM2.i            </a>
         <h1 class="entry-title">Outputs</h1>
         
         <div class="entry-content">
-            <h2 id="kinematic-outputs">Kinematic outputs</h2>
+            <h2 id="kinematic outputs">Kinematic outputs</h2>
 <p>The primary kinematic outputs are the three dimensional joint angles representing the orientation of the distal segment with respect to the proximal segment. The CGM also outputs the three dimensional segment angles (in relation to the global axis system) for the pelvis and the transverse plane component for the foot (foot progression). All three dimensional angles are represented using Cardan angles which can generally be more easily visualised as globographic angles (Baker,<a href="http://dx.doi.org/10.1016/j.jbiomech.2011.04.031">2011</a>).</p>
 <p>As originally described the pelvic segment angles were described using the same Cardan sequence as the joint angles. Baker (<a href="http://dx.doi.org/10.1016/S0966-6362(00%2900083-7)">2001</a>, however,  has pointed out that this results pelvic angles that differ from the conventional clinical understanding of the angles and that reversing the Cardan sequence would rectify this (confirmed by <a href="C:\Users\hls302\Dropbox\Active files\GitHub\pyCGM2io\content\reference files\Foti 2001 G&amp;P (Pelvic angles%29.pdf)">Foti et al., 2001</a>. This is the approach described in the sequence below but it should be noted that most implementations of the CGM still adopt the original approach.</p>
 <table>
@@ -219,7 +225,7 @@ CGM2.i            </a>
     Foot progression is defined similarly to ankle rotation except that the angle is calculated relative to the global coordinate system rather than the tibia.
   </td></tr>
 </td></tr></table>
-<h2 id="kinetic-outputs">Kinetic outputs</h2>
+<h2 id="kinetic outputs">Kinetic outputs</h2>
 <p>If force plate data is avaiable then inverse dynamics can be used to calculate the moments at each joint (the net joint forces can also be calcualated but have not clear clinical interpretation).</p>
 <p>One of the differences between the Newington and Helen Hayes variants was that Newington took body segment inertial parameters from the work of Dempster et al (1955, <a href="http://www.dtic.mil/dtic/tr/fulltext/u2/087892.pdf">full report</a>), whereas Helen Hayes used data from Hinrichs et al. (<a href="http://dx.doi.org/10.1016/0021-9290(85&amp;2990016-8)">1985</a> which was based on the measurments of Clauser et al. (11969, <a href="http://www.dtic.mil/dtic/tr/fulltext/u2/710622.pdf">full report</a>). Joint moments are generally insnesitive to the choice of such parameters (<a href="http://dx.doi.org/10.1016/j.jbiomech.2005.04.014">Rao et al. 2006</a>, [Pearsall et al. 1999](http://dx.doi.org/10.1016/S0966-6362(99%2900011-9) and only minor diferences would thus be anticipated in the outputs. VCM use data from Dempster et al.</p>
 <p>Joint moments are presented as the compononents along orthogonal coordiante systems. Precisely which coordiante system was not specified in the original papers but the VCM defaulted to that of the distal segment (whilst giving the user an option to specifiy the proximal segment or the global coordiante system as alternatives).</p>
@@ -231,68 +237,27 @@ CGM2.i            </a>
     </div>
     <div class="col-sm-2 sidenav">
         <aside>
-
-<section class="well well-sm">
-        <li class="list-group-item"><h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Sponsors</span></h4>
+        <li class="list-group-item"><h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Main Sponsors</span></h4>
     <li class="list-group-item">
         <ul class="list-group" id="links">
             <img width="100%" class="img-thumbnail" src="/images/logo/vicon.jpg"/>
             <img width="100%" class="img-thumbnail" src="/images/logo/salford.png"/>
         </ul>
     </li>
-    <ul class="list-group list-group-flush">
-
-            <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Recent Posts</span></h4>
-                <ul class="list-group" id="recentposts">
-                    <li class="list-group-item">
-                        <a href="/articles/kalmanGapFilling.html">
-                            Estimating missing marker positions using low dimensional Kalman smoothing
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="/articles/btk.html">
-                            Btk
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="/articles/matlab.html">
-                            Matlab Users
-                        </a>
-                    </li>
-                </ul>
-            </li>
-
-
-            <li class="list-group-item"><a href="/tags.html"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
-                <ul class="list-group " id="tags">
-                </ul>
-            </li>
-    <li class="list-group-item"><h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Links</span></h4>
-      <ul class="list-group" id="links">
-        <li class="list-group-item">
-            <a href="http://www.salford.ac.uk/health-sciences/facilities/gait-analysis-clinic" target="_blank">
-                Salford Gait Analysis
-            </a>
-        </li>
-        <li class="list-group-item">
-            <a href="https://www.vicon.com/" target="_blank">
-                Vicon
-            </a>
-        </li>
-        <li class="list-group-item">
-            <a href="https://www.researchgate.net/project/Conventional-Gait-Model-2" target="_blank">
-                ResearchGate Project page
-            </a>
-        </li>
-        <li class="list-group-item">
-            <a href="https://wwrichard.net/" target="_blank">
-                Walking with Richard
-            </a>
-        </li>
-      </ul>
+        <li class="list-group-item"><h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Secondary Partners</span></h4>
+    <li class="list-group-item">
+        <ul class="list-group" id="links">
+            <img width="100%" class="img-thumbnail" src="/images/logo/qualisys.png"/>
+            <img width="100%" class="img-thumbnail" src="/images/logo/trinoma.png"/>
+        </ul>
     </li>
-    </ul>
-</section>        </aside>
+        <li class="list-group-item"><h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Academic Partners</span></h4>
+    <li class="list-group-item">
+        <ul class="list-group" id="links">
+            <img width="100%" class="img-thumbnail" src="/images/logo/unige.png"/>
+        </ul>
+    </li>
+        </aside>
     </div>
   </div>
 </div>
