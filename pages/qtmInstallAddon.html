@@ -2,7 +2,7 @@
 <html lang="english"
 >
 <head>
-    <title>Definitions - CGM2.i</title>
+    <title>CGM2 - QTM Installation add-on - CGM2.i</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -10,16 +10,16 @@
 
 
 
-<link rel="canonical" href="/pages/CGM-Definitions.html">
+<link rel="canonical" href="/pages/qtmInstallAddon.html">
 
         <meta name="author" content="Fabien Leboeuf" />
-        <meta name="description" content="The original descriptions of the CGM referred to it as “a data collection and reduction technique” (Davis, 1981 and an &#34;an algorithm for computing lower extremity joint motion&#34; (Kadaba, 1990). There is a strong argument that, as originally described, the CGM, is not actually a biomechanical model. This page thus …" />
+        <meta name="description" content="Installation add-on For an optimal use of pyCGM2-qtm workflows, install Mokka and the Qualisys gait web report uploader in addition to pyCGM2 Mokka : MOtion Kinematics and Kinetics Analyser download Mokka unzip the downloaded folder add the folder to your windows path variable Gait web report uploader download paf-web-report-uploader from the …" />
 
     <meta property="og:site_name" content="CGM2.i" />
     <meta property="og:type" content="article"/>
-    <meta property="og:title" content="Definitions"/>
-    <meta property="og:url" content="/pages/CGM-Definitions.html"/>
-    <meta property="og:description" content="The original descriptions of the CGM referred to it as “a data collection and reduction technique” (Davis, 1981 and an &#34;an algorithm for computing lower extremity joint motion&#34; (Kadaba, 1990). There is a strong argument that, as originally described, the CGM, is not actually a biomechanical model. This page thus …" />
+    <meta property="og:title" content="CGM2 - QTM Installation add-on"/>
+    <meta property="og:url" content="/pages/qtmInstallAddon.html"/>
+    <meta property="og:description" content="Installation add-on For an optimal use of pyCGM2-qtm workflows, install Mokka and the Qualisys gait web report uploader in addition to pyCGM2 Mokka : MOtion Kinematics and Kinetics Analyser download Mokka unzip the downloaded folder add the folder to your windows path variable Gait web report uploader download paf-web-report-uploader from the …" />
 
 
     <!-- Bootstrap -->
@@ -157,25 +157,44 @@ CGM2.i            </a>
       <div class="col-sm-2" id="sidebar">
 <section class="well well-sm">
     <aside>
+            <nav class="toc">
+            <div id="toc"><ul><li><a class="toc-href" href="#" title="CGM2 - QTM Installation add-on">CGM2 - QTM Installation add-on</a><ul><li><a class="toc-href" href="#installation add-on" title="Installation add-on">Installation add-on</a></li></ul></li></ul></div>
+            </nav>
     </aside>
 </section>      </div>
     <div class="col-sm-8 text-left">
     <section id="content" class="body">
 
-        <h1 class="entry-title">Definitions</h1>
+        <h1 class="entry-title">CGM2 - QTM Installation add-on</h1>
         
         <div class="entry-content">
-            <p>The original descriptions of the CGM referred to it as &ldquo;a data collection and reduction technique&rdquo; (<a href="http://dx.doi.org/10.1016/0167-9457(91%2990046-Z)">Davis, 1981</a> and an "an algorithm for computing lower extremity joint motion" (<a href="http://dx.doi.org/10.1002/jor.1100080310">Kadaba, 1990</a>). There is a strong argument that, as originally described, the CGM, is not actually a biomechanical model. This page thus aims to describe the concepts in a manner which is consistent with both the original description and a contemporary understanding of biomechanical modelling.</p>
-<p>The mode is best described in four stages:
+            <h2 id="installation add-on">Installation add-on</h2>
+<p>For an optimal use of pyCGM2-qtm workflows,  install <strong>Mokka</strong> and the <strong>Qualisys gait web report uploader</strong> in addition to pyCGM2</p>
+<p><strong>Mokka : MOtion Kinematics and Kinetics Analyser</strong></p>
 <ul>
-<li> Overview of the <a href="/pages/CGM-Chain.html">basic kinematic chain</a> of segments.</li>
-<li><a href="/pages/CGM-Segments.html">Definition of the segments</a> in terms of the underlying anatomy.</li>
-<li><a href="/pages/CGM-Markers.html">Description of placement of markers</a> consistent with the anatomical segment definitions.</li>
-<li>Description of <a href="/pages/CGM-Outputs.html">model outputs</a>.</li>
-<li><a href="/pages/CGM-Variants.html">Variants</a>.</li>.
+<li>download <a href="https://biomechanical-toolkit.github.io/mokka/">Mokka</a></li>
+<li>unzip the downloaded folder</li>
+<li>add the folder to your <a href="https://docs.alfresco.com/4.2/tasks/fot-addpath.html">windows path variable</a></li>
 </ul>
-<p></p>
-Proceed to <a href="/pages/CGM-Chain.html">overview of kinematic chain</a>.</p>
+<p><strong>Gait web report uploader</strong></p>
+<ul>
+<li>download <a href="https://github.com/qualisys/paf-web-report-uploader">paf-web-report-uploader</a>
+ from the Qualisys github folder</li>
+<li>open a window console</li>
+<li>go to your local folder</li>
+<li>type the command
+ <code>python setup.py install</code></li>
+</ul>
+<p>the package called <strong>qtmWebGaitReport</strong> will be added to you python libraries (i.e into the folder <em>YOUR_PYTHON_CORE_PATH\Lib\site-packages\qtmWebGaitReport-(version)-py2.7.egg</em>).</p>
+<p>the final steps consist in configuring your qualisys.com credentials to log in to Report Center (https://report.qualisys.com)</p>
+<ul>
+<li>edit a file <em>config.json</em> in the folder <em>YOUR_PYTHON_CORE_PATH\Lib\site-packages\qtmWebGaitReport-(version-py2.7.egg)</em> with the following content</li>
+</ul>
+<p><code>{
+    "baseUrl" : "https://report.qualisys.com",
+    "clientId" : "YOUR ID",
+    "token" : YOUR TOKEN"
+  }</code></p>
         </div>
     </section>
     </div>

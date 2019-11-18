@@ -13,13 +13,13 @@
 <link rel="canonical" href="/pages/pyCGM2Installation.html">
 
         <meta name="author" content="Fabien Leboeuf" />
-        <meta name="description" content="Vicon Nexus 2.9 now embeds pyCGM2(version 3.2.9) and all its dependancies. You don t need any installation. In case, you want to work with your own python environment and use the latest version of pyCGM2, you can follow the steps of the next section Reminder: pyCGM2 …" />
+        <meta name="description" content="Vicon Nexus 2.9 now embeds pyCGM2(version 3.2.9) and all its dependancies. You don t need any installation. In case, you want to work with your own python environment and use the latest version of pyCGM2, you can follow the steps of the next section In case …" />
 
     <meta property="og:site_name" content="CGM2.i" />
     <meta property="og:type" content="article"/>
     <meta property="og:title" content="PyCGM2 Installation"/>
     <meta property="og:url" content="/pages/pyCGM2Installation.html"/>
-    <meta property="og:description" content="Vicon Nexus 2.9 now embeds pyCGM2(version 3.2.9) and all its dependancies. You don t need any installation. In case, you want to work with your own python environment and use the latest version of pyCGM2, you can follow the steps of the next section Reminder: pyCGM2 …" />
+    <meta property="og:description" content="Vicon Nexus 2.9 now embeds pyCGM2(version 3.2.9) and all its dependancies. You don t need any installation. In case, you want to work with your own python environment and use the latest version of pyCGM2, you can follow the steps of the next section In case …" />
 
 
     <!-- Bootstrap -->
@@ -99,6 +99,7 @@ CGM2.i            </a>
                         <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Qtm Apps <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
+                            <li><a href="/pages/qtmInstallAddon.html">Installation addon </a></li>
                             <li><a href="/pages/qtmApps.html">Available Apps </a></li>
                         </ul>
                         </li>
@@ -156,6 +157,9 @@ CGM2.i            </a>
       <div class="col-sm-2" id="sidebar">
 <section class="well well-sm">
     <aside>
+            <nav class="toc">
+            <div id="toc"><ul><li><a class="toc-href" href="#" title="PyCGM2 Installation">PyCGM2 Installation</a><ul><li><a class="toc-href" href="#installation" title="Installation">Installation</a></li><li><a class="toc-href" href="#notes" title="Notes">Notes</a></li></ul></li></ul></div>
+            </nav>
     </aside>
 </section>      </div>
     <div class="col-sm-8 text-left">
@@ -169,7 +173,17 @@ CGM2.i            </a>
 <br/>
     In case, you want to work with <b>your own python environment</b> and use the <b>latest version</b> of pyCGM2, you can follow the steps of the next section
 </div>
-<p class="text-danger">Reminder: pyCGM2 is compatible with <b>Nexus 2.7 and later only</b></p>
+<div class="alert alert-dismissible alert-warning">
+<p class="mb-0">In case you face with any issues during installation, we invite you to post details of your issues into the <a class="alert-link" href="https://github.com/pyCGM2/pyCGM2/issues">Github issue page</a>.</p>
+</div>
+<p class="text-danger">Reminder, pyCGM2 is
+<ul>
+<li class="text-danger">compatible with python2.7 only</li>
+<li class="text-danger">compatible with Vicon Nexus 2.7 and later </li>
+<li class="text-danger"> tested with Qualisys qtm 2019.3 </li>
+</ul>
+</p>
+<h2 id="installation">Installation</h2>
 <ul>
 <li>
 <p>Download the last release of pyCGM2
@@ -182,10 +196,15 @@ CGM2.i            </a>
 </ul>
 <p>Eventually, the pyCGM2 package will be placed into the dedicated folder of any python libraries (i.e <em>YOUR_PYTHON_CORE_PATH\Lib\site-packages</em>).
 The installer will create a new pyCGM2 folder in <strong>c:/programData</strong> gathering all settings.   </p>
+<h2 id="notes">Notes</h2>
+<ul>
+<li>
 <p><strong>For Vicon user only,</strong> the installer will copy convenient nexus files (i.e. vst or pipelines) into the folder <strong>C:/Users/Public/Documents/Vicon/Nexus2.x</strong></p>
-<div class="alert alert-dismissible alert-warning">
-<p class="mb-0">In case you face with any issues during installation, we invite you to post details of your issues into the <a class="alert-link" href="https://github.com/pyCGM2/pyCGM2/issues">Github issue page</a>.</p>
-</div>
+</li>
+<li>
+<p><strong>For Qualisys user only,</strong> an optimal use of pyCGM2 qtm workflow requires installation of extra dependancies (see <a href="./qtmInstallAddon.html">here</a> )  </p>
+</li>
+</ul>
         </div>
     </section>
     </div>
