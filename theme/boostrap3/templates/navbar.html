@@ -1,0 +1,66 @@
+<div class="navbar {% if BOOTSTRAP_NAVBAR_INVERSE %}navbar-inverse{% else %}navbar-default{% endif %} navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="{{ SITEURL }}/" class="navbar-brand">
+                {% if SITELOGO %}<img src="{{ SITEURL }}/{{ SITELOGO }}" width="{{ SITELOGO_SIZE }}"/> {% endif %}
+                {% if not HIDE_SITENAME %}{{ SITENAME }}{% endif %}
+            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                <!-- navbar from MENUITEMS -->
+                {% for title, link in MENUITEMS %}
+                    <li><a href="{{ link }}">{{ title }}</a></li>
+                {% endfor %}
+
+                <!-- navbar from MENU ( my MODIFICATION) -->
+                {% for level in MENU %}
+                    {% if MENU[level] is mapping %}
+                        <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{level}} <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                        {% for level2 in MENU[level] %}
+                            <li><a href="{{ MENU[level][level2] }}">{{ level2 }}</a></li>
+                        {% endfor %}
+                        </ul>
+                        </li>
+                    {% else %}
+                        <li><a href="{{ MENU[level] }}">{{ level }}</a></li>
+                    {% endif %}
+                {% endfor %}
+
+                {% if DISPLAY_PAGES_ON_MENU %}
+                    {% for p in PAGES %}
+                         <li{% if p == page %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ p.url }}">
+                             {{ p.menulabel|default(p.title) }}
+                          </a></li>
+                      {% endfor %}
+                {% endif %}
+                {% if DISPLAY_CATEGORIES_ON_MENU %}
+                    {% for cat, null in categories %}
+                        <li {% if cat == category %}class="active"{% endif %}>
+                            <a href="{{ SITEURL }}/{{ cat.url }}">{{ cat | capitalize }}</a>
+                        </li>
+                    {% endfor %}
+                {% endif %}
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+            {% if 'tipue_search' in PLUGINS %}
+              <li><span>
+                <form class="navbar-search" action="/search">
+                  <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input" required>
+                </form></span>
+              </li>
+            {% endif %}
+              <li><a href="{{ SITEURL }}/{{ ARCHIVES_URL | default('archives.html') }}"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->

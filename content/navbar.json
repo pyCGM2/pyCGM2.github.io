@@ -1,0 +1,49 @@
+{
+    "How to" : {
+      "Set-up your python system" : "/pages/pythonInstallation.html" ,
+      "Install pyCGM2" : "/pages/pyCGM2Installation.html"
+    },
+    "Background" : {
+        "CGM History" : "/pages/CGM-History.html",
+        "Definitions" : "/pages/CGM-Definitions.html",
+        "Strengths" : "/pages/CGM-Strengths.html",
+        "Weaknesses" : "/pages/CGM-Weaknesses.html",
+        "Updating the CGM" : "/pages/CGM2-General.html",
+        "CGM References" : "/pages/CGM-References.html"
+    },
+    "CGM1" : {
+      "CGM1.0" : "/pages/CGM10.html" ,
+      "CGM1.1" : "/pages/CGM11.html"
+    },
+    "CGM2" : {
+      "CGM2.1-HJC" : "/pages/CGM21-Overview.html",
+      "CGM2.2-IK" : "/pages/CGM22-Overview.html",
+      "CGM2.3-skinClusters" : "/pages/CGM23-Overview.html",
+      "CGM2.4-ForeFoot" : "/pages/CGM24-Overview.html",
+      "CGM2.5-UpperLimb" : "/pages/CGM25-Overview.html",
+      "CGM2.6-KneeCalibration" : "/pages/CGM26-Overview.html"
+    },
+    "Nexus Apps" : {
+      "Guidelines" : "/pages/nexusAppGuidelines.html",
+      "Available Apps " : "/pages/nexusApps.html",
+      "Vicon Nexus Ressources" : "/pages/NexusRessources.html"
+    },
+    "Qtm Apps" : {
+      "Available Apps " : "/pages/qtmApps.html"
+    },
+    "Doc" : {
+      "API" : "/documentation/html/index.html"
+    },
+    "Resources" : {
+        "Clinical Gait Analysis" : "/pages/clinicalGaitAnalysis.html",
+        "Palpation" : "/pages/Palpation.html",
+        "OpenAccess data" : "/pages/Open-access-Gait-Data.html"
+    },
+    "Support" : "/pages/support.html",
+    "Join us" : {
+        "Contribute" : "/pages/contribute.html",
+        "Contact" : "/pages/contactus.html"
+    },
+    "Team" : "/pages/team.html",
+    "Blog" : "/pages/articleRecentList.html"
+}
