@@ -1,0 +1,26 @@
+========================================================
+Third party package
+========================================================
+
+Btk (Biomechanical toolkit)
+========================================
+
+`Btk Documentation API <http://biomechanical-toolkit.github.io/docs/Wrapping/Python/>`_
+
+
+OpenMotionAnalysis (openma)
+========================================
+
+`OpenMA API <http://openma.org/docs/>`_
+
+OpenSim
+========================================
+
+
+.. warning:: pyCGM2 calls Opensim 3 ( version 4.0 has not been tested yet)
+
+
+`OpenSim API <https://simtk.org/api_docs/opensim/api_docs33/index.html>`_
+
+
+_
