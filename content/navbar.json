@@ -29,6 +29,7 @@
       "Vicon Nexus Ressources" : "/pages/NexusRessources.html"
     },
     "Qtm Apps" : {
+      "Installation addon " : "/pages/qtmInstallAddon.html",
       "Available Apps " : "/pages/qtmApps.html"
     },
     "Doc" : {
