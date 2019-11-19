@@ -8,6 +8,14 @@ Return to all [available Nexus apps](/pages/nexusApps.html#list-of-available-app
 
 ---
 
+
+<div class="alert alert-dismissible alert-warning">
+  <h4 class="alert-heading">Warning</h4>
+  <p class="mb-0">All Nexus Apps decribed in this website is related to <b>the use of pyCGM2 as external libraries of Vicon Nexus</b>.
+  <br>
+  If you want to use the Nexus-embedded pyCGM2 code, please refer to your Vicon Nexus documentation </p>
+</div>
+
 pyCGM2 proposes convenient operations for processing and then plotting EMG.
 
 You can display :
@@ -21,7 +29,7 @@ You can display :
 ![envEmg](/images/emg/emgEnvelop.png){ width=25% }
 
 
-<div class="alert alert-dismissible alert-warning">
+<div class="alert alert-dismissible alert-primary">
 First, set your own settings or adapt your emg acquisition software to our settings
 </div>
 

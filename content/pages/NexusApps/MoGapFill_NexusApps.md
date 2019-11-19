@@ -2,6 +2,13 @@ Title: Gap Filling
 Slug: MoGapFill
 
 
+<div class="alert alert-dismissible alert-warning">
+  <h4 class="alert-heading">Warning</h4>
+  <p class="mb-0">All Nexus Apps decribed in this website is related to <b>the use of pyCGM2 as external libraries of Vicon Nexus</b>.
+  <br>
+  If you want to use the Nexus-embedded pyCGM2 code, please refer to your Vicon Nexus documentation </p>
+</div>
+
 Nexus proposes different gap filling methods. An approach published in Journal of Biomechanics, by Burke and Lasenby give accurate results.
 
 The proposed method is based on **Low dimensional Kalman Filter**.

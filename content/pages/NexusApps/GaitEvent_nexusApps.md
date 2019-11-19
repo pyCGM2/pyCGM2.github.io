@@ -1,6 +1,12 @@
 Title: Kinematic-based algorithms
 Slug: KinematicBasedAlgorithms
 
+<div class="alert alert-dismissible alert-warning">
+  <h4 class="alert-heading">Warning</h4>
+  <p class="mb-0">All Nexus Apps decribed in this website is related to <b>the use of pyCGM2 as external libraries of Vicon Nexus</b>.
+  <br>
+  If you want to use the Nexus-embedded pyCGM2 code, please refer to your Vicon Nexus documentation </p>
+</div>
 
 
 A **kinematic-based algorithm**, detecting Gait events regardless of Force plate measurement
@@ -16,7 +22,7 @@ https://doi.org/10.1016/j.gaitpost.2007.07.007
 
 ## Nexus pipeline
 
-<div class="alert alert-dismissible alert-warning">
+<div class="alert alert-dismissible alert-primary">
 <p class="mb-0"> In the current version, the pyCGM2 function requires standard CGM markers :
 LPSI, RPSI, LHEE, LTOE, RHEE, RTOE
 </div>

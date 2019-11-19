@@ -2,32 +2,13 @@ Title: Nexus Application Guidelines
 Slug: nexusAppGuidelines
 
 
-
-## Recommandations
-
-<div class="alert alert-dismissible alert-danger">
-  <p class="mb-0">Check your travelling axis. It must  be either X or Y, not Z !! </p>
+<div class="alert alert-dismissible alert-warning">
+  <h4 class="alert-heading">Warning</h4>
+  <p class="mb-0">All Nexus Apps decribed in this website is related to <b>the use of pyCGM2 as external libraries of Vicon Nexus</b>.
+  <br>
+  If you want to use the Nexus-embedded pyCGM2 code, please refer to your Vicon Nexus documentation </p>
 </div>
 
-
-As far as it goes, we recommand this pratice for performing any pyCGM2 applicatons :
-
- * work with **gap-free trial**. Zero-values might corrupt the Inverse kinematics processing especially
- * **crop your trial** to a zone of interest.  .
- * if you manually edit gait events, **start with a Foot strike**
- * Convenient gait plot panels are displayed if you have previously detected both **foot strike** and **foot off**
-
- <div class="alert alert-dismissible alert-danger">
-    The code detects if you are working with :
-    <ul>
-    <li>Lower Limbs</li>
-    <li>Lower Limbs + trunk</li>
-    <li>Full body</li>
-    <li>Trunk + Upper Limbs</li>
-    </ul>
-    <p class="mb-0">For each of these configurations, the code will return an error if one segment is missing. </p>
-
- </div>
 
 ## Functionality
 

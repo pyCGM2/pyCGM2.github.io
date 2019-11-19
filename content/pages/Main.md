@@ -51,9 +51,20 @@ There is also a growing repository of [c3d files](/pages/Open-access-Gait-Data.h
 
  1. [Set up your python environment](/pages/pythonInstallation)
  2. [Install the pyCGM2 package](/pages/pyCGM2Installation)
- 3. Take time to read [basic explanations](pages/nexusAppGuidelines.html) of **how the code works** and how you can **interact** with it
- 4. Be aware of our **Recommandations** for processing your data
- 5. Try one of our pyCGM2 Applications
+ 3. Take time to read [best practice](pages/bestPractice.html)
+ 4. Try one of our pyCGM2 Applications
+
+
+ <div class="alert alert-dismissible alert-warning">
+   If you are a vicon user and don t want to use Nexus-embedded pyCGM2 code</h4>
+   <p class="mb-0">Take also time to read <a href="pages/nexusAppGuidelines.html" class="alert-link">basic explanations </a>.to know <b>how the code works</b> and how you can <b>interact</b> with it</p>
+ </div>
+
+
+
+
+
+Take time to read basic explanations of how the code works and how you can interact with it
 
 ## Contribute
 

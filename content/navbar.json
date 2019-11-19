@@ -1,7 +1,8 @@
 {
     "How to" : {
       "Set-up your python system" : "/pages/pythonInstallation.html" ,
-      "Install pyCGM2" : "/pages/pyCGM2Installation.html"
+      "Install pyCGM2" : "/pages/pyCGM2Installation.html",
+      "Best practice" : "/pages/bestPractice.html"
     },
     "Background" : {
         "CGM History" : "/pages/CGM-History.html",
@@ -33,7 +34,7 @@
       "Available Apps " : "/pages/qtmApps.html"
     },
     "Doc" : {
-      "API" : "/documentation/html/index.html"
+      "API" : "https://pycgm2.github.io/Documentation/html/index.html"
     },
     "Resources" : {
         "Clinical Gait Analysis" : "/pages/clinicalGaitAnalysis.html",

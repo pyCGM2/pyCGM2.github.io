@@ -8,6 +8,13 @@ Return to all [available Nexus apps](/pages/nexusApps.html#list-of-available-app
 
 ---
 
+<div class="alert alert-dismissible alert-warning">
+  <h4 class="alert-heading">Warning</h4>
+  <p class="mb-0">All Nexus Apps decribed in this website is related to <b>the use of pyCGM2 as external libraries of Vicon Nexus</b>.
+  <br>
+  If you want to use the Nexus-embedded pyCGM2 code, please refer to your Vicon Nexus documentation </p>
+</div>
+
 This [CGM2 version](/pages/CGM21-Overview.html) altered the Hip Joint centre in accordiance with **Hara's regressions**
 
 
@@ -25,7 +32,7 @@ This [CGM2 version](/pages/CGM21-Overview.html) altered the Hip Joint centre in 
 The CGM2.1 settings are located at *C:/programData/pyCGM2*
 
 
-<div class="alert alert-dismissible alert-warning">
+<div class="alert alert-dismissible alert-primary">
 <p>By default, settings:</p>
 <ul>
 <li>enable the flat foot option</li>
