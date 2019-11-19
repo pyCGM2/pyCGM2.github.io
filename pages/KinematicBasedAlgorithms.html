@@ -13,13 +13,13 @@
 <link rel="canonical" href="/pages/KinematicBasedAlgorithms.html">
 
         <meta name="author" content="Fabien Leboeuf" />
-        <meta name="description" content="A kinematic-based algorithm, detecting Gait events regardless of Force plate measurement Zeni&#39;s methods Reference Zeni, J.A., Richards, J.G., Higginson, J.S., 2008. Two simple methods for determining gait events during treadmill and overground walking using kinematic data 27, 710–714. https://doi.org/10.1016/j.gaitpost.2007 …" />
+        <meta name="description" content="Warning All Nexus Apps decribed in this website is related to the use of pyCGM2 as external libraries of Vicon Nexus. If you want to use the Nexus-embedded pyCGM2 code, please refer to your Vicon Nexus documentation A kinematic-based algorithm, detecting Gait events regardless of Force plate measurement Zeni&#39;s methods …" />
 
     <meta property="og:site_name" content="CGM2.i" />
     <meta property="og:type" content="article"/>
     <meta property="og:title" content="Kinematic-based algorithms"/>
     <meta property="og:url" content="/pages/KinematicBasedAlgorithms.html"/>
-    <meta property="og:description" content="A kinematic-based algorithm, detecting Gait events regardless of Force plate measurement Zeni&#39;s methods Reference Zeni, J.A., Richards, J.G., Higginson, J.S., 2008. Two simple methods for determining gait events during treadmill and overground walking using kinematic data 27, 710–714. https://doi.org/10.1016/j.gaitpost.2007 …" />
+    <meta property="og:description" content="Warning All Nexus Apps decribed in this website is related to the use of pyCGM2 as external libraries of Vicon Nexus. If you want to use the Nexus-embedded pyCGM2 code, please refer to your Vicon Nexus documentation A kinematic-based algorithm, detecting Gait events regardless of Force plate measurement Zeni&#39;s methods …" />
 
 
     <!-- Bootstrap -->
@@ -57,6 +57,7 @@ CGM2.i            </a>
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="/pages/pythonInstallation.html">Set-up your python system</a></li>
                             <li><a href="/pages/pyCGM2Installation.html">Install pyCGM2</a></li>
+                            <li><a href="/pages/bestPractice.html">Best practice</a></li>
                         </ul>
                         </li>
                         <li class="dropdown">
@@ -106,7 +107,7 @@ CGM2.i            </a>
                         <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Doc <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="/documentation/html/index.html">API</a></li>
+                            <li><a href="https://pycgm2.github.io/Documentation/html/index.html">API</a></li>
                         </ul>
                         </li>
                         <li class="dropdown">
@@ -168,7 +169,13 @@ CGM2.i            </a>
         <h1 class="entry-title">Kinematic-based algorithms</h1>
         
         <div class="entry-content">
-            <p>A <strong>kinematic-based algorithm</strong>, detecting Gait events regardless of Force plate measurement</p>
+            <div class="alert alert-dismissible alert-warning">
+<h4 class="alert-heading">Warning</h4>
+<p class="mb-0">All Nexus Apps decribed in this website is related to <b>the use of pyCGM2 as external libraries of Vicon Nexus</b>.
+  <br/>
+  If you want to use the Nexus-embedded pyCGM2 code, please refer to your Vicon Nexus documentation </p>
+</div>
+<p>A <strong>kinematic-based algorithm</strong>, detecting Gait events regardless of Force plate measurement</p>
 <h2 id="zeni's methods">Zeni's methods</h2>
 <h3 id="reference">Reference</h3>
 <blockquote>
@@ -178,7 +185,7 @@ and overground walking using kinematic data 27, 710&ndash;714.
 https://doi.org/10.1016/j.gaitpost.2007.07.007</p>
 </blockquote>
 <h2 id="nexus pipeline_1">Nexus pipeline</h2>
-<div class="alert alert-dismissible alert-warning">
+<div class="alert alert-dismissible alert-primary">
 <p class="mb-0"> In the current version, the pyCGM2 function requires standard CGM markers :
 LPSI, RPSI, LHEE, LTOE, RHEE, RTOE
 </p></div>

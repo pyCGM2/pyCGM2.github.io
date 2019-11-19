@@ -13,13 +13,13 @@
 <link rel="canonical" href="/pages/nexusAppGuidelines.html">
 
         <meta name="author" content="Fabien Leboeuf" />
-        <meta name="description" content="Recommandations Check your travelling axis. It must be either X or Y, not Z !! As far as it goes, we recommand this pratice for performing any pyCGM2 applicatons : work with gap-free trial. Zero-values might corrupt the Inverse kinematics processing especially crop your trial to a zone of interest. . if you …" />
+        <meta name="description" content="Warning All Nexus Apps decribed in this website is related to the use of pyCGM2 as external libraries of Vicon Nexus. If you want to use the Nexus-embedded pyCGM2 code, please refer to your Vicon Nexus documentation Functionality pyCGM2 operations were designed on the basis of the C3d format file …" />
 
     <meta property="og:site_name" content="CGM2.i" />
     <meta property="og:type" content="article"/>
     <meta property="og:title" content="Nexus Application Guidelines"/>
     <meta property="og:url" content="/pages/nexusAppGuidelines.html"/>
-    <meta property="og:description" content="Recommandations Check your travelling axis. It must be either X or Y, not Z !! As far as it goes, we recommand this pratice for performing any pyCGM2 applicatons : work with gap-free trial. Zero-values might corrupt the Inverse kinematics processing especially crop your trial to a zone of interest. . if you …" />
+    <meta property="og:description" content="Warning All Nexus Apps decribed in this website is related to the use of pyCGM2 as external libraries of Vicon Nexus. If you want to use the Nexus-embedded pyCGM2 code, please refer to your Vicon Nexus documentation Functionality pyCGM2 operations were designed on the basis of the C3d format file …" />
 
 
     <!-- Bootstrap -->
@@ -57,6 +57,7 @@ CGM2.i            </a>
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="/pages/pythonInstallation.html">Set-up your python system</a></li>
                             <li><a href="/pages/pyCGM2Installation.html">Install pyCGM2</a></li>
+                            <li><a href="/pages/bestPractice.html">Best practice</a></li>
                         </ul>
                         </li>
                         <li class="dropdown">
@@ -106,7 +107,7 @@ CGM2.i            </a>
                         <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Doc <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="/documentation/html/index.html">API</a></li>
+                            <li><a href="https://pycgm2.github.io/Documentation/html/index.html">API</a></li>
                         </ul>
                         </li>
                         <li class="dropdown">
@@ -158,7 +159,7 @@ CGM2.i            </a>
 <section class="well well-sm">
     <aside>
             <nav class="toc">
-            <div id="toc"><ul><li><a class="toc-href" href="#" title="Nexus Application Guidelines">Nexus Application Guidelines</a><ul><li><a class="toc-href" href="#recommandations" title="Recommandations">Recommandations</a></li><li><a class="toc-href" href="#functionality" title="Functionality">Functionality</a></li></ul></li></ul></div>
+            <div id="toc"><ul><li><a class="toc-href" href="#" title="Nexus Application Guidelines">Nexus Application Guidelines</a><ul><li><a class="toc-href" href="#functionality" title="Functionality">Functionality</a></li></ul></li></ul></div>
             </nav>
     </aside>
 </section>      </div>
@@ -168,27 +169,12 @@ CGM2.i            </a>
         <h1 class="entry-title">Nexus Application Guidelines</h1>
         
         <div class="entry-content">
-            <h2 id="recommandations">Recommandations</h2>
-<div class="alert alert-dismissible alert-danger">
-<p class="mb-0">Check your travelling axis. It must  be either X or Y, not Z !! </p>
+            <div class="alert alert-dismissible alert-warning">
+<h4 class="alert-heading">Warning</h4>
+<p class="mb-0">All Nexus Apps decribed in this website is related to <b>the use of pyCGM2 as external libraries of Vicon Nexus</b>.
+  <br/>
+  If you want to use the Nexus-embedded pyCGM2 code, please refer to your Vicon Nexus documentation </p>
 </div>
-<p>As far as it goes, we recommand this pratice for performing any pyCGM2 applicatons :</p>
-<ul>
-<li>work with <strong>gap-free trial</strong>. Zero-values might corrupt the Inverse kinematics processing especially</li>
-<li><strong>crop your trial</strong> to a zone of interest.  .</li>
-<li>if you manually edit gait events, <strong>start with a Foot strike</strong></li>
-<li>Convenient gait plot panels are displayed if you have previously detected both <strong>foot strike</strong> and <strong>foot off</strong></li>
-</ul>
-<p><div class="alert alert-dismissible alert-danger">
-    The code detects if you are working with :
-    <ul>
-<li>Lower Limbs</li>
-<li>Lower Limbs + trunk</li>
-<li>Full body</li>
-<li>Trunk + Upper Limbs</li>
-</ul>
-<p class="mb-0">For each of these configurations, the code will return an error if one segment is missing. </p></div></p>
-
 <h2 id="functionality">Functionality</h2>
 <p>pyCGM2 operations were designed on <strong>the basis of the C3d format file</strong>. Operations read the c3d and store data into it with the same nomenclature of the Vicon Pig ( ie LHipAngles, LFootProgressAngles...).</p>
 <p>Model processing with pyCGM2 doesn't differ from the use of Vicon PiG in Nexus. The model need to be first calibrate though the pipeline:

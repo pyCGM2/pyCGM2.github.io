@@ -13,13 +13,13 @@
 <link rel="canonical" href="/pages/MoGapFill.html">
 
         <meta name="author" content="Fabien Leboeuf" />
-        <meta name="description" content="Nexus proposes different gap filling methods. An approach published in Journal of Biomechanics, by Burke and Lasenby give accurate results. The proposed method is based on Low dimensional Kalman Filter. A concrete explanation of the algorithm can be found in this post Reference &gt; Burke, M., Lasenby, J., 2016. Estimating missing …" />
+        <meta name="description" content="Warning All Nexus Apps decribed in this website is related to the use of pyCGM2 as external libraries of Vicon Nexus. If you want to use the Nexus-embedded pyCGM2 code, please refer to your Vicon Nexus documentation Nexus proposes different gap filling methods. An approach published in Journal of Biomechanics …" />
 
     <meta property="og:site_name" content="CGM2.i" />
     <meta property="og:type" content="article"/>
     <meta property="og:title" content="Gap Filling"/>
     <meta property="og:url" content="/pages/MoGapFill.html"/>
-    <meta property="og:description" content="Nexus proposes different gap filling methods. An approach published in Journal of Biomechanics, by Burke and Lasenby give accurate results. The proposed method is based on Low dimensional Kalman Filter. A concrete explanation of the algorithm can be found in this post Reference &gt; Burke, M., Lasenby, J., 2016. Estimating missing …" />
+    <meta property="og:description" content="Warning All Nexus Apps decribed in this website is related to the use of pyCGM2 as external libraries of Vicon Nexus. If you want to use the Nexus-embedded pyCGM2 code, please refer to your Vicon Nexus documentation Nexus proposes different gap filling methods. An approach published in Journal of Biomechanics …" />
 
 
     <!-- Bootstrap -->
@@ -57,6 +57,7 @@ CGM2.i            </a>
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="/pages/pythonInstallation.html">Set-up your python system</a></li>
                             <li><a href="/pages/pyCGM2Installation.html">Install pyCGM2</a></li>
+                            <li><a href="/pages/bestPractice.html">Best practice</a></li>
                         </ul>
                         </li>
                         <li class="dropdown">
@@ -106,7 +107,7 @@ CGM2.i            </a>
                         <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Doc <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="/documentation/html/index.html">API</a></li>
+                            <li><a href="https://pycgm2.github.io/Documentation/html/index.html">API</a></li>
                         </ul>
                         </li>
                         <li class="dropdown">
@@ -168,7 +169,13 @@ CGM2.i            </a>
         <h1 class="entry-title">Gap Filling</h1>
         
         <div class="entry-content">
-            <p>Nexus proposes different gap filling methods. An approach published in Journal of Biomechanics, by Burke and Lasenby give accurate results.</p>
+            <div class="alert alert-dismissible alert-warning">
+<h4 class="alert-heading">Warning</h4>
+<p class="mb-0">All Nexus Apps decribed in this website is related to <b>the use of pyCGM2 as external libraries of Vicon Nexus</b>.
+  <br/>
+  If you want to use the Nexus-embedded pyCGM2 code, please refer to your Vicon Nexus documentation </p>
+</div>
+<p>Nexus proposes different gap filling methods. An approach published in Journal of Biomechanics, by Burke and Lasenby give accurate results.</p>
 <p>The proposed method is based on <strong>Low dimensional Kalman Filter</strong>.</p>
 <p>A concrete explanation of the algorithm can be found in this <a href="articles/kalmanGapFilling.html">post</a></p>
 <h2 id="reference">Reference</h2>
