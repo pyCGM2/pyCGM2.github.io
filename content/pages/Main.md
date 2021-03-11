@@ -2,6 +2,16 @@ Title: The CGM 2.i Project
 Slug: mainPage
 save_as: index.html
 
+
+
+<div class="alert alert-dismissible alert-danger">
+    <b> The pyCGM2 website moves to another platform.</b>
+    <br>
+    The NEW WEB SITE is located <a href="https://pycgm2.netlify.app"> https://pycgm2.netlify.app </a>    
+</div>
+
+
+
 <div class="alert alert-dismissible alert-primary">
 <b>PLEASE CITE THIS PAPER</b><br>
 <a href="https://doi.org/10.1016/j.gaitpost.2019.01.034"> Leboeuf, F., Baker, R., Barré, A., Reay, J., Jones, R., Sangeux, M., 2019. The conventional gait model , an open-source implementation that reproduces the past but prepares for the future. Gait Posture 69, 126–129.</a>
